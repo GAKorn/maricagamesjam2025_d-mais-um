@@ -1,0 +1,30 @@
+{
+	"name": "GameTesting_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "GeneralConfig_ES"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 263727729448835
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "CreateLevel",
+					"sid": 611085067481202,
+					"parameters": [
+						"0"
+					]
+				}
+			],
+			"sid": 851610124768946
+		}
+	],
+	"sid": 581925073826203
+}

@@ -1,0 +1,16 @@
+{
+	"name": "PixelArtTiles",
+	"plugin-id": "Tilemap",
+	"sid": 808659093711848,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "pixellate",
+			"name": "Pixellate"
+		}
+	],
+	"members": [
+		"tlmTestDecor"
+	]
+}

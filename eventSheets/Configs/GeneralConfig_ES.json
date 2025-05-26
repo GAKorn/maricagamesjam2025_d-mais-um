@@ -1,0 +1,98 @@
+{
+	"name": "GeneralConfig_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Player_ES"
+		},
+		{
+			"eventType": "variable",
+			"name": "curX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 757061617012289
+		},
+		{
+			"eventType": "variable",
+			"name": "curY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 289961148666964
+		},
+		{
+			"eventType": "variable",
+			"name": "GameScaleFactor",
+			"type": "number",
+			"initialValue": "3.75",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 313141377846132
+		},
+		{
+			"eventType": "comment",
+			"text": "This event sheet is to be included in every layout event sheet."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 126808916999202
+				}
+			],
+			"actions": [
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 743995398336374,
+					"parameters": {
+						"variable": "curX"
+					}
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 871373891806979,
+					"parameters": {
+						"variable": "curY"
+					}
+				},
+				{
+					"callFunction": "GameScale",
+					"sid": 461480156244384
+				}
+			],
+			"sid": 316334012379133
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 448354192866878
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "mobileUIElements",
+					"sid": 761931737290944,
+					"parameters": {
+						"opacity": "45"
+					}
+				}
+			],
+			"sid": 815492278755839
+		}
+	],
+	"sid": 139471198204685
+}

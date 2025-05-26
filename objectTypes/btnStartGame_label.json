@@ -1,0 +1,10 @@
+{
+	"name": "btnStartGame_label",
+	"plugin-id": "Text",
+	"sid": 235883064723272,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

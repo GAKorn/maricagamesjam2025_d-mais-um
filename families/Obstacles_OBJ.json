@@ -1,0 +1,11 @@
+{
+	"name": "Obstacles_OBJ",
+	"plugin-id": "Sprite",
+	"sid": 429904896639503,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"objLevelSolid"
+	]
+}

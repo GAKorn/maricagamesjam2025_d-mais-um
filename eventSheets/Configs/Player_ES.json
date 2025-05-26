@@ -1,0 +1,155 @@
+{
+	"name": "Player_ES",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 714901944454373
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 824643031679274,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "objPlayer",
+					"sid": 565068227621039,
+					"behaviorType": "Platform",
+					"parameters": {
+						"state": "enabled"
+					}
+				}
+			],
+			"sid": 855416421995324,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 150553959289259
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 888486110882848
+						}
+					],
+					"actions": [],
+					"sid": 524374662656537,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 357858705350572
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "sprPlayerAnimations",
+					"sid": 776069232727362,
+					"parameters": {
+						"object": "objPlayer",
+						"image-point-optional": "0"
+					}
+				},
+				{
+					"id": "simulate-control",
+					"objectClass": "objPlayer",
+					"sid": 869727024611742,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "right"
+					}
+				}
+			],
+			"sid": 164674922026994
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 819894417059742
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "objPlayer",
+					"sid": 404577164478798,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "jump"
+					}
+				}
+			],
+			"sid": 541882958551056
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 546532107311951,
+					"parameters": {
+						"object": "btn1",
+						"type": "start"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "objPlayer",
+					"sid": 449010264873825,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "jump"
+					}
+				}
+			],
+			"sid": 168653084929115
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "objPlayer",
+					"sid": 422660391026395
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 961547317630553
+				}
+			],
+			"sid": 349026433769378
+		}
+	],
+	"sid": 841640149488999
+}

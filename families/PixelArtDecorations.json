@@ -1,0 +1,16 @@
+{
+	"name": "PixelArtDecorations",
+	"plugin-id": "Sprite",
+	"sid": 397806388394247,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "pixellate",
+			"name": "Pixellate"
+		}
+	],
+	"members": [
+		"sprPlayerAnimations"
+	]
+}

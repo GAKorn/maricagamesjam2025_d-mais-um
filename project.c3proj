@@ -5,25 +5,175 @@
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
-	"usedAddons": [],
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Platform",
+			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pixellate",
+			"name": "Pixellate",
+			"author": "Scirra",
+			"bundled": false
+		}
+	],
 	"uniqueId": "5mkaghifvzd",
 	"objectTypes": {
-		"items": [],
-		"subfolders": []
-	},
-	"functionsName": "Functions",
-	"autosaveData": null,
-	"containers": [],
-	"families": {
-		"items": [],
-		"subfolders": []
-	},
-	"layouts": {
-		"items": [],
+		"items": [
+			"introBackground",
+			"btnStartGame",
+			"btnStartGame_label",
+			"objPlayer",
+			"tlmTestDecor",
+			"sprPlayerAnimations"
+		],
 		"subfolders": [
 			{
 				"items": [
-					"Layout 1"
+					"viewportArea",
+					"gameLayoutArea",
+					"PlatformInfo",
+					"Browser"
+				],
+				"subfolders": [],
+				"name": "Configuration"
+			},
+			{
+				"items": [
+					"Keyboard",
+					"Mouse",
+					"Touch"
+				],
+				"subfolders": [],
+				"name": "Inputs"
+			},
+			{
+				"items": [
+					"levelArea",
+					"objLevelSolid"
+				],
+				"subfolders": [],
+				"name": "LevelDesign"
+			},
+			{
+				"items": [
+					"btn1"
+				],
+				"subfolders": [],
+				"name": "UIElements"
+			}
+		]
+	},
+	"functionsName": "Functions",
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"btnStartGame",
+				"btnStartGame_label"
+			]
+		}
+	],
+	"families": {
+		"items": [
+			"Obstacles_OBJ",
+			"Decorations_TLM",
+			"PixelArtDecorations",
+			"PixelArtTiles",
+			"mobileUIElements"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Intro",
+			"GameTesting"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"LayoutTemplate"
 				],
 				"subfolders": [],
 				"name": "LayoutTemplate"
@@ -31,8 +181,21 @@
 		]
 	},
 	"eventSheets": {
-		"items": [],
-		"subfolders": []
+		"items": [
+			"Intro_ES",
+			"GameTesting_ES"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Functions_ES",
+					"Player_ES",
+					"GeneralConfig_ES"
+				],
+				"subfolders": [],
+				"name": "Configs"
+			}
+		]
 	},
 	"rootFileFolders": {
 		"script": {
@@ -150,7 +313,7 @@
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"fullscreenMode": "scale-inner",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
@@ -193,5 +356,5 @@
 	},
 	"viewportWidth": 1920,
 	"viewportHeight": 1080,
-	"firstLayout": null
+	"firstLayout": "Intro"
 }

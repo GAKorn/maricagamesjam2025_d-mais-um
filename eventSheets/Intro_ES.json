@@ -1,0 +1,82 @@
+{
+	"name": "Intro_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "GeneralConfig_ES"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 631319360037938,
+					"parameters": {
+						"object": "btnStartGame",
+						"type": "start"
+					}
+				},
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 997993027567867,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "btnStartGame"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 635618061960314,
+					"parameters": {
+						"layout": "GameTesting"
+					}
+				}
+			],
+			"sid": 622850620376301,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-mobile",
+					"objectClass": "PlatformInfo",
+					"sid": 548945766663243
+				}
+			],
+			"actions": [],
+			"sid": 514729761583895,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 828486155605786
+						}
+					],
+					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 678532080747549,
+							"parameters": {
+								"mode": "stretch-scale-inner",
+								"navigation-ui": "auto"
+							}
+						}
+					],
+					"sid": 914309872558241
+				}
+			]
+		}
+	],
+	"sid": 209556676266524
+}

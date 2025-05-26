@@ -1,0 +1,11 @@
+{
+	"name": "mobileUIElements",
+	"plugin-id": "Sprite",
+	"sid": 802120620431431,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"btn1"
+	]
+}

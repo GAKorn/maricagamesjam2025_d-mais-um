@@ -1,0 +1,11 @@
+{
+	"name": "Decorations_TLM",
+	"plugin-id": "Tilemap",
+	"sid": 150990819404471,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"tlmTestDecor"
+	]
+}
