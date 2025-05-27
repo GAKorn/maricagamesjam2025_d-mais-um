@@ -88,9 +88,21 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-key-pressed",
+					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
-					"sid": 819894417059742
+					"sid": 889109873854847,
+					"parameters": {
+						"key": 38
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 401173666593956,
+					"parameters": {
+						"variable": "sliding"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -117,6 +129,15 @@
 						"object": "btn1",
 						"type": "start"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 335329027568082,
+					"parameters": {
+						"variable": "sliding"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -149,6 +170,151 @@
 				}
 			],
 			"sid": 349026433769378
+		},
+		{
+			"eventType": "variable",
+			"name": "sliding",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 454834428738623
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 979965633707434,
+					"parameters": {
+						"key": 40
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 344316532676008,
+					"parameters": {
+						"variable": "sliding"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 327052962176907,
+					"parameters": {
+						"variable": "sliding",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 430211539172620
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 574196529814326,
+					"parameters": {
+						"variable": "sliding"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "objPlayer",
+					"sid": 928565138111530,
+					"parameters": {
+						"animation": "\"Sliding\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "sprPlayerAnimations",
+					"sid": 740235340435362,
+					"parameters": {
+						"animation": "\"Animation 1\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 767933451047854,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				}
+			],
+			"sid": 207539864983679,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "objPlayer",
+							"sid": 311424197052724,
+							"parameters": {
+								"object": "Obstacles_OBJ",
+								"offset-x": "0",
+								"offset-y": "-17"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 990846843727502,
+							"disabled": true,
+							"parameters": {
+								"seconds": "0.15",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "objPlayer",
+							"sid": 677921862059409,
+							"parameters": {
+								"animation": "\"Standard\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 312861610645831,
+							"parameters": {
+								"animation": "\"Standartd\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 576101997764922,
+							"parameters": {
+								"variable": "sliding",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 300720525900536
+				}
+			]
 		}
 	],
 	"sid": 841640149488999

@@ -23,22 +23,47 @@
 			{
 				"frames": [
 					{
-						"width": 16,
-						"height": 32,
+						"width": 14,
+						"height": 30,
 						"originX": 0.5,
 						"originY": 1,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6593157,
+						"imageSpriteId": 3102915,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
 				"sid": 530286165075434,
-				"name": "Animation 1",
+				"name": "Standard",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 14,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9256295,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 179846162808659,
+				"name": "Sliding",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

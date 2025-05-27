@@ -719,8 +719,8 @@
 							"locked": false,
 							"world": {
 								"x": 736,
-								"y": -160,
-								"width": 64,
+								"y": -128,
+								"width": 336,
 								"height": 16,
 								"originX": 0,
 								"originY": 0,
@@ -763,52 +763,8 @@
 							"locked": false,
 							"world": {
 								"x": 864,
-								"y": -128,
-								"width": 64,
-								"height": 16,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "objLevelSolid",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 31,
-							"sid": 957036057831983,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {
-								"Solid": {
-									"properties": {
-										"enabled": true,
-										"tags": ""
-									}
-								}
-							},
-							"instanceFolderItem": {
-								"sid": 957036057831983,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 960,
-								"y": -192,
-								"width": 32,
+								"y": -160,
+								"width": 160,
 								"height": 16,
 								"originX": 0,
 								"originY": 0,
@@ -852,7 +808,7 @@
 							"world": {
 								"x": 1104,
 								"y": -144,
-								"width": 32,
+								"width": 96,
 								"height": 16,
 								"originX": 0,
 								"originY": 0,
@@ -1247,7 +1203,7 @@
 							"locked": false,
 							"world": {
 								"x": 2224,
-								"y": -192,
+								"y": -176,
 								"width": 48,
 								"height": 16,
 								"originX": 0,
@@ -1533,7 +1489,7 @@
 							"type": "objPlayer",
 							"properties": {
 								"initially-visible": false,
-								"initial-animation": "Animation 1",
+								"initial-animation": "Standard",
 								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
@@ -1572,8 +1528,8 @@
 							"world": {
 								"x": 96,
 								"y": 112,
-								"width": 16,
-								"height": 32,
+								"width": 14,
+								"height": 30,
 								"originX": 0.5,
 								"originY": 1,
 								"color": [
@@ -1590,7 +1546,7 @@
 							"type": "sprPlayerAnimations",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Animation 1",
+								"initial-animation": "Standartd",
 								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
