@@ -131,14 +131,19 @@
 			{
 				"items": [
 					"levelArea",
-					"objLevelSolid"
+					"objLevelSolid",
+					"startPoint",
+					"endPoint",
+					"objSlowDown",
+					"objForceIdle"
 				],
 				"subfolders": [],
 				"name": "LevelDesign"
 			},
 			{
 				"items": [
-					"btn1"
+					"btn1",
+					"btn2"
 				],
 				"subfolders": [],
 				"name": "UIElements"
@@ -161,7 +166,8 @@
 			"Decorations_TLM",
 			"PixelArtDecorations",
 			"PixelArtTiles",
-			"mobileUIElements"
+			"mobileUIElements",
+			"Interactables_OBJ"
 		],
 		"subfolders": []
 	},

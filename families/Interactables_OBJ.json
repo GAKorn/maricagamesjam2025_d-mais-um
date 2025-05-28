@@ -1,0 +1,14 @@
+{
+	"name": "Interactables_OBJ",
+	"plugin-id": "Sprite",
+	"sid": 377232059884490,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"startPoint",
+		"endPoint",
+		"objSlowDown",
+		"objForceIdle"
+	]
+}

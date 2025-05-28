@@ -475,6 +475,31 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "levelArea",
+									"sid": 267604382177526,
+									"parameters": {
+										"object": "Interactables_OBJ"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Interactables_OBJ",
+									"sid": 153313581373828,
+									"parameters": {
+										"x": "this_curX+(Self.X-levelArea.X)",
+										"y": "this_curY+(Self.Y-levelArea.Y)"
+									}
+								}
+							],
+							"sid": 409969582608487
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "levelArea",
 									"sid": 913933191496398,
 									"parameters": {
 										"object": "Decorations_TLM"

@@ -170,10 +170,47 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1696,
-						"y": 784,
-						"width": 306,
-						"height": 278,
+						"x": 1720,
+						"y": 640,
+						"width": 240,
+						"height": 208,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "btn2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 53,
+					"sid": 526614432896630,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 526614432896630,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1728,
+						"y": 912,
+						"width": 224,
+						"height": 208,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -224,8 +261,8 @@
 	"sid": 311645387117950,
 	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 256,
-	"height": 144,
+	"width": 288,
+	"height": 288,
 	"unboundedScrolling": false,
 	"vpX": 0.5,
 	"vpY": 0.5,

@@ -6,6 +6,7 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"btn1"
+		"btn1",
+		"btn2"
 	]
 }
