@@ -71,8 +71,29 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "jumpthru",
+			"name": "Jump-thru",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -104,9 +125,10 @@
 			"introBackground",
 			"btnStartGame",
 			"btnStartGame_label",
-			"objPlayer",
 			"tlmTestDecor",
-			"sprPlayerAnimations"
+			"txtDebugAction",
+			"txtDebugAction2",
+			"txtDebugAction3"
 		],
 		"subfolders": [
 			{
@@ -114,7 +136,8 @@
 					"viewportArea",
 					"gameLayoutArea",
 					"PlatformInfo",
-					"Browser"
+					"Browser",
+					"gameCameraArea"
 				],
 				"subfolders": [],
 				"name": "Configuration"
@@ -135,7 +158,11 @@
 					"startPoint",
 					"endPoint",
 					"objSlowDown",
-					"objForceIdle"
+					"objForceIdle",
+					"objLevelJumThru",
+					"objGroundFixedHazard",
+					"objAirFixedHazard",
+					"objCoins"
 				],
 				"subfolders": [],
 				"name": "LevelDesign"
@@ -147,6 +174,16 @@
 				],
 				"subfolders": [],
 				"name": "UIElements"
+			},
+			{
+				"items": [
+					"objPlayer",
+					"sprPlayerAnimations",
+					"Camera",
+					"stateDebugText"
+				],
+				"subfolders": [],
+				"name": "PlayerRelated"
 			}
 		]
 	},
@@ -174,7 +211,9 @@
 	"layouts": {
 		"items": [
 			"Intro",
-			"GameTesting"
+			"GameTesting",
+			"FTUE_Test",
+			"CurrentMapTest"
 		],
 		"subfolders": [
 			{
@@ -189,16 +228,26 @@
 	"eventSheets": {
 		"items": [
 			"Intro_ES",
-			"GameTesting_ES"
+			"GameTesting_ES",
+			"FTUE_Test_ES",
+			"CurrentMapTest_ES"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"Functions_ES",
-					"Player_ES",
 					"GeneralConfig_ES"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"Player_ES",
+							"PlayerFSM_ES"
+						],
+						"subfolders": [],
+						"name": "Player"
+					}
+				],
 				"name": "Configs"
 			}
 		]

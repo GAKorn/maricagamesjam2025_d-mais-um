@@ -1,5 +1,5 @@
 {
-	"name": "Intro_ES",
+	"name": "CurrentMapTest_ES",
 	"events": [
 		{
 			"eventType": "include",
@@ -11,29 +11,29 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 912912916376571
+					"sid": 382992732254656
 				}
 			],
 			"actions": [
 				{
 					"id": "set-text",
 					"objectClass": "btnStartGame_label",
-					"sid": 128351583205684,
+					"sid": 789727028446282,
 					"parameters": {
-						"text": "\"Start Game\""
+						"text": "\"Test Next\""
 					}
 				},
 				{
 					"id": "request-fullscreen",
 					"objectClass": "Browser",
-					"sid": 711171779197894,
+					"sid": 933683499670652,
 					"parameters": {
 						"mode": "stretch-scale-inner",
 						"navigation-ui": "auto"
 					}
 				}
 			],
-			"sid": 937966680171728
+			"sid": 397603082693261
 		},
 		{
 			"eventType": "block",
@@ -41,7 +41,7 @@
 				{
 					"id": "on-touched-object",
 					"objectClass": "Touch",
-					"sid": 631319360037938,
+					"sid": 231329613187244,
 					"parameters": {
 						"object": "btnStartGame",
 						"type": "start"
@@ -50,7 +50,7 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 997993027567867,
+					"sid": 334506852761541,
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
@@ -62,13 +62,13 @@
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",
-					"sid": 526855360011031,
+					"sid": 825290818832782,
 					"parameters": {
-						"layout": "FTUE_Test"
+						"layout": "GameTesting"
 					}
 				}
 			],
-			"sid": 622850620376301,
+			"sid": 153114201300383,
 			"isOrBlock": true
 		},
 		{
@@ -77,11 +77,11 @@
 				{
 					"id": "is-on-mobile",
 					"objectClass": "PlatformInfo",
-					"sid": 548945766663243
+					"sid": 611123800624964
 				}
 			],
 			"actions": [],
-			"sid": 514729761583895,
+			"sid": 781891009156138,
 			"children": [
 				{
 					"eventType": "block",
@@ -89,24 +89,24 @@
 						{
 							"id": "on-any-touch-start",
 							"objectClass": "Touch",
-							"sid": 828486155605786
+							"sid": 437728404215126
 						}
 					],
 					"actions": [
 						{
 							"id": "request-fullscreen",
 							"objectClass": "Browser",
-							"sid": 678532080747549,
+							"sid": 802619373766308,
 							"parameters": {
 								"mode": "stretch-scale-inner",
 								"navigation-ui": "auto"
 							}
 						}
 					],
-					"sid": 914309872558241
+					"sid": 126108396670563
 				}
 			]
 		}
 	],
-	"sid": 209556676266524
+	"sid": 875623256571400
 }

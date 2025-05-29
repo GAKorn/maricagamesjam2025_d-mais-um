@@ -24,6 +24,27 @@
 				}
 			],
 			"sid": 851610124768946
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "objPlayer",
+					"sid": 176636750324849,
+					"parameters": {
+						"object": "endPoint"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 608824887412024
+				}
+			],
+			"sid": 953872653613132
 		}
 	],
 	"sid": 581925073826203

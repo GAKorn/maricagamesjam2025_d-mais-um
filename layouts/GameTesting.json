@@ -66,8 +66,8 @@
 					"world": {
 						"x": 0,
 						"y": 0,
-						"width": 256,
-						"height": 256,
+						"width": 512,
+						"height": 288,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1688,7 +1688,10 @@
 							"uid": 44,
 							"sid": 549310079573315,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"State": "",
+								"PreviousState": ""
+							},
 							"behaviors": {
 								"Platform": {
 									"properties": {
@@ -1708,6 +1711,9 @@
 									"properties": {
 										"enabled": true
 									}
+								},
+								"coyoteTimer": {
+									"properties": {}
 								}
 							},
 							"instanceFolderItem": {
@@ -1717,8 +1723,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 64,
-								"y": 48,
+								"x": -16,
+								"y": -48,
 								"width": 14,
 								"height": 36,
 								"originX": 0.5,
@@ -1737,7 +1743,7 @@
 							"type": "sprPlayerAnimations",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Standartd",
+								"initial-animation": "Mumbuquinha_Idle",
 								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false

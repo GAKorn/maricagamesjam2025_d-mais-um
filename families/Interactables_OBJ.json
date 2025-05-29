@@ -9,6 +9,7 @@
 		"startPoint",
 		"endPoint",
 		"objSlowDown",
-		"objForceIdle"
+		"objForceIdle",
+		"objCoins"
 	]
 }

@@ -1,7 +1,7 @@
 {
-	"name": "gameLayoutArea",
+	"name": "objGroundFixedHazard",
 	"plugin-id": "Sprite",
-	"sid": 583474725388695,
+	"sid": 744748316576582,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
@@ -12,21 +12,21 @@
 			{
 				"frames": [
 					{
-						"width": 512,
-						"height": 288,
+						"width": 16,
+						"height": 16,
 						"originX": 0,
 						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6862436,
+						"imageSpriteId": 9025214,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 686589838827734,
+				"sid": 447568767347562,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

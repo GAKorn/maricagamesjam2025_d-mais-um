@@ -66,8 +66,8 @@
 					"world": {
 						"x": 0,
 						"y": 0,
-						"width": 256,
-						"height": 256,
+						"width": 512,
+						"height": 288,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -209,10 +209,63 @@
 					"world": {
 						"x": 1728,
 						"y": 912,
-						"width": 224,
+						"width": 223.99999999999997,
 						"height": 208,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "txtDebugAction",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 48,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 70,
+					"sid": 693931871332768,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 693931871332768,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 64,
+						"y": 80,
+						"width": 288,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

@@ -36,6 +36,26 @@
 			"sid": 313141377846132
 		},
 		{
+			"eventType": "variable",
+			"name": "LayoutType",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 554345772440509
+		},
+		{
+			"eventType": "variable",
+			"name": "currScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 500444708909261
+		},
+		{
 			"eventType": "comment",
 			"text": "This event sheet is to be included in every layout event sheet."
 		},
@@ -66,6 +86,14 @@
 					}
 				},
 				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 976612345784733,
+					"parameters": {
+						"variable": "currScore"
+					}
+				},
+				{
 					"callFunction": "GameScale",
 					"sid": 461480156244384
 				}
@@ -89,9 +117,176 @@
 					"parameters": {
 						"opacity": "45"
 					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "txtDebugAction",
+					"sid": 348821269489981,
+					"parameters": {
+						"text": "currScore"
+					}
 				}
 			],
 			"sid": 815492278755839
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Layout Type Set",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 941389052738259,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Intro\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 615792725549222,
+							"parameters": {
+								"variable": "LayoutType",
+								"value": "\"INTRO\""
+							}
+						}
+					],
+					"sid": 292865484383170,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 632868679765302,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"FTUE_Test\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 281334809384542,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"GameTesting\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 721556810044537,
+							"parameters": {
+								"variable": "LayoutType",
+								"value": "\"MAIN_GAME\""
+							}
+						}
+					],
+					"sid": 243315279350366,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 118053205326133,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Map\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 442775479720637,
+							"parameters": {
+								"variable": "LayoutType",
+								"value": "\"MAP\""
+							}
+						}
+					],
+					"sid": 655476957549617
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 624606536184274,
+							"parameters": {
+								"variable": "LayoutType",
+								"value": "\"HUB\""
+							}
+						}
+					],
+					"sid": 981960202225291
+				}
+			],
+			"sid": 820586646769824
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collectibles Logic",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "objCoins",
+							"sid": 685588959153781,
+							"parameters": {
+								"object": "sprPlayerAnimations"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "objCoins",
+							"sid": 519443782165092
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 554756566905593,
+							"parameters": {
+								"variable": "currScore",
+								"value": "5"
+							}
+						}
+					],
+					"sid": 461459106941534
+				}
+			],
+			"sid": 914822604269407
 		}
 	],
 	"sid": 139471198204685

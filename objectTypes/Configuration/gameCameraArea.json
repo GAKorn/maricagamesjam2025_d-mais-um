@@ -1,11 +1,17 @@
 {
-	"name": "gameLayoutArea",
+	"name": "gameCameraArea",
 	"plugin-id": "Sprite",
-	"sid": 583474725388695,
+	"sid": 378406082900237,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 364550491654088
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -20,13 +26,13 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6862436,
+						"imageSpriteId": 5358423,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 686589838827734,
+				"sid": 961261190694833,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

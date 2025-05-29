@@ -1,32 +1,38 @@
 {
-	"name": "gameLayoutArea",
+	"name": "objLevelJumThru",
 	"plugin-id": "Sprite",
-	"sid": 583474725388695,
+	"sid": 881173771779935,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "jumpthru",
+			"name": "Jumpthru",
+			"sid": 880419820489523
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 512,
-						"height": 288,
+						"width": 16,
+						"height": 16,
 						"originX": 0,
 						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6862436,
+						"imageSpriteId": 6204904,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 686589838827734,
+				"sid": 710474881446664,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

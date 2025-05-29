@@ -6,6 +6,9 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"objLevelSolid"
+		"objLevelSolid",
+		"objLevelJumThru",
+		"objGroundFixedHazard",
+		"objAirFixedHazard"
 	]
 }

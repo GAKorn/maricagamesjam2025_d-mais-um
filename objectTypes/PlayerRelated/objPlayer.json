@@ -4,7 +4,22 @@
 	"sid": 891316050127054,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "State",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 507761715926392
+		},
+		{
+			"name": "PreviousState",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 893360388172212
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Platform",
@@ -15,6 +30,11 @@
 			"behaviorId": "scrollto",
 			"name": "ScrollTo",
 			"sid": 863124314948796
+		},
+		{
+			"behaviorId": "Timer",
+			"name": "coyoteTimer",
+			"sid": 188422967454945
 		}
 	],
 	"effectTypes": [],
