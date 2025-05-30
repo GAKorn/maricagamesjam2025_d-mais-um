@@ -2,148 +2,54 @@
 	"name": "Functions_ES",
 	"events": [
 		{
-			"functionName": "GameScale",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-layout-scale",
-					"objectClass": "System",
-					"sid": 724775596120624,
-					"parameters": {
-						"scale": "GameScaleFactor"
-					}
-				}
-			],
-			"sid": 584341556900989,
+			"eventType": "group",
+			"disabled": false,
+			"title": "General Functions",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-on-mobile",
-							"objectClass": "PlatformInfo",
-							"sid": 456932697760884
-						}
-					],
+					"functionName": "GameScale",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
-							"id": "lock-orientation",
-							"objectClass": "Browser",
-							"sid": 726207162509240,
-							"parameters": {
-								"orientation": "landscape"
-							}
-						}
-					],
-					"sid": 665561876630457
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
+							"id": "set-layout-scale",
 							"objectClass": "System",
-							"sid": 955046578916414
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "mobileUIElements",
-							"sid": 866667299713675
-						}
-					],
-					"sid": 202800324259008
-				}
-			]
-		},
-		{
-			"functionName": "CreateLevel",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "difficulty",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "Defines the difficulty of the level to be created.",
-					"sid": 876253662070959
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 212170687769225,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Set the difficulty."
-				},
-				{
-					"eventType": "variable",
-					"name": "areaNum",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 680020962212555
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "levelArea",
-							"sid": 306980504302607,
+							"sid": 738176354385101,
 							"parameters": {
-								"instance-variable": "area_type",
-								"comparison": 0,
-								"value": "\"\""
+								"scale": "GameScaleFactor"
 							}
 						}
 					],
-					"actions": [],
-					"sid": 948303615920079,
-					"disabled": true,
+					"sid": 560562770175285,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 177720096160551,
-									"parameters": {
-										"variable": "difficulty",
-										"comparison": 0,
-										"value": "0"
-									}
+									"id": "is-on-mobile",
+									"objectClass": "PlatformInfo",
+									"sid": 676677485177036
 								}
 							],
 							"actions": [
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 389099160731536,
+									"id": "lock-orientation",
+									"objectClass": "Browser",
+									"sid": 535310713504451,
 									"parameters": {
-										"variable": "areaNum",
-										"value": "min(levelArea.PickedCount,levelArea.Count)"
+										"orientation": "landscape"
 									}
 								}
 							],
-							"sid": 545349287691059,
-							"disabled": true
+							"sid": 672687016410514
 						},
 						{
 							"eventType": "block",
@@ -151,126 +57,146 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 658489965191570
+									"sid": 532644681944732
 								}
 							],
 							"actions": [
 								{
-									"id": "alert",
-									"objectClass": "Browser",
-									"sid": 123575082232495,
-									"parameters": {
-										"message": "\"Function not properly set.\""
-									}
+									"id": "destroy",
+									"objectClass": "mobileUIElements",
+									"sid": 861505402078816
 								}
 							],
-							"sid": 537448710827521,
-							"disabled": true
+							"sid": 273658613247235
 						}
 					]
 				},
 				{
-					"eventType": "comment",
-					"text": "Creates the first level."
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"functionName": "CreateLevel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "levelArea",
-							"sid": 186067727858047,
-							"parameters": {
-								"instance-variable": "area_type",
-								"comparison": 0,
-								"value": "\"start\""
-							}
-						},
-						{
-							"id": "pick-random-instance",
-							"objectClass": "System",
-							"sid": 277394664076606,
-							"parameters": {
-								"object": "levelArea"
-							}
+							"name": "difficulty",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "Defines the difficulty of the level to be created.",
+							"sid": 876253662070959
 						}
 					],
-					"actions": [
-						{
-							"callFunction": "LevelMove",
-							"sid": 746546631747786,
-							"parameters": [
-								"levelArea.UID",
-								"curX",
-								"curY"
-							]
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 320319540326864,
-							"parameters": {
-								"variable": "curX",
-								"value": "levelArea.BBoxRight"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 698038708451468,
-							"parameters": {
-								"variable": "curY",
-								"value": "levelArea.Y"
-							}
-						}
-					],
-					"sid": 104452443435165
-				},
-				{
-					"eventType": "comment",
-					"text": "Create levels in between."
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "levelArea",
-							"sid": 470511365811057,
-							"parameters": {
-								"instance-variable": "area_type",
-								"comparison": 0,
-								"value": "\"\""
-							}
-						},
-						{
-							"id": "repeat",
-							"objectClass": "System",
-							"sid": 804550292083402,
-							"parameters": {
-								"count": "min(levelArea.PickedCount,levelArea.Count)"
-							}
-						}
-					],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [],
-					"sid": 893958989879706,
+					"sid": 586725664806668,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Set the difficulty."
+						},
+						{
+							"eventType": "variable",
+							"name": "areaNum",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 354257584198724
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-y",
+									"id": "compare-instance-variable",
 									"objectClass": "levelArea",
-									"sid": 611108614348879,
+									"sid": 639578920111629,
 									"parameters": {
-										"comparison": 2,
-										"y-co-ordinate": "0"
+										"instance-variable": "area_type",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 709889416785484,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 387282113193117,
+											"parameters": {
+												"variable": "difficulty",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 761620748060611,
+											"parameters": {
+												"variable": "areaNum",
+												"value": "min(levelArea.PickedCount,levelArea.Count)"
+											}
+										}
+									],
+									"sid": 221302753563324,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 390663483182173
+										}
+									],
+									"actions": [
+										{
+											"id": "alert",
+											"objectClass": "Browser",
+											"sid": 501298802781151,
+											"parameters": {
+												"message": "\"Function not properly set.\""
+											}
+										}
+									],
+									"sid": 366746509255695,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Creates the first level."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "levelArea",
+									"sid": 552116974003335,
+									"parameters": {
+										"instance-variable": "area_type",
+										"comparison": 0,
+										"value": "\"start\""
 									}
 								},
 								{
 									"id": "pick-random-instance",
 									"objectClass": "System",
-									"sid": 624405059639288,
+									"sid": 176190665836346,
 									"parameters": {
 										"object": "levelArea"
 									}
@@ -279,7 +205,7 @@
 							"actions": [
 								{
 									"callFunction": "LevelMove",
-									"sid": 599574402023818,
+									"sid": 741008967279668,
 									"parameters": [
 										"levelArea.UID",
 										"curX",
@@ -287,16 +213,656 @@
 									]
 								},
 								{
-									"id": "add-to-eventvar",
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 121631008574594,
+									"sid": 728357118171032,
 									"parameters": {
 										"variable": "curX",
-										"value": "levelArea.Width"
+										"value": "levelArea.BBoxRight"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 186009303243804,
+									"parameters": {
+										"variable": "curY",
+										"value": "levelArea.Y"
 									}
 								}
 							],
-							"sid": 750563779898672
+							"sid": 897010155085892
+						},
+						{
+							"eventType": "comment",
+							"text": "Create levels in between."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "levelArea",
+									"sid": 662395329414421,
+									"parameters": {
+										"instance-variable": "area_type",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 161436862933804,
+									"parameters": {
+										"count": "min(levelArea.PickedCount,levelArea.Count)"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 587020362402636,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "levelArea",
+											"sid": 359769822562491,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "0"
+											}
+										},
+										{
+											"id": "pick-random-instance",
+											"objectClass": "System",
+											"sid": 838638951789342,
+											"parameters": {
+												"object": "levelArea"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "LevelMove",
+											"sid": 353378112703731,
+											"parameters": [
+												"levelArea.UID",
+												"curX",
+												"curY"
+											]
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 570136670395146,
+											"parameters": {
+												"variable": "curX",
+												"value": "levelArea.Width"
+											}
+										}
+									],
+									"sid": 833480761604215
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 540631972711740,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 854012969326075,
+											"parameters": {
+												"variable": "difficulty",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 682819128032945,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 153570569794903
+										}
+									],
+									"actions": [
+										{
+											"id": "alert",
+											"objectClass": "Browser",
+											"sid": 700681377605580,
+											"parameters": {
+												"message": "\"Function not properly set.\""
+											}
+										}
+									],
+									"sid": 551685145112935,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Create final level."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "levelArea",
+									"sid": 333631017168750,
+									"parameters": {
+										"instance-variable": "area_type",
+										"comparison": 0,
+										"value": "\"end\""
+									}
+								},
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 264472650397278,
+									"parameters": {
+										"object": "levelArea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "LevelMove",
+									"sid": 621263690286971,
+									"parameters": [
+										"levelArea.UID",
+										"curX",
+										"curY"
+									]
+								}
+							],
+							"sid": 835714976087987
+						}
+					]
+				},
+				{
+					"functionName": "LevelMove",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "levelUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 899132980947510
+						},
+						{
+							"name": "this_curX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 171128886693087
+						},
+						{
+							"name": "this_curY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 746812995219524
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 110229383247829,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "levelArea",
+									"sid": 604805292141293,
+									"parameters": {
+										"unique-id": "levelUID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 951906168682253,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Move things within the level framework."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "levelArea",
+											"sid": 374592149121073,
+											"parameters": {
+												"object": "Obstacles_OBJ"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Obstacles_OBJ",
+											"sid": 819384257932953,
+											"parameters": {
+												"x": "this_curX+(Self.X-levelArea.X)",
+												"y": "this_curY+(Self.Y-levelArea.Y)"
+											}
+										}
+									],
+									"sid": 521619455431290
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "levelArea",
+											"sid": 520050936874599,
+											"parameters": {
+												"object": "Interactables_OBJ"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Interactables_OBJ",
+											"sid": 825060740045459,
+											"parameters": {
+												"x": "this_curX+(Self.X-levelArea.X)",
+												"y": "this_curY+(Self.Y-levelArea.Y)"
+											}
+										}
+									],
+									"sid": 540058914277265
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "levelArea",
+											"sid": 606395148344670,
+											"parameters": {
+												"object": "Decorations_TLM"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Decorations_TLM",
+											"sid": 307128069093352,
+											"parameters": {
+												"x": "this_curX+(Self.X-levelArea.X)",
+												"y": "this_curY+(Self.Y-levelArea.Y)"
+											}
+										}
+									],
+									"sid": 324128570493495
+								},
+								{
+									"eventType": "comment",
+									"text": "Move the level area itself."
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "levelArea",
+											"sid": 148975418250694,
+											"parameters": {
+												"x": "this_curX",
+												"y": "this_curY"
+											}
+										}
+									],
+									"sid": 489610585502935
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 483852009524089
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "PlayerDamage",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 324849934691392,
+							"parameters": {
+								"variable": "dmgHappening",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 502562670426897,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Damage Happens"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "DamageBlink",
+									"sid": 477810934283299
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 915168181531330,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-vector-x",
+									"objectClass": "objPlayer",
+									"sid": 121239363452644,
+									"behaviorType": "Platform",
+									"parameters": {
+										"vector-x": "objPlayer.X-200"
+									}
+								},
+								{
+									"id": "set-vector-y",
+									"objectClass": "objPlayer",
+									"sid": 529404240319305,
+									"behaviorType": "Platform",
+									"parameters": {
+										"vector-y": "-(plJumpStr)"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 413557723902934,
+									"parameters": {
+										"seconds": "1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 290047865155279,
+									"parameters": {
+										"variable": "dmgHappening",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 624202704345250
+						},
+						{
+							"eventType": "comment",
+							"text": "Invulnerable State Happens"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 183891102238473
+						}
+					]
+				},
+				{
+					"functionName": "DamageBlink",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 279921011447149,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 251630478182077,
+									"parameters": {
+										"variable": "dmgHappening"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 155540586377988,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 981566049466295,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 124530591335498,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 310072715126307,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 131499770834743,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 307216240025158,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 287796533764164,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 179927871126554,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 659365897718111,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 813361549886134,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 571459566792792,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 357965029839206,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 396827827300454,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 555359610455343,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 126377521783392,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 830219492584324,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 463281248600121,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 920208025931093,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 401731367938261,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"BlackWhite1\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 769214088794558,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								}
+							],
+							"sid": 495423726958971
 						}
 					]
 				},
@@ -304,244 +870,248 @@
 					"eventType": "block",
 					"conditions": [],
 					"actions": [],
-					"sid": 614482325262909,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 122530842200352,
-									"parameters": {
-										"variable": "difficulty",
-										"comparison": 0,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 974813721119360,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 618507825456704
-								}
-							],
-							"actions": [
-								{
-									"id": "alert",
-									"objectClass": "Browser",
-									"sid": 431380555211498,
-									"parameters": {
-										"message": "\"Function not properly set.\""
-									}
-								}
-							],
-							"sid": 549312334140219,
-							"disabled": true
-						}
-					]
+					"sid": 904086468397605
 				},
 				{
-					"eventType": "comment",
-					"text": "Create final level."
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"functionName": "ChangeState",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "levelArea",
-							"sid": 135248695737603,
-							"parameters": {
-								"instance-variable": "area_type",
-								"comparison": 0,
-								"value": "\"end\""
-							}
+							"name": "CurrState",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 447202929662305
 						},
 						{
-							"id": "pick-random-instance",
-							"objectClass": "System",
-							"sid": 946748031926257,
-							"parameters": {
-								"object": "levelArea"
-							}
+							"name": "NextStage",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 175150918770740
 						}
 					],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
-							"callFunction": "LevelMove",
-							"sid": 371970081769968,
-							"parameters": [
-								"levelArea.UID",
-								"curX",
-								"curY"
-							]
+							"id": "set-instvar-value",
+							"objectClass": "objPlayer",
+							"sid": 174788583154272,
+							"parameters": {
+								"instance-variable": "PreviousState",
+								"value": "CurrState"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 360197746136176,
+							"parameters": {
+								"value": "NextStage"
+							}
 						}
 					],
-					"sid": 707069821342603
-				}
-			]
-		},
-		{
-			"functionName": "LevelMove",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "levelUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 899132980947510
-				},
-				{
-					"name": "this_curX",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 171128886693087
-				},
-				{
-					"name": "this_curY",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 746812995219524
+					"sid": 574795501539823,
+					"disabled": true
 				}
 			],
-			"eventType": "function-block",
+			"sid": 954280693391939
+		},
+		{
+			"eventType": "block",
 			"conditions": [],
 			"actions": [],
-			"sid": 993174190101364,
+			"sid": 956492326540775,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-by-unique-id",
-							"objectClass": "levelArea",
-							"sid": 955349153820986,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 605851395494174,
 							"parameters": {
-								"unique-id": "levelUID"
+								"variable": "isSliding"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-jumping",
+							"objectClass": "objPlayer",
+							"sid": 362176486123033,
+							"disabled": true,
+							"behaviorType": "Platform",
+							"isInverted": true
+						},
+						{
+							"id": "is-falling",
+							"objectClass": "objPlayer",
+							"sid": 682990634052144,
+							"disabled": true,
+							"behaviorType": "Platform",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 143939636611743,
+							"parameters": {
+								"variable": "canSlide",
+								"value": "true"
 							}
 						}
 					],
-					"actions": [],
-					"sid": 690473346688297,
-					"children": [
+					"sid": 218816213311949,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
-							"eventType": "comment",
-							"text": "Move things within the level framework."
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "levelArea",
-									"sid": 390019000699088,
-									"parameters": {
-										"object": "Obstacles_OBJ"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Obstacles_OBJ",
-									"sid": 741595717795322,
-									"parameters": {
-										"x": "this_curX+(Self.X-levelArea.X)",
-										"y": "this_curY+(Self.Y-levelArea.Y)"
-									}
-								}
-							],
-							"sid": 872114167025741
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "levelArea",
-									"sid": 267604382177526,
-									"parameters": {
-										"object": "Interactables_OBJ"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Interactables_OBJ",
-									"sid": 153313581373828,
-									"parameters": {
-										"x": "this_curX+(Self.X-levelArea.X)",
-										"y": "this_curY+(Self.Y-levelArea.Y)"
-									}
-								}
-							],
-							"sid": 409969582608487
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "levelArea",
-									"sid": 913933191496398,
-									"parameters": {
-										"object": "Decorations_TLM"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Decorations_TLM",
-									"sid": 184967795684102,
-									"parameters": {
-										"x": "this_curX+(Self.X-levelArea.X)",
-										"y": "this_curY+(Self.Y-levelArea.Y)"
-									}
-								}
-							],
-							"sid": 710794153633360
-						},
-						{
-							"eventType": "comment",
-							"text": "Move the level area itself."
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "levelArea",
-									"sid": 254816503950034,
-									"parameters": {
-										"x": "this_curX",
-										"y": "this_curY"
-									}
-								}
-							],
-							"sid": 926967093582655
+							"id": "else",
+							"objectClass": "System",
+							"sid": 363357023192530
 						}
-					]
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 260884559023418,
+							"parameters": {
+								"variable": "canSlide",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 803447773267233,
+					"disabled": true
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 812006844420002,
+					"parameters": {
+						"key": 40
+					}
+				},
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 321069759975431,
+					"parameters": {
+						"object": "btn2",
+						"type": "start"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 473302697318421,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "objPlayer",
+							"sid": 205322860763196,
+							"parameters": {
+								"object": "objLevelJumThru",
+								"offset-x": "0",
+								"offset-y": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "FallThrough",
+							"sid": 152414784936310
+						}
+					],
+					"sid": 640852204742497,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 628498105499398,
+									"disabled": true,
+									"parameters": {
+										"variable": "canSlide"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 473923792001282,
+									"disabled": true,
+									"parameters": {
+										"variable": "isSliding",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 278111729578058
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 328698370597110
+						},
+						{
+							"id": "is-jumping",
+							"objectClass": "objPlayer",
+							"sid": 143636430182462,
+							"behaviorType": "Platform",
+							"isInverted": true
+						},
+						{
+							"id": "is-falling",
+							"objectClass": "objPlayer",
+							"sid": 188465271511292,
+							"behaviorType": "Platform",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "fall-through",
+							"objectClass": "objPlayer",
+							"sid": 389839932707494,
+							"disabled": true,
+							"behaviorType": "Platform"
+						},
+						{
+							"callFunction": "Slide",
+							"sid": 913261240530257
+						}
+					],
+					"sid": 955740880562640
+				}
+			],
+			"isOrBlock": true
 		}
 	],
 	"sid": 298105393163351

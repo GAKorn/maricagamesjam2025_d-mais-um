@@ -113,6 +113,20 @@
 		},
 		{
 			"type": "effect",
+			"id": "blacknwhite",
+			"name": "Black & white",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "grayscale",
+			"name": "Grayscale",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "pixellate",
 			"name": "Pixellate",
 			"author": "Scirra",
@@ -182,8 +196,23 @@
 					"Camera",
 					"stateDebugText"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"slide_CoolDown_Helper"
+						],
+						"subfolders": [],
+						"name": "Helpers"
+					}
+				],
 				"name": "PlayerRelated"
+			},
+			{
+				"items": [
+					"ftueText"
+				],
+				"subfolders": [],
+				"name": "FTUE"
 			}
 		]
 	},
@@ -218,7 +247,8 @@
 		"subfolders": [
 			{
 				"items": [
-					"LayoutTemplate"
+					"LayoutTemplate",
+					"Layout 1"
 				],
 				"subfolders": [],
 				"name": "LayoutTemplate"
@@ -236,13 +266,15 @@
 			{
 				"items": [
 					"Functions_ES",
-					"GeneralConfig_ES"
+					"GeneralConfig_ES",
+					"dump"
 				],
 				"subfolders": [
 					{
 						"items": [
 							"Player_ES",
-							"PlayerFSM_ES"
+							"PlayerFSM_ES",
+							"PlatformPlayer_ES"
 						],
 						"subfolders": [],
 						"name": "Player"

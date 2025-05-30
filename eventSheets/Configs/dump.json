@@ -1,0 +1,297 @@
+{
+	"name": "dump",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SlideDump",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 497025490093022,
+							"parameters": {
+								"variable": "currentVectorX",
+								"value": "objPlayer.Platform.VectorX"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 984404206400589,
+							"parameters": {
+								"variable": "slideVectorX",
+								"value": "plSpeed*slideFactor"
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "objPlayer",
+							"sid": 256865031405103,
+							"behaviorType": "slideTimer",
+							"parameters": {
+								"duration": "1",
+								"type": "once",
+								"tag": "\"slideTimer\""
+							}
+						}
+					],
+					"sid": 949835121576841,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-timer-running",
+							"objectClass": "objPlayer",
+							"sid": 813639961480950,
+							"behaviorType": "slideTimer",
+							"parameters": {
+								"tag": "\"slideTimer\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 929104560342609,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 304883530551384
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 297190912625123,
+									"parameters": {
+										"animation": "\"Mumbuquinha_Slide\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "objPlayer",
+									"sid": 705359948349877,
+									"parameters": {
+										"animation": "\"Sliding\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "objPlayer",
+									"sid": 554729158162047,
+									"behaviorType": "Platform",
+									"parameters": {
+										"input": "start-ignoring"
+									}
+								}
+							],
+							"sid": 699448869329661,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 281346250193752,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 568865344248246,
+											"parameters": {
+												"variable": "currentVectorX",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 636293336777964,
+											"disabled": true,
+											"parameters": {
+												"variable": "slideVectorX",
+												"value": "-(plSpeed*slideFactor)"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 352701342067201,
+											"disabled": true,
+											"parameters": {
+												"state": "mirrored"
+											}
+										},
+										{
+											"id": "set-vector-x",
+											"objectClass": "objPlayer",
+											"sid": 202560997501421,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-x": "slideVectorX"
+											}
+										},
+										{
+											"callFunction": "MoveLeft",
+											"sid": 548785957739822,
+											"disabled": true
+										}
+									],
+									"sid": 857992975897793,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 134943180388261
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 529011191689582,
+											"disabled": true,
+											"parameters": {
+												"variable": "slideVectorX",
+												"value": "plSpeed*slideFactor"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 440200784298709,
+											"disabled": true,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										},
+										{
+											"id": "set-vector-x",
+											"objectClass": "objPlayer",
+											"sid": 130799377119325,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-x": "slideVectorX"
+											}
+										},
+										{
+											"callFunction": "MoveRight",
+											"sid": 816893419724592,
+											"disabled": true
+										}
+									],
+									"sid": 290606399753304,
+									"disabled": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "objPlayer",
+							"sid": 365825465588366,
+							"behaviorType": "slideTimer",
+							"parameters": {
+								"tag": "\"slideTimer\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "objPlayer",
+							"sid": 160384428869346,
+							"parameters": {
+								"instance-variable": "PreviousState",
+								"value": "\"SLIDING\""
+							}
+						}
+					],
+					"sid": 916930998294361,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "objPlayer",
+									"sid": 224145002905182,
+									"parameters": {
+										"object": "Obstacles_OBJ",
+										"offset-x": "0",
+										"offset-y": "-17"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "objPlayer",
+									"sid": 825772363125816,
+									"behaviorType": "Platform",
+									"parameters": {
+										"input": "stop-ignoring"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "objPlayer",
+									"sid": 364745181738267,
+									"parameters": {
+										"instance-variable": "State",
+										"value": "objPlayer.PreviousState"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 288922762490677,
+									"parameters": {
+										"variable": "isSliding",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 553167922892486,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 677388825256941
+		}
+	],
+	"sid": 831279818549013
+}

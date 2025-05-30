@@ -6,7 +6,12 @@
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "blacknwhite",
+			"name": "BlackWhite1"
+		}
+	],
 	"animations": {
 		"items": [
 			{

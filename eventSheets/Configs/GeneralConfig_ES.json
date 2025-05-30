@@ -121,9 +121,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "txtDebugAction",
-					"sid": 348821269489981,
+					"sid": 864787798585281,
 					"parameters": {
-						"text": "currScore"
+						"text": "\"Coin Score: \"&currScore"
 					}
 				}
 			],

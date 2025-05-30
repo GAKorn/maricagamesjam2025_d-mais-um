@@ -1,54 +1,37 @@
 {
-	"name": "objSlowDown",
+	"name": "slide_CoolDown_Helper",
 	"plugin-id": "Sprite",
-	"sid": 793423960496628,
+	"sid": 446400152391988,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
 		{
-			"name": "slowBy",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 927026666980149
-		},
-		{
-			"name": "isTutorial",
-			"type": "boolean",
-			"desc": "",
-			"show": true,
-			"sid": 269403082151835
-		},
-		{
-			"name": "tutorialType",
-			"type": "string",
-			"desc": "",
-			"show": true,
-			"sid": 430718297028750
+			"effectId": "grayscale",
+			"name": "Grayscale"
 		}
 	],
-	"behaviorTypes": [],
-	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 288,
-						"height": 288,
+						"width": 8,
+						"height": 8,
 						"originX": 0,
 						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4187753,
+						"imageSpriteId": 6814192,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 436835113174643,
+				"sid": 914226401185709,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

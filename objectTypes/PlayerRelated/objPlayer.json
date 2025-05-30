@@ -27,13 +27,8 @@
 			"sid": 767571478585255
 		},
 		{
-			"behaviorId": "scrollto",
-			"name": "ScrollTo",
-			"sid": 863124314948796
-		},
-		{
 			"behaviorId": "Timer",
-			"name": "coyoteTimer",
+			"name": "slideTimer",
 			"sid": 188422967454945
 		}
 	],

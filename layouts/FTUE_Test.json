@@ -178,7 +178,7 @@
 							"world": {
 								"x": 0,
 								"y": 0,
-								"width": 2560,
+								"width": 2656,
 								"height": 288,
 								"originX": 0,
 								"originY": 0,
@@ -2756,6 +2756,476 @@
 								"angle": 0,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "objSlowDown",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 135,
+							"sid": 915695315117544,
+							"tags": "",
+							"instanceVariables": {
+								"slowBy": 0.25,
+								"isTutorial": true,
+								"tutorialType": "firstJump"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 915695315117544,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 576,
+								"y": 0,
+								"width": 80,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ftueText",
+							"properties": {
+								"text": "Press Up to jump",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": false,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 136,
+							"sid": 805739208279996,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 805739208279996,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 560,
+								"y": 96,
+								"width": 144,
+								"height": 30,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "objSlowDown",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 137,
+							"sid": 873573874212545,
+							"tags": "",
+							"instanceVariables": {
+								"slowBy": 0.25,
+								"isTutorial": true,
+								"tutorialType": "fallThrough"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 873573874212545,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 992,
+								"y": 0,
+								"width": 64,
+								"height": 208,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ftueText",
+							"properties": {
+								"text": "Press Down to fall",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": false,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 138,
+							"sid": 616940228882986,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 616940228882986,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 944,
+								"y": 96,
+								"width": 144,
+								"height": 30,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "objSlowDown",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 139,
+							"sid": 284024509618815,
+							"tags": "",
+							"instanceVariables": {
+								"slowBy": 0.25,
+								"isTutorial": true,
+								"tutorialType": "slide"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 284024509618815,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1744,
+								"y": 0,
+								"width": 64,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ftueText",
+							"properties": {
+								"text": "Press down to slide",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": false,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 140,
+							"sid": 634591979255764,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 634591979255764,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1696,
+								"y": 96,
+								"width": 144,
+								"height": 30,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "objSlowDown",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 141,
+							"sid": 753140627112716,
+							"tags": "",
+							"instanceVariables": {
+								"slowBy": 0.25,
+								"isTutorial": true,
+								"tutorialType": "doubleJump"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 753140627112716,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2192,
+								"y": 0,
+								"width": 64,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ftueText",
+							"properties": {
+								"text": "Press Up in the air to double jump",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": false,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 142,
+							"sid": 905930492771495,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 905930492771495,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2160,
+								"y": 64,
+								"width": 128,
+								"height": 64,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "objSlowDown",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 143,
+							"sid": 338093040532819,
+							"tags": "",
+							"instanceVariables": {
+								"slowBy": 0.25,
+								"isTutorial": true,
+								"tutorialType": "jumpHazard"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 338093040532819,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1264,
+								"y": 0,
+								"width": 80,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "ftueText",
+							"properties": {
+								"text": "Jump over a hazard to avoid damage",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 12,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "left",
+								"vertical-alignment": "top",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": false,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 144,
+							"sid": 697535629289947,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 697535629289947,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1216,
+								"y": 96,
+								"width": 144,
+								"height": 48,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 789878178569060,
@@ -2851,7 +3321,7 @@
 						{
 							"type": "objPlayer",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Standard",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -2879,12 +3349,7 @@
 										"enabled": false
 									}
 								},
-								"ScrollTo": {
-									"properties": {
-										"enabled": false
-									}
-								},
-								"coyoteTimer": {
+								"slideTimer": {
 									"properties": {}
 								}
 							},
@@ -2931,6 +3396,12 @@
 									"parameters": {
 										"size": 1
 									}
+								},
+								"BlackWhite1": {
+									"isEnabled": false,
+									"parameters": {
+										"threshold": 0.01
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2940,8 +3411,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -272,
-								"y": 80,
+								"x": 112,
+								"y": 256,
 								"width": 48,
 								"height": 48,
 								"originX": 0.5,
@@ -3013,6 +3484,40 @@
 							}
 						}
 					],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "contextText",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [],
+					"sid": 384167109994550,
+					"effectTypes": [],
 					"isInitiallyVisible": true,
 					"isInitiallyInteractive": true,
 					"isHTMLElementsLayer": false,

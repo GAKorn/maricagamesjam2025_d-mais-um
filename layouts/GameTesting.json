@@ -1481,7 +1481,9 @@
 							"sid": 733468742959778,
 							"tags": "",
 							"instanceVariables": {
-								"slowBy": 0.7
+								"slowBy": 0.7,
+								"isTutorial": false,
+								"tutorialType": ""
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
@@ -1520,7 +1522,9 @@
 							"sid": 960779865387880,
 							"tags": "",
 							"instanceVariables": {
-								"slowBy": 0.3
+								"slowBy": 0.3,
+								"isTutorial": false,
+								"tutorialType": ""
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
@@ -1707,12 +1711,7 @@
 										"enabled": false
 									}
 								},
-								"ScrollTo": {
-									"properties": {
-										"enabled": true
-									}
-								},
-								"coyoteTimer": {
+								"slideTimer": {
 									"properties": {}
 								}
 							},
@@ -1758,6 +1757,12 @@
 									"isEnabled": true,
 									"parameters": {
 										"size": 1
+									}
+								},
+								"BlackWhite1": {
+									"isEnabled": true,
+									"parameters": {
+										"threshold": 0.5
 									}
 								}
 							},

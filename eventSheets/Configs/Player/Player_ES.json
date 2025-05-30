@@ -6,42 +6,16 @@
 			"includeSheet": "PlayerFSM_ES"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Functions_ES"
+		},
+		{
 			"eventType": "comment",
 			"text": "Player General Attributes"
 		},
 		{
-			"eventType": "variable",
-			"name": "plSpeed",
-			"type": "number",
-			"initialValue": "160",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 114424400187825
-		},
-		{
-			"eventType": "variable",
-			"name": "plJumpStr",
-			"type": "number",
-			"initialValue": "465",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 445920771955335
-		},
-		{
 			"eventType": "comment",
 			"text": "General States"
-		},
-		{
-			"eventType": "variable",
-			"name": "Slowed",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 145646988982301
 		},
 		{
 			"eventType": "variable",
@@ -65,13 +39,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "canSlide",
+			"name": "dmgHappening",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 556476539976147
+			"sid": 921159749275579
 		},
 		{
 			"eventType": "block",
@@ -90,6 +64,15 @@
 					"parameters": {
 						"seconds": "0",
 						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 245978981999850,
+					"parameters": {
+						"variable": "cameraY_Offset",
+						"value": "75"
 					}
 				},
 				{
@@ -120,18 +103,9 @@
 					}
 				},
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 824643031679274,
-					"parameters": {
-						"seconds": "2",
-						"use-timescale": true
-					}
-				},
-				{
 					"id": "add-child",
 					"objectClass": "objPlayer",
-					"sid": 723761578559545,
+					"sid": 503526047721048,
 					"parameters": {
 						"child": "stateDebugText",
 						"transform-x": true,
@@ -143,6 +117,15 @@
 						"transform-z-elevation": true,
 						"transform-visibility": false,
 						"destroy-with-parent": false
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 824643031679274,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
 					}
 				},
 				{
@@ -245,7 +228,7 @@
 					"objectClass": "System",
 					"sid": 401173666593956,
 					"parameters": {
-						"variable": "sliding"
+						"variable": "isSliding"
 					},
 					"isInverted": true
 				}
@@ -255,10 +238,15 @@
 					"id": "simulate-control",
 					"objectClass": "objPlayer",
 					"sid": 404577164478798,
+					"disabled": true,
 					"behaviorType": "Platform",
 					"parameters": {
 						"control": "jump"
 					}
+				},
+				{
+					"callFunction": "Jump",
+					"sid": 717592559137458
 				}
 			],
 			"sid": 541882958551056
@@ -280,7 +268,7 @@
 					"objectClass": "System",
 					"sid": 335329027568082,
 					"parameters": {
-						"variable": "sliding"
+						"variable": "isSliding"
 					},
 					"isInverted": true
 				}
@@ -290,10 +278,15 @@
 					"id": "simulate-control",
 					"objectClass": "objPlayer",
 					"sid": 449010264873825,
+					"disabled": true,
 					"behaviorType": "Platform",
 					"parameters": {
 						"control": "jump"
 					}
+				},
+				{
+					"callFunction": "Jump",
+					"sid": 333232584337863
 				}
 			],
 			"sid": 168653084929115
@@ -319,7 +312,7 @@
 									"objectClass": "System",
 									"sid": 409312750057328,
 									"parameters": {
-										"variable": "sliding"
+										"variable": "isSliding"
 									},
 									"isInverted": true
 								},
@@ -437,7 +430,7 @@
 											"objectClass": "System",
 											"sid": 739163291766052,
 											"parameters": {
-												"variable": "sliding",
+												"variable": "isSliding",
 												"value": "true"
 											}
 										}
@@ -476,7 +469,7 @@
 							"objectClass": "System",
 							"sid": 329921728330548,
 							"parameters": {
-								"variable": "sliding"
+								"variable": "isSliding"
 							}
 						}
 					],
@@ -572,7 +565,7 @@
 									"objectClass": "System",
 									"sid": 236783097558667,
 									"parameters": {
-										"variable": "sliding",
+										"variable": "isSliding",
 										"value": "false"
 									}
 								}
@@ -586,7 +579,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": false,
+			"disabled": true,
 			"title": "SlowingDown",
 			"description": "",
 			"isActiveOnStart": true,
@@ -636,6 +629,7 @@
 					"conditions": [],
 					"actions": [],
 					"sid": 325662072746048,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -670,6 +664,7 @@
 								}
 							],
 							"sid": 817098461047534,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -694,7 +689,8 @@
 											}
 										}
 									],
-									"sid": 751480425651492
+									"sid": 751480425651492,
+									"disabled": true
 								}
 							]
 						},
@@ -727,7 +723,8 @@
 									}
 								}
 							],
-							"sid": 111871661151907
+							"sid": 111871661151907,
+							"disabled": true
 						}
 					]
 				},
@@ -736,6 +733,7 @@
 					"conditions": [],
 					"actions": [],
 					"sid": 897627161546589,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -765,6 +763,24 @@
 									}
 								},
 								{
+									"id": "set-gravity",
+									"objectClass": "objPlayer",
+									"sid": 306944636987003,
+									"behaviorType": "Platform",
+									"parameters": {
+										"gravity": "objPlayer.Platform.Gravity*max(1,(curSlow+0.4))"
+									}
+								},
+								{
+									"id": "set-max-fall-speed",
+									"objectClass": "objPlayer",
+									"sid": 778549377216036,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-fall-speed": "objPlayer.Platform.MaxFallSpeed*max(1,(curSlow+0.4))"
+									}
+								},
+								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 488723781129339,
@@ -774,7 +790,8 @@
 									}
 								}
 							],
-							"sid": 962191214164642
+							"sid": 962191214164642,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -791,6 +808,7 @@
 							],
 							"actions": [],
 							"sid": 122881890868803,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -806,6 +824,7 @@
 									],
 									"actions": [],
 									"sid": 971483745027729,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -837,7 +856,8 @@
 													}
 												}
 											],
-											"sid": 675149196760285
+											"sid": 675149196760285,
+											"disabled": true
 										}
 									]
 								},
@@ -861,7 +881,8 @@
 											}
 										}
 									],
-									"sid": 453400561514721
+									"sid": 453400561514721,
+									"disabled": true
 								}
 							]
 						}
@@ -881,114 +902,132 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "objPlayer",
-							"sid": 842975237592885,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 178592664572687,
 							"parameters": {
-								"object": "objForceIdle"
-							}
+								"variable": "dmgHappening"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
-					"sid": 900094841995206,
+					"sid": 326556704346908,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 638374162741660,
+									"id": "is-overlapping-another-object",
+									"objectClass": "objPlayer",
+									"sid": 337876321058329,
 									"parameters": {
-										"first-value": "objPlayer.X",
-										"comparison": 2,
-										"second-value": "objForceIdle.X+(objForceIdle.Width/2)"
+										"object": "objForceIdle"
 									}
+								}
+							],
+							"actions": [],
+							"sid": 278814163651624,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 249822575090800,
+											"parameters": {
+												"first-value": "objPlayer.X",
+												"comparison": 2,
+												"second-value": "objForceIdle.X+(objForceIdle.Width/2)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "objPlayer",
+											"sid": 663094936877008,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "right"
+											}
+										}
+									],
+									"sid": 357206482117319
+								},
+								{
+									"eventType": "comment",
+									"text": "For debugging purposes"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 378857790903788,
+											"parameters": {
+												"key": 32
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "objForceIdle",
+											"sid": 781003535098817
+										}
+									],
+									"sid": 885795745420706
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-touched-object",
+											"objectClass": "Touch",
+											"sid": 985623230168331,
+											"parameters": {
+												"object": "objForceIdle",
+												"type": "start"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "objForceIdle",
+											"sid": 863843197247757
+										}
+									],
+									"sid": 730838241379863
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 274853858021756
 								}
 							],
 							"actions": [
 								{
 									"id": "simulate-control",
 									"objectClass": "objPlayer",
-									"sid": 288188606704292,
+									"sid": 468201760355351,
 									"behaviorType": "Platform",
 									"parameters": {
 										"control": "right"
 									}
 								}
 							],
-							"sid": 370923123865161
-						},
-						{
-							"eventType": "comment",
-							"text": "For debugging purposes"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 620864789477960,
-									"parameters": {
-										"key": 32
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "objForceIdle",
-									"sid": 726124675387837
-								}
-							],
-							"sid": 974403166264145
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-touched-object",
-									"objectClass": "Touch",
-									"sid": 616682272641775,
-									"parameters": {
-										"object": "objForceIdle",
-										"type": "start"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "objForceIdle",
-									"sid": 258069741328363
-								}
-							],
-							"sid": 783216131821241
+							"sid": 647487985940540
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 568154898559014
-						}
-					],
-					"actions": [
-						{
-							"id": "simulate-control",
-							"objectClass": "objPlayer",
-							"sid": 869727024611742,
-							"behaviorType": "Platform",
-							"parameters": {
-								"control": "right"
-							}
-						}
-					],
-					"sid": 802989373516499
 				}
 			],
 			"sid": 185327140333638
@@ -1198,7 +1237,7 @@
 									"id": "start-timer",
 									"objectClass": "objPlayer",
 									"sid": 882139662310928,
-									"behaviorType": "coyoteTimer",
+									"behaviorType": "slideTimer",
 									"parameters": {
 										"duration": "3",
 										"type": "once",
@@ -1215,7 +1254,7 @@
 									"id": "is-timer-running",
 									"objectClass": "objPlayer",
 									"sid": 911281460188036,
-									"behaviorType": "coyoteTimer",
+									"behaviorType": "slideTimer",
 									"parameters": {
 										"tag": "\"Coyote\""
 									}
@@ -1237,7 +1276,7 @@
 									"objectClass": "txtDebugAction3",
 									"sid": 820618469687163,
 									"parameters": {
-										"text": "objPlayer.coyoteTimer.CurrentTime(\"Coyote\")"
+										"text": "objPlayer.slideTimer.CurrentTime(\"Coyote\")"
 									}
 								}
 							],
@@ -1250,7 +1289,7 @@
 									"id": "on-timer",
 									"objectClass": "objPlayer",
 									"sid": 562092292839404,
-									"behaviorType": "coyoteTimer",
+									"behaviorType": "slideTimer",
 									"parameters": {
 										"tag": "\"Coyote\""
 									}
@@ -1311,34 +1350,362 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-moving",
+					"id": "on-collision-with-another-object",
 					"objectClass": "objPlayer",
-					"sid": 546794986553098,
-					"behaviorType": "Platform"
+					"sid": 995771275889746,
+					"parameters": {
+						"object": "objAirFixedHazard"
+					}
 				},
 				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 812165759474953,
+					"id": "on-collision-with-another-object",
+					"objectClass": "objPlayer",
+					"sid": 936200953713346,
 					"parameters": {
-						"variable": "sliding"
-					},
-					"isInverted": true
+						"object": "objGroundFixedHazard"
+					}
 				}
 			],
 			"actions": [
 				{
+					"callFunction": "PlayerDamage",
+					"sid": 536792376854072
+				}
+			],
+			"sid": 385811854379737,
+			"disabled": true,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "variable",
+			"name": "currentVectorX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 245533928686587
+		},
+		{
+			"eventType": "variable",
+			"name": "slideVectorX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 822642766598657
+		},
+		{
+			"eventType": "variable",
+			"name": "slideFactor",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 513292851562119
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 100066880589797
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 631979322990180,
+					"parameters": {
+						"variable": "currentVectorX",
+						"value": "objPlayer.Platform.VectorX"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 830640653411888,
+					"disabled": true,
+					"parameters": {
+						"variable": "canSlide",
+						"value": "false"
+					}
+				},
+				{
 					"id": "set-animation",
 					"objectClass": "sprPlayerAnimations",
-					"sid": 269640671087820,
+					"sid": 581894676907191,
 					"parameters": {
-						"animation": "\"Vermelhinha_Running\"",
+						"animation": "\"Mumbuquinha_Slide\"",
 						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "objPlayer",
+					"sid": 197602764702504,
+					"parameters": {
+						"animation": "\"Sliding\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 769402834453471,
+					"parameters": {
+						"variable": "slideVectorX",
+						"value": "plSpeed*slideFactor"
+					}
+				},
+				{
+					"id": "set-vector-x",
+					"objectClass": "objPlayer",
+					"sid": 690816505818525,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-x": "slideVectorX"
 					}
 				}
 			],
-			"sid": 332067224690590,
+			"sid": 350026243090633,
 			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 202900293210816,
+					"parameters": {
+						"variable": "currentVectorX",
+						"comparison": 2,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 363146317048301,
+					"disabled": true,
+					"parameters": {
+						"variable": "slideVectorX",
+						"value": "-(plSpeed*slideFactor)"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "sprPlayerAnimations",
+					"sid": 695146361540053,
+					"parameters": {
+						"state": "mirrored"
+					}
+				},
+				{
+					"id": "set-vector-x",
+					"objectClass": "objPlayer",
+					"sid": 430472036946156,
+					"disabled": true,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-x": "slideVectorX"
+					}
+				},
+				{
+					"callFunction": "MoveLeft",
+					"sid": 691434774998625
+				}
+			],
+			"sid": 642487178467382,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 159114758739758
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 795526487783210,
+					"disabled": true,
+					"parameters": {
+						"variable": "slideVectorX",
+						"value": "plSpeed*slideFactor"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "sprPlayerAnimations",
+					"sid": 899222368292292,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				},
+				{
+					"id": "set-vector-x",
+					"objectClass": "objPlayer",
+					"sid": 813362156578261,
+					"disabled": true,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-x": "slideVectorX"
+					}
+				},
+				{
+					"callFunction": "MoveRight",
+					"sid": 538373268505410
+				}
+			],
+			"sid": 930039857183462,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-vector-y",
+					"objectClass": "objPlayer",
+					"sid": 963280775408585,
+					"disabled": true,
+					"behaviorType": "Platform",
+					"parameters": {
+						"vector-y": "plSpeed"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 998910678541858,
+					"disabled": true,
+					"parameters": {
+						"seconds": "0.0000000000000000000000000000000000000000000000001",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "objPlayer",
+					"sid": 107507512388481,
+					"disabled": true,
+					"behaviorType": "Platform",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "objPlayer",
+					"sid": 512384748805511,
+					"disabled": true,
+					"behaviorType": "Platform",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 936342683100087,
+					"parameters": {
+						"seconds": "0.4",
+						"use-timescale": true
+					}
+				}
+			],
+			"sid": 143275924035077,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "objPlayer",
+							"sid": 790354354238229,
+							"parameters": {
+								"object": "Obstacles_OBJ",
+								"offset-x": "0",
+								"offset-y": "-17"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 870961160070840,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "objPlayer",
+							"sid": 541532729433591,
+							"parameters": {
+								"instance-variable": "PreviousState",
+								"value": "\"SLIDING\""
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "objPlayer",
+							"sid": 602467641609465,
+							"disabled": true,
+							"behaviorType": "Platform",
+							"parameters": {
+								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "objPlayer",
+							"sid": 759228319494746,
+							"parameters": {
+								"instance-variable": "State",
+								"value": "objPlayer.PreviousState"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 328595985731671,
+							"parameters": {
+								"variable": "isSliding",
+								"value": "false"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 908032701014054,
+							"disabled": true,
+							"parameters": {
+								"seconds": "0.0000000000000000000000000000000000000000000000001",
+								"use-timescale": true
+							}
+						}
+					],
+					"sid": 474506023478845,
+					"disabled": true
+				}
+			]
 		}
 	],
 	"sid": 841640149488999

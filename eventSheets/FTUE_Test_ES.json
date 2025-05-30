@@ -33,7 +33,822 @@
 					"sid": 550546007805147
 				}
 			],
-			"sid": 406561648025070
+			"sid": 406561648025070,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-group-active",
+							"objectClass": "System",
+							"sid": 991983618304425,
+							"parameters": {
+								"group-name": "\"FTUE\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 689679541398227,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 689885865556895,
+									"parameters": {
+										"object": "objSlowDown"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "objSlowDown",
+									"sid": 673630486779141,
+									"parameters": {
+										"collisions": "disabled"
+									}
+								}
+							],
+							"sid": 804061154684337
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "FTUE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "actionJump",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 169444269210124
+				},
+				{
+					"eventType": "variable",
+					"name": "actionJumpOverHazard",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 773357644548560
+				},
+				{
+					"eventType": "variable",
+					"name": "actionFall",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 897275039499707
+				},
+				{
+					"eventType": "variable",
+					"name": "actionSlide",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 839369182541822
+				},
+				{
+					"eventType": "variable",
+					"name": "actionDoubleJump",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 384406541888630
+				},
+				{
+					"eventType": "variable",
+					"name": "actionTutorial",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 348197258243737
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "FTUE Text",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "objPlayer",
+									"sid": 184688625182481,
+									"parameters": {
+										"object": "Interactables_OBJ"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objSlowDown",
+									"sid": 112376328672384,
+									"parameters": {
+										"instance-variable": "isTutorial"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 675755304052911,
+									"parameters": {
+										"variable": "actionTutorial",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 605923845834727,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Interactables_OBJ",
+											"sid": 429459736186737,
+											"parameters": {
+												"object": "ftueText"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "ftueText",
+											"sid": 370190477746044,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 370625667021873,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 914836646649252
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 364414745678701,
+									"parameters": {
+										"variable": "actionTutorial",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "ftueText",
+									"sid": 254814468304467,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 852488142362125,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-destroyed",
+									"objectClass": "Interactables_OBJ",
+									"sid": 996951752044127
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objSlowDown",
+									"sid": 407382289791784,
+									"parameters": {
+										"instance-variable": "isTutorial"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 917910710660844,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Interactables_OBJ",
+											"sid": 395428390554735,
+											"parameters": {
+												"object": "ftueText"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "ftueText",
+											"sid": 743386504417585
+										}
+									],
+									"sid": 704304417284441,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Destroy object"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 461872621960725,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "objSlowDown",
+											"sid": 368054338259178,
+											"parameters": {
+												"instance-variable": "tutorialType",
+												"comparison": 0,
+												"value": "\"firstJump\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 710278502028686,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 799419669124517,
+													"parameters": {
+														"variable": "actionJump"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "objSlowDown",
+													"sid": 213022554997388
+												}
+											],
+											"sid": 279578754542105
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "objSlowDown",
+											"sid": 853898725746970,
+											"parameters": {
+												"instance-variable": "tutorialType",
+												"comparison": 0,
+												"value": "\"fallThrough\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 372471795625881,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 880846708695370,
+													"parameters": {
+														"variable": "actionFall"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "objSlowDown",
+													"sid": 318307437716922
+												}
+											],
+											"sid": 792436746364688
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "objSlowDown",
+											"sid": 731990960806131,
+											"parameters": {
+												"instance-variable": "tutorialType",
+												"comparison": 0,
+												"value": "\"slide\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 362462945434104,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 935923814383168,
+													"parameters": {
+														"variable": "actionSlide"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "objSlowDown",
+													"sid": 573203458218540
+												}
+											],
+											"sid": 523346288132984
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "objSlowDown",
+											"sid": 516389531791490,
+											"parameters": {
+												"instance-variable": "tutorialType",
+												"comparison": 0,
+												"value": "\"doubleJump\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 655520040211415,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 346113395889451,
+													"parameters": {
+														"variable": "actionDoubleJump"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "objSlowDown",
+													"sid": 911533319306843
+												}
+											],
+											"sid": 370074078324685
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "objSlowDown",
+											"sid": 806355004306053,
+											"parameters": {
+												"instance-variable": "tutorialType",
+												"comparison": 0,
+												"value": "\"jumpHazard\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 901215116001886,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 644233505775451,
+													"parameters": {
+														"variable": "actionJumpOverHazard"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "objSlowDown",
+													"sid": 169443866577235
+												}
+											],
+											"sid": 694316546128783
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 172313584696975
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "FTUE Actions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 917456906993040,
+									"parameters": {
+										"variable": "actionTutorial"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 254976642643477,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "objPlayer",
+											"sid": 486281094621224,
+											"parameters": {
+												"object": "objSlowDown"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "objSlowDown",
+											"sid": 836453322875222,
+											"parameters": {
+												"instance-variable": "isTutorial"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 536971930541248,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Perform the required action"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 769817711423003,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "objSlowDown",
+															"sid": 151172707891110,
+															"parameters": {
+																"instance-variable": "tutorialType",
+																"comparison": 0,
+																"value": "\"firstJump\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 540105183095738,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "on-jump",
+																	"objectClass": "objPlayer",
+																	"sid": 843944770416084,
+																	"behaviorType": "Platform"
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 208743525135798,
+																	"parameters": {
+																		"variable": "actionJump",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "objSlowDown",
+																	"sid": 489905945952637
+																}
+															],
+															"sid": 135401947844138,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "objSlowDown",
+															"sid": 595828462125426,
+															"parameters": {
+																"instance-variable": "tutorialType",
+																"comparison": 0,
+																"value": "\"fallThrough\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 718029035238136,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-on-floor",
+																	"objectClass": "objPlayer",
+																	"sid": 861289686626339,
+																	"behaviorType": "Platform"
+																}
+															],
+															"actions": [],
+															"sid": 840629501378006,
+															"disabled": true,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "on-fall",
+																			"objectClass": "objPlayer",
+																			"sid": 804580092757327,
+																			"behaviorType": "Platform"
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-boolean-eventvar",
+																			"objectClass": "System",
+																			"sid": 939433362709506,
+																			"parameters": {
+																				"variable": "actionFall",
+																				"value": "true"
+																			}
+																		},
+																		{
+																			"id": "destroy",
+																			"objectClass": "objSlowDown",
+																			"sid": 857033691197962
+																		}
+																	],
+																	"sid": 112836682039457,
+																	"disabled": true
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "objSlowDown",
+															"sid": 636071121100955,
+															"parameters": {
+																"instance-variable": "tutorialType",
+																"comparison": 0,
+																"value": "\"slide\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 470412137630044,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 260906406432231,
+																	"parameters": {
+																		"variable": "isSliding"
+																	}
+																},
+																{
+																	"id": "trigger-once-while-true",
+																	"objectClass": "System",
+																	"sid": 977661884332476
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 849170599844569,
+																	"parameters": {
+																		"variable": "actionSlide",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "objSlowDown",
+																	"sid": 938194809070402
+																}
+															],
+															"sid": 789054954110339,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "objSlowDown",
+															"sid": 134003690753291,
+															"parameters": {
+																"instance-variable": "tutorialType",
+																"comparison": 0,
+																"value": "\"jumpHazard\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 233381832372927,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "on-jump",
+																	"objectClass": "objPlayer",
+																	"sid": 512698631130739,
+																	"behaviorType": "Platform"
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 180740872355884,
+																	"parameters": {
+																		"variable": "actionJumpOverHazard",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "objSlowDown",
+																	"sid": 258434599261543
+																}
+															],
+															"sid": 749652836592596,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "objSlowDown",
+															"sid": 475440296712264,
+															"parameters": {
+																"instance-variable": "tutorialType",
+																"comparison": 0,
+																"value": "\"doubleJump\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 184965083266538,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "on-jump",
+																	"objectClass": "objPlayer",
+																	"sid": 328485606452074,
+																	"behaviorType": "Platform"
+																},
+																{
+																	"id": "is-on-floor",
+																	"objectClass": "objPlayer",
+																	"sid": 444838846003892,
+																	"behaviorType": "Platform",
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 888385116706780,
+																	"parameters": {
+																		"variable": "actionDoubleJump",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "objSlowDown",
+																	"sid": 491145609695889
+																}
+															],
+															"sid": 552326960906276,
+															"disabled": true
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 570363230530125
+				}
+			],
+			"sid": 434363135596895
 		}
 	],
 	"sid": 158160544523100
