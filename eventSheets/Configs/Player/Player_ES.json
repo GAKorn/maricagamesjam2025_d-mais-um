@@ -11,11 +11,21 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "Player General Attributes"
+			"text": "Character Selections"
+		},
+		{
+			"eventType": "variable",
+			"name": "PlayerCharacter",
+			"type": "string",
+			"initialValue": "",
+			"comment": "Sets what the player character currently is.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 311653010769842
 		},
 		{
 			"eventType": "comment",
-			"text": "General States"
+			"text": "Object Offsets"
 		},
 		{
 			"eventType": "variable",
@@ -26,6 +36,10 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 547311522320199
+		},
+		{
+			"eventType": "comment",
+			"text": "Able to perform certain actions"
 		},
 		{
 			"eventType": "variable",
@@ -39,6 +53,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "canSlide",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Check if the player can perform the Slide action.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 992317660305311
+		},
+		{
+			"eventType": "variable",
 			"name": "dmgHappening",
 			"type": "boolean",
 			"initialValue": "false",
@@ -46,6 +70,74 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 921159749275579
+		},
+		{
+			"eventType": "comment",
+			"text": "Platform Attributes"
+		},
+		{
+			"eventType": "variable",
+			"name": "plSpeed",
+			"type": "number",
+			"initialValue": "160",
+			"comment": "Plaftofm maximum speed",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 829473255719026
+		},
+		{
+			"eventType": "variable",
+			"name": "plJumpStr",
+			"type": "number",
+			"initialValue": "465",
+			"comment": "Platform Jump Strength",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 665115325647458
+		},
+		{
+			"eventType": "variable",
+			"name": "plGravity",
+			"type": "number",
+			"initialValue": "1500",
+			"comment": "Platform Gravity",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 135779862753594
+		},
+		{
+			"eventType": "variable",
+			"name": "plFallSpeed",
+			"type": "number",
+			"initialValue": "1000",
+			"comment": "Platform Gravity",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 449200506819043
+		},
+		{
+			"eventType": "comment",
+			"text": "General States"
+		},
+		{
+			"eventType": "variable",
+			"name": "Slowed",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Sets if the player is slowed down by any action.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 569864827729893
+		},
+		{
+			"eventType": "variable",
+			"name": "isSliding",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Check if the player is currently sliding or not.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 853016555413675
 		},
 		{
 			"eventType": "block",
@@ -160,9 +252,17 @@
 					}
 				},
 				{
+					"id": "set-text",
+					"objectClass": "stateDebugText",
+					"sid": 669233413326805,
+					"parameters": {
+						"text": "objPlayer.State"
+					}
+				},
+				{
 					"id": "set-max-speed",
 					"objectClass": "objPlayer",
-					"sid": 519309853056785,
+					"sid": 826281213017530,
 					"behaviorType": "Platform",
 					"parameters": {
 						"max-speed": "plSpeed"
@@ -171,18 +271,28 @@
 				{
 					"id": "set-jump-strength",
 					"objectClass": "objPlayer",
-					"sid": 752890417033385,
+					"sid": 597342092322484,
 					"behaviorType": "Platform",
 					"parameters": {
 						"jump-strength": "plJumpStr"
 					}
 				},
 				{
-					"id": "set-text",
-					"objectClass": "stateDebugText",
-					"sid": 669233413326805,
+					"id": "set-max-fall-speed",
+					"objectClass": "objPlayer",
+					"sid": 421051206964481,
+					"behaviorType": "Platform",
 					"parameters": {
-						"text": "objPlayer.State"
+						"max-fall-speed": "plFallSpeed"
+					}
+				},
+				{
+					"id": "set-gravity",
+					"objectClass": "objPlayer",
+					"sid": 814871207316405,
+					"behaviorType": "Platform",
+					"parameters": {
+						"gravity": "plGravity"
 					}
 				}
 			],
@@ -216,14 +326,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 889109873854847,
-					"parameters": {
-						"key": 38
-					}
-				},
-				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 401173666593956,
@@ -235,61 +337,49 @@
 			],
 			"actions": [
 				{
-					"id": "simulate-control",
-					"objectClass": "objPlayer",
-					"sid": 404577164478798,
-					"disabled": true,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "jump"
-					}
-				},
-				{
 					"callFunction": "Jump",
-					"sid": 717592559137458
+					"sid": 717592559137458,
+					"disabled": true
 				}
 			],
-			"sid": 541882958551056
-		},
-		{
-			"eventType": "block",
-			"conditions": [
+			"sid": 541882958551056,
+			"children": [
 				{
-					"id": "on-touched-object",
-					"objectClass": "Touch",
-					"sid": 546532107311951,
-					"parameters": {
-						"object": "btn1",
-						"type": "start"
-					}
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 335329027568082,
-					"parameters": {
-						"variable": "isSliding"
-					},
-					"isInverted": true
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 206724354494754,
+							"parameters": {
+								"key": 38
+							}
+						},
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 263196523737288,
+							"parameters": {
+								"object": "btn1",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "objPlayer",
+							"sid": 241925800959662,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						}
+					],
+					"sid": 870170571524822,
+					"isOrBlock": true
 				}
-			],
-			"actions": [
-				{
-					"id": "simulate-control",
-					"objectClass": "objPlayer",
-					"sid": 449010264873825,
-					"disabled": true,
-					"behaviorType": "Platform",
-					"parameters": {
-						"control": "jump"
-					}
-				},
-				{
-					"callFunction": "Jump",
-					"sid": 333232584337863
-				}
-			],
-			"sid": 168653084929115
+			]
 		},
 		{
 			"eventType": "group",
@@ -374,20 +464,19 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-pressed",
+							"id": "key-is-down",
 							"objectClass": "Keyboard",
-							"sid": 555095681518030,
+							"sid": 855729699708605,
 							"parameters": {
 								"key": 40
 							}
 						},
 						{
-							"id": "on-touched-object",
+							"id": "is-touching-object",
 							"objectClass": "Touch",
-							"sid": 535883947121547,
+							"sid": 554300371466390,
 							"parameters": {
-								"object": "btn2",
-								"type": "start"
+								"object": "btn2"
 							}
 						}
 					],
@@ -465,6 +554,28 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 497565691491794
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 666387406365257,
+							"parameters": {
+								"variable": "isSliding",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 479088041442243
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 329921728330548,
@@ -523,6 +634,7 @@
 						}
 					],
 					"sid": 295885869871051,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -570,7 +682,8 @@
 									}
 								}
 							],
-							"sid": 130778971578295
+							"sid": 130778971578295,
+							"disabled": true
 						}
 					]
 				}
@@ -579,7 +692,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "SlowingDown",
 			"description": "",
 			"isActiveOnStart": true,
@@ -590,7 +703,7 @@
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
-					"isStatic": false,
+					"isStatic": true,
 					"isConstant": false,
 					"sid": 425711075495257
 				},
@@ -600,19 +713,9 @@
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
-					"isStatic": false,
+					"isStatic": true,
 					"isConstant": false,
 					"sid": 385439707592768
-				},
-				{
-					"eventType": "variable",
-					"name": "prevSpeed",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 317519089130151
 				},
 				{
 					"eventType": "variable",
@@ -620,16 +723,85 @@
 					"type": "boolean",
 					"initialValue": "false",
 					"comment": "",
-					"isStatic": false,
+					"isStatic": true,
 					"isConstant": false,
 					"sid": 573931189981065
+				},
+				{
+					"eventType": "variable",
+					"name": "prevSpeed",
+					"type": "number",
+					"initialValue": "160",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 983464128601467
+				},
+				{
+					"eventType": "variable",
+					"name": "prevGravity",
+					"type": "number",
+					"initialValue": "1500",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 752216917749754
+				},
+				{
+					"eventType": "variable",
+					"name": "prevFallSpeed",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 432074611059483
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 687383226576924
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 214044446970937,
+							"parameters": {
+								"variable": "prevFallSpeed",
+								"value": "plFallSpeed"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 754963283817288,
+							"parameters": {
+								"variable": "prevGravity",
+								"value": "plGravity"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 889823488779906,
+							"parameters": {
+								"variable": "prevSpeed",
+								"value": "plSpeed"
+							}
+						}
+					],
+					"sid": 281065340930523
 				},
 				{
 					"eventType": "block",
 					"conditions": [],
 					"actions": [],
 					"sid": 325662072746048,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -664,7 +836,6 @@
 								}
 							],
 							"sid": 817098461047534,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -689,8 +860,7 @@
 											}
 										}
 									],
-									"sid": 751480425651492,
-									"disabled": true
+									"sid": 751480425651492
 								}
 							]
 						},
@@ -717,14 +887,34 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 969583282344380,
+									"disabled": true,
 									"parameters": {
 										"variable": "prevSpeed",
 										"value": "plSpeed"
 									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 178741851940058,
+									"disabled": true,
+									"parameters": {
+										"variable": "prevGravity",
+										"value": "plGravity"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 755388736708418,
+									"disabled": true,
+									"parameters": {
+										"variable": "prevFallSpeed",
+										"value": "plFallSpeed"
+									}
 								}
 							],
-							"sid": 111871661151907,
-							"disabled": true
+							"sid": 111871661151907
 						}
 					]
 				},
@@ -733,7 +923,6 @@
 					"conditions": [],
 					"actions": [],
 					"sid": 897627161546589,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -745,41 +934,9 @@
 									"parameters": {
 										"variable": "Slowed"
 									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 552749176939761
 								}
 							],
 							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 433230396485896,
-									"parameters": {
-										"variable": "plSpeed",
-										"value": "objPlayer.Platform.MaxSpeed*curSlow"
-									}
-								},
-								{
-									"id": "set-gravity",
-									"objectClass": "objPlayer",
-									"sid": 306944636987003,
-									"behaviorType": "Platform",
-									"parameters": {
-										"gravity": "objPlayer.Platform.Gravity*max(1,(curSlow+0.4))"
-									}
-								},
-								{
-									"id": "set-max-fall-speed",
-									"objectClass": "objPlayer",
-									"sid": 778549377216036,
-									"behaviorType": "Platform",
-									"parameters": {
-										"max-fall-speed": "objPlayer.Platform.MaxFallSpeed*max(1,(curSlow+0.4))"
-									}
-								},
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
@@ -791,7 +948,48 @@
 								}
 							],
 							"sid": 962191214164642,
-							"disabled": true
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 531058146087410
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 364497261132857,
+											"parameters": {
+												"variable": "plSpeed",
+												"value": "objPlayer.Platform.MaxSpeed*curSlow"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 291707512225006,
+											"parameters": {
+												"variable": "plGravity",
+												"value": "objPlayer.Platform.Gravity*max(1,(curSlow+0.4))"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 510918266707067,
+											"parameters": {
+												"variable": "plFallSpeed",
+												"value": "objPlayer.Platform.MaxFallSpeed*min(1,(curSlow+0.4))"
+											}
+										}
+									],
+									"sid": 843108084005829
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -806,9 +1004,36 @@
 									"isInverted": true
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 894108335667552,
+									"parameters": {
+										"variable": "plSpeed",
+										"value": "prevSpeed"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 783840231229256,
+									"parameters": {
+										"variable": "plGravity",
+										"value": "prevGravity"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 605028284294294,
+									"parameters": {
+										"variable": "plFallSpeed",
+										"value": "prevFallSpeed"
+									}
+								}
+							],
 							"sid": 122881890868803,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -819,25 +1044,43 @@
 											"sid": 388170273741642,
 											"parameters": {
 												"variable": "wasSlow"
-											}
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [],
 									"sid": 971483745027729,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 713662921077070
+										}
+									],
+									"actions": [],
+									"sid": 453400561514721,
 									"disabled": true,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "Reset speed"
+										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "while",
 													"objectClass": "System",
-													"sid": 373675765486577
+													"sid": 390550137061215
 												},
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 104518667567918,
+													"sid": 769593137048067,
 													"parameters": {
 														"first-value": "plSpeed",
 														"comparison": 2,
@@ -849,40 +1092,89 @@
 												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
-													"sid": 890351195701318,
+													"sid": 876034963434184,
 													"parameters": {
 														"variable": "plSpeed",
 														"value": "5"
 													}
 												}
 											],
-											"sid": 675149196760285,
+											"sid": 137065976985795,
 											"disabled": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Reset gravity"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "while",
+													"objectClass": "System",
+													"sid": 624399642808336
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 478376060137491,
+													"parameters": {
+														"first-value": "plGravity",
+														"comparison": 2,
+														"second-value": "prevGravity"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 945195416167230,
+													"parameters": {
+														"variable": "plGravity",
+														"value": "10"
+													}
+												}
+											],
+											"sid": 184938053477811
+										},
+										{
+											"eventType": "comment",
+											"text": "Reset fallspeed"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "while",
+													"objectClass": "System",
+													"sid": 417078406585186
+												},
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 505870556476755,
+													"parameters": {
+														"first-value": "plFallSpeed",
+														"comparison": 2,
+														"second-value": "prevFallSpeed"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 143338977642500,
+													"parameters": {
+														"variable": "plFallSpeed",
+														"value": "15"
+													}
+												}
+											],
+											"sid": 947995260161092
 										}
 									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 713662921077070
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 420120138105040,
-											"parameters": {
-												"variable": "plSpeed",
-												"value": "160"
-											}
-										}
-									],
-									"sid": 453400561514721,
-									"disabled": true
 								}
 							]
 						}
@@ -1004,6 +1296,10 @@
 									"sid": 730838241379863
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "This is the event that forces the player to go Right at all times."
 						},
 						{
 							"eventType": "block",
@@ -1375,337 +1671,6 @@
 			"sid": 385811854379737,
 			"disabled": true,
 			"isOrBlock": true
-		},
-		{
-			"eventType": "variable",
-			"name": "currentVectorX",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": true,
-			"isConstant": false,
-			"sid": 245533928686587
-		},
-		{
-			"eventType": "variable",
-			"name": "slideVectorX",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": true,
-			"isConstant": false,
-			"sid": 822642766598657
-		},
-		{
-			"eventType": "variable",
-			"name": "slideFactor",
-			"type": "number",
-			"initialValue": "3",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 513292851562119
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 100066880589797
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 631979322990180,
-					"parameters": {
-						"variable": "currentVectorX",
-						"value": "objPlayer.Platform.VectorX"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 830640653411888,
-					"disabled": true,
-					"parameters": {
-						"variable": "canSlide",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "sprPlayerAnimations",
-					"sid": 581894676907191,
-					"parameters": {
-						"animation": "\"Mumbuquinha_Slide\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "objPlayer",
-					"sid": 197602764702504,
-					"parameters": {
-						"animation": "\"Sliding\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 769402834453471,
-					"parameters": {
-						"variable": "slideVectorX",
-						"value": "plSpeed*slideFactor"
-					}
-				},
-				{
-					"id": "set-vector-x",
-					"objectClass": "objPlayer",
-					"sid": 690816505818525,
-					"behaviorType": "Platform",
-					"parameters": {
-						"vector-x": "slideVectorX"
-					}
-				}
-			],
-			"sid": 350026243090633,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 202900293210816,
-					"parameters": {
-						"variable": "currentVectorX",
-						"comparison": 2,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 363146317048301,
-					"disabled": true,
-					"parameters": {
-						"variable": "slideVectorX",
-						"value": "-(plSpeed*slideFactor)"
-					}
-				},
-				{
-					"id": "set-mirrored",
-					"objectClass": "sprPlayerAnimations",
-					"sid": 695146361540053,
-					"parameters": {
-						"state": "mirrored"
-					}
-				},
-				{
-					"id": "set-vector-x",
-					"objectClass": "objPlayer",
-					"sid": 430472036946156,
-					"disabled": true,
-					"behaviorType": "Platform",
-					"parameters": {
-						"vector-x": "slideVectorX"
-					}
-				},
-				{
-					"callFunction": "MoveLeft",
-					"sid": 691434774998625
-				}
-			],
-			"sid": 642487178467382,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 159114758739758
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 795526487783210,
-					"disabled": true,
-					"parameters": {
-						"variable": "slideVectorX",
-						"value": "plSpeed*slideFactor"
-					}
-				},
-				{
-					"id": "set-mirrored",
-					"objectClass": "sprPlayerAnimations",
-					"sid": 899222368292292,
-					"parameters": {
-						"state": "not-mirrored"
-					}
-				},
-				{
-					"id": "set-vector-x",
-					"objectClass": "objPlayer",
-					"sid": 813362156578261,
-					"disabled": true,
-					"behaviorType": "Platform",
-					"parameters": {
-						"vector-x": "slideVectorX"
-					}
-				},
-				{
-					"callFunction": "MoveRight",
-					"sid": 538373268505410
-				}
-			],
-			"sid": 930039857183462,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-vector-y",
-					"objectClass": "objPlayer",
-					"sid": 963280775408585,
-					"disabled": true,
-					"behaviorType": "Platform",
-					"parameters": {
-						"vector-y": "plSpeed"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 998910678541858,
-					"disabled": true,
-					"parameters": {
-						"seconds": "0.0000000000000000000000000000000000000000000000001",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "set-ignoring-input",
-					"objectClass": "objPlayer",
-					"sid": 107507512388481,
-					"disabled": true,
-					"behaviorType": "Platform",
-					"parameters": {
-						"input": "start-ignoring"
-					}
-				},
-				{
-					"id": "set-ignoring-input",
-					"objectClass": "objPlayer",
-					"sid": 512384748805511,
-					"disabled": true,
-					"behaviorType": "Platform",
-					"parameters": {
-						"input": "start-ignoring"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 936342683100087,
-					"parameters": {
-						"seconds": "0.4",
-						"use-timescale": true
-					}
-				}
-			],
-			"sid": 143275924035077,
-			"disabled": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "objPlayer",
-							"sid": 790354354238229,
-							"parameters": {
-								"object": "Obstacles_OBJ",
-								"offset-x": "0",
-								"offset-y": "-17"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 870961160070840,
-							"parameters": {
-								"seconds": "0.1",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "objPlayer",
-							"sid": 541532729433591,
-							"parameters": {
-								"instance-variable": "PreviousState",
-								"value": "\"SLIDING\""
-							}
-						},
-						{
-							"id": "set-ignoring-input",
-							"objectClass": "objPlayer",
-							"sid": 602467641609465,
-							"disabled": true,
-							"behaviorType": "Platform",
-							"parameters": {
-								"input": "stop-ignoring"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "objPlayer",
-							"sid": 759228319494746,
-							"parameters": {
-								"instance-variable": "State",
-								"value": "objPlayer.PreviousState"
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 328595985731671,
-							"parameters": {
-								"variable": "isSliding",
-								"value": "false"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 908032701014054,
-							"disabled": true,
-							"parameters": {
-								"seconds": "0.0000000000000000000000000000000000000000000000001",
-								"use-timescale": true
-							}
-						}
-					],
-					"sid": 474506023478845,
-					"disabled": true
-				}
-			]
 		}
 	],
 	"sid": 841640149488999

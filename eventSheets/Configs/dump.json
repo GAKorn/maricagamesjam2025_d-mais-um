@@ -2,6 +2,36 @@
 	"name": "dump",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "currentVectorX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 890023602382793
+		},
+		{
+			"eventType": "variable",
+			"name": "slideVectorX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": true,
+			"isConstant": false,
+			"sid": 204332050787430
+		},
+		{
+			"eventType": "variable",
+			"name": "slideFactor",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 689579191251839
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "SlideDump",

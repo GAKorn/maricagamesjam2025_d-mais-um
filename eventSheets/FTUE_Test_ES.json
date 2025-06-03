@@ -81,7 +81,7 @@
 		},
 		{
 			"eventType": "group",
-			"disabled": true,
+			"disabled": false,
 			"title": "FTUE",
 			"description": "",
 			"isActiveOnStart": true,
@@ -148,7 +148,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "FTUE Text",
 					"description": "",
 					"isActiveOnStart": true,
@@ -185,7 +185,6 @@
 								}
 							],
 							"sid": 605923845834727,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -209,8 +208,7 @@
 											}
 										}
 									],
-									"sid": 370625667021873,
-									"disabled": true
+									"sid": 370625667021873
 								}
 							]
 						},
@@ -242,8 +240,7 @@
 									}
 								}
 							],
-							"sid": 852488142362125,
-							"disabled": true
+							"sid": 852488142362125
 						},
 						{
 							"eventType": "block",
@@ -264,7 +261,6 @@
 							],
 							"actions": [],
 							"sid": 917910710660844,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -285,8 +281,7 @@
 											"sid": 743386504417585
 										}
 									],
-									"sid": 704304417284441,
-									"disabled": true
+									"sid": 704304417284441
 								}
 							]
 						},
@@ -507,7 +502,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": true,
+					"disabled": false,
 					"title": "FTUE Actions",
 					"description": "",
 					"isActiveOnStart": true,
@@ -526,7 +521,6 @@
 							],
 							"actions": [],
 							"sid": 254976642643477,
-							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -550,7 +544,6 @@
 									],
 									"actions": [],
 									"sid": 536971930541248,
-									"disabled": true,
 									"children": [
 										{
 											"eventType": "comment",
@@ -561,7 +554,6 @@
 											"conditions": [],
 											"actions": [],
 											"sid": 769817711423003,
-											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -579,7 +571,6 @@
 													],
 													"actions": [],
 													"sid": 540105183095738,
-													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -607,8 +598,7 @@
 																	"sid": 489905945952637
 																}
 															],
-															"sid": 135401947844138,
-															"disabled": true
+															"sid": 135401947844138
 														}
 													]
 												},
@@ -628,7 +618,6 @@
 													],
 													"actions": [],
 													"sid": 718029035238136,
-													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -642,7 +631,6 @@
 															],
 															"actions": [],
 															"sid": 840629501378006,
-															"disabled": true,
 															"children": [
 																{
 																	"eventType": "block",
@@ -670,8 +658,7 @@
 																			"sid": 857033691197962
 																		}
 																	],
-																	"sid": 112836682039457,
-																	"disabled": true
+																	"sid": 112836682039457
 																}
 															]
 														}
@@ -693,7 +680,6 @@
 													],
 													"actions": [],
 													"sid": 470412137630044,
-													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -728,8 +714,7 @@
 																	"sid": 938194809070402
 																}
 															],
-															"sid": 789054954110339,
-															"disabled": true
+															"sid": 789054954110339
 														}
 													]
 												},
@@ -749,7 +734,6 @@
 													],
 													"actions": [],
 													"sid": 233381832372927,
-													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -777,8 +761,7 @@
 																	"sid": 258434599261543
 																}
 															],
-															"sid": 749652836592596,
-															"disabled": true
+															"sid": 749652836592596
 														}
 													]
 												},
@@ -798,7 +781,6 @@
 													],
 													"actions": [],
 													"sid": 184965083266538,
-													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -833,8 +815,7 @@
 																	"sid": 491145609695889
 																}
 															],
-															"sid": 552326960906276,
-															"disabled": true
+															"sid": 552326960906276
 														}
 													]
 												}

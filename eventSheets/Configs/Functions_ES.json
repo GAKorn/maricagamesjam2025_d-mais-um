@@ -1020,6 +1020,7 @@
 			],
 			"actions": [],
 			"sid": 473302697318421,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -1042,6 +1043,7 @@
 						}
 					],
 					"sid": 640852204742497,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1068,7 +1070,8 @@
 									}
 								}
 							],
-							"sid": 278111729578058
+							"sid": 278111729578058,
+							"disabled": true
 						}
 					]
 				},
@@ -1108,7 +1111,8 @@
 							"sid": 913261240530257
 						}
 					],
-					"sid": 955740880562640
+					"sid": 955740880562640,
+					"disabled": true
 				}
 			],
 			"isOrBlock": true

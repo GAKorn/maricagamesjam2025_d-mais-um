@@ -2334,8 +2334,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2208,
-								"y": 192,
+								"x": 2192,
+								"y": 168,
 								"width": 16,
 								"height": 16,
 								"originX": 0,
@@ -2371,8 +2371,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2224,
-								"y": 176,
+								"x": 2216,
+								"y": 152,
 								"width": 16,
 								"height": 16,
 								"originX": 0,
@@ -2760,7 +2760,7 @@
 						{
 							"type": "objSlowDown",
 							"properties": {
-								"initially-visible": false,
+								"initially-visible": true,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -2770,7 +2770,7 @@
 							"sid": 915695315117544,
 							"tags": "",
 							"instanceVariables": {
-								"slowBy": 0.25,
+								"slowBy": 0.15,
 								"isTutorial": true,
 								"tutorialType": "firstJump"
 							},
@@ -2782,9 +2782,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 576,
+								"x": 592,
 								"y": 0,
-								"width": 80,
+								"width": 64,
 								"height": 288,
 								"originX": 0,
 								"originY": 0,
@@ -2835,8 +2835,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 560,
-								"y": 96,
+								"x": 552,
+								"y": 56,
 								"width": 144,
 								"height": 30,
 								"originX": 0,
@@ -2854,7 +2854,7 @@
 						{
 							"type": "objSlowDown",
 							"properties": {
-								"initially-visible": false,
+								"initially-visible": true,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -2864,7 +2864,7 @@
 							"sid": 873573874212545,
 							"tags": "",
 							"instanceVariables": {
-								"slowBy": 0.25,
+								"slowBy": 0.15,
 								"isTutorial": true,
 								"tutorialType": "fallThrough"
 							},
@@ -2876,9 +2876,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 992,
+								"x": 1000,
 								"y": 0,
-								"width": 64,
+								"width": 40,
 								"height": 208,
 								"originX": 0,
 								"originY": 0,
@@ -2930,7 +2930,7 @@
 							"locked": false,
 							"world": {
 								"x": 944,
-								"y": 96,
+								"y": 56,
 								"width": 144,
 								"height": 30,
 								"originX": 0,
@@ -2948,7 +2948,7 @@
 						{
 							"type": "objSlowDown",
 							"properties": {
-								"initially-visible": false,
+								"initially-visible": true,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -2970,9 +2970,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1744,
+								"x": 1760,
 								"y": 0,
-								"width": 64,
+								"width": 48,
 								"height": 288,
 								"originX": 0,
 								"originY": 0,
@@ -2989,7 +2989,7 @@
 						{
 							"type": "ftueText",
 							"properties": {
-								"text": "Press down to slide",
+								"text": "Hold Down to slide",
 								"enable-bbcode": true,
 								"font": "Arial",
 								"size": 12,
@@ -3023,8 +3023,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1696,
-								"y": 96,
+								"x": 1712,
+								"y": 106,
 								"width": 144,
 								"height": 30,
 								"originX": 0,
@@ -3042,7 +3042,7 @@
 						{
 							"type": "objSlowDown",
 							"properties": {
-								"initially-visible": false,
+								"initially-visible": true,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -3052,7 +3052,7 @@
 							"sid": 753140627112716,
 							"tags": "",
 							"instanceVariables": {
-								"slowBy": 0.25,
+								"slowBy": 0.05,
 								"isTutorial": true,
 								"tutorialType": "doubleJump"
 							},
@@ -3064,9 +3064,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2192,
+								"x": 2176,
 								"y": 0,
-								"width": 64,
+								"width": 40,
 								"height": 288,
 								"originX": 0,
 								"originY": 0,
@@ -3117,8 +3117,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2160,
-								"y": 64,
+								"x": 2136,
+								"y": 56,
 								"width": 128,
 								"height": 64,
 								"originX": 0,
@@ -3136,7 +3136,7 @@
 						{
 							"type": "objSlowDown",
 							"properties": {
-								"initially-visible": false,
+								"initially-visible": true,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -3158,9 +3158,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1264,
+								"x": 1280,
 								"y": 0,
-								"width": 80,
+								"width": 48,
 								"height": 288,
 								"originX": 0,
 								"originY": 0,
@@ -3211,8 +3211,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1216,
-								"y": 96,
+								"x": 1232,
+								"y": 106,
 								"width": 144,
 								"height": 48,
 								"originX": 0,

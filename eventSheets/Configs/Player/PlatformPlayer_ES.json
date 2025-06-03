@@ -2,66 +2,6 @@
 	"name": "PlatformPlayer_ES",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "plSpeed",
-			"type": "number",
-			"initialValue": "160",
-			"comment": "Plaftofm maximum speed",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 341309372195228
-		},
-		{
-			"eventType": "variable",
-			"name": "plJumpStr",
-			"type": "number",
-			"initialValue": "465",
-			"comment": "Platform Jump Strength",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 452230475609796
-		},
-		{
-			"eventType": "variable",
-			"name": "Slowed",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "Sets if the player is slowed down by any action.",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 577954908036335
-		},
-		{
-			"eventType": "variable",
-			"name": "canSlide",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "Check if the player can perform the Slide action.",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 830925397502812
-		},
-		{
-			"eventType": "variable",
-			"name": "PlayerCharacter",
-			"type": "string",
-			"initialValue": "",
-			"comment": "Sets what the player character currently is.",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 381624451739809
-		},
-		{
-			"eventType": "variable",
-			"name": "isSliding",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "Check if the player is currently sliding or not.",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 986667744402993
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "DebbugingPlatformBehavior",
@@ -337,7 +277,7 @@
 				},
 				{
 					"eventType": "group",
-					"disabled": false,
+					"disabled": true,
 					"title": "PlayerMovement",
 					"description": "",
 					"isActiveOnStart": true,
@@ -363,7 +303,8 @@
 									}
 								}
 							],
-							"sid": 192233660624176
+							"sid": 192233660624176,
+							"disabled": true
 						},
 						{
 							"functionName": "MoveLeft",
@@ -386,7 +327,8 @@
 									}
 								}
 							],
-							"sid": 611005192544705
+							"sid": 611005192544705,
+							"disabled": true
 						},
 						{
 							"functionName": "Jump",
@@ -400,6 +342,7 @@
 							"conditions": [],
 							"actions": [],
 							"sid": 957293461654095,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -424,7 +367,8 @@
 											}
 										}
 									],
-									"sid": 101707373832080
+									"sid": 101707373832080,
+									"disabled": true
 								}
 							]
 						},
@@ -468,7 +412,8 @@
 									}
 								}
 							],
-							"sid": 168869727509606
+							"sid": 168869727509606,
+							"disabled": true
 						},
 						{
 							"functionName": "FallThrough",
@@ -488,7 +433,8 @@
 									"behaviorType": "Platform"
 								}
 							],
-							"sid": 265192287284299
+							"sid": 265192287284299,
+							"disabled": true
 						}
 					],
 					"sid": 303690189046956
@@ -2205,7 +2151,8 @@
 											}
 										}
 									],
-									"sid": 135550582997574
+									"sid": 135550582997574,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2221,6 +2168,7 @@
 									],
 									"actions": [],
 									"sid": 573882902256763,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -2275,7 +2223,8 @@
 													}
 												}
 											],
-											"sid": 851148966755192
+											"sid": 851148966755192,
+											"disabled": true
 										}
 									]
 								}
