@@ -559,563 +559,120 @@
 			"title": "Player Functions",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"functionName": "PlayerDamage",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 324849934691392,
-							"parameters": {
-								"variable": "dmgHappening",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 502562670426897,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Damage Happens"
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"callFunction": "DamageBlink",
-									"sid": 477810934283299
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 915168181531330,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-vector-x",
-									"objectClass": "objPlayer",
-									"sid": 121239363452644,
-									"behaviorType": "Platform",
-									"parameters": {
-										"vector-x": "objPlayer.X-200"
-									}
-								},
-								{
-									"id": "set-vector-y",
-									"objectClass": "objPlayer",
-									"sid": 529404240319305,
-									"behaviorType": "Platform",
-									"parameters": {
-										"vector-y": "-(plJumpStr)"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 413557723902934,
-									"parameters": {
-										"seconds": "1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 290047865155279,
-									"parameters": {
-										"variable": "dmgHappening",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 624202704345250
-						},
-						{
-							"eventType": "comment",
-							"text": "Invulnerable State Happens"
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 183891102238473
-						}
-					]
-				},
-				{
-					"functionName": "DamageBlink",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 279921011447149,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 251630478182077,
-									"parameters": {
-										"variable": "dmgHappening"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 155540586377988,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 981566049466295,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 124530591335498,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 310072715126307,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 131499770834743,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 307216240025158,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 287796533764164,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 179927871126554,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 659365897718111,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 813361549886134,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 571459566792792,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 357965029839206,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 396827827300454,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 555359610455343,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 126377521783392,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 830219492584324,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 463281248600121,
-									"parameters": {
-										"mode": "enable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 920208025931093,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-effect-enabled",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 401731367938261,
-									"parameters": {
-										"mode": "disable",
-										"effect": "\"BlackWhite1\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 769214088794558,
-									"parameters": {
-										"seconds": "0.1",
-										"use-timescale": true
-									}
-								}
-							],
-							"sid": 495423726958971
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 904086468397605
-				},
-				{
-					"functionName": "ChangeState",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "string",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "CurrState",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 447202929662305
-						},
-						{
-							"name": "NextStage",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 175150918770740
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "objPlayer",
-							"sid": 174788583154272,
-							"parameters": {
-								"instance-variable": "PreviousState",
-								"value": "CurrState"
-							}
-						},
-						{
-							"id": "set-function-return-value",
-							"objectClass": "Functions",
-							"sid": 360197746136176,
-							"parameters": {
-								"value": "NextStage"
-							}
-						}
-					],
-					"sid": 574795501539823,
-					"disabled": true
-				}
-			],
+			"children": [],
 			"sid": 954280693391939
 		},
 		{
-			"eventType": "block",
+			"functionName": "mumbuLoss",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
 			"conditions": [],
 			"actions": [],
-			"sid": 956492326540775,
-			"disabled": true,
+			"sid": 356623696045022,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-boolean-eventvar",
+							"id": "repeat",
 							"objectClass": "System",
-							"sid": 605851395494174,
+							"sid": 177685547775166,
 							"parameters": {
-								"variable": "isSliding"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-jumping",
-							"objectClass": "objPlayer",
-							"sid": 362176486123033,
-							"disabled": true,
-							"behaviorType": "Platform",
-							"isInverted": true
-						},
-						{
-							"id": "is-falling",
-							"objectClass": "objPlayer",
-							"sid": 682990634052144,
-							"disabled": true,
-							"behaviorType": "Platform",
-							"isInverted": true
+								"count": "subtractCoins"
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 143939636611743,
+							"id": "spawn-another-object",
+							"objectClass": "objPlayer",
+							"sid": 674831652035296,
+							"disabled": true,
 							"parameters": {
-								"variable": "canSlide",
-								"value": "true"
+								"object": "objCoins_Loss",
+								"layer": "objPlayer.LayerNumber",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 825603560854355,
+							"parameters": {
+								"object-to-create": "objCoins_Loss",
+								"layer": "objPlayer.LayerNumber",
+								"x": "objPlayer.ImagePointX(1)",
+								"y": "objPlayer.ImagePointY(1)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "objCoins_Loss",
+							"sid": 474814556817653,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "random(240,280)"
+							}
+						},
+						{
+							"id": "set-gravity",
+							"objectClass": "objCoins_Loss",
+							"sid": 865594347979126,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"gravity": "random(400,475)"
+							}
+						},
+						{
+							"id": "set-bounce-off-solids",
+							"objectClass": "objCoins_Loss",
+							"sid": 870676439865526,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": true
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "objCoins_Loss",
+							"sid": 770619948961926,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "random(280,300)"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "objCoins_Loss",
+							"sid": 132964743084221,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "objCoins_Loss",
+							"sid": 281900275258837,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "activeCollision",
+								"value": "1"
 							}
 						}
 					],
-					"sid": 218816213311949,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 363357023192530
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 260884559023418,
-							"parameters": {
-								"variable": "canSlide",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 803447773267233,
-					"disabled": true
+					"sid": 894308750244808
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 812006844420002,
-					"parameters": {
-						"key": 40
-					}
-				},
-				{
-					"id": "on-touched-object",
-					"objectClass": "Touch",
-					"sid": 321069759975431,
-					"parameters": {
-						"object": "btn2",
-						"type": "start"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 473302697318421,
-			"disabled": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-at-offset",
-							"objectClass": "objPlayer",
-							"sid": 205322860763196,
-							"parameters": {
-								"object": "objLevelJumThru",
-								"offset-x": "0",
-								"offset-y": "2"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "FallThrough",
-							"sid": 152414784936310
-						}
-					],
-					"sid": 640852204742497,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 628498105499398,
-									"disabled": true,
-									"parameters": {
-										"variable": "canSlide"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 473923792001282,
-									"disabled": true,
-									"parameters": {
-										"variable": "isSliding",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 278111729578058,
-							"disabled": true
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 328698370597110
-						},
-						{
-							"id": "is-jumping",
-							"objectClass": "objPlayer",
-							"sid": 143636430182462,
-							"behaviorType": "Platform",
-							"isInverted": true
-						},
-						{
-							"id": "is-falling",
-							"objectClass": "objPlayer",
-							"sid": 188465271511292,
-							"behaviorType": "Platform",
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "fall-through",
-							"objectClass": "objPlayer",
-							"sid": 389839932707494,
-							"disabled": true,
-							"behaviorType": "Platform"
-						},
-						{
-							"callFunction": "Slide",
-							"sid": 913261240530257
-						}
-					],
-					"sid": 955740880562640,
-					"disabled": true
-				}
-			],
-			"isOrBlock": true
 		}
 	],
 	"sid": 298105393163351

@@ -257,33 +257,267 @@
 			"children": [
 				{
 					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 461459106941534,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 423649057068911,
+									"parameters": {
+										"object": "objCoins"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "objCoins",
+									"sid": 650432826812333
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 704994863634685,
+									"parameters": {
+										"variable": "currScore",
+										"value": "5"
+									}
+								}
+							],
+							"sid": 175663456372447
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 514059124536441,
+									"parameters": {
+										"object": "objCoins_Loss"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 481560487368347,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "objCoins_Loss",
+											"sid": 535324688461331,
+											"parameters": {
+												"instance-variable": "activeCollision",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "objCoins_Loss",
+											"sid": 525044219741957
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 905733772143622,
+											"parameters": {
+												"variable": "currScore",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 504873501746339
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "objCoins",
-							"sid": 685588959153781,
+							"id": "on-created",
+							"objectClass": "objCoins_Loss",
+							"sid": 854148455383019
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "objCoins_Loss",
+							"sid": 799923685062626,
+							"disabled": true,
+							"behaviorType": "Bullet",
 							"parameters": {
-								"object": "sprPlayerAnimations"
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "objCoins_Loss",
+							"sid": 799598922399942,
+							"parameters": {
+								"opacity": "50"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "objCoins_Loss",
+							"sid": 256205397628577,
+							"parameters": {
+								"scale": "0.5"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 878520271263588,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "objCoins_Loss",
+							"sid": 746319625819989,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						}
+					],
+					"sid": 528707927467177
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 342785399785790,
+							"parameters": {
+								"object": "objCoins_Loss"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "objCoins_Loss",
+							"sid": 916722975122423,
+							"parameters": {
+								"instance-variable": "activeCollision",
+								"comparison": 0,
+								"value": "1"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "destroy",
-							"objectClass": "objCoins",
-							"sid": 519443782165092
-						},
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 554756566905593,
+							"id": "set-instvar-value",
+							"objectClass": "objCoins_Loss",
+							"sid": 961628778309932,
 							"parameters": {
-								"variable": "currScore",
-								"value": "5"
+								"instance-variable": "activeCollision",
+								"value": "2"
 							}
 						}
 					],
-					"sid": 461459106941534
+					"sid": 958550998057959,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "objCoins_Loss",
+							"sid": 702516539163627,
+							"parameters": {
+								"object": "objLevelSolid"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "objCoins_Loss",
+							"sid": 508975603445480,
+							"parameters": {
+								"object": "objLevelJumThru"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "objCoins_Loss",
+							"sid": 525835841439651,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 351353403782447,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 786492289917443,
+									"parameters": {
+										"object": "objCoins_Loss"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "objCoins_Loss",
+									"sid": 849577240020582,
+									"parameters": {
+										"instance-variable": "activeCollision",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 410757839291421
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-flash-ended",
+							"objectClass": "objCoins_Loss",
+							"sid": 891342547434407,
+							"behaviorType": "Flash"
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "objCoins_Loss",
+							"sid": 496534253177385
+						}
+					],
+					"sid": 961919364548344
 				}
 			],
 			"sid": 914822604269407

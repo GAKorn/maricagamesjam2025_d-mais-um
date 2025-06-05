@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AdvancedRandom",
+			"name": "Advanced Random",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
@@ -66,6 +73,20 @@
 			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -142,7 +163,8 @@
 			"tlmTestDecor",
 			"txtDebugAction",
 			"txtDebugAction2",
-			"txtDebugAction3"
+			"txtDebugAction3",
+			"AdvancedRandom"
 		],
 		"subfolders": [
 			{
@@ -176,7 +198,8 @@
 					"objLevelJumThru",
 					"objGroundFixedHazard",
 					"objAirFixedHazard",
-					"objCoins"
+					"objCoins",
+					"objCoins_Loss"
 				],
 				"subfolders": [],
 				"name": "LevelDesign"
@@ -233,7 +256,9 @@
 			"PixelArtDecorations",
 			"PixelArtTiles",
 			"mobileUIElements",
-			"Interactables_OBJ"
+			"Interactables_OBJ",
+			"Hazards_OBJ",
+			"Coins"
 		],
 		"subfolders": []
 	},

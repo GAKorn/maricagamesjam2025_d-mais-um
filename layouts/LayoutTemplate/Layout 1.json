@@ -342,7 +342,7 @@
 					"world": {
 						"x": 128,
 						"y": 848,
-						"width": 14,
+						"width": 16,
 						"height": 36,
 						"originX": 0.5,
 						"originY": 1,
@@ -369,7 +369,11 @@
 					"sid": 295068977284785,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						}
+					},
 					"effects": {
 						"Pixellate": {
 							"isEnabled": true,

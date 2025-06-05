@@ -10,6 +10,7 @@
 		"endPoint",
 		"objSlowDown",
 		"objForceIdle",
-		"objCoins"
+		"objCoins",
+		"objCoins_Loss"
 	]
 }

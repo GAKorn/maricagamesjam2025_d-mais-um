@@ -90,31 +90,197 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-moving",
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 975512891007672,
+									"parameters": {
+										"variable": "dmgHappening"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
 									"objectClass": "objPlayer",
-									"sid": 403963831963278,
-									"behaviorType": "Platform"
+									"sid": 981540920843196,
+									"parameters": {
+										"instance-variable": "State",
+										"value": "\"HURT\""
+									}
+								}
+							],
+							"sid": 159192370342355
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 387474708369431
 								}
 							],
 							"actions": [],
-							"sid": 629323120164774,
+							"sid": 866785375543508,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-on-floor",
+											"id": "is-moving",
 											"objectClass": "objPlayer",
-											"sid": 699061940387375,
+											"sid": 472027113439170,
 											"behaviorType": "Platform"
+										}
+									],
+									"actions": [],
+									"sid": 902397337555557,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-on-floor",
+													"objectClass": "objPlayer",
+													"sid": 608458441670593,
+													"behaviorType": "Platform"
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 529432378323936,
+													"parameters": {
+														"variable": "isSliding"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objPlayer",
+													"sid": 154072592578212,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"MOVING\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 831341125251720,
+													"parameters": {
+														"variable": "canSlide",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 646973338769481
 										},
 										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 224597692017437,
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 819749352966551,
+													"parameters": {
+														"variable": "isSliding"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objPlayer",
+													"sid": 689240541397490,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"SLIDING\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 921210337161333,
+													"parameters": {
+														"variable": "canSlide",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 207557018150844
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-falling",
+											"objectClass": "objPlayer",
+											"sid": 466070738950465,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objPlayer",
+											"sid": 350541636706556,
 											"parameters": {
-												"variable": "isSliding"
-											},
+												"instance-variable": "State",
+												"value": "\"FALLING\""
+											}
+										}
+									],
+									"sid": 747619110184551
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-jumping",
+											"objectClass": "objPlayer",
+											"sid": 115194147371064,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objPlayer",
+											"sid": 632250662890349,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "\"JUMPING\""
+											}
+										}
+									],
+									"sid": 805452527954422
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-moving",
+											"objectClass": "objPlayer",
+											"sid": 783781865261576,
+											"behaviorType": "Platform",
+											"isInverted": true
+										},
+										{
+											"id": "is-jumping",
+											"objectClass": "objPlayer",
+											"sid": 774462163833552,
+											"behaviorType": "Platform",
+											"isInverted": true
+										},
+										{
+											"id": "is-falling",
+											"objectClass": "objPlayer",
+											"sid": 603339282549051,
+											"behaviorType": "Platform",
 											"isInverted": true
 										}
 									],
@@ -122,57 +288,104 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "objPlayer",
-											"sid": 432535623564812,
+											"sid": 700386758011292,
 											"parameters": {
 												"instance-variable": "State",
-												"value": "\"MOVING\""
+												"value": "\"IDLE\""
 											}
 										},
 										{
 											"id": "set-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 999964695448420,
+											"sid": 357165190226395,
 											"parameters": {
 												"variable": "canSlide",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 133208548293483
-								},
+									"sid": 525482949008968
+								}
+							]
+						}
+					],
+					"sid": 193129883304593
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "PlayerFSM",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "objPlayer",
+									"sid": 712744935664517,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"IDLE\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 649786322287194,
+									"parameters": {
+										"animation": "\"Mumbuquinha_Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 307690385633965,
+							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 718239173839114,
-											"parameters": {
-												"variable": "isSliding"
-											}
+											"sid": 536163452107174
 										}
 									],
 									"actions": [
 										{
-											"id": "set-instvar-value",
+											"id": "set-animation",
 											"objectClass": "objPlayer",
-											"sid": 506048539444534,
+											"sid": 313027588896415,
 											"parameters": {
-												"instance-variable": "State",
-												"value": "\"SLIDING\""
-											}
-										},
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 534622450246932,
-											"parameters": {
-												"variable": "canSlide",
-												"value": "false"
+												"animation": "\"Standard\"",
+												"from": "beginning"
 											}
 										}
 									],
-									"sid": 287990181018494
+									"sid": 289071896605327
+								},
+								{
+									"eventType": "comment",
+									"text": "State Logic"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 660266972513045
+								},
+								{
+									"eventType": "comment",
+									"text": "Going into other states."
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 205684364362498
 								}
 							]
 						},
@@ -180,533 +393,440 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-falling",
+									"id": "compare-instance-variable",
 									"objectClass": "objPlayer",
-									"sid": 353326472563443,
-									"behaviorType": "Platform"
+									"sid": 153082188754947,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"MOVING\""
+									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "objPlayer",
-									"sid": 780202570770698,
+									"id": "set-animation",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 267350483127475,
 									"parameters": {
-										"instance-variable": "State",
-										"value": "\"FALLING\""
+										"animation": "\"Vermelhinha_Running\"",
+										"from": "beginning"
 									}
 								}
 							],
-							"sid": 905104427924879
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-jumping",
-									"objectClass": "objPlayer",
-									"sid": 550528061250053,
-									"behaviorType": "Platform"
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "objPlayer",
-									"sid": 208139000622253,
-									"parameters": {
-										"instance-variable": "State",
-										"value": "\"JUMPING\""
-									}
-								}
-							],
-							"sid": 712913822401096
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-moving",
-									"objectClass": "objPlayer",
-									"sid": 673708321380382,
-									"behaviorType": "Platform",
-									"isInverted": true
-								},
-								{
-									"id": "is-jumping",
-									"objectClass": "objPlayer",
-									"sid": 374796647911037,
-									"behaviorType": "Platform",
-									"isInverted": true
-								},
-								{
-									"id": "is-falling",
-									"objectClass": "objPlayer",
-									"sid": 393846493199534,
-									"behaviorType": "Platform",
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "objPlayer",
-									"sid": 599356044095573,
-									"parameters": {
-										"instance-variable": "State",
-										"value": "\"IDLE\""
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 803295140310950,
-									"parameters": {
-										"variable": "canSlide",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 109138170688323
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "PlayerFSM",
-							"description": "",
-							"isActiveOnStart": true,
+							"sid": 658813876516311,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "objPlayer",
-											"sid": 454337967527936,
-											"parameters": {
-												"instance-variable": "State",
-												"comparison": 0,
-												"value": "\"IDLE\""
-											}
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 481063999174029
 										}
 									],
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 246223574759118,
+											"objectClass": "objPlayer",
+											"sid": 308060213216734,
 											"parameters": {
-												"animation": "\"Mumbuquinha_Idle\"",
+												"animation": "\"Standard\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 824202255059617,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 719576142420183
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "objPlayer",
-													"sid": 945072378601828,
-													"parameters": {
-														"animation": "\"Standard\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 866807251344356
-										},
-										{
-											"eventType": "comment",
-											"text": "State Logic"
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 469340295026859
-										},
-										{
-											"eventType": "comment",
-											"text": "Going into other states."
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 189707503794613
-										}
-									]
+									"sid": 656258470733823
+								},
+								{
+									"eventType": "comment",
+									"text": "State Logic"
 								},
 								{
 									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "objPlayer",
-											"sid": 849630541356543,
-											"parameters": {
-												"instance-variable": "State",
-												"comparison": 0,
-												"value": "\"MOVING\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 924820840030380,
-											"parameters": {
-												"animation": "\"Vermelhinha_Running\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 108750355440882,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 243202414763659
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "objPlayer",
-													"sid": 547818366335651,
-													"parameters": {
-														"animation": "\"Standard\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 494483241253612
-										},
-										{
-											"eventType": "comment",
-											"text": "State Logic"
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 497317014882259
-										},
-										{
-											"eventType": "comment",
-											"text": "Going into other states."
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 435353050964342
-										}
-									]
+									"conditions": [],
+									"actions": [],
+									"sid": 310046520671150
+								},
+								{
+									"eventType": "comment",
+									"text": "Going into other states."
 								},
 								{
 									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "objPlayer",
-											"sid": 576597750405713,
-											"parameters": {
-												"instance-variable": "State",
-												"comparison": 0,
-												"value": "\"JUMPING\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 571244189114741,
-											"parameters": {
-												"animation": "\"Mumbuquinha_Idle\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 421861492455387,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 449763316439351
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "objPlayer",
-													"sid": 385377779848005,
-													"parameters": {
-														"animation": "\"Standard\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 833669307466549
-										},
-										{
-											"eventType": "comment",
-											"text": "State Logic"
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 243642799267651
-										},
-										{
-											"eventType": "comment",
-											"text": "Going into other states."
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 269653514243921
-										}
-									]
-								},
+									"conditions": [],
+									"actions": [],
+									"sid": 305791793759874
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "objPlayer",
-											"sid": 169741310402230,
-											"parameters": {
-												"instance-variable": "State",
-												"comparison": 0,
-												"value": "\"FALLING\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 907449830462501,
-											"parameters": {
-												"animation": "\"Mumbuquinha_Idle\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 242280016424187,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 584032382962989
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "objPlayer",
-													"sid": 626399875678188,
-													"parameters": {
-														"animation": "\"Standard\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 212680944176958
-										},
-										{
-											"eventType": "comment",
-											"text": "State Logic"
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 670972862872442
-										},
-										{
-											"eventType": "comment",
-											"text": "Going into other states."
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 118102022533432
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "objPlayer",
-											"sid": 145742002596717,
-											"parameters": {
-												"instance-variable": "State",
-												"comparison": 0,
-												"value": "\"SLIDING\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 127434188635864,
-											"parameters": {
-												"animation": "\"Mumbuquinha_Slide\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 972268861388419,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 632068729529007
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "objPlayer",
-													"sid": 337669983623393,
-													"parameters": {
-														"animation": "\"Sliding\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 947479935046370
-										},
-										{
-											"eventType": "comment",
-											"text": "State Logic"
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 108358123607883
-										},
-										{
-											"eventType": "comment",
-											"text": "Going into other states."
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 401982427994937
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "objPlayer",
-											"sid": 325938500510665,
-											"parameters": {
-												"instance-variable": "State",
-												"comparison": 0,
-												"value": "\"HURT\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 297721274651890,
-											"parameters": {
-												"animation": "\"Mumbuquinha_Slide\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 464516885109933,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 786755642945876
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation",
-													"objectClass": "objPlayer",
-													"sid": 605688480563984,
-													"parameters": {
-														"animation": "\"Standard\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 503144658972378
-										},
-										{
-											"eventType": "comment",
-											"text": "State Logic"
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 375604220188654
-										},
-										{
-											"eventType": "comment",
-											"text": "Going into other states."
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 366355074305035
-										}
-									]
+									"id": "compare-instance-variable",
+									"objectClass": "objPlayer",
+									"sid": 600167267136868,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"JUMPING\""
+									}
 								}
 							],
-							"sid": 265801937046285
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 392210906104294,
+									"parameters": {
+										"animation": "\"Mumbuquinha_Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 801730854774777,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 799029455111537
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "objPlayer",
+											"sid": 315929184468402,
+											"parameters": {
+												"animation": "\"Standard\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 397983921880454
+								},
+								{
+									"eventType": "comment",
+									"text": "State Logic"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 490383272634904
+								},
+								{
+									"eventType": "comment",
+									"text": "Going into other states."
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 634772254833038
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "objPlayer",
+									"sid": 676961753535099,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"FALLING\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 925171572145635,
+									"parameters": {
+										"animation": "\"Mumbuquinha_Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 460265089324487,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 302557068700677
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "objPlayer",
+											"sid": 464327471289596,
+											"parameters": {
+												"animation": "\"Standard\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 176715921362529
+								},
+								{
+									"eventType": "comment",
+									"text": "State Logic"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 891429623501443
+								},
+								{
+									"eventType": "comment",
+									"text": "Going into other states."
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 814147148151621
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "objPlayer",
+									"sid": 965308340653653,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"SLIDING\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 476502163889747,
+									"parameters": {
+										"animation": "\"Mumbuquinha_Slide\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 603950734846918,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 599508745284756
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "objPlayer",
+											"sid": 567768660297743,
+											"parameters": {
+												"animation": "\"Sliding\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 946087891534243
+								},
+								{
+									"eventType": "comment",
+									"text": "State Logic"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 418900004530682
+								},
+								{
+									"eventType": "comment",
+									"text": "Going into other states."
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 785028244404033
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "objPlayer",
+									"sid": 180202248855511,
+									"parameters": {
+										"instance-variable": "State",
+										"comparison": 0,
+										"value": "\"HURT\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 906955857988691,
+									"parameters": {
+										"animation": "\"Mumbuquinha_Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "sprPlayerAnimations",
+									"sid": 950991511045296,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"BlackWhite1\""
+									}
+								}
+							],
+							"sid": 691464010175790,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 622644480204204
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "objPlayer",
+											"sid": 754418681034334,
+											"parameters": {
+												"animation": "\"Standard\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 414381483532520,
+											"parameters": {
+												"seconds": "0.15",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "flash",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 152916341668222,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.35"
+											}
+										}
+									],
+									"sid": 107262822049951
+								},
+								{
+									"eventType": "comment",
+									"text": "State Logic"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-flash-ended",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 939902895992832,
+											"behaviorType": "Flash"
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 208225530882044,
+											"parameters": {
+												"variable": "dmgHappening",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 560221817708129,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"BlackWhite1\""
+											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 867568862907117,
+											"parameters": {
+												"tag": "\"dmgEnd\""
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 954867863239268,
+											"parameters": {
+												"variable": "Invulnerable",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objPlayer",
+											"sid": 563582488204008,
+											"parameters": {
+												"instance-variable": "State",
+												"value": "objPlayer.PreviousState"
+											}
+										}
+									],
+									"sid": 396297018946605
+								},
+								{
+									"eventType": "comment",
+									"text": "Going into other states."
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 600599028281011
+								}
+							]
 						}
 					],
-					"sid": 318641424356874
+					"sid": 543023529538726
 				}
 			],
 			"sid": 588503184110679

@@ -1,0 +1,26 @@
+{
+	"name": "Coins",
+	"plugin-id": "Sprite",
+	"sid": 419792845636251,
+	"instanceVariables": [
+		{
+			"name": "activeCollision",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 435079328837278
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 123863864832882
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"objCoins",
+		"objCoins_Loss"
+	]
+}
