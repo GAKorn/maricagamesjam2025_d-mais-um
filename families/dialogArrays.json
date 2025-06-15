@@ -1,0 +1,9 @@
+{
+	"name": "dialogArrays",
+	"plugin-id": "Arr",
+	"sid": 129968990597663,
+	"instanceVariables": [],
+	"members": [
+		"activeDialogArray"
+	]
+}

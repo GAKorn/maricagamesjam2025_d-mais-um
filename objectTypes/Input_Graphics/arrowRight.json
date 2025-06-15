@@ -1,0 +1,64 @@
+{
+	"name": "arrowRight",
+	"plugin-id": "Sprite",
+	"sid": 564046839808793,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 192,
+						"height": 162,
+						"originX": -0.671875,
+						"originY": -0.3765432098765432,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7579481,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0,
+								0,
+								0.16145833333333334,
+								0,
+								0.9947916666666666,
+								0.3333333333333333,
+								0.9375,
+								0.8703703703703703,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0.7160493827160493,
+								0,
+								0.2962962962962963,
+								0,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 122303657411367,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

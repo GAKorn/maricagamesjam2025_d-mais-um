@@ -1,0 +1,16 @@
+{
+	"name": "dialogOptionA",
+	"plugin-id": "Text",
+	"sid": 767543681133447,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 694531490932585
+		}
+	],
+	"effectTypes": []
+}

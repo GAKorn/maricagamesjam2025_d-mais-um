@@ -1,0 +1,349 @@
+{
+	"name": "Dialog_ES",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "dialogIsOpen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 128991153695391
+		},
+		{
+			"eventType": "variable",
+			"name": "isQuizOpOpen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 717209191894225
+		},
+		{
+			"eventType": "variable",
+			"name": "typeSpeed",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 349271039983831
+		},
+		{
+			"eventType": "variable",
+			"name": "loremIpsum",
+			"type": "string",
+			"initialValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit auctor leo, id feugiat velit egestas eu. Nulla a nibh enim. In interdum ullamcorper lectus, non rhoncus sapien lacinia id. Donec suscipit posuere mi in ultricies. Phasellus velit lorem, iaculis at pulvinar vitae, hendrerit et metus. Aenean tincidunt placerat lorem, vitae venenatis lorem. Nunc convallis viverra vestibulum. Integer mattis ut leo sit amet luctus. Donec sed augue quis ipsum ullamcorper tincidunt in vitae arcu. Phasellus cursus nulla risus, a pharetra augue suscipit a. Nunc sollicitudin libero eu eros volutpat elementum.",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 416289264560810
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-signal",
+					"objectClass": "System",
+					"sid": 504832626774790,
+					"parameters": {
+						"tag": "\"dialogEnd\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "dialogText_Close",
+					"sid": 893057914914777
+				},
+				{
+					"callFunction": "dialogBoxClose",
+					"sid": 263779896596337
+				},
+				{
+					"callFunction": "quizCloseBoxes",
+					"sid": 589150384821409
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 227114372060043,
+					"parameters": {
+						"seconds": "0.25",
+						"use-timescale": true
+					}
+				}
+			],
+			"sid": 333394568466214,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "objPlayer",
+							"sid": 915955338407772,
+							"parameters": {
+								"instance-variable": "isQuiz"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "objPlayer",
+							"sid": 755851368666402,
+							"parameters": {
+								"instance-variable": "isQuiz",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 991529729179991
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-typewriter-text-finished",
+					"objectClass": "dialogText",
+					"sid": 363339522786429
+				}
+			],
+			"actions": [
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 660526964145807,
+					"parameters": {
+						"tag": "\"dialogTextDisplayed\""
+					}
+				}
+			],
+			"sid": 740971786560770
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Quiz",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Check to see if the player has triggered a quiz"
+				},
+				{
+					"eventType": "variable",
+					"name": "levelIdleUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 624779456624204
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 485525868619420,
+							"parameters": {
+								"tag": "\"isIdleInLevel\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "objPlayer",
+							"sid": 663122125478964,
+							"parameters": {
+								"object": "objForceIdle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "objPlayer",
+							"sid": 853074760792309,
+							"parameters": {
+								"instance-variable": "isQuiz",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 703102418576719,
+							"parameters": {
+								"variable": "levelIdleUID",
+								"value": "objForceIdle.UID"
+							}
+						}
+					],
+					"sid": 571070484904131
+				},
+				{
+					"eventType": "comment",
+					"text": "Keep it checked"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "objPlayer",
+							"sid": 886228436706924,
+							"parameters": {
+								"object": "objForceIdle"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "objPlayer",
+							"sid": 483719271064605,
+							"parameters": {
+								"instance-variable": "isQuiz",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 575177315914970
+				},
+				{
+					"eventType": "comment",
+					"text": "Close the dialog box if it's open."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "objForceIdle",
+							"sid": 969585887073394
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "objForceIdle",
+							"sid": 192794267435658,
+							"parameters": {
+								"object": "objPlayer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 893291762681483,
+							"parameters": {
+								"tag": "\"dialogEnd\""
+							}
+						}
+					],
+					"sid": 483213215479015
+				},
+				{
+					"eventType": "comment",
+					"text": "Open Dialog Box"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "objPlayer",
+							"sid": 856144573444832,
+							"parameters": {
+								"instance-variable": "isQuiz"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 564484841230172,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 349783904416176
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 808807940547000,
+									"parameters": {
+										"seconds": "0.25",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "dialogBoxOpen",
+									"sid": 275170446706605
+								},
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 929507850666315,
+									"parameters": {
+										"tag": "\"dialogOpen\""
+									}
+								},
+								{
+									"callFunction": "dialogText_Update",
+									"sid": 701925506568258,
+									"parameters": [
+										"loremIpsum"
+									]
+								},
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 745281566875577,
+									"parameters": {
+										"tag": "\"dialogTextDisplayed\""
+									}
+								},
+								{
+									"callFunction": "quizOpenBoxes",
+									"sid": 278525767334039
+								}
+							],
+							"sid": 606667507946557
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 148654120466488,
+							"parameters": {
+								"tag": "\"dialogTextDisplayed\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 685503810914978
+				}
+			],
+			"sid": 452743506879968
+		}
+	],
+	"sid": 129935000358570
+}

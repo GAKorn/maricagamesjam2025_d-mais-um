@@ -1,18 +1,10 @@
 {
-	"name": "objForceIdle",
+	"name": "arrowDown",
 	"plugin-id": "Sprite",
-	"sid": 120693253392976,
+	"sid": 121396680228142,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
-		{
-			"name": "slowBy",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 882809630716412
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -20,28 +12,41 @@
 			{
 				"frames": [
 					{
-						"width": 288,
-						"height": 288,
-						"originX": 0,
+						"width": 193,
+						"height": 162,
+						"originX": 0.5,
 						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3309599,
+						"imageSpriteId": 1956213,
+						"collisionPoly": {
+							"points": [
+								0.12953367875647667,
+								0,
+								1,
+								0,
+								1,
+								0.29012345679012347,
+								1,
+								0.8580246913580247,
+								0.8134715025906736,
+								1,
+								0.12953367875647667,
+								1,
+								0,
+								0.7345679012345679,
+								0,
+								0.29012345679012347
+							]
+						},
 						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "Image Point 1",
-								"x": 0.5,
-								"y": 0.5
-							}
-						],
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 220719656890730,
+				"sid": 760892736678097,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -549,6 +549,76 @@
 							]
 						}
 					]
+				},
+				{
+					"functionName": "setLayoutType",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "thisLayoutName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "The name of the layout in question",
+							"sid": 863027211630777
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 607297867806108,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 792608813142240,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"FTUE_Test\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 561783988825438,
+									"parameters": {
+										"value": "\"Game\""
+									}
+								}
+							],
+							"sid": 266225000738021
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 711189743380603
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 132405748465411,
+									"parameters": {
+										"value": "\"Menu\""
+									}
+								}
+							],
+							"sid": 309925635003728
+						}
+					]
 				}
 			],
 			"sid": 483852009524089
@@ -559,120 +629,1415 @@
 			"title": "Player Functions",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"functionName": "mumbuLoss",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 244957840684069,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 949829857559875,
+									"parameters": {
+										"count": "subtractCoins"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "objPlayer",
+									"sid": 498875606035323,
+									"disabled": true,
+									"parameters": {
+										"object": "objCoins_Loss",
+										"layer": "objPlayer.LayerNumber",
+										"image-point": "1",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 703783070152411,
+									"parameters": {
+										"object-to-create": "objCoins_Loss",
+										"layer": "objPlayer.LayerNumber",
+										"x": "objPlayer.ImagePointX(1)",
+										"y": "objPlayer.ImagePointY(1)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "objCoins_Loss",
+									"sid": 126859612212894,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"speed": "random(240,280)"
+									}
+								},
+								{
+									"id": "set-gravity",
+									"objectClass": "objCoins_Loss",
+									"sid": 365826270993722,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"gravity": "random(400,475)"
+									}
+								},
+								{
+									"id": "set-bounce-off-solids",
+									"objectClass": "objCoins_Loss",
+									"sid": 650640377394683,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"state": true
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "objCoins_Loss",
+									"sid": 566810404840120,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "random(280,300)"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "objCoins_Loss",
+									"sid": 852025930470020,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "objCoins_Loss",
+									"sid": 377976493834585,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "activeCollision",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 567046765250215
+						}
+					]
+				}
+			],
 			"sid": 954280693391939
 		},
 		{
-			"functionName": "mumbuLoss",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 356623696045022,
+			"eventType": "group",
+			"disabled": false,
+			"title": "SavingAndLoading",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LevelCheckpoints",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "HitCheckPoint",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "thisUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 724547572790707
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 590146070923809,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 654010610080476,
+											"parameters": {
+												"object": "objLevelCheckpoint"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 583081159407353,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 287537383905103,
+													"parameters": {
+														"first-value": "objLevelCheckpoint.UID",
+														"comparison": 0,
+														"second-value": "thisUID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "objLevelCheckpoint",
+													"sid": 130787432461308,
+													"parameters": {
+														"instance-variable": "wasVisited",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "objLevelCheckpoint",
+													"sid": 335734110703229,
+													"parameters": {
+														"instance-variable": "isChecked",
+														"value": "true"
+													}
+												},
+												{
+													"callFunction": "LevelCheckpointSave",
+													"sid": 862100882414952,
+													"parameters": [
+														"objPlayer.X",
+														"objPlayer.Y",
+														".5"
+													]
+												}
+											],
+											"sid": 710495633388757
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 898601578092013
+												}
+											],
+											"actions": [],
+											"sid": 794192781050439,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "objLevelCheckpoint",
+															"sid": 738126162283375,
+															"parameters": {
+																"instance-variable": "wasVisited"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "objLevelCheckpoint",
+															"sid": 438135750386621
+														}
+													],
+													"sid": 297407394943905
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "LevelCheckpointSave",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "playerX",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 892201384348394
+								},
+								{
+									"name": "playerY",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 214402303009267
+								},
+								{
+									"name": "savingTime",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 433840720867261
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 418706617016757,
+									"parameters": {
+										"variable": "gameIsSaving",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "objPlayer",
+									"sid": 137447470239356,
+									"parameters": {
+										"x": "playerX",
+										"y": "playerY"
+									}
+								}
+							],
+							"sid": 273981503096837,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 707223774362104,
+											"parameters": {
+												"seconds": "savingTime",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "save",
+											"objectClass": "System",
+											"sid": 272010304403041,
+											"parameters": {
+												"slot": "\"LevelCheckpoint\""
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 178337397736088,
+											"parameters": {
+												"variable": "gameIsSaving",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 931128456782177
+								}
+							]
+						},
+						{
+							"functionName": "LevelCheckpointLoad",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "System",
+									"sid": 149245734298289,
+									"parameters": {
+										"slot": "\"LevelCheckpoint\""
+									}
+								}
+							],
+							"sid": 171095849125670
+						}
+					],
+					"sid": 396745463983199
+				}
+			],
+			"sid": 553672614470053
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DialogFunctions",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [
+					"conditions": [],
+					"actions": [],
+					"sid": 257926222540003
+				},
+				{
+					"functionName": "updateDialog",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 525565826533143
+				},
+				{
+					"functionName": "DialogText",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
 						{
-							"id": "repeat",
-							"objectClass": "System",
-							"sid": 177685547775166,
-							"parameters": {
-								"count": "subtractCoins"
-							}
+							"name": "textToUpdate",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 405095649363578
 						}
 					],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
-							"id": "spawn-another-object",
-							"objectClass": "objPlayer",
-							"sid": 674831652035296,
-							"disabled": true,
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 991173864361448,
 							"parameters": {
-								"object": "objCoins_Loss",
-								"layer": "objPlayer.LayerNumber",
-								"image-point": "1",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 825603560854355,
-							"parameters": {
-								"object-to-create": "objCoins_Loss",
-								"layer": "objPlayer.LayerNumber",
-								"x": "objPlayer.ImagePointX(1)",
-								"y": "objPlayer.ImagePointY(1)",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "set-speed",
-							"objectClass": "objCoins_Loss",
-							"sid": 474814556817653,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"speed": "random(240,280)"
-							}
-						},
-						{
-							"id": "set-gravity",
-							"objectClass": "objCoins_Loss",
-							"sid": 865594347979126,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"gravity": "random(400,475)"
-							}
-						},
-						{
-							"id": "set-bounce-off-solids",
-							"objectClass": "objCoins_Loss",
-							"sid": 870676439865526,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"state": true
-							}
-						},
-						{
-							"id": "set-angle-of-motion",
-							"objectClass": "objCoins_Loss",
-							"sid": 770619948961926,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"angle": "random(280,300)"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "objCoins_Loss",
-							"sid": 132964743084221,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"state": "enabled"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "objCoins_Loss",
-							"sid": 281900275258837,
-							"disabled": true,
-							"parameters": {
-								"instance-variable": "activeCollision",
-								"value": "1"
+								"value": "textToUpdate"
 							}
 						}
 					],
-					"sid": 894308750244808
+					"sid": 402594549386302
+				},
+				{
+					"eventType": "comment",
+					"text": "Dialog Visuals"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 249629004883137,
+					"children": [
+						{
+							"functionName": "quizCloseBoxes",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 321802420967241,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "tweenTimer",
+									"type": "number",
+									"initialValue": "0.2",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 153412233407013
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "ArrowIcons",
+											"sid": 119913570051898,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"scaleBtnsW\"",
+												"property": "offsetWidth",
+												"end-value": "0",
+												"time": "tweenTimer*0.7",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "ArrowIcons",
+											"sid": 741372225921466,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"scaleBtnsH\"",
+												"property": "offsetHeight",
+												"end-value": "0",
+												"time": "tweenTimer*0.7",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "ArrowIcons",
+											"sid": 255187245449954,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"scaleBtnsO\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "tweenTimer*0.4",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionA",
+											"sid": 666899421645690,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizAHeight\"",
+												"property": "offsetHeight",
+												"end-value": "0",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionA",
+											"sid": 802011155660401,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizAWidth\"",
+												"property": "offsetWidth",
+												"end-value": "0",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionA",
+											"sid": 741247578566237,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizAOpac\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "tweenTimer-0.1",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionB",
+											"sid": 161924473358744,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizBHeight\"",
+												"property": "offsetHeight",
+												"end-value": "0",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionB",
+											"sid": 158506768795294,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizBWidth\"",
+												"property": "offsetWidth",
+												"end-value": "0",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionB",
+											"sid": 960037729164376,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizBOpac\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "tweenTimer-0.1",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 264228213455853
+								}
+							]
+						},
+						{
+							"functionName": "quizOpenBoxes",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 624208669314636,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "tweenTimer",
+									"type": "number",
+									"initialValue": "0.375",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 400792645882937
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionA",
+											"sid": 780948959333790,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizAHeight\"",
+												"property": "offsetHeight",
+												"end-value": "288",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionA",
+											"sid": 584162995270746,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizAWidth\"",
+												"property": "offsetWidth",
+												"end-value": "640",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionA",
+											"sid": 113252062874312,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizAOpac\"",
+												"property": "offsetOpacity",
+												"end-value": "100",
+												"time": "tweenTimer-0.1",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionB",
+											"sid": 561259813711846,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizBHeight\"",
+												"property": "offsetHeight",
+												"end-value": "288",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionB",
+											"sid": 780790736390216,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizBWidth\"",
+												"property": "offsetWidth",
+												"end-value": "640",
+												"time": "tweenTimer",
+												"ease": "easeincirc",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizOptionB",
+											"sid": 313831073184447,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"quizBOpac\"",
+												"property": "offsetOpacity",
+												"end-value": "100",
+												"time": "tweenTimer-0.1",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 610109814074549
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 635633618174450,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-on-mobile",
+													"objectClass": "PlatformInfo",
+													"sid": 768177856319813
+												}
+											],
+											"actions": [],
+											"sid": 815993168898561,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 689038253136140,
+															"parameters": {
+																"first-value": "ArrowIcons.Count",
+																"comparison": 4,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 857599663183569,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-all",
+																	"objectClass": "System",
+																	"sid": 711934173653608,
+																	"parameters": {
+																		"object": "ArrowIcons"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "ArrowIcons",
+																	"sid": 344959729853624
+																},
+																{
+																	"id": "signal",
+																	"objectClass": "System",
+																	"sid": 678714246638103,
+																	"parameters": {
+																		"tag": "\"boxReady\""
+																	}
+																}
+															],
+															"sid": 112400369929156
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 459883444316994
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 487134725347990,
+													"parameters": {
+														"seconds": "tweenTimer",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "tween-one-property",
+													"objectClass": "ArrowIcons",
+													"sid": 666365968071659,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"scaleBtnsW\"",
+														"property": "offsetWidth",
+														"end-value": "193",
+														"time": "tweenTimer*0.7",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												},
+												{
+													"id": "tween-one-property",
+													"objectClass": "ArrowIcons",
+													"sid": 766110610996798,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"scaleBtnsH\"",
+														"property": "offsetHeight",
+														"end-value": "162",
+														"time": "tweenTimer*0.7",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												},
+												{
+													"id": "tween-one-property",
+													"objectClass": "ArrowIcons",
+													"sid": 897857691618412,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"scaleBtnsO\"",
+														"property": "offsetOpacity",
+														"end-value": "162",
+														"time": "tweenTimer*0.4",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 228930434264794,
+													"parameters": {
+														"tag": "\"boxReady\""
+													}
+												}
+											],
+											"sid": 524381433147539
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 960866198669309
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 428557173126679,
+											"parameters": {
+												"seconds": "tweenTimer*0.8",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 853540685523440,
+											"parameters": {
+												"variable": "isQuizOpOpen",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 545810635152745
+								}
+							]
+						},
+						{
+							"functionName": "setDialogTextSizeSpeed",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "t",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 236716116441975
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 970989748217449,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "stringLength",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 960545746387083
+								},
+								{
+									"eventType": "variable",
+									"name": "minFontSize",
+									"type": "number",
+									"initialValue": "38",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 539244936140746
+								},
+								{
+									"eventType": "variable",
+									"name": "maxFontSize",
+									"type": "number",
+									"initialValue": "50",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 992499107295576
+								},
+								{
+									"eventType": "variable",
+									"name": "minREF_TextLength",
+									"type": "number",
+									"initialValue": "285",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 704490625739161
+								},
+								{
+									"eventType": "variable",
+									"name": "maxTextLength",
+									"type": "number",
+									"initialValue": "615",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 693721046239402
+								},
+								{
+									"eventType": "variable",
+									"name": "defaultFontFace",
+									"type": "string",
+									"initialValue": "\"Arial\"",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 507831346022396
+								},
+								{
+									"eventType": "variable",
+									"name": "currTextFontSize",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 212023508973450
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 557106529213354,
+											"parameters": {
+												"variable": "stringLength",
+												"value": "len(t)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 350192365643255,
+											"parameters": {
+												"variable": "currTextFontSize",
+												"value": "lerp(maxFontSize, minFontSize, clamp((stringLength - minREF_TextLength) / (maxTextLength - minREF_TextLength), 0, 1))\r\n"
+											}
+										},
+										{
+											"id": "set-font-size",
+											"objectClass": "dialogText",
+											"sid": 574412098437959,
+											"parameters": {
+												"size-pt": "currTextFontSize"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 749650371195763,
+											"parameters": {
+												"variable": "typeSpeed",
+												"value": "lerp(0.25, 3, clamp((stringLength - 15) / (maxTextLength - 15), 0, 1))"
+											}
+										}
+									],
+									"sid": 991169686546127
+								}
+							]
+						},
+						{
+							"functionName": "dialogBoxOpen",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "dialogBox",
+									"sid": 905953745391946,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"dialogBoxHeight\"",
+										"property": "offsetHeight",
+										"end-value": "496",
+										"time": "0.4",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "dialogBox",
+									"sid": 697395450659390,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"dialogBoxHeight\"",
+										"property": "offsetOpacity",
+										"end-value": "100",
+										"time": "0.37",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 430517359597430,
+									"parameters": {
+										"seconds": "0.501",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 528482501791009,
+									"parameters": {
+										"tag": "\"dialogOpen\""
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 496144157998799,
+									"parameters": {
+										"variable": "dialogIsOpen",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 854518422036235
+						},
+						{
+							"functionName": "dialogBoxClose",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 785939485324724,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 660580565450748,
+											"parameters": {
+												"variable": "dialogIsOpen"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 933077507175321,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "dialogBox",
+											"sid": 593924659620248,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"dialogBoxHeight\"",
+												"property": "offsetHeight",
+												"end-value": "0",
+												"time": "0.36",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "dialogBox",
+											"sid": 798357254967274,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"dialogBoxHeight\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "0.35",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 767452277545787,
+											"parameters": {
+												"seconds": "0.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 847679769356537,
+											"parameters": {
+												"variable": "dialogIsOpen",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 465060663462359
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "dialogText_Update",
+					"functionDescription": "",
+					"functionCategory": "Only used to show the dialog, not to define what's in the dialog.",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "text",
+							"type": "string",
+							"initialValue": "",
+							"comment": "The text to show",
+							"sid": 440806060438680
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "setDialogTextSizeSpeed",
+							"sid": 860302035853470,
+							"parameters": [
+								"text"
+							]
+						}
+					],
+					"sid": 670457798770334,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "dialogText",
+									"sid": 199750312264298,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "dialogText",
+									"sid": 474202688318492,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 946075531040594
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "typewriter-text",
+									"objectClass": "dialogText",
+									"sid": 173702046824648,
+									"parameters": {
+										"text": "text",
+										"duration": "typeSpeed"
+									}
+								}
+							],
+							"sid": 623034596731488
+						}
+					]
+				},
+				{
+					"functionName": "dialogText_Close",
+					"functionDescription": "",
+					"functionCategory": "Only used to show the dialog, not to define what's in the dialog.",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "dialogText",
+							"sid": 116763900083505,
+							"disabled": true,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 677673926324944,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "dialogText",
+									"sid": 501761387048463,
+									"parameters": {
+										"comparison": 5,
+										"opacity": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "dialogText",
+									"sid": 275391331633483,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"textOpacity\"",
+										"property": "offsetOpacity",
+										"end-value": "0",
+										"time": "0.2",
+										"ease": "noease",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 814473161039756
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "dialogText",
+									"sid": 744898627493602,
+									"parameters": {
+										"comparison": 3,
+										"opacity": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "dialogText",
+									"sid": 764854581687826,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 552621452617000,
+									"parameters": {
+										"seconds": "0.001",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "dialogText",
+									"sid": 545505226577006,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 317678881564852
+						}
+					]
 				}
-			]
+			],
+			"sid": 379505434545591
 		}
 	],
 	"sid": 298105393163351

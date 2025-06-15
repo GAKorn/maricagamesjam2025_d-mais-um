@@ -6,6 +6,10 @@
 			"includeSheet": "Player_ES"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "Dialog_ES"
+		},
+		{
 			"eventType": "variable",
 			"name": "curX",
 			"type": "number",
@@ -56,6 +60,16 @@
 			"sid": 500444708909261
 		},
 		{
+			"eventType": "variable",
+			"name": "gameIsSaving",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 630640529709570
+		},
+		{
 			"eventType": "comment",
 			"text": "This event sheet is to be included in every layout event sheet."
 		},
@@ -96,6 +110,15 @@
 				{
 					"callFunction": "GameScale",
 					"sid": 461480156244384
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 891512736798263,
+					"parameters": {
+						"variable": "LayoutType",
+						"value": "Functions.setLayoutType(LayoutName)"
+					}
 				}
 			],
 			"sid": 316334012379133
@@ -132,7 +155,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Layout Type Set",
+			"title": "LayoutConfig",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -140,113 +163,38 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 941389052738259,
-							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Intro\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 615792725549222,
+							"sid": 672040567818276,
 							"parameters": {
 								"variable": "LayoutType",
-								"value": "\"INTRO\""
+								"comparison": 0,
+								"value": "\"Game\""
 							}
 						}
 					],
-					"sid": 292865484383170,
-					"isOrBlock": true
+					"actions": [],
+					"sid": 656479303971756
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 632868679765302,
-							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"FTUE_Test\""
-							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 281334809384542,
-							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"GameTesting\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 721556810044537,
+							"sid": 699735704746165,
 							"parameters": {
 								"variable": "LayoutType",
-								"value": "\"MAIN_GAME\""
-							}
-						}
-					],
-					"sid": 243315279350366,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 118053205326133,
-							"parameters": {
-								"first-value": "LayoutName",
 								"comparison": 0,
-								"second-value": "\"Map\""
+								"value": "\"Menu\""
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 442775479720637,
-							"parameters": {
-								"variable": "LayoutType",
-								"value": "\"MAP\""
-							}
-						}
-					],
-					"sid": 655476957549617
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 624606536184274,
-							"parameters": {
-								"variable": "LayoutType",
-								"value": "\"HUB\""
-							}
-						}
-					],
-					"sid": 981960202225291
+					"actions": [],
+					"sid": 110153041346972
 				}
 			],
-			"sid": 820586646769824
+			"sid": 219207118946400
 		},
 		{
 			"eventType": "group",
@@ -282,10 +230,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 704994863634685,
+									"sid": 117169273661691,
 									"parameters": {
 										"variable": "currScore",
-										"value": "5"
+										"value": "1"
 									}
 								}
 							],
@@ -374,6 +322,7 @@
 							"id": "set-scale",
 							"objectClass": "objCoins_Loss",
 							"sid": 256205397628577,
+							"disabled": true,
 							"parameters": {
 								"scale": "0.5"
 							}
@@ -521,6 +470,57 @@
 				}
 			],
 			"sid": 914822604269407
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Checkpoint",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "objLevelCheckpoint",
+							"sid": 259526377267923,
+							"parameters": {
+								"instance-variable": "isChecked"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "objLevelCheckpoint",
+							"sid": 857098979977178,
+							"parameters": {
+								"instance-variable": "wasVisited"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "objLevelCheckpoint",
+							"sid": 260157736835189,
+							"parameters": {
+								"color": "rgbEx(100, 0, 0)"
+							}
+						}
+					],
+					"sid": 903027191236440
+				}
+			],
+			"sid": 494844440960960
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LoadingFiles",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 665968215193342
 		}
 	],
 	"sid": 139471198204685

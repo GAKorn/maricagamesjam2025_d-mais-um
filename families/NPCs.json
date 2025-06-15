@@ -1,0 +1,36 @@
+{
+	"name": "NPCs",
+	"plugin-id": "Sprite",
+	"sid": 629634493945062,
+	"instanceVariables": [
+		{
+			"name": "currentDialogType",
+			"type": "string",
+			"desc": "Defines if it's Dialog or Quiz",
+			"show": true,
+			"sid": 933571841278552
+		},
+		{
+			"name": "currDialogID",
+			"type": "number",
+			"desc": "The first number of the Array At to find the dialog.",
+			"show": true,
+			"sid": 230822602847233
+		},
+		{
+			"name": "currQuizID",
+			"type": "number",
+			"desc": "The first number of the Array At to find the quiz entry.",
+			"show": true,
+			"sid": 978966277238803
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"objNPC_DonaCida",
+		"objNPC_GuiDasMares",
+		"objNPC_TiaFernanda",
+		"objNPC_AndersonPatinho"
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"name": "ArrowIcons",
+	"plugin-id": "Sprite",
+	"sid": 725348960182666,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 151653614381084
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"arrowDown",
+		"arrowUp",
+		"arrowRight",
+		"arrowLeft"
+	]
+}

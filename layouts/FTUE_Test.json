@@ -3171,7 +3171,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 576,
+								"x": 560,
 								"y": 64,
 								"width": 144,
 								"height": 30,
@@ -3214,7 +3214,7 @@
 							"world": {
 								"x": 1024,
 								"y": 0,
-								"width": 32,
+								"width": 24,
 								"height": 208,
 								"originX": 0,
 								"originY": 0,
@@ -3265,7 +3265,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 960,
+								"x": 968,
 								"y": 64,
 								"width": 144,
 								"height": 30,
@@ -3306,7 +3306,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1776,
+								"x": 1768,
 								"y": 0,
 								"width": 40,
 								"height": 288,
@@ -3400,8 +3400,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2288,
-								"y": 272,
+								"x": 2200,
+								"y": 136,
 								"width": 24,
 								"height": 120,
 								"originX": 0,
@@ -3453,8 +3453,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2160,
-								"y": 304,
+								"x": 2152,
+								"y": 216,
 								"width": 128,
 								"height": 64,
 								"originX": 0,
@@ -3496,7 +3496,7 @@
 							"world": {
 								"x": 1280,
 								"y": 0,
-								"width": 48,
+								"width": 32,
 								"height": 288,
 								"originX": 0,
 								"originY": 0,
@@ -3547,7 +3547,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1248,
+								"x": 1224,
 								"y": 112,
 								"width": 144,
 								"height": 48,
@@ -4675,7 +4675,47 @@
 					"name": "CollisionDecorBehind",
 					"overriden": 0,
 					"subLayers": [],
-					"instances": [],
+					"instances": [
+						{
+							"type": "objForceIdle",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 179,
+							"sid": 124763495055494,
+							"tags": "",
+							"instanceVariables": {
+								"slowBy": 0.7
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 124763495055494,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2992,
+								"y": 0,
+								"width": 112,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
 					"sid": 391558738964849,
 					"effectTypes": [
 						{
@@ -4724,7 +4764,7 @@
 						{
 							"type": "objPlayer",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Standard",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -4735,7 +4775,10 @@
 							"tags": "",
 							"instanceVariables": {
 								"State": "",
-								"PreviousState": ""
+								"PreviousState": "",
+								"wasInObject": false,
+								"isDialog": false,
+								"isQuiz": false
 							},
 							"behaviors": {
 								"Platform": {
@@ -4767,61 +4810,6 @@
 								"y": 128,
 								"width": 16,
 								"height": 36,
-								"originX": 0.5,
-								"originY": 1,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "sprPlayerAnimations",
-							"properties": {
-								"initially-visible": false,
-								"initial-animation": "Mumbuquinha_Idle",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 94,
-							"sid": 359797203467626,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {
-								"Flash": {
-									"properties": {}
-								}
-							},
-							"effects": {
-								"Pixellate": {
-									"isEnabled": true,
-									"parameters": {
-										"size": 1
-									}
-								},
-								"BlackWhite1": {
-									"isEnabled": false,
-									"parameters": {
-										"threshold": 0.01
-									}
-								}
-							},
-							"instanceFolderItem": {
-								"sid": 359797203467626,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 112,
-								"y": 256,
-								"width": 48,
-								"height": 48,
 								"originX": 0.5,
 								"originY": 1,
 								"color": [
@@ -4867,6 +4855,102 @@
 								"height": 16,
 								"originX": 0.5,
 								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "objNPC_AndersonPatinho",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 184,
+							"sid": 292183403740370,
+							"tags": "",
+							"instanceVariables": {
+								"currentDialogType": "",
+								"currDialogID": 0,
+								"currQuizID": 0
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 292183403740370,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 3104,
+								"y": 256,
+								"width": 48,
+								"height": 80,
+								"originX": 0.5,
+								"originY": 1,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "sprPlayerAnimations",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Mumbuquinha_Idle",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 94,
+							"sid": 359797203467626,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Flash": {
+									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								},
+								"BlackWhite1": {
+									"isEnabled": false,
+									"parameters": {
+										"threshold": 0.01
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 359797203467626,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 112,
+								"y": 256,
+								"width": 48,
+								"height": 48,
+								"originX": 0.5,
+								"originY": 1,
 								"color": [
 									1,
 									1,
@@ -4953,7 +5037,88 @@
 					"global": false
 				}
 			],
-			"instances": [],
+			"instances": [
+				{
+					"type": "objLevelCheckpoint",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 182,
+					"sid": 459274139088484,
+					"tags": "",
+					"instanceVariables": {
+						"isChecked": false,
+						"wasVisited": false
+					},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 459274139088484,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1664,
+						"y": 0,
+						"width": 56,
+						"height": 288,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "objLevelCheckpoint",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 183,
+					"sid": 803867261320800,
+					"tags": "",
+					"instanceVariables": {
+						"isChecked": false,
+						"wasVisited": false
+					},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 803867261320800,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 2544,
+						"y": 0,
+						"width": 56,
+						"height": 288,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 996480449778450,
 			"effectTypes": [
 				{

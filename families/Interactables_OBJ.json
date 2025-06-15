@@ -11,6 +11,7 @@
 		"objSlowDown",
 		"objForceIdle",
 		"objCoins",
-		"objCoins_Loss"
+		"objCoins_Loss",
+		"objLevelCheckpoint"
 	]
 }

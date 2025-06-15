@@ -8,8 +8,22 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "AdvancedRandom",
 			"name": "Advanced Random",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -31,6 +45,13 @@
 			"type": "plugin",
 			"id": "Mouse",
 			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -66,6 +87,13 @@
 			"type": "plugin",
 			"id": "Tilemap",
 			"name": "Tilemap",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Timeline",
+			"name": "Timeline controller",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -108,6 +136,13 @@
 			"type": "behavior",
 			"id": "Timer",
 			"name": "Timer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -163,8 +198,7 @@
 			"tlmTestDecor",
 			"txtDebugAction",
 			"txtDebugAction2",
-			"txtDebugAction3",
-			"AdvancedRandom"
+			"txtDebugAction3"
 		],
 		"subfolders": [
 			{
@@ -173,7 +207,10 @@
 					"gameLayoutArea",
 					"PlatformInfo",
 					"Browser",
-					"gameCameraArea"
+					"gameCameraArea",
+					"AdvancedRandom",
+					"AJAX",
+					"TimelineController"
 				],
 				"subfolders": [],
 				"name": "Configuration"
@@ -199,7 +236,8 @@
 					"objGroundFixedHazard",
 					"objAirFixedHazard",
 					"objCoins",
-					"objCoins_Loss"
+					"objCoins_Loss",
+					"objLevelCheckpoint"
 				],
 				"subfolders": [],
 				"name": "LevelDesign"
@@ -236,6 +274,39 @@
 				],
 				"subfolders": [],
 				"name": "FTUE"
+			},
+			{
+				"items": [
+					"activeDialogArray",
+					"dialogBox",
+					"dialogText",
+					"quizOptionA",
+					"quizOptionB",
+					"dialogOptionA",
+					"dialogOptionB"
+				],
+				"subfolders": [],
+				"name": "Dialog"
+			},
+			{
+				"items": [
+					"objNPC_DonaCida",
+					"objNPC_GuiDasMares",
+					"objNPC_TiaFernanda",
+					"objNPC_AndersonPatinho"
+				],
+				"subfolders": [],
+				"name": "NPCs"
+			},
+			{
+				"items": [
+					"arrowDown",
+					"arrowUp",
+					"arrowLeft",
+					"arrowRight"
+				],
+				"subfolders": [],
+				"name": "Input_Graphics"
 			}
 		]
 	},
@@ -258,7 +329,11 @@
 			"mobileUIElements",
 			"Interactables_OBJ",
 			"Hazards_OBJ",
-			"Coins"
+			"Coins",
+			"dialogArrays",
+			"NPCs",
+			"UI_Btns",
+			"ArrowIcons"
 		],
 		"subfolders": []
 	},
@@ -292,7 +367,8 @@
 				"items": [
 					"Functions_ES",
 					"GeneralConfig_ES",
-					"dump"
+					"dump",
+					"Dialog_ES"
 				],
 				"subfolders": [
 					{
@@ -393,13 +469,106 @@
 		},
 		"general": {
 			"items": [],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [],
+					"subfolders": [
+						{
+							"items": [
+								{
+									"name": "npcCida_Dialog.json",
+									"type": "application/json",
+									"sid": 883608304688076,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "npcCida_Quiz.json",
+									"type": "application/json",
+									"sid": 109321794514663,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "DonaCida"
+						},
+						{
+							"items": [
+								{
+									"name": "npcGui_Dialog.json",
+									"type": "application/json",
+									"sid": 629786542918158,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "npcGui_Quiz.json",
+									"type": "application/json",
+									"sid": 705518466628666,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "GuiDasMares"
+						},
+						{
+							"items": [
+								{
+									"name": "npcFer_Dialog.json",
+									"type": "application/json",
+									"sid": 985485928320678,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "npcFer_Quiz.json",
+									"type": "application/json",
+									"sid": 922148116871570,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "TiaFernanda"
+						},
+						{
+							"items": [
+								{
+									"name": "npcPatinho_Dialog.json",
+									"type": "application/json",
+									"sid": 321830439945073,
+									"file-info": {
+										"purpose": "none"
+									}
+								},
+								{
+									"name": "npcPatinho_Quiz.json",
+									"type": "application/json",
+									"sid": 517276301377267,
+									"file-info": {
+										"purpose": "none"
+									}
+								}
+							],
+							"subfolders": [],
+							"name": "AndersonPatinho"
+						}
+					],
+					"name": "NPCs"
+				}
+			]
 		}
 	},
 	"timelines": {
-		"items": [
-			"Timeline 1"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [],

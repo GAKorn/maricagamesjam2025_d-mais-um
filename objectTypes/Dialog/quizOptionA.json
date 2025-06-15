@@ -1,0 +1,29 @@
+{
+	"name": "quizOptionA",
+	"plugin-id": "NinePatch",
+	"sid": 104100265338518,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 354559054409009
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 250,
+		"height": 251,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 1787990,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

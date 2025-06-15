@@ -1,16 +1,23 @@
 {
-	"name": "objForceIdle",
+	"name": "objLevelCheckpoint",
 	"plugin-id": "Sprite",
-	"sid": 120693253392976,
+	"sid": 394547598987925,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
 		{
-			"name": "slowBy",
-			"type": "number",
+			"name": "isChecked",
+			"type": "boolean",
 			"desc": "",
 			"show": true,
-			"sid": 882809630716412
+			"sid": 334978119315215
+		},
+		{
+			"name": "wasVisited",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 640737407090220
 		}
 	],
 	"behaviorTypes": [],
@@ -28,20 +35,13 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3309599,
+						"imageSpriteId": 983378,
 						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "Image Point 1",
-								"x": 0.5,
-								"y": 0.5
-							}
-						],
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 220719656890730,
+				"sid": 530746887082752,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

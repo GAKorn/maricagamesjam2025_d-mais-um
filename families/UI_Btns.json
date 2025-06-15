@@ -1,0 +1,12 @@
+{
+	"name": "UI_Btns",
+	"plugin-id": "Sprite",
+	"sid": 610700930815239,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"btn1",
+		"btn2"
+	]
+}

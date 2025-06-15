@@ -312,7 +312,10 @@
 					"tags": "",
 					"instanceVariables": {
 						"State": "",
-						"PreviousState": ""
+						"PreviousState": "",
+						"wasInObject": false,
+						"isDialog": false,
+						"isQuiz": false
 					},
 					"behaviors": {
 						"Platform": {

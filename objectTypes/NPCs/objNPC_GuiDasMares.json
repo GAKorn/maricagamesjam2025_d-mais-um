@@ -1,18 +1,10 @@
 {
-	"name": "objForceIdle",
+	"name": "objNPC_GuiDasMares",
 	"plugin-id": "Sprite",
-	"sid": 120693253392976,
+	"sid": 290719436185010,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
-		{
-			"name": "slowBy",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 882809630716412
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -20,28 +12,21 @@
 			{
 				"frames": [
 					{
-						"width": 288,
-						"height": 288,
-						"originX": 0,
-						"originY": 0,
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3309599,
+						"imageSpriteId": 7751022,
 						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "Image Point 1",
-								"x": 0.5,
-								"y": 0.5
-							}
-						],
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 220719656890730,
+				"sid": 502357970249869,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

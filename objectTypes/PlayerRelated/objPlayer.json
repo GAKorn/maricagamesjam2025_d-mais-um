@@ -18,6 +18,27 @@
 			"desc": "",
 			"show": true,
 			"sid": 893360388172212
+		},
+		{
+			"name": "wasInObject",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 508006404554270
+		},
+		{
+			"name": "isDialog",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 118325639797157
+		},
+		{
+			"name": "isQuiz",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 457697662122874
 		}
 	],
 	"behaviorTypes": [
