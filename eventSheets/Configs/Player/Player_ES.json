@@ -160,327 +160,269 @@
 			"sid": 910190141436373
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 714901944454373
-				}
-			],
-			"actions": [
-				{
-					"id": "set-enabled",
-					"objectClass": "objPlayer",
-					"sid": 656317490843015,
-					"behaviorType": "Platform",
-					"parameters": {
-						"state": "disabled"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 759759888417758,
-					"parameters": {
-						"seconds": "0",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 245978981999850,
-					"parameters": {
-						"variable": "cameraY_Offset",
-						"value": "75"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "objPlayer",
-					"sid": 362623522931888,
-					"parameters": {
-						"x": "startPoint.X",
-						"y": "startPoint.Y-1"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "Camera",
-					"sid": 103944644316418,
-					"parameters": {
-						"x": "objPlayer.X",
-						"y": "objPlayer.BBoxTop-cameraY_Offset"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "stateDebugText",
-					"sid": 890234002749141,
-					"parameters": {
-						"x": "objPlayer.X",
-						"y": "objPlayer.BBoxTop-cameraY_Offset"
-					}
-				},
-				{
-					"id": "add-child",
-					"objectClass": "objPlayer",
-					"sid": 503526047721048,
-					"parameters": {
-						"child": "stateDebugText",
-						"transform-x": true,
-						"transform-y": true,
-						"transform-w": true,
-						"transform-h": true,
-						"transform-a": true,
-						"transform-o": false,
-						"transform-z-elevation": true,
-						"transform-visibility": false,
-						"destroy-with-parent": false
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "stateDebugText",
-					"sid": 506412985264556,
-					"parameters": {
-						"text": "objCoins.Count"
-					}
-				},
-				{
-					"id": "move-to-top",
-					"objectClass": "sprPlayerAnimations",
-					"sid": 986245818319961
-				},
-				{
-					"id": "set-effect-enabled",
-					"objectClass": "sprPlayerAnimations",
-					"sid": 536631313120342,
-					"parameters": {
-						"mode": "disable",
-						"effect": "\"BlackWhite1\""
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 824643031679274,
-					"parameters": {
-						"seconds": "2",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 688959337793407,
-					"parameters": {
-						"group-name": "\"GameIsSaving\"",
-						"state": "activated"
-					}
-				},
-				{
-					"callFunction": "LevelCheckpointSave",
-					"sid": 457922818182671,
-					"disabled": true,
-					"parameters": [
-						"objPlayer.X",
-						"objPlayer.Y",
-						".1"
-					]
-				}
-			],
-			"sid": 855416421995324
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 357858705350572
-				}
-			],
-			"actions": [
-				{
-					"id": "set-position-to-another-object",
-					"objectClass": "sprPlayerAnimations",
-					"sid": 776069232727362,
-					"parameters": {
-						"object": "objPlayer",
-						"image-point-optional": "0"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 543449347014475,
-					"parameters": {
-						"variable": "subtractCoins",
-						"value": "ceil(currScore*1)"
-					}
-				},
-				{
-					"id": "set-max-speed",
-					"objectClass": "objPlayer",
-					"sid": 826281213017530,
-					"behaviorType": "Platform",
-					"parameters": {
-						"max-speed": "plSpeed"
-					}
-				},
-				{
-					"id": "set-jump-strength",
-					"objectClass": "objPlayer",
-					"sid": 597342092322484,
-					"behaviorType": "Platform",
-					"parameters": {
-						"jump-strength": "plJumpStr"
-					}
-				},
-				{
-					"id": "set-max-fall-speed",
-					"objectClass": "objPlayer",
-					"sid": 421051206964481,
-					"behaviorType": "Platform",
-					"parameters": {
-						"max-fall-speed": "plFallSpeed"
-					}
-				},
-				{
-					"id": "set-gravity",
-					"objectClass": "objPlayer",
-					"sid": 814871207316405,
-					"behaviorType": "Platform",
-					"parameters": {
-						"gravity": "plGravity"
-					}
-				}
-			],
-			"sid": 164674922026994,
+			"eventType": "group",
+			"disabled": false,
+			"title": "Gaming",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-enabled",
-							"objectClass": "objPlayer",
-							"sid": 823295137425029,
-							"behaviorType": "Platform"
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 687096782639739
 						}
 					],
 					"actions": [
 						{
-							"id": "set-x",
-							"objectClass": "Camera",
-							"sid": 737655025664526,
+							"id": "set-enabled",
+							"objectClass": "objPlayer",
+							"sid": 979415361211379,
+							"behaviorType": "Platform",
 							"parameters": {
-								"x": "lerp(Self.X, objPlayer.X, 0.05)"
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 588749085897709,
+							"parameters": {
+								"seconds": "0",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 538886881157487,
+							"parameters": {
+								"variable": "cameraY_Offset",
+								"value": "75"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "objPlayer",
+							"sid": 559571337881411,
+							"parameters": {
+								"x": "startPoint.X",
+								"y": "startPoint.Y-1"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 338052605337239,
+							"parameters": {
+								"x": "objPlayer.X",
+								"y": "objPlayer.BBoxTop-cameraY_Offset"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "stateDebugText",
+							"sid": 608114363654934,
+							"parameters": {
+								"x": "objPlayer.X",
+								"y": "objPlayer.BBoxTop-cameraY_Offset"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "objPlayer",
+							"sid": 162901560656718,
+							"parameters": {
+								"child": "stateDebugText",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-o": false,
+								"transform-z-elevation": true,
+								"transform-visibility": false,
+								"destroy-with-parent": false
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "stateDebugText",
-							"sid": 924565136973213,
+							"sid": 751808821815869,
 							"parameters": {
-								"text": "objPlayer.State"
+								"text": "objCoins.Count"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 819028087220576
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 879203504419040,
+							"parameters": {
+								"mode": "disable",
+								"effect": "\"BlackWhite1\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 600794855546159,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 228287820263293,
+							"parameters": {
+								"group-name": "\"GameIsSaving\"",
+								"state": "activated"
+							}
+						},
+						{
+							"callFunction": "LevelCheckpointSave",
+							"sid": 495497041188100,
+							"disabled": true,
+							"parameters": [
+								"objPlayer.X",
+								"objPlayer.Y",
+								".1"
+							]
+						}
+					],
+					"sid": 397372369865518
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 456665245408859
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 648632166721614,
+							"parameters": {
+								"object": "objPlayer",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 657605165565824,
+							"parameters": {
+								"variable": "subtractCoins",
+								"value": "ceil(currScore*1)"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "objPlayer",
+							"sid": 634657660029496,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "plSpeed"
+							}
+						},
+						{
+							"id": "set-jump-strength",
+							"objectClass": "objPlayer",
+							"sid": 813438662984062,
+							"behaviorType": "Platform",
+							"parameters": {
+								"jump-strength": "plJumpStr"
+							}
+						},
+						{
+							"id": "set-max-fall-speed",
+							"objectClass": "objPlayer",
+							"sid": 967808044059719,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-fall-speed": "plFallSpeed"
+							}
+						},
+						{
+							"id": "set-gravity",
+							"objectClass": "objPlayer",
+							"sid": 990109991376779,
+							"behaviorType": "Platform",
+							"parameters": {
+								"gravity": "plGravity"
 							}
 						}
 					],
-					"sid": 645354728541132
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 200620335302370,
-					"parameters": {
-						"variable": "gameIsSaving"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [],
-			"sid": 798360082519471,
-			"children": [
+					"sid": 187170596502392,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-enabled",
+									"objectClass": "objPlayer",
+									"sid": 238221581671658,
+									"behaviorType": "Platform"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Camera",
+									"sid": 798925774885359,
+									"parameters": {
+										"x": "lerp(Self.X, objPlayer.X, 0.05)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "stateDebugText",
+									"sid": 935587824348686,
+									"parameters": {
+										"text": "objPlayer.State"
+									}
+								}
+							],
+							"sid": 385316796371681
+						}
+					]
+				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 184330407356893,
+							"sid": 577247203748270,
 							"parameters": {
-								"variable": "isSliding"
+								"variable": "gameIsSaving"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 354703006624452,
+							"parameters": {
+								"variable": "dialogIsOpen"
 							},
 							"isInverted": true
 						}
 					],
-					"actions": [
-						{
-							"callFunction": "Jump",
-							"sid": 999258794609939,
-							"disabled": true
-						}
-					],
-					"sid": 745303783026228,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 706311565197200,
-									"parameters": {
-										"key": 38
-									}
-								},
-								{
-									"id": "on-touched-object",
-									"objectClass": "Touch",
-									"sid": 805952190375298,
-									"parameters": {
-										"object": "btn1",
-										"type": "start"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "simulate-control",
-									"objectClass": "objPlayer",
-									"sid": 217819342631789,
-									"behaviorType": "Platform",
-									"parameters": {
-										"control": "jump"
-									}
-								}
-							],
-							"sid": 789778114894108,
-							"isOrBlock": true
-						}
-					]
-				}
-			]
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Sliding",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
 					"actions": [],
-					"sid": 246455089391922,
+					"sid": 213034184248039,
 					"children": [
 						{
 							"eventType": "block",
@@ -488,7 +430,7 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 409312750057328,
+									"sid": 327211715839616,
 									"parameters": {
 										"variable": "isSliding"
 									},
@@ -497,122 +439,422 @@
 							],
 							"actions": [
 								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 165008768412410,
-									"parameters": {
-										"variable": "canSlide",
-										"value": "true"
-									}
+									"callFunction": "Jump",
+									"sid": 525240774767364,
+									"disabled": true
 								}
 							],
-							"sid": 720719484507780
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 626043590976472
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 671996678137399,
-									"parameters": {
-										"variable": "canSlide",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 437324853424113
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 486432709577010,
-							"parameters": {
-								"variable": "gameIsSaving"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [],
-					"sid": 573275670950815,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "key-is-down",
-									"objectClass": "Keyboard",
-									"sid": 466606450859704,
-									"parameters": {
-										"key": 40
-									}
-								},
-								{
-									"id": "is-touching-object",
-									"objectClass": "Touch",
-									"sid": 952692910587431,
-									"parameters": {
-										"object": "btn2"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 804040120119195,
+							"sid": 115554407358662,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-overlapping-at-offset",
-											"objectClass": "objPlayer",
-											"sid": 516672696119627,
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 319873412788446,
 											"parameters": {
-												"object": "objLevelJumThru",
-												"offset-x": "0",
-												"offset-y": "2"
+												"key": 38
+											}
+										},
+										{
+											"id": "on-touched-object",
+											"objectClass": "Touch",
+											"sid": 745591136839292,
+											"parameters": {
+												"object": "btn1",
+												"type": "start"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "objPlayer",
+											"sid": 375215499408558,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "jump"
+											}
+										}
+									],
+									"sid": 197274672554566,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Sliding",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 423637026862230,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 766115692131592,
+											"parameters": {
+												"variable": "isSliding"
 											},
 											"isInverted": true
 										}
 									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 683464621458864,
+											"parameters": {
+												"variable": "canSlide",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 419518328743814
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 216858023959230
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 596598406455820,
+											"parameters": {
+												"variable": "canSlide",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 400214585432109
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 226775883315451,
+									"parameters": {
+										"variable": "gameIsSaving"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 817826367915850,
+									"parameters": {
+										"variable": "dialogIsOpen"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 392429147104001,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 287543880495885,
+											"parameters": {
+												"key": 40
+											}
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 882970954444767,
+											"parameters": {
+												"object": "btn2"
+											}
+										}
+									],
 									"actions": [],
-									"sid": 812807692449657,
+									"sid": 971462738310937,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 471565119867321,
+													"id": "is-overlapping-at-offset",
+													"objectClass": "objPlayer",
+													"sid": 743667293913736,
 													"parameters": {
-														"variable": "canSlide"
+														"object": "objLevelJumThru",
+														"offset-x": "0",
+														"offset-y": "2"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 990473595760206,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 396830301345000,
+															"parameters": {
+																"variable": "canSlide"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 726665058671296,
+															"parameters": {
+																"variable": "isSliding",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 508788919149048
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 593323038422170
+												}
+											],
+											"actions": [
+												{
+													"id": "fall-through",
+													"objectClass": "objPlayer",
+													"sid": 855724340525495,
+													"behaviorType": "Platform"
+												}
+											],
+											"sid": 729836391488134
+										}
+									],
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 670536774911022
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 546036511946647,
+											"parameters": {
+												"variable": "isSliding",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 434297463714257
+								}
+							]
+						}
+					],
+					"sid": 289429407041231
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "SlowingDown",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "curSlow",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 844886487470909
+						},
+						{
+							"eventType": "variable",
+							"name": "slowUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 538510282039702
+						},
+						{
+							"eventType": "variable",
+							"name": "prevSpeed",
+							"type": "number",
+							"initialValue": "160",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 958111326445582
+						},
+						{
+							"eventType": "variable",
+							"name": "prevGravity",
+							"type": "number",
+							"initialValue": "1500",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 574462043451248
+						},
+						{
+							"eventType": "variable",
+							"name": "prevFallSpeed",
+							"type": "number",
+							"initialValue": "100",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 124830069355136
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 652243091672278
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 580000555866386,
+									"parameters": {
+										"variable": "prevFallSpeed",
+										"value": "plFallSpeed"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 718675438055760,
+									"parameters": {
+										"variable": "prevGravity",
+										"value": "plGravity"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 654459777216020,
+									"parameters": {
+										"variable": "prevSpeed",
+										"value": "plSpeed"
+									}
+								}
+							],
+							"sid": 744491664668756,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 551591619090854,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "objPlayer",
+											"sid": 749484735020540,
+											"parameters": {
+												"object": "objSlowDown"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 741195740527166,
+											"parameters": {
+												"variable": "Slowed",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 446552300115689,
+											"parameters": {
+												"variable": "slowUID",
+												"value": "objSlowDown.UID"
+											}
+										}
+									],
+									"sid": 665325317001645,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "objSlowDown",
+													"sid": 137172037706010,
+													"parameters": {
+														"unique-id": "slowUID"
 													}
 												}
 											],
 											"actions": [
 												{
-													"id": "set-boolean-eventvar",
+													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 103907821923787,
+													"sid": 525584043116798,
 													"parameters": {
-														"variable": "isSliding",
-														"value": "true"
+														"variable": "curSlow",
+														"value": "objSlowDown.slowBy"
 													}
 												}
 											],
-											"sid": 967526030102379
+											"sid": 768979030323758,
+											"disabled": true
 										}
 									]
 								},
@@ -622,422 +864,165 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 589748419343679
+											"sid": 414438980025764
 										}
 									],
 									"actions": [
 										{
-											"id": "fall-through",
-											"objectClass": "objPlayer",
-											"sid": 230940909955427,
-											"behaviorType": "Platform"
-										}
-									],
-									"sid": 759854883842330
-								}
-							],
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 253859831904594
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 998230229670190,
-									"parameters": {
-										"variable": "isSliding",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 731812643782228
-						}
-					]
-				}
-			],
-			"sid": 414564164443360
-		},
-		{
-			"eventType": "group",
-			"disabled": true,
-			"title": "SlowingDown",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "curSlow",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 425711075495257
-				},
-				{
-					"eventType": "variable",
-					"name": "slowUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 385439707592768
-				},
-				{
-					"eventType": "variable",
-					"name": "prevSpeed",
-					"type": "number",
-					"initialValue": "160",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 983464128601467
-				},
-				{
-					"eventType": "variable",
-					"name": "prevGravity",
-					"type": "number",
-					"initialValue": "1500",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 752216917749754
-				},
-				{
-					"eventType": "variable",
-					"name": "prevFallSpeed",
-					"type": "number",
-					"initialValue": "100",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 432074611059483
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 687383226576924
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 214044446970937,
-							"parameters": {
-								"variable": "prevFallSpeed",
-								"value": "plFallSpeed"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 754963283817288,
-							"parameters": {
-								"variable": "prevGravity",
-								"value": "plGravity"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 889823488779906,
-							"parameters": {
-								"variable": "prevSpeed",
-								"value": "plSpeed"
-							}
-						}
-					],
-					"sid": 281065340930523,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 325662072746048,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "objPlayer",
-									"sid": 449634294423151,
-									"parameters": {
-										"object": "objSlowDown"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 338904500471736,
-									"parameters": {
-										"variable": "Slowed",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 256304418461159,
-									"parameters": {
-										"variable": "slowUID",
-										"value": "objSlowDown.UID"
-									}
-								}
-							],
-							"sid": 817098461047534,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "objSlowDown",
-											"sid": 907560826673670,
-											"parameters": {
-												"unique-id": "slowUID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
+											"id": "set-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 545727926165903,
+											"sid": 884960621654214,
 											"parameters": {
-												"variable": "curSlow",
-												"value": "objSlowDown.slowBy"
+												"variable": "Slowed",
+												"value": "false"
 											}
 										}
 									],
-									"sid": 751480425651492,
+									"sid": 253515240216296,
 									"disabled": true
 								}
 							]
 						},
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 967010156984479
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 742576956236673,
-									"parameters": {
-										"variable": "Slowed",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 111871661151907,
-							"disabled": true
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 897627161546589,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 515967889052147,
-									"parameters": {
-										"variable": "Slowed"
-									}
-								}
-							],
+							"conditions": [],
 							"actions": [],
-							"sid": 962191214164642,
+							"sid": 617305603776867,
 							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "trigger-once-while-true",
+											"id": "compare-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 531058146087410
+											"sid": 547771435554111,
+											"parameters": {
+												"variable": "Slowed"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 379282869691917,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 415016913026699
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 364778678715529,
+													"parameters": {
+														"variable": "plSpeed",
+														"value": "objPlayer.Platform.MaxSpeed*curSlow"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 154129660322608,
+													"parameters": {
+														"variable": "plGravity",
+														"value": "objPlayer.Platform.Gravity*max(1,(curSlow+0.4))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 931132877379399,
+													"parameters": {
+														"variable": "plFallSpeed",
+														"value": "objPlayer.Platform.MaxFallSpeed*min(1,(curSlow+0.4))"
+													}
+												}
+											],
+											"sid": 940335723570691,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 536707589903552,
+											"parameters": {
+												"variable": "Slowed"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 364497261132857,
+											"sid": 302566582879890,
 											"parameters": {
 												"variable": "plSpeed",
-												"value": "objPlayer.Platform.MaxSpeed*curSlow"
+												"value": "prevSpeed"
 											}
 										},
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 291707512225006,
+											"sid": 259556485338022,
 											"parameters": {
 												"variable": "plGravity",
-												"value": "objPlayer.Platform.Gravity*max(1,(curSlow+0.4))"
+												"value": "prevGravity"
 											}
 										},
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 510918266707067,
+											"sid": 133516529077552,
 											"parameters": {
 												"variable": "plFallSpeed",
-												"value": "objPlayer.Platform.MaxFallSpeed*min(1,(curSlow+0.4))"
+												"value": "prevFallSpeed"
 											}
 										}
 									],
-									"sid": 843108084005829,
+									"sid": 539983524500623,
 									"disabled": true
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 747310593985238,
-									"parameters": {
-										"variable": "Slowed"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 894108335667552,
-									"parameters": {
-										"variable": "plSpeed",
-										"value": "prevSpeed"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 783840231229256,
-									"parameters": {
-										"variable": "plGravity",
-										"value": "prevGravity"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 605028284294294,
-									"parameters": {
-										"variable": "plFallSpeed",
-										"value": "prevFallSpeed"
-									}
-								}
-							],
-							"sid": 122881890868803,
-							"disabled": true
 						}
-					]
-				}
-			],
-			"sid": 692954366768304
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "ForceIdle",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Check if is or not inside the object"
+					],
+					"sid": 829733311178865
 				},
 				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 601718591268577,
+					"eventType": "group",
+					"disabled": false,
+					"title": "ForceIdle",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-collision-with-another-object",
-									"objectClass": "objPlayer",
-									"sid": 830117237214145,
-									"parameters": {
-										"object": "objForceIdle"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "objPlayer",
-									"sid": 984520343480838,
-									"parameters": {
-										"instance-variable": "wasInObject",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 810022418355820
+							"eventType": "comment",
+							"text": "Check if is or not inside the object"
 						},
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 931928663644686,
-									"parameters": {
-										"interval-seconds": "0.65"
-									}
-								}
-							],
+							"conditions": [],
 							"actions": [],
-							"sid": 351715877472316,
+							"sid": 280535255080263,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-overlapping-another-object",
+											"id": "on-collision-with-another-object",
 											"objectClass": "objPlayer",
-											"sid": 561050986634710,
+											"sid": 653611049682064,
 											"parameters": {
 												"object": "objForceIdle"
 											}
@@ -1047,688 +1032,54 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "objPlayer",
-											"sid": 506174072628138,
+											"sid": 109893982130176,
 											"parameters": {
 												"instance-variable": "wasInObject",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 997216115158243
+									"sid": 813551383718082
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "else",
+											"id": "every-x-seconds",
 											"objectClass": "System",
-											"sid": 207451295362238
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "objPlayer",
-											"sid": 495445581164736,
+											"sid": 417633092575833,
 											"parameters": {
-												"instance-variable": "wasInObject",
-												"value": "false"
+												"interval-seconds": "0.65"
 											}
-										}
-									],
-									"sid": 403305931292526
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Basic Movement"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 155092960324683,
-							"parameters": {
-								"variable": "dmgHappening"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [],
-					"sid": 314933325545792,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "objPlayer",
-									"sid": 112463124300776,
-									"parameters": {
-										"object": "objForceIdle"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 321310559283802,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 578703100288632,
-											"parameters": {
-												"first-value": "objPlayer.X",
-												"comparison": 2,
-												"second-value": "objForceIdle.X+(objForceIdle.Width/2)"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "simulate-control",
-											"objectClass": "objPlayer",
-											"sid": 898995056279708,
-											"behaviorType": "Platform",
-											"parameters": {
-												"control": "right"
-											}
-										}
-									],
-									"sid": 530494134684770
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 725550708571445
-										}
-									],
-									"actions": [
-										{
-											"id": "signal",
-											"objectClass": "System",
-											"sid": 633519353403910,
-											"parameters": {
-												"tag": "\"isIdleInLevel\""
-											}
-										}
-									],
-									"sid": 350638565383974
-								},
-								{
-									"eventType": "comment",
-									"text": "For debugging purposes"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-key-pressed",
-											"objectClass": "Keyboard",
-											"sid": 723128663743641,
-											"parameters": {
-												"key": 32
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "objForceIdle",
-											"sid": 837659553353833
-										}
-									],
-									"sid": 935065931394444
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-touched-object",
-											"objectClass": "Touch",
-											"sid": 689286930695128,
-											"parameters": {
-												"object": "objForceIdle",
-												"type": "start"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "objForceIdle",
-											"sid": 162892328179816
-										}
-									],
-									"sid": 668191608812792
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "This is the event that forces the player to go Right at all times."
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 259711711302921
-								}
-							],
-							"actions": [
-								{
-									"id": "simulate-control",
-									"objectClass": "objPlayer",
-									"sid": 699738050327225,
-									"behaviorType": "Platform",
-									"parameters": {
-										"control": "right"
-									}
-								}
-							],
-							"sid": 462379556460497
-						}
-					]
-				}
-			],
-			"sid": 185327140333638
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Invulnerable",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 315442993739224,
-							"parameters": {
-								"variable": "Invulnerable"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 220761409947568,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 118090144043604
-								}
-							],
-							"actions": [
-								{
-									"id": "flash",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 571097952046186,
-									"behaviorType": "Flash",
-									"parameters": {
-										"on-time": "0.1",
-										"off-time": "0.1",
-										"duration": "1.0"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 997821098758414,
-									"parameters": {
-										"seconds": "1.0",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 466046949684591,
-									"parameters": {
-										"variable": "Invulnerable",
-										"value": "false"
-									}
-								}
-							],
-							"sid": 637327917500654
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-flash-ended",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 188733437878202,
-									"behaviorType": "Flash"
-								}
-							],
-							"actions": [],
-							"sid": 764028472331021,
-							"disabled": true
-						}
-					]
-				}
-			],
-			"sid": 857349742997241
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "DamageTaken",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 603371361187859,
-							"parameters": {
-								"variable": "dmgHappening"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 819390851174849,
-					"children": [
-						{
-							"eventType": "variable",
-							"name": "previousVectorX",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 853103531060233
-						},
-						{
-							"eventType": "variable",
-							"name": "dmgVector",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 198724315347120
-						},
-						{
-							"eventType": "variable",
-							"name": "dmgDistance",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 695546221006597
-						},
-						{
-							"eventType": "variable",
-							"name": "leftSpeed",
-							"type": "number",
-							"initialValue": "240",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 889181476641268
-						},
-						{
-							"eventType": "variable",
-							"name": "leftJumpStr",
-							"type": "number",
-							"initialValue": "340",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 181655258392086
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 864645067981066
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 754217888121322,
-									"parameters": {
-										"variable": "previousVectorX",
-										"value": "objPlayer.Platform.VectorX"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 938545973527012,
-									"parameters": {
-										"variable": "dmgDistance",
-										"value": "objPlayer.Width*((plSpeed*1.75)/100)"
-									}
-								}
-							],
-							"sid": 442383861971812,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 593089012735271,
-											"parameters": {
-												"variable": "previousVectorX",
-												"comparison": 2,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 841173606847075,
-											"parameters": {
-												"variable": "dmgVector",
-												"value": "-1"
-											}
-										}
-									],
-									"sid": 937605743581271
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 551509916898633
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 797907237661300,
-											"parameters": {
-												"variable": "dmgVector",
-												"value": "181"
-											}
-										}
-									],
-									"sid": 392792946629491
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 473555166815389
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-max-speed",
-									"objectClass": "objPlayer",
-									"sid": 237501256202596,
-									"behaviorType": "Platform",
-									"parameters": {
-										"max-speed": "leftSpeed"
-									}
-								},
-								{
-									"id": "set-jump-strength",
-									"objectClass": "objPlayer",
-									"sid": 500316033947873,
-									"behaviorType": "Platform",
-									"parameters": {
-										"jump-strength": "leftJumpStr"
-									}
-								},
-								{
-									"id": "simulate-control",
-									"objectClass": "objPlayer",
-									"sid": 802674053551032,
-									"behaviorType": "Platform",
-									"parameters": {
-										"control": "left"
-									}
-								},
-								{
-									"id": "set-mirrored",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 176703486879724,
-									"parameters": {
-										"state": "not-mirrored"
-									}
-								}
-							],
-							"sid": 517127570663298,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "trigger-once-while-true",
-											"objectClass": "System",
-											"sid": 263134357355021
-										}
-									],
-									"actions": [
-										{
-											"id": "simulate-control",
-											"objectClass": "objPlayer",
-											"sid": 760068313151316,
-											"behaviorType": "Platform",
-											"parameters": {
-												"control": "jump"
-											}
-										}
-									],
-									"sid": 199844190979522
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-signal",
-									"objectClass": "System",
-									"sid": 251881081284534,
-									"parameters": {
-										"tag": "\"dmgEnd\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 124540832802622
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 574803392177769
-						}
-					],
-					"actions": [
-						{
-							"id": "set-max-speed",
-							"objectClass": "objPlayer",
-							"sid": 778803438284096,
-							"behaviorType": "Platform",
-							"parameters": {
-								"max-speed": "plSpeed"
-							}
-						},
-						{
-							"id": "set-jump-strength",
-							"objectClass": "objPlayer",
-							"sid": 373712110960392,
-							"behaviorType": "Platform",
-							"parameters": {
-								"jump-strength": "plJumpStr"
-							}
-						}
-					],
-					"sid": 801243630380450
-				}
-			],
-			"sid": 270413503597056
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "LoseConditionsAndDamage",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "objPlayer",
-							"sid": 237661922415297,
-							"parameters": {
-								"object": "Hazards_OBJ"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 730663189285402,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Hazards_OBJ",
-									"sid": 646839573207200,
-									"parameters": {
-										"instance-variable": "instaKill"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "restart-layout",
-									"objectClass": "System",
-									"sid": 149029765323731,
-									"disabled": true
-								},
-								{
-									"callFunction": "LevelCheckpointLoad",
-									"sid": 165569922344180
-								}
-							],
-							"sid": 435587423378884
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 145278972317656
-								}
-							],
-							"actions": [],
-							"sid": 612170161858106,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 486969135811412,
-											"parameters": {
-												"variable": "Invulnerable"
-											},
-											"isInverted": true
 										}
 									],
 									"actions": [],
-									"sid": 894497604653577,
+									"sid": 939380828046821,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 340622696370726,
+													"id": "is-overlapping-another-object",
+													"objectClass": "objPlayer",
+													"sid": 681861524675942,
 													"parameters": {
-														"variable": "currScore",
-														"comparison": 4,
-														"value": "0"
+														"object": "objForceIdle"
 													}
 												}
 											],
 											"actions": [
 												{
-													"id": "set-instvar-value",
+													"id": "set-boolean-instvar",
 													"objectClass": "objPlayer",
-													"sid": 286598902557759,
+													"sid": 262946403945000,
 													"parameters": {
-														"instance-variable": "PreviousState",
-														"value": "objPlayer.State"
-													}
-												},
-												{
-													"id": "set-boolean-eventvar",
-													"objectClass": "System",
-													"sid": 607243555238922,
-													"parameters": {
-														"variable": "dmgHappening",
+														"instance-variable": "wasInObject",
 														"value": "true"
 													}
-												},
-												{
-													"id": "subtract-from-eventvar",
-													"objectClass": "System",
-													"sid": 911347022326601,
-													"parameters": {
-														"variable": "currScore",
-														"value": "subtractCoins"
-													}
-												},
-												{
-													"callFunction": "mumbuLoss",
-													"sid": 335215639210002
 												}
 											],
-											"sid": 685822649358828
+											"sid": 639320810504325
 										},
 										{
 											"eventType": "block",
@@ -1736,137 +1087,195 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 918689048147195
+													"sid": 778397198829610
 												}
 											],
 											"actions": [
 												{
-													"id": "restart-layout",
-													"objectClass": "System",
-													"sid": 138700915678044,
-													"disabled": true
-												},
-												{
-													"callFunction": "LevelCheckpointLoad",
-													"sid": 158182125381943
+													"id": "set-boolean-instvar",
+													"objectClass": "objPlayer",
+													"sid": 472432987003311,
+													"parameters": {
+														"instance-variable": "wasInObject",
+														"value": "false"
+													}
 												}
 											],
-											"sid": 374762302034045
+											"sid": 383968672217631
 										}
 									]
 								}
 							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-outside-layout",
-							"objectClass": "objPlayer",
-							"sid": 442604386074886
 						},
 						{
-							"id": "compare-y",
-							"objectClass": "objPlayer",
-							"sid": 623594040040483,
-							"parameters": {
-								"comparison": 4,
-								"y-co-ordinate": "LayoutHeight+(Self.Height*2)"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "restart-layout",
-							"objectClass": "System",
-							"sid": 610450430296655,
-							"disabled": true
+							"eventType": "comment",
+							"text": "Basic Movement"
 						},
-						{
-							"callFunction": "LevelCheckpointLoad",
-							"sid": 932006824198716
-						}
-					],
-					"sid": 940394911978725
-				}
-			],
-			"sid": 796383571207019
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "LevelCheckPoint",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "thisID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 262820273842566
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "objPlayer",
-							"sid": 114184474061956,
-							"parameters": {
-								"object": "objLevelCheckpoint"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 846083306673826,
-					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "objLevelCheckpoint",
-									"sid": 556508291409330,
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 975920457282226,
 									"parameters": {
-										"instance-variable": "isChecked"
+										"variable": "dmgHappening"
 									},
 									"isInverted": true
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 837321846346243,
+							"children": [
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 691081905096416,
-									"parameters": {
-										"variable": "thisID",
-										"value": "objLevelCheckpoint.UID"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "objPlayer",
+											"sid": 112613804932638,
+											"parameters": {
+												"object": "objForceIdle"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 524448765814262,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 328975137386803,
+													"parameters": {
+														"first-value": "objPlayer.X",
+														"comparison": 2,
+														"second-value": "objForceIdle.X+(objForceIdle.Width/2)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "objPlayer",
+													"sid": 493385187980916,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "right"
+													}
+												}
+											],
+											"sid": 226633505388082
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 927846255539770
+												}
+											],
+											"actions": [
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 710127319604974,
+													"parameters": {
+														"tag": "\"isIdleInLevel\""
+													}
+												}
+											],
+											"sid": 155762945590301
+										},
+										{
+											"eventType": "comment",
+											"text": "For debugging purposes"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 357701942667995,
+													"parameters": {
+														"key": 32
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "objForceIdle",
+													"sid": 504123564210948
+												}
+											],
+											"sid": 776885063228709
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-touched-object",
+													"objectClass": "Touch",
+													"sid": 409101410119183,
+													"parameters": {
+														"object": "objForceIdle",
+														"type": "start"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "objForceIdle",
+													"sid": 140608651659176
+												}
+											],
+											"sid": 933079655864595
+										}
+									]
 								},
 								{
-									"callFunction": "HitCheckPoint",
-									"sid": 803948156347174,
-									"parameters": [
-										"thisID"
-									]
+									"eventType": "comment",
+									"text": "This is the event that forces the player to go Right at all times."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 472484807264608
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "objPlayer",
+											"sid": 236739824373251,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "right"
+											}
+										}
+									],
+									"sid": 438679488437801
 								}
-							],
-							"sid": 417484478966293
+							]
 						}
-					]
+					],
+					"sid": 122787327347349
 				},
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "GameIsSaving",
+					"title": "Invulnerable",
 					"description": "",
-					"isActiveOnStart": false,
+					"isActiveOnStart": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1874,30 +1283,318 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 776544096028463,
+									"sid": 390256183532887,
 									"parameters": {
-										"variable": "gameIsSaving"
+										"variable": "Invulnerable"
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 168547920964995,
+							"children": [
 								{
-									"id": "set-enabled",
-									"objectClass": "objPlayer",
-									"sid": 317262579876658,
-									"behaviorType": "Platform",
-									"parameters": {
-										"state": "disabled"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 810129581725483
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 235253534019551,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "1.0"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 198941656502179,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 571127748872874,
+											"parameters": {
+												"variable": "Invulnerable",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 517513004385653
 								},
 								{
-									"id": "stop-animation",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 499724007370395,
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-flash-ended",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 552732203939634,
+											"behaviorType": "Flash"
+										}
+									],
+									"actions": [],
+									"sid": 283308704774327,
 									"disabled": true
 								}
+							]
+						}
+					],
+					"sid": 967459120947605
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "DamageTaken",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 414747406026187,
+									"parameters": {
+										"variable": "dmgHappening"
+									}
+								}
 							],
-							"sid": 589887266003986
+							"actions": [],
+							"sid": 225696813397308,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "previousVectorX",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 392846896768576
+								},
+								{
+									"eventType": "variable",
+									"name": "dmgVector",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 865199784595422
+								},
+								{
+									"eventType": "variable",
+									"name": "dmgDistance",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 823180692458285
+								},
+								{
+									"eventType": "variable",
+									"name": "leftSpeed",
+									"type": "number",
+									"initialValue": "240",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 961153936656287
+								},
+								{
+									"eventType": "variable",
+									"name": "leftJumpStr",
+									"type": "number",
+									"initialValue": "340",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 826909070188956
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 634559381841418
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 716730540060118,
+											"parameters": {
+												"variable": "previousVectorX",
+												"value": "objPlayer.Platform.VectorX"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 984329660996422,
+											"parameters": {
+												"variable": "dmgDistance",
+												"value": "objPlayer.Width*((plSpeed*1.75)/100)"
+											}
+										}
+									],
+									"sid": 361437910943437,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 962347100508996,
+													"parameters": {
+														"variable": "previousVectorX",
+														"comparison": 2,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 603640623443301,
+													"parameters": {
+														"variable": "dmgVector",
+														"value": "-1"
+													}
+												}
+											],
+											"sid": 577865282012820
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 759819721760001
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 979003361975223,
+													"parameters": {
+														"variable": "dmgVector",
+														"value": "181"
+													}
+												}
+											],
+											"sid": 553354482122872
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 401823375697052
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-max-speed",
+											"objectClass": "objPlayer",
+											"sid": 502861187130231,
+											"behaviorType": "Platform",
+											"parameters": {
+												"max-speed": "leftSpeed"
+											}
+										},
+										{
+											"id": "set-jump-strength",
+											"objectClass": "objPlayer",
+											"sid": 861639444224606,
+											"behaviorType": "Platform",
+											"parameters": {
+												"jump-strength": "leftJumpStr"
+											}
+										},
+										{
+											"id": "simulate-control",
+											"objectClass": "objPlayer",
+											"sid": 982316219428803,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "left"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 937438949224588,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 558105688202516,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 994948171010831
+												}
+											],
+											"actions": [
+												{
+													"id": "simulate-control",
+													"objectClass": "objPlayer",
+													"sid": 636135810393861,
+													"behaviorType": "Platform",
+													"parameters": {
+														"control": "jump"
+													}
+												}
+											],
+											"sid": 293424164813082
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-signal",
+											"objectClass": "System",
+											"sid": 962380927150067,
+											"parameters": {
+												"tag": "\"dmgEnd\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 478451865618465
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -1905,56 +1602,447 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 520570028445793
+									"sid": 934638322369580
 								}
 							],
 							"actions": [
 								{
-									"id": "start-animation",
-									"objectClass": "sprPlayerAnimations",
-									"sid": 824734930654354,
-									"disabled": true,
+									"id": "set-max-speed",
+									"objectClass": "objPlayer",
+									"sid": 888260474982340,
+									"behaviorType": "Platform",
 									"parameters": {
-										"from": "current-frame"
+										"max-speed": "plSpeed"
 									}
 								},
 								{
-									"id": "set-enabled",
+									"id": "set-jump-strength",
 									"objectClass": "objPlayer",
-									"sid": 433106649843227,
+									"sid": 817662535922078,
 									"behaviorType": "Platform",
 									"parameters": {
-										"state": "enabled"
+										"jump-strength": "plJumpStr"
 									}
 								}
 							],
-							"sid": 991343232058123
+							"sid": 732619717325136
 						}
 					],
-					"sid": 774390250372125
+					"sid": 865433701348455
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LoseConditionsAndDamage",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 599559601008207,
+									"parameters": {
+										"object": "Hazards_OBJ"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 727113771004132,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Hazards_OBJ",
+											"sid": 728339188607662,
+											"parameters": {
+												"instance-variable": "instaKill"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "restart-layout",
+											"objectClass": "System",
+											"sid": 971039163361970,
+											"disabled": true
+										},
+										{
+											"callFunction": "LevelCheckpointLoad",
+											"sid": 430668110782325
+										}
+									],
+									"sid": 396143044640770
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 668015724261704
+										}
+									],
+									"actions": [],
+									"sid": 267941478128601,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 928065689050764,
+													"parameters": {
+														"variable": "Invulnerable"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 419796815016229,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 375767934056794,
+															"parameters": {
+																"variable": "currScore",
+																"comparison": 4,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "objPlayer",
+															"sid": 543142125640194,
+															"parameters": {
+																"instance-variable": "PreviousState",
+																"value": "objPlayer.State"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 605343914910096,
+															"parameters": {
+																"variable": "dmgHappening",
+																"value": "true"
+															}
+														},
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 405392525290036,
+															"parameters": {
+																"variable": "currScore",
+																"value": "subtractCoins"
+															}
+														},
+														{
+															"callFunction": "mumbuLoss",
+															"sid": 354325353398650
+														}
+													],
+													"sid": 213436753063429
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 568497538455484
+														}
+													],
+													"actions": [
+														{
+															"id": "restart-layout",
+															"objectClass": "System",
+															"sid": 259760329351821,
+															"disabled": true
+														},
+														{
+															"callFunction": "LevelCheckpointLoad",
+															"sid": 481741233304971
+														}
+													],
+													"sid": 955133767608857
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-outside-layout",
+									"objectClass": "objPlayer",
+									"sid": 642695197158486
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "objPlayer",
+									"sid": 292787098268854,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "LayoutHeight+(Self.Height*2)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 261007016823356,
+									"disabled": true
+								},
+								{
+									"callFunction": "LevelCheckpointLoad",
+									"sid": 648529048156061
+								}
+							],
+							"sid": 888631943760345
+						}
+					],
+					"sid": 456826733992080
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LevelCheckPoint",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "thisID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 702643645108079
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 173276241625252,
+									"parameters": {
+										"object": "objLevelCheckpoint"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 357934650899141,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "objLevelCheckpoint",
+											"sid": 930441483184670,
+											"parameters": {
+												"instance-variable": "isChecked"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 623382820564549,
+											"parameters": {
+												"variable": "thisID",
+												"value": "objLevelCheckpoint.UID"
+											}
+										},
+										{
+											"callFunction": "HitCheckPoint",
+											"sid": 328520550930861,
+											"parameters": [
+												"thisID"
+											]
+										}
+									],
+									"sid": 923133886995056
+								}
+							]
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "GameIsSaving",
+							"description": "",
+							"isActiveOnStart": false,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 232069347277314,
+											"parameters": {
+												"variable": "gameIsSaving"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "objPlayer",
+											"sid": 401230258059587,
+											"behaviorType": "Platform",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "stop-animation",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 435651142289144,
+											"disabled": true
+										}
+									],
+									"sid": 904644723611752
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 828379159021372
+										}
+									],
+									"actions": [
+										{
+											"id": "start-animation",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 128550731922209,
+											"disabled": true,
+											"parameters": {
+												"from": "current-frame"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "objPlayer",
+											"sid": 782145855433918,
+											"behaviorType": "Platform",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 861101662170157
+								}
+							],
+							"sid": 319736594032737
+						}
+					],
+					"sid": 752571080150154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 907985301979598,
+							"parameters": {
+								"key": 82
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LevelCheckpointLoad",
+							"sid": 746419822783239
+						}
+					],
+					"sid": 465443087938437
 				}
 			],
-			"sid": 966156645026880
+			"sid": 498277785336851
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Quiz Input",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 799133447697759,
-					"parameters": {
-						"key": 82
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 422510008401053,
+							"parameters": {
+								"key": 40
+							}
+						},
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 364187512818329,
+							"parameters": {
+								"object": "quizOptionA",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 108331102397714,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 375004528592517,
+							"parameters": {
+								"key": 38
+							}
+						},
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 993510299544729,
+							"parameters": {
+								"object": "quizOptionB",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 901011267696445,
+					"isOrBlock": true
 				}
 			],
-			"actions": [
-				{
-					"callFunction": "LevelCheckpointLoad",
-					"sid": 730945428661764
-				}
-			],
-			"sid": 863683034318861
+			"sid": 151920963629238
 		}
 	],
 	"sid": 841640149488999

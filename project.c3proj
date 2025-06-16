@@ -36,6 +36,20 @@
 		},
 		{
 			"type": "plugin",
+			"id": "FileSystem",
+			"name": "File system",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
@@ -210,7 +224,9 @@
 					"gameCameraArea",
 					"AdvancedRandom",
 					"AJAX",
-					"TimelineController"
+					"TimelineController",
+					"FileSystem",
+					"JSON"
 				],
 				"subfolders": [],
 				"name": "Configuration"
@@ -333,7 +349,8 @@
 			"dialogArrays",
 			"NPCs",
 			"UI_Btns",
-			"ArrowIcons"
+			"ArrowIcons",
+			"quizTextOptions"
 		],
 		"subfolders": []
 	},

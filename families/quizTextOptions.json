@@ -1,0 +1,18 @@
+{
+	"name": "quizTextOptions",
+	"plugin-id": "Text",
+	"sid": 869660135870732,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 800592943652700
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"dialogOptionA",
+		"dialogOptionB"
+	]
+}

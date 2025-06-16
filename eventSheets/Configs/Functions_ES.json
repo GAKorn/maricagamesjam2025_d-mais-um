@@ -10,8 +10,8 @@
 			"children": [
 				{
 					"functionName": "GameScale",
-					"functionDescription": "",
-					"functionCategory": "",
+					"functionDescription": "Scale the layout of the game.",
+					"functionCategory": "Game Config",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -73,8 +73,8 @@
 				},
 				{
 					"functionName": "CreateLevel",
-					"functionDescription": "",
-					"functionCategory": "",
+					"functionDescription": "Position the different level bits based on configuration.",
+					"functionCategory": "Level Design",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -399,8 +399,8 @@
 				},
 				{
 					"functionName": "LevelMove",
-					"functionDescription": "",
-					"functionCategory": "",
+					"functionDescription": "Move the level and the contained items.",
+					"functionCategory": "Level Design",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -552,8 +552,8 @@
 				},
 				{
 					"functionName": "setLayoutType",
-					"functionDescription": "",
-					"functionCategory": "",
+					"functionDescription": "Define what type of layout the player's in.",
+					"functionCategory": "Game Config",
 					"functionReturnType": "string",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -589,9 +589,9 @@
 								{
 									"id": "set-function-return-value",
 									"objectClass": "Functions",
-									"sid": 561783988825438,
+									"sid": 470163077349173,
 									"parameters": {
-										"value": "\"Game\""
+										"value": "\"MainGame\""
 									}
 								}
 							],
@@ -632,8 +632,8 @@
 			"children": [
 				{
 					"functionName": "mumbuLoss",
-					"functionDescription": "",
-					"functionCategory": "",
+					"functionDescription": "Controls the loss of currency",
+					"functionCategory": "Player currency",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -761,8 +761,8 @@
 					"children": [
 						{
 							"functionName": "HitCheckPoint",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Check what checkpoint was hit, mark it, destroy previous.",
+							"functionCategory": "Level Checkpoint",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -881,8 +881,8 @@
 						},
 						{
 							"functionName": "LevelCheckpointSave",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Save the gamestate at the current checkpoint.",
+							"functionCategory": "Level Checkpoint",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -970,8 +970,8 @@
 						},
 						{
 							"functionName": "LevelCheckpointLoad",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Load the game from last checkpoint.",
+							"functionCategory": "Level Checkpoint",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -1010,49 +1010,6 @@
 					"sid": 257926222540003
 				},
 				{
-					"functionName": "updateDialog",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 525565826533143
-				},
-				{
-					"functionName": "DialogText",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "string",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "textToUpdate",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 405095649363578
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-function-return-value",
-							"objectClass": "Functions",
-							"sid": 991173864361448,
-							"parameters": {
-								"value": "textToUpdate"
-							}
-						}
-					],
-					"sid": 402594549386302
-				},
-				{
 					"eventType": "comment",
 					"text": "Dialog Visuals"
 				},
@@ -1063,9 +1020,160 @@
 					"sid": 249629004883137,
 					"children": [
 						{
+							"functionName": "setQuizTextSize",
+							"functionDescription": "Set the size of the text in the quiz options.",
+							"functionCategory": "Dialog Config",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tA",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 207682180762686
+								},
+								{
+									"name": "tB",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 333481187405318
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 633086917822528,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "stringLength",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 865081391384996
+								},
+								{
+									"eventType": "variable",
+									"name": "minFontSize",
+									"type": "number",
+									"initialValue": "28",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 800994396153220
+								},
+								{
+									"eventType": "variable",
+									"name": "maxFontSize",
+									"type": "number",
+									"initialValue": "42",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 478096813704148
+								},
+								{
+									"eventType": "variable",
+									"name": "minREF_TextLength",
+									"type": "number",
+									"initialValue": "65",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 769437212450101
+								},
+								{
+									"eventType": "variable",
+									"name": "maxTextLength",
+									"type": "number",
+									"initialValue": "165",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 815690538917960
+								},
+								{
+									"eventType": "variable",
+									"name": "defaultFontFace",
+									"type": "string",
+									"initialValue": "\"Arial\"",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 179572116328327
+								},
+								{
+									"eventType": "variable",
+									"name": "currTextFontSize",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 602233194551780
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 683783342495515,
+											"parameters": {
+												"variable": "stringLength",
+												"value": "max(len(tA),len(tB))"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 361692990733421,
+											"parameters": {
+												"variable": "currTextFontSize",
+												"value": "lerp(maxFontSize, minFontSize, clamp((stringLength - minREF_TextLength) / (maxTextLength - minREF_TextLength), 0, 1))\r\n"
+											}
+										}
+									],
+									"sid": 397162477719277,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 425973518295599,
+													"parameters": {
+														"object": "quizTextOptions"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-font-size",
+													"objectClass": "quizTextOptions",
+													"sid": 414005858382997,
+													"parameters": {
+														"size-pt": "currTextFontSize"
+													}
+												}
+											],
+											"sid": 573341439824957
+										}
+									]
+								}
+							]
+						},
+						{
 							"functionName": "quizCloseBoxes",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Close all quiz options (with tween)",
+							"functionCategory": "Dialog Boxes",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -1249,8 +1357,8 @@
 						},
 						{
 							"functionName": "quizOpenBoxes",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Open all quiz options with tween and buttons for PC",
+							"functionCategory": "Dialog Boxes",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -1565,8 +1673,8 @@
 						},
 						{
 							"functionName": "setDialogTextSizeSpeed",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Set font size and type speed for dialogs.",
+							"functionCategory": "Dialog Config",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -1687,10 +1795,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 749650371195763,
+											"sid": 831418397802311,
 											"parameters": {
 												"variable": "typeSpeed",
-												"value": "lerp(0.25, 3, clamp((stringLength - 15) / (maxTextLength - 15), 0, 1))"
+												"value": "lerp(0.15, 2, clamp((stringLength - 15) / (maxTextLength - 15), 0, 1))"
 											}
 										}
 									],
@@ -1700,8 +1808,8 @@
 						},
 						{
 							"functionName": "dialogBoxOpen",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Open the dialog box with tween.",
+							"functionCategory": "Dialog Boxes",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -1774,8 +1882,8 @@
 						},
 						{
 							"functionName": "dialogBoxClose",
-							"functionDescription": "",
-							"functionCategory": "",
+							"functionDescription": "Close the dialog box, with tween.",
+							"functionCategory": "Dialog Boxes",
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
@@ -1863,13 +1971,103 @@
 									"sid": 465060663462359
 								}
 							]
+						},
+						{
+							"functionName": "setQuizOptions",
+							"functionDescription": "Define quiz options based on text.",
+							"functionCategory": "Quiz Config",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "OptionA",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 367690241023049
+								},
+								{
+									"name": "OptionB",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 918645632552512
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "setQuizTextSize",
+									"sid": 166136087398974,
+									"parameters": [
+										"OptionA",
+										"OptionB"
+									]
+								}
+							],
+							"sid": 333415990304833,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "quizTextOptions",
+											"sid": 884811722672108,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "quizTextOptions",
+											"sid": 136612699624287,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 466868296424067
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "dialogOptionA",
+											"sid": 152998877531377,
+											"parameters": {
+												"text": "OptionA"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "dialogOptionB",
+											"sid": 441608857608189,
+											"parameters": {
+												"text": "OptionB"
+											}
+										}
+									],
+									"sid": 683957251889471
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 769504753985805
 						}
 					]
 				},
 				{
 					"functionName": "dialogText_Update",
-					"functionDescription": "",
-					"functionCategory": "Only used to show the dialog, not to define what's in the dialog.",
+					"functionDescription": "Updates the text shown in the screen in a dialog box.",
+					"functionCategory": "Dialog Text",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -1937,8 +2135,8 @@
 				},
 				{
 					"functionName": "dialogText_Close",
-					"functionDescription": "",
-					"functionCategory": "Only used to show the dialog, not to define what's in the dialog.",
+					"functionDescription": "Close the text inside a dialog box.",
+					"functionCategory": "Dialog Text",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -2035,9 +2233,424 @@
 							"sid": 317678881564852
 						}
 					]
+				},
+				{
+					"functionName": "dialogQuizOptions_Close",
+					"functionDescription": "Close the text inside quiz options.",
+					"functionCategory": "Quiz Config",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "dialogText",
+							"sid": 897912996812500,
+							"disabled": true,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 426600083320197,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 829775563869810,
+									"parameters": {
+										"object": "quizTextOptions"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 378573243086095,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-opacity",
+											"objectClass": "quizTextOptions",
+											"sid": 196425049317725,
+											"parameters": {
+												"comparison": 5,
+												"opacity": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "quizTextOptions",
+											"sid": 793750838989093,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"optionsOpacity\"",
+												"property": "offsetOpacity",
+												"end-value": "0",
+												"time": "0.115",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 919944502010041
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 189046309909194
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "quizTextOptions",
+											"sid": 398420673651649,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 370828867642024,
+											"parameters": {
+												"seconds": "0.001",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "quizTextOptions",
+											"sid": 672698393856365,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 810545473816501
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Loading Files"
 				}
 			],
 			"sid": 379505434545591
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "NPCs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "configNPC_Files",
+					"functionDescription": "Configure the NPCs",
+					"functionCategory": "NPC Config",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 571785357699752,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 872983355037624,
+									"parameters": {
+										"object": "NPCs"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 747273663141865,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 505759778265728,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 646375698377262,
+													"parameters": {
+														"object": "objNPC_AndersonPatinho"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_AndersonPatinho",
+													"sid": 955259688264564,
+													"parameters": {
+														"instance-variable": "FileName",
+														"value": "\"NPCs/AndersonPatinho/npcPatinho_\""
+													}
+												}
+											],
+											"sid": 675541386999143
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 381002566245349,
+													"parameters": {
+														"object": "objNPC_DonaCida"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_DonaCida",
+													"sid": 207763310263556,
+													"parameters": {
+														"instance-variable": "FileName",
+														"value": "\"NPCs/DonaCida/npcCida_\""
+													}
+												}
+											],
+											"sid": 220544568955639
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 254071352250308,
+													"parameters": {
+														"object": "objNPC_GuiDasMares"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_GuiDasMares",
+													"sid": 272483455007409,
+													"parameters": {
+														"instance-variable": "FileName",
+														"value": "\"NPCs/GuiDasMares/npcGui_\""
+													}
+												}
+											],
+											"sid": 828568711430653
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-all",
+													"objectClass": "System",
+													"sid": 620358246930596,
+													"parameters": {
+														"object": "objNPC_TiaFernanda"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_TiaFernanda",
+													"sid": 281300806231432,
+													"parameters": {
+														"instance-variable": "FileName",
+														"value": "\"NPCs/TiaFernanda/npcFer_\""
+													}
+												}
+											],
+											"sid": 179975261680575
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "variable",
+							"name": "thisLayout",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 218174512734861
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 371785007542532,
+									"parameters": {
+										"variable": "thisLayout",
+										"value": "Functions.setLayoutType(LayoutName)"
+									}
+								}
+							],
+							"sid": 899839815372830,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 376885184854811,
+											"parameters": {
+												"variable": "thisLayout",
+												"comparison": 0,
+												"value": "\"MainGame\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "NPCs",
+											"sid": 441013576521667,
+											"parameters": {
+												"instance-variable": "DialogType",
+												"value": "\"Quiz\""
+											}
+										}
+									],
+									"sid": 719145070783928
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 932907886106654
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "NPCs",
+											"sid": 521921431813075,
+											"parameters": {
+												"instance-variable": "DialogType",
+												"value": "\"Dialog\""
+											}
+										}
+									],
+									"sid": 457736311078379
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "loadNPC_File",
+					"functionDescription": "Load the correct NPC File for the current level.",
+					"functionCategory": "NPC Config",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "thisFileName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 239746284965100
+						},
+						{
+							"name": "thisFileType",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 560465055401562
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 857167514726115,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "thisFilePath",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 269384020071341
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 903962777141845,
+									"parameters": {
+										"variable": "thisFilePath",
+										"value": "thisFileName&thisFileType&\".json\""
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 475870366834527
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 131054640340270,
+									"parameters": {
+										"tag": "\"dialogFile\"",
+										"url": "thisFilePath"
+									}
+								}
+							],
+							"sid": 627223738459683
+						}
+					]
+				}
+			],
+			"sid": 935435722469912
 		}
 	],
 	"sid": 298105393163351

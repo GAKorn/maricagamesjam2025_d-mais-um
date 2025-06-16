@@ -42,6 +42,96 @@
 			"sid": 416289264560810
 		},
 		{
+			"eventType": "variable",
+			"name": "correctAnswer",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 231715395252946
+		},
+		{
+			"eventType": "variable",
+			"name": "selectedAnswer",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 451299912185228
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "NPC Config",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ConfigAllNPCs",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 565766703925269
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "configNPC_Files",
+									"sid": 148631099345472
+								}
+							],
+							"sid": 120343287117172
+						}
+					],
+					"sid": 566522268777355
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "objPlayer",
+							"sid": 707192483697796,
+							"parameters": {
+								"object": "objForceIdle"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "objForceIdle",
+							"sid": 139373762649267,
+							"parameters": {
+								"object": "NPCs"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 445104033620768,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 646250358701681,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 163289681978076
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -65,6 +155,10 @@
 				{
 					"callFunction": "quizCloseBoxes",
 					"sid": 589150384821409
+				},
+				{
+					"callFunction": "dialogQuizOptions_Close",
+					"sid": 535515692313113
 				},
 				{
 					"id": "wait",
@@ -127,6 +221,19 @@
 			"sid": 740971786560770
 		},
 		{
+			"functionName": "selectOption",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 908627321290193
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Quiz",
@@ -167,27 +274,50 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 571070484904131,
+					"children": [
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "objPlayer",
-							"sid": 853074760792309,
-							"parameters": {
-								"instance-variable": "isQuiz",
-								"value": "true"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "objForceIdle",
+									"sid": 860147766521019,
+									"parameters": {
+										"object": "NPCs"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 213714881444201
 						},
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 703102418576719,
-							"parameters": {
-								"variable": "levelIdleUID",
-								"value": "objForceIdle.UID"
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "objPlayer",
+									"sid": 335496124924650,
+									"parameters": {
+										"instance-variable": "isQuiz",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 677716807247937,
+									"parameters": {
+										"variable": "levelIdleUID",
+										"value": "objForceIdle.UID"
+									}
+								}
+							],
+							"sid": 165089592941356
 						}
-					],
-					"sid": 571070484904131
+					]
 				},
 				{
 					"eventType": "comment",
@@ -319,7 +449,8 @@
 								},
 								{
 									"callFunction": "quizOpenBoxes",
-									"sid": 278525767334039
+									"sid": 278525767334039,
+									"disabled": true
 								}
 							],
 							"sid": 606667507946557
@@ -338,8 +469,37 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "quizOpenBoxes",
+							"sid": 556521915243384
+						}
+					],
 					"sid": 685503810914978
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 501333948314894,
+							"parameters": {
+								"tag": "\"boxReady\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "setQuizOptions",
+							"sid": 973826003714143,
+							"parameters": [
+								"\"This is OptionB.. ops, A\"",
+								"\"This is OptionB... for real now\""
+							]
+						}
+					],
+					"sid": 174983734645096
 				}
 			],
 			"sid": 452743506879968

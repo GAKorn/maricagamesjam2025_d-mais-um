@@ -4714,6 +4714,45 @@
 								"angle": 0,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "objForceIdle",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 196,
+							"sid": 602743392310538,
+							"tags": "",
+							"instanceVariables": {
+								"slowBy": 0.7
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 602743392310538,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2272,
+								"y": 0,
+								"width": 112,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 391558738964849,
@@ -4878,9 +4917,10 @@
 							"sid": 292183403740370,
 							"tags": "",
 							"instanceVariables": {
-								"currentDialogType": "",
-								"currDialogID": 0,
-								"currQuizID": 0
+								"DialogType": "",
+								"currTextID": 0,
+								"currLineID": 0,
+								"FileName": ""
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
@@ -4951,6 +4991,48 @@
 								"height": 48,
 								"originX": 0.5,
 								"originY": 1,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "objNPC_GuiDasMares",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 197,
+							"sid": 555422935326848,
+							"tags": "",
+							"instanceVariables": {
+								"DialogType": "",
+								"currTextID": 0,
+								"currLineID": 0,
+								"FileName": ""
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 555422935326848,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2368,
+								"y": 224,
+								"width": 48,
+								"height": 80,
+								"originX": 0.5,
+								"originY": 0.5,
 								"color": [
 									1,
 									1,

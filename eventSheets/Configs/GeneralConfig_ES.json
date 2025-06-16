@@ -70,6 +70,16 @@
 			"sid": 630640529709570
 		},
 		{
+			"eventType": "variable",
+			"name": "currDIalog_FileName",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 577867238326041
+		},
+		{
 			"eventType": "comment",
 			"text": "This event sheet is to be included in every layout event sheet."
 		},
@@ -165,15 +175,26 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 672040567818276,
+							"sid": 733336965751403,
 							"parameters": {
 								"variable": "LayoutType",
 								"comparison": 0,
-								"value": "\"Game\""
+								"value": "\"MainGame\""
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPCs",
+							"sid": 529424045589106,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "DialogType",
+								"value": "\"Quiz\""
+							}
+						}
+					],
 					"sid": 656479303971756
 				},
 				{
@@ -190,7 +211,18 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "NPCs",
+							"sid": 189262524892010,
+							"disabled": true,
+							"parameters": {
+								"instance-variable": "DialogType",
+								"value": "\"Dialog\""
+							}
+						}
+					],
 					"sid": 110153041346972
 				}
 			],
@@ -521,6 +553,132 @@
 			"isActiveOnStart": true,
 			"children": [],
 			"sid": 665968215193342
+		},
+		{
+			"eventType": "variable",
+			"name": "test1",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 847190956025434
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 486289797794314
+				}
+			],
+			"actions": [
+				{
+					"id": "clear",
+					"objectClass": "activeDialogArray",
+					"sid": 768778496071273,
+					"disabled": true,
+					"parameters": {
+						"value": "0"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 762511504040394,
+					"disabled": true,
+					"parameters": {
+						"tag": "\"dialogFile\"",
+						"file": "npcGui_Quiz.json"
+					}
+				},
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 112089861838305,
+					"disabled": true,
+					"parameters": {
+						"tag": "\"dialogFile\"",
+						"url": "\"npcGui_Quiz.json\""
+					}
+				},
+				{
+					"callFunction": "loadNPC_File",
+					"sid": 880225291701216,
+					"parameters": [
+						"objNPC_AndersonPatinho.FileName",
+						"objNPC_AndersonPatinho.DialogType"
+					]
+				}
+			],
+			"sid": 898211642140572
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 350836751408294,
+					"parameters": {
+						"tag": "\"dialogFile\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "activeDialogArray",
+					"sid": 110156146189865,
+					"disabled": true,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 742034695882276,
+					"parameters": {
+						"tag": "\"fileLoaded\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 648614531279770,
+					"parameters": {
+						"variable": "test1",
+						"value": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 608341541302630
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-signal",
+					"objectClass": "System",
+					"sid": 130966504583466,
+					"parameters": {
+						"tag": "\"fileLoaded\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "activeDialogArray",
+					"sid": 500997190314471,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 298545155975799
 		}
 	],
 	"sid": 139471198204685

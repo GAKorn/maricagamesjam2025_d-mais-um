@@ -4,25 +4,32 @@
 	"sid": 629634493945062,
 	"instanceVariables": [
 		{
-			"name": "currentDialogType",
+			"name": "DialogType",
 			"type": "string",
 			"desc": "Defines if it's Dialog or Quiz",
 			"show": true,
 			"sid": 933571841278552
 		},
 		{
-			"name": "currDialogID",
+			"name": "currTextID",
 			"type": "number",
-			"desc": "The first number of the Array At to find the dialog.",
-			"show": true,
-			"sid": 230822602847233
-		},
-		{
-			"name": "currQuizID",
-			"type": "number",
-			"desc": "The first number of the Array At to find the quiz entry.",
+			"desc": "The first number of the Array At to find the text entry.",
 			"show": true,
 			"sid": 978966277238803
+		},
+		{
+			"name": "currLineID",
+			"type": "number",
+			"desc": "The second number in the array at.",
+			"show": true,
+			"sid": 716275042803634
+		},
+		{
+			"name": "FileName",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 788127052164991
 		}
 	],
 	"behaviorTypes": [],
