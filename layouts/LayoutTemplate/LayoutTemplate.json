@@ -736,6 +736,14 @@
 			"sid": 331758511768091,
 			"tags": "",
 			"instanceVariables": {}
+		},
+		{
+			"type": "npcFiles",
+			"properties": {},
+			"uid": 200,
+			"sid": 166043927646134,
+			"tags": "",
+			"instanceVariables": {}
 		}
 	],
 	"effectTypes": [],

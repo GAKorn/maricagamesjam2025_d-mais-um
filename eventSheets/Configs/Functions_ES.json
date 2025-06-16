@@ -657,19 +657,6 @@
 							],
 							"actions": [
 								{
-									"id": "spawn-another-object",
-									"objectClass": "objPlayer",
-									"sid": 498875606035323,
-									"disabled": true,
-									"parameters": {
-										"object": "objCoins_Loss",
-										"layer": "objPlayer.LayerNumber",
-										"image-point": "1",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 703783070152411,
@@ -725,16 +712,6 @@
 									"behaviorType": "Bullet",
 									"parameters": {
 										"state": "enabled"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "objCoins_Loss",
-									"sid": 377976493834585,
-									"disabled": true,
-									"parameters": {
-										"instance-variable": "activeCollision",
-										"value": "1"
 									}
 								}
 							],
@@ -2011,25 +1988,54 @@
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [
+									"conditions": [],
+									"actions": [],
+									"sid": 854666538453956,
+									"children": [
 										{
-											"id": "is-visible",
-											"objectClass": "quizTextOptions",
-											"sid": 884811722672108,
-											"isInverted": true
-										}
-									],
-									"actions": [
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-visible",
+													"objectClass": "quizTextOptions",
+													"sid": 651900815785583,
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "quizTextOptions",
+													"sid": 862177246467690,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 459300262249462
+										},
 										{
-											"id": "set-visible",
-											"objectClass": "quizTextOptions",
-											"sid": 136612699624287,
-											"parameters": {
-												"visibility": "visible"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 127640033567245
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "quizTextOptions",
+													"sid": 382814151193283,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 914791609678792
 										}
-									],
-									"sid": 466868296424067
+									]
 								},
 								{
 									"eventType": "block",
@@ -2095,25 +2101,54 @@
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [
+							"conditions": [],
+							"actions": [],
+							"sid": 346352427388450,
+							"children": [
 								{
-									"id": "is-visible",
-									"objectClass": "dialogText",
-									"sid": 199750312264298,
-									"isInverted": true
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "dialogText",
+											"sid": 486683842725721,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "dialogText",
+											"sid": 630501079251265,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 789225849380219
+								},
 								{
-									"id": "set-visible",
-									"objectClass": "dialogText",
-									"sid": 474202688318492,
-									"parameters": {
-										"visibility": "visible"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 888368652130881
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "dialogText",
+											"sid": 251935881016034,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 941592615651885
 								}
-							],
-							"sid": 946075531040594
+							]
 						},
 						{
 							"eventType": "block",
@@ -2225,6 +2260,7 @@
 									"id": "set-opacity",
 									"objectClass": "dialogText",
 									"sid": 545505226577006,
+									"disabled": true,
 									"parameters": {
 										"opacity": "100"
 									}
@@ -2337,6 +2373,7 @@
 											"id": "set-opacity",
 											"objectClass": "quizTextOptions",
 											"sid": 672698393856365,
+											"disabled": true,
 											"parameters": {
 												"opacity": "100"
 											}

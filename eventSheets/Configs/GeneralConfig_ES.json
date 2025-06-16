@@ -575,32 +575,11 @@
 			],
 			"actions": [
 				{
-					"id": "clear",
-					"objectClass": "activeDialogArray",
-					"sid": 768778496071273,
-					"disabled": true,
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 222088648457266,
 					"parameters": {
-						"value": "0"
-					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 762511504040394,
-					"disabled": true,
-					"parameters": {
-						"tag": "\"dialogFile\"",
-						"file": "npcGui_Quiz.json"
-					}
-				},
-				{
-					"id": "request-url",
-					"objectClass": "AJAX",
-					"sid": 112089861838305,
-					"disabled": true,
-					"parameters": {
-						"tag": "\"dialogFile\"",
-						"url": "\"npcGui_Quiz.json\""
+						"tag": "\"dictionaryLoaded\""
 					}
 				},
 				{
@@ -612,7 +591,34 @@
 					]
 				}
 			],
-			"sid": 898211642140572
+			"sid": 898211642140572,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 456699413230174,
+							"parameters": {
+								"object": "NPCs"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "loadNPC_File",
+							"sid": 414665029431693,
+							"parameters": [
+								"NPCs.FileName",
+								"NPCs.DialogType"
+							]
+						}
+					],
+					"sid": 830117848336706,
+					"disabled": true
+				}
+			]
 		},
 		{
 			"eventType": "block",

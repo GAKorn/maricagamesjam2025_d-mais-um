@@ -88,9 +88,50 @@
 								{
 									"callFunction": "configNPC_Files",
 									"sid": 148631099345472
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 950275564176077,
+									"parameters": {
+										"tag": "\"dialogDictionary\"",
+										"file": "npcFiles.json"
+									}
 								}
 							],
 							"sid": 120343287117172
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-completed",
+									"objectClass": "AJAX",
+									"sid": 162144499868155,
+									"parameters": {
+										"tag": "\"dialogDictionary\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "npcFiles",
+									"sid": 394054772310419,
+									"parameters": {
+										"json": "AJAX.LastData"
+									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 736060975111223,
+									"parameters": {
+										"tag": "\"dictionaryLoaded\""
+									}
+								}
+							],
+							"sid": 199987999328562
 						}
 					],
 					"sid": 566522268777355
