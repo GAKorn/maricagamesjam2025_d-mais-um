@@ -25,11 +25,32 @@
 			"sid": 716275042803634
 		},
 		{
-			"name": "FileName",
+			"name": "FilePath",
 			"type": "string",
 			"desc": "",
 			"show": true,
 			"sid": 788127052164991
+		},
+		{
+			"name": "dicKey",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 997950964462929
+		},
+		{
+			"name": "filesReady",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 441866146666060
+		},
+		{
+			"name": "thisNPCFile_Path",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 483283790396970
 		}
 	],
 	"behaviorTypes": [],

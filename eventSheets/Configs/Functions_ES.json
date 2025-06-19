@@ -2401,7 +2401,7 @@
 			"children": [
 				{
 					"functionName": "configNPC_Files",
-					"functionDescription": "Configure the NPCs",
+					"functionDescription": "Configure the NPCs file paths and dictionary keys",
 					"functionCategory": "NPC Config",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
@@ -2413,131 +2413,6 @@
 					"sid": 571785357699752,
 					"children": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 872983355037624,
-									"parameters": {
-										"object": "NPCs"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 747273663141865,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 505759778265728,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-all",
-													"objectClass": "System",
-													"sid": 646375698377262,
-													"parameters": {
-														"object": "objNPC_AndersonPatinho"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "objNPC_AndersonPatinho",
-													"sid": 955259688264564,
-													"parameters": {
-														"instance-variable": "FileName",
-														"value": "\"NPCs/AndersonPatinho/npcPatinho_\""
-													}
-												}
-											],
-											"sid": 675541386999143
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-all",
-													"objectClass": "System",
-													"sid": 381002566245349,
-													"parameters": {
-														"object": "objNPC_DonaCida"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "objNPC_DonaCida",
-													"sid": 207763310263556,
-													"parameters": {
-														"instance-variable": "FileName",
-														"value": "\"NPCs/DonaCida/npcCida_\""
-													}
-												}
-											],
-											"sid": 220544568955639
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-all",
-													"objectClass": "System",
-													"sid": 254071352250308,
-													"parameters": {
-														"object": "objNPC_GuiDasMares"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "objNPC_GuiDasMares",
-													"sid": 272483455007409,
-													"parameters": {
-														"instance-variable": "FileName",
-														"value": "\"NPCs/GuiDasMares/npcGui_\""
-													}
-												}
-											],
-											"sid": 828568711430653
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-all",
-													"objectClass": "System",
-													"sid": 620358246930596,
-													"parameters": {
-														"object": "objNPC_TiaFernanda"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "objNPC_TiaFernanda",
-													"sid": 281300806231432,
-													"parameters": {
-														"instance-variable": "FileName",
-														"value": "\"NPCs/TiaFernanda/npcFer_\""
-													}
-												}
-											],
-											"sid": 179975261680575
-										}
-									]
-								}
-							]
-						},
-						{
 							"eventType": "variable",
 							"name": "thisLayout",
 							"type": "string",
@@ -2545,7 +2420,7 @@
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 218174512734861
+							"sid": 746805521842453
 						},
 						{
 							"eventType": "block",
@@ -2554,14 +2429,14 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 371785007542532,
+									"sid": 665344661392881,
 									"parameters": {
 										"variable": "thisLayout",
 										"value": "Functions.setLayoutType(LayoutName)"
 									}
 								}
 							],
-							"sid": 899839815372830,
+							"sid": 761092298361009,
 							"children": [
 								{
 									"eventType": "block",
@@ -2569,7 +2444,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 376885184854811,
+											"sid": 796842492793601,
 											"parameters": {
 												"variable": "thisLayout",
 												"comparison": 0,
@@ -2581,14 +2456,14 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "NPCs",
-											"sid": 441013576521667,
+											"sid": 149187096878681,
 											"parameters": {
 												"instance-variable": "DialogType",
 												"value": "\"Quiz\""
 											}
 										}
 									],
-									"sid": 719145070783928
+									"sid": 442361061401125
 								},
 								{
 									"eventType": "block",
@@ -2596,63 +2471,179 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 932907886106654
+											"sid": 680955658635457
 										}
 									],
 									"actions": [
 										{
 											"id": "set-instvar-value",
 											"objectClass": "NPCs",
-											"sid": 521921431813075,
+											"sid": 379037774900227,
 											"parameters": {
 												"instance-variable": "DialogType",
 												"value": "\"Dialog\""
 											}
 										}
 									],
-									"sid": 457736311078379
+									"sid": 605713717325713
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 413991889318052,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_AndersonPatinho",
+											"sid": 672211649343246,
+											"parameters": {
+												"instance-variable": "FilePath",
+												"value": "\"NPCs/AndersonPatinho/npcPatinho_\"&Self.DialogType&\".json\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_AndersonPatinho",
+											"sid": 256503855587756,
+											"parameters": {
+												"instance-variable": "dicKey",
+												"value": "\"patinho\""
+											}
+										}
+									],
+									"sid": 299548831468211
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_DonaCida",
+											"sid": 732400308059877,
+											"parameters": {
+												"instance-variable": "FilePath",
+												"value": "\"NPCs/DonaCida/npcCida_\"&Self.DialogType&\".json\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_DonaCida",
+											"sid": 754019247208840,
+											"parameters": {
+												"instance-variable": "dicKey",
+												"value": "\"cida\""
+											}
+										}
+									],
+									"sid": 456764848480966
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_GuiDasMares",
+											"sid": 258652636396201,
+											"parameters": {
+												"instance-variable": "FilePath",
+												"value": "\"NPCs/GuiDasMares/npcGui_\"&Self.DialogType&\".json\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_GuiDasMares",
+											"sid": 752756892919801,
+											"parameters": {
+												"instance-variable": "dicKey",
+												"value": "\"gui\""
+											}
+										}
+									],
+									"sid": 832722017812339
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_TiaFernanda",
+											"sid": 893403587295488,
+											"parameters": {
+												"instance-variable": "FilePath",
+												"value": "\"NPCs/TiaFernanda/npcFer_\"&Self.DialogType&\".json\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "objNPC_TiaFernanda",
+											"sid": 387151459114458,
+											"parameters": {
+												"instance-variable": "dicKey",
+												"value": "\"fer\""
+											}
+										}
+									],
+									"sid": 462349492847472
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 435008622756390,
+									"parameters": {
+										"tag": "\"pathCreated\""
+									}
+								}
+							],
+							"sid": 912584696733184
 						}
 					]
 				},
 				{
-					"functionName": "loadNPC_File",
-					"functionDescription": "Load the correct NPC File for the current level.",
+					"functionName": "npcLoadDiIalog",
+					"functionDescription": "Load the NPC dialog into the activeDialog Array",
 					"functionCategory": "NPC Config",
 					"functionReturnType": "none",
-					"functionCopyPicked": false,
+					"functionCopyPicked": true,
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "thisFileName",
+							"name": "dictKey",
 							"type": "string",
 							"initialValue": "",
 							"comment": "",
-							"sid": 239746284965100
-						},
-						{
-							"name": "thisFileType",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 560465055401562
+							"sid": 510967105890065
 						}
 					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 857167514726115,
+					"sid": 636717365920235,
 					"children": [
 						{
 							"eventType": "variable",
-							"name": "thisFilePath",
+							"name": "array",
 							"type": "string",
 							"initialValue": "",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 269384020071341
+							"sid": 260649244115173
 						},
 						{
 							"eventType": "block",
@@ -2661,33 +2652,215 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 903962777141845,
+									"sid": 748493696119282,
 									"parameters": {
-										"variable": "thisFilePath",
-										"value": "thisFileName&thisFileType&\".json\""
+										"variable": "array",
+										"value": "npcFiles.Get(dictKey)"
 									}
 								},
 								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 475870366834527
-								},
-								{
-									"id": "request-url",
-									"objectClass": "AJAX",
-									"sid": 131054640340270,
+									"id": "load",
+									"objectClass": "activeDialogArray",
+									"sid": 527146842743974,
 									"parameters": {
-										"tag": "\"dialogFile\"",
-										"url": "thisFilePath"
+										"json": "array"
 									}
 								}
 							],
-							"sid": 627223738459683
+							"sid": 458004444732542
 						}
 					]
+				},
+				{
+					"functionName": "npcLoadQuiz",
+					"functionDescription": "Load the NPC dialog into the activeDialog Array",
+					"functionCategory": "NPC Config",
+					"functionReturnType": "none",
+					"functionCopyPicked": true,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "dictKey",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 978282065389664
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 987574391765449,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 498186226177807,
+									"parameters": {
+										"variable": "currentNPC",
+										"value": "dictKey"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 148144716717389,
+									"parameters": {
+										"seconds": "0.001",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "load",
+									"objectClass": "activeDialogArray",
+									"sid": 330265876100383,
+									"parameters": {
+										"json": "npcFiles.Get(dictKey)"
+									}
+								}
+							],
+							"sid": 935681366082437,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "quizState",
+											"sid": 168404063161670,
+											"parameters": {
+												"key": "dictKey&\"_probTable\"",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "createProbabilityTableFromJSON",
+											"objectClass": "AdvancedRandom",
+											"sid": 817253837321557,
+											"parameters": {
+												"name": "\"quiz_\"&dictKey",
+												"json": "quizState.Get(dictKey&\"_probTable\")"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 863320453685928,
+											"parameters": {
+												"variable": "npcQuiz_questionsDone",
+												"value": "quizState.Get(dictKey&\"_questionsDone\")"
+											}
+										}
+									],
+									"sid": 825214545503714
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 996699499964370
+										}
+									],
+									"actions": [
+										{
+											"id": "createProbabilityTable",
+											"objectClass": "AdvancedRandom",
+											"sid": 960153628661055,
+											"parameters": {
+												"name": "\"quiz_\"&dictKey"
+											}
+										}
+									],
+									"sid": 860607120744988,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 548788593867038,
+													"parameters": {
+														"name": "\"populateProbabilityTable\"",
+														"start-index": "0",
+														"end-index": "activeDialogArray.Height-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "setProbabilityTable",
+													"objectClass": "AdvancedRandom",
+													"sid": 552537827591089,
+													"disabled": true,
+													"parameters": {
+														"name": "\"quiz_\"&dictKey"
+													}
+												},
+												{
+													"id": "addProbabilityEntry",
+													"objectClass": "AdvancedRandom",
+													"sid": 428445619553904,
+													"parameters": {
+														"value": "loopindex",
+														"weight": "1"
+													}
+												}
+											],
+											"sid": 388616768213253
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 852593152745294,
+													"parameters": {
+														"variable": "npcQuiz_questionsDone",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 285060583216955
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 230400160197187
 				}
 			],
 			"sid": 935435722469912
+		},
+		{
+			"functionName": "setQuizQuestion",
+			"functionDescription": "Randomly pick a quiz question based on previous picks.",
+			"functionCategory": "Quiz Config",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 293547746358638
 		}
 	],
 	"sid": 298105393163351

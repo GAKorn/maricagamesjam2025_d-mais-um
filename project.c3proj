@@ -307,7 +307,8 @@
 					"quizOptionB",
 					"dialogOptionA",
 					"dialogOptionB",
-					"npcFiles"
+					"npcFiles",
+					"quizState"
 				],
 				"subfolders": [],
 				"name": "Dialog"
@@ -358,7 +359,8 @@
 			"NPCs",
 			"UI_Btns",
 			"ArrowIcons",
-			"quizTextOptions"
+			"quizTextOptions",
+			"Dictionary"
 		],
 		"subfolders": []
 	},
@@ -498,6 +500,14 @@
 					"name": "npcFiles.json",
 					"type": "application/json",
 					"sid": 282731199106486,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "npcQuizState.json",
+					"type": "application/json",
+					"sid": 959846733871616,
 					"file-info": {
 						"purpose": "none"
 					}

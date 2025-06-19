@@ -1,0 +1,10 @@
+{
+	"name": "Dictionary",
+	"plugin-id": "Dictionary",
+	"sid": 847700962390550,
+	"instanceVariables": [],
+	"members": [
+		"npcFiles",
+		"quizState"
+	]
+}

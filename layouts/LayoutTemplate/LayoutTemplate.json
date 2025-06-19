@@ -461,7 +461,7 @@
 					"locked": false,
 					"world": {
 						"x": 1536,
-						"y": 864,
+						"y": 720,
 						"width": 0,
 						"height": 0,
 						"originX": 0.5,
@@ -547,11 +547,11 @@
 					"locked": false,
 					"world": {
 						"x": 1536,
-						"y": 756,
+						"y": 828,
 						"width": 0,
 						"height": 0,
 						"originX": 0.5,
-						"originY": 1,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -665,7 +665,7 @@
 					"locked": false,
 					"world": {
 						"x": 1232,
-						"y": 768,
+						"y": 592,
 						"width": 608,
 						"height": 224,
 						"originX": 0,
@@ -742,6 +742,14 @@
 			"properties": {},
 			"uid": 200,
 			"sid": 166043927646134,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "quizState",
+			"properties": {},
+			"uid": 201,
+			"sid": 299003721191421,
 			"tags": "",
 			"instanceVariables": {}
 		}

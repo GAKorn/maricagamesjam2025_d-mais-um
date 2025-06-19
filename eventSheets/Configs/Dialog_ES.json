@@ -3,13 +3,33 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "currentNPC",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 724776802086019
+		},
+		{
+			"eventType": "variable",
+			"name": "npcQuiz_questionsDone",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 991391483587622
+		},
+		{
+			"eventType": "variable",
 			"name": "dialogIsOpen",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 128991153695391
+			"sid": 939387836224559
 		},
 		{
 			"eventType": "variable",
@@ -62,6 +82,18 @@
 			"sid": 451299912185228
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 600239184718966
+				}
+			],
+			"actions": [],
+			"sid": 134506814363087
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "NPC Config",
@@ -76,6 +108,10 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Request dictionary"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -85,10 +121,6 @@
 								}
 							],
 							"actions": [
-								{
-									"callFunction": "configNPC_Files",
-									"sid": 148631099345472
-								},
 								{
 									"id": "request-project-file",
 									"objectClass": "AJAX",
@@ -100,6 +132,10 @@
 								}
 							],
 							"sid": 120343287117172
+						},
+						{
+							"eventType": "comment",
+							"text": "Load dictionary"
 						},
 						{
 							"eventType": "block",
@@ -125,49 +161,603 @@
 								{
 									"id": "signal",
 									"objectClass": "System",
-									"sid": 736060975111223,
+									"sid": 259120918971924,
+									"parameters": {
+										"tag": "\"firstDicReady\""
+									}
+								}
+							],
+							"sid": 199987999328562
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 953841347632173,
+									"parameters": {
+										"tag": "\"firstDicReady\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 453393800773027,
+									"parameters": {
+										"tag": "\"dialogStateDictionary\"",
+										"file": "npcQuizState.json"
+									}
+								}
+							],
+							"sid": 116981228849365
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-completed",
+									"objectClass": "AJAX",
+									"sid": 129154612497308,
+									"parameters": {
+										"tag": "\"dialogStateDictionary\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "load",
+									"objectClass": "quizState",
+									"sid": 270777769887520,
+									"parameters": {
+										"json": "AJAX.LastData"
+									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 198438906835040,
 									"parameters": {
 										"tag": "\"dictionaryLoaded\""
 									}
 								}
 							],
-							"sid": 199987999328562
+							"sid": 614461727168572
+						},
+						{
+							"eventType": "comment",
+							"text": "Confirm dictionary loaded and call config NPCs"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 770919071773754,
+									"parameters": {
+										"tag": "\"dictionaryLoaded\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "configNPC_Files",
+									"sid": 295677444916314
+								}
+							],
+							"sid": 857501714034829
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "setNPCsJSONS",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "canConfigDic",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "Check if can config NPCs or not.",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 565913796271751
+								},
+								{
+									"eventType": "comment",
+									"text": "triggered after all needed paths are created"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-signal",
+											"objectClass": "System",
+											"sid": 327809489623137,
+											"parameters": {
+												"tag": "\"pathCreated\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 342115310520198,
+											"parameters": {
+												"variable": "canConfigDic",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 164276475483203
+								},
+								{
+									"eventType": "comment",
+									"text": "Check if NPCs can be configured. Each subevent is triggered once."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 282395352563852,
+											"parameters": {
+												"variable": "canConfigDic"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 477411470746423,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "This is Patinho"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 688503148856243,
+													"parameters": {
+														"first-value": "objNPC_AndersonPatinho.Count",
+														"comparison": 1,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 942764232162220,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 381854635462345
+														}
+													],
+													"actions": [
+														{
+															"id": "request-url",
+															"objectClass": "AJAX",
+															"sid": 577394495422625,
+															"parameters": {
+																"tag": "\"patinhoJSON\"",
+																"url": "objNPC_AndersonPatinho.FilePath"
+															}
+														}
+													],
+													"sid": 223210701659606
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "This is Dona Cida"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 723312461751194,
+													"parameters": {
+														"first-value": "objNPC_DonaCida.Count",
+														"comparison": 1,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 459603234373047,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 266067190718690
+														}
+													],
+													"actions": [
+														{
+															"id": "request-url",
+															"objectClass": "AJAX",
+															"sid": 959389386669513,
+															"parameters": {
+																"tag": "\"cidaJSON\"",
+																"url": "objNPC_DonaCida.FilePath"
+															}
+														}
+													],
+													"sid": 355445106627489
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "This is Mestre Gui"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 324268350581865,
+													"parameters": {
+														"first-value": "objNPC_GuiDasMares.Count",
+														"comparison": 1,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 887862254477152,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 271659712700281
+														}
+													],
+													"actions": [
+														{
+															"id": "request-url",
+															"objectClass": "AJAX",
+															"sid": 511129896375222,
+															"parameters": {
+																"tag": "\"guiJSON\"",
+																"url": "objNPC_GuiDasMares.FilePath"
+															}
+														}
+													],
+													"sid": 318171624067569
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "This is Tia Fer"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 202726828830017,
+													"parameters": {
+														"first-value": "objNPC_TiaFernanda.Count",
+														"comparison": 1,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 117554772132324,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 753438324467096
+														}
+													],
+													"actions": [
+														{
+															"id": "request-url",
+															"objectClass": "AJAX",
+															"sid": 900325423508507,
+															"parameters": {
+																"tag": "\"ferJSON\"",
+																"url": "objNPC_TiaFernanda.FilePath"
+															}
+														}
+													],
+													"sid": 131280895148952
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "When files are ready"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 343332373286273,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-completed",
+													"objectClass": "AJAX",
+													"sid": 767432029930901,
+													"parameters": {
+														"tag": "\"patinhoJSON\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-key",
+													"objectClass": "npcFiles",
+													"sid": 102068988554343,
+													"parameters": {
+														"key": "objNPC_AndersonPatinho.dicKey",
+														"value": "AJAX.LastData"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 716526236716455,
+													"parameters": {
+														"tag": "\"patinhoReady\""
+													}
+												}
+											],
+											"sid": 478234415398884
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-completed",
+													"objectClass": "AJAX",
+													"sid": 255398787674284,
+													"parameters": {
+														"tag": "\"cidaJSON\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-key",
+													"objectClass": "npcFiles",
+													"sid": 644862727903214,
+													"parameters": {
+														"key": "objNPC_DonaCida.dicKey",
+														"value": "AJAX.LastData"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 856298637667751,
+													"parameters": {
+														"tag": "\"cidaReady\""
+													}
+												}
+											],
+											"sid": 368603647408190
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-completed",
+													"objectClass": "AJAX",
+													"sid": 303579399972588,
+													"parameters": {
+														"tag": "\"guiJSON\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-key",
+													"objectClass": "npcFiles",
+													"sid": 434448903605747,
+													"parameters": {
+														"key": "objNPC_GuiDasMares.dicKey",
+														"value": "AJAX.LastData"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 120292484488151,
+													"parameters": {
+														"tag": "\"guiReady\""
+													}
+												}
+											],
+											"sid": 404914676826869
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-completed",
+													"objectClass": "AJAX",
+													"sid": 671937447764243,
+													"parameters": {
+														"tag": "\"ferJSON\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-key",
+													"objectClass": "npcFiles",
+													"sid": 163793532575113,
+													"parameters": {
+														"key": "objNPC_TiaFernanda.dicKey",
+														"value": "AJAX.LastData"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 516067127967164,
+													"parameters": {
+														"tag": "\"ferReady\""
+													}
+												}
+											],
+											"sid": 765966876128002
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Confirm files are ready"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 710117206483037,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-signal",
+													"objectClass": "System",
+													"sid": 296260659845547,
+													"parameters": {
+														"tag": "\"patinhoReady\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "objNPC_AndersonPatinho",
+													"sid": 149690950486368,
+													"parameters": {
+														"instance-variable": "filesReady",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 534455646758664
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-signal",
+													"objectClass": "System",
+													"sid": 288809146457618,
+													"parameters": {
+														"tag": "\"cidaReady\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "objNPC_DonaCida",
+													"sid": 551371795055125,
+													"parameters": {
+														"instance-variable": "filesReady",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 613292991038799
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-signal",
+													"objectClass": "System",
+													"sid": 731445205608848,
+													"parameters": {
+														"tag": "\"guiReady\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "objNPC_GuiDasMares",
+													"sid": 542547986359289,
+													"parameters": {
+														"instance-variable": "filesReady",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 121622497283580
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-signal",
+													"objectClass": "System",
+													"sid": 887165301574666,
+													"parameters": {
+														"tag": "\"ferReady\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "objNPC_TiaFernanda",
+													"sid": 364472655885950,
+													"parameters": {
+														"instance-variable": "filesReady",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 569155339175590
+										}
+									]
+								}
+							],
+							"sid": 231823610812072
 						}
 					],
 					"sid": 566522268777355
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "objPlayer",
-							"sid": 707192483697796,
-							"parameters": {
-								"object": "objForceIdle"
-							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "objForceIdle",
-							"sid": 139373762649267,
-							"parameters": {
-								"object": "NPCs"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 445104033620768,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 646250358701681,
-							"disabled": true
-						}
-					]
 				}
 			],
 			"sid": 163289681978076
@@ -287,7 +877,7 @@
 				},
 				{
 					"eventType": "variable",
-					"name": "levelIdleUID",
+					"name": "thisNPC_UID",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
@@ -305,14 +895,6 @@
 							"parameters": {
 								"tag": "\"isIdleInLevel\""
 							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "objPlayer",
-							"sid": 663122125478964,
-							"parameters": {
-								"object": "objForceIdle"
-							}
 						}
 					],
 					"actions": [],
@@ -322,16 +904,56 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "objForceIdle",
-									"sid": 860147766521019,
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 808543298783215,
 									"parameters": {
 										"object": "NPCs"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 213714881444201
+							"sid": 955732030647029,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "objForceIdle",
+											"sid": 567170065429596,
+											"parameters": {
+												"object": "NPCs"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "objForceIdle",
+											"sid": 855953383090880,
+											"parameters": {
+												"object": "objPlayer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 607565075174921,
+											"parameters": {
+												"variable": "thisNPC_UID",
+												"value": "NPCs.UID"
+											}
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 228315435740758
+										}
+									],
+									"sid": 570731560967218
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -344,15 +966,6 @@
 									"parameters": {
 										"instance-variable": "isQuiz",
 										"value": "true"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 677716807247937,
-									"parameters": {
-										"variable": "levelIdleUID",
-										"value": "objForceIdle.UID"
 									}
 								}
 							],
@@ -428,6 +1041,66 @@
 					"text": "Open Dialog Box"
 				},
 				{
+					"eventType": "variable",
+					"name": "currentQuestionIndex",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 387910642604946
+				},
+				{
+					"eventType": "variable",
+					"name": "thisQuizQuestion",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 219792475093281
+				},
+				{
+					"eventType": "variable",
+					"name": "thisQuizOpA",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 881714517466460
+				},
+				{
+					"eventType": "variable",
+					"name": "thisQuizOpB",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 473267221555214
+				},
+				{
+					"eventType": "variable",
+					"name": "thisQuizFechamento",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 224026837176043
+				},
+				{
+					"eventType": "variable",
+					"name": "thisNPCName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 372193552581221
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -448,53 +1121,157 @@
 								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
+									"sid": 803159283756966
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "NPCs",
+									"sid": 580998651595345,
+									"parameters": {
+										"unique-id": "thisNPC_UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 305369414479653,
+									"parameters": {
+										"variable": "thisNPCName",
+										"value": "NPCs.dicKey"
+									}
+								}
+							],
+							"sid": 476641393677450
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
 									"sid": 349783904416176
 								}
 							],
 							"actions": [
 								{
+									"callFunction": "npcLoadQuiz",
+									"sid": 259433539924766,
+									"parameters": [
+										"thisNPCName"
+									]
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 808807940547000,
+									"sid": 129884824142056,
 									"parameters": {
-										"seconds": "0.25",
+										"seconds": "0.001",
 										"use-timescale": true
 									}
 								},
 								{
-									"callFunction": "dialogBoxOpen",
-									"sid": 275170446706605
-								},
-								{
-									"id": "wait-for-signal",
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 929507850666315,
+									"sid": 501312596653039,
 									"parameters": {
-										"tag": "\"dialogOpen\""
+										"variable": "currentQuestionIndex",
+										"value": "AdvancedRandom.WeightedByName(\"quiz_\"&currentNPC)"
 									}
 								},
 								{
-									"callFunction": "dialogText_Update",
-									"sid": 701925506568258,
-									"parameters": [
-										"loremIpsum"
-									]
-								},
-								{
-									"id": "wait-for-signal",
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 745281566875577,
+									"sid": 820122231739358,
 									"parameters": {
-										"tag": "\"dialogTextDisplayed\""
+										"variable": "thisQuizQuestion",
+										"value": "activeDialogArray.At(0,currentQuestionIndex)"
 									}
 								},
 								{
-									"callFunction": "quizOpenBoxes",
-									"sid": 278525767334039,
-									"disabled": true
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 958748803789706,
+									"parameters": {
+										"variable": "thisQuizOpA",
+										"value": "activeDialogArray.At(1,currentQuestionIndex)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 894124491482431,
+									"parameters": {
+										"variable": "thisQuizOpB",
+										"value": "activeDialogArray.At(2,currentQuestionIndex)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 524293739309225,
+									"parameters": {
+										"variable": "correctAnswer",
+										"value": "activeDialogArray.At(3,currentQuestionIndex)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 509712541518986,
+									"parameters": {
+										"variable": "thisQuizFechamento",
+										"value": "activeDialogArray.At(4,currentQuestionIndex)"
+									}
 								}
 							],
-							"sid": 606667507946557
+							"sid": 606667507946557,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 407204145597275,
+											"parameters": {
+												"seconds": "0.25",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "dialogBoxOpen",
+											"sid": 774387940220956
+										},
+										{
+											"id": "wait-for-signal",
+											"objectClass": "System",
+											"sid": 355093823000988,
+											"parameters": {
+												"tag": "\"dialogOpen\""
+											}
+										},
+										{
+											"callFunction": "dialogText_Update",
+											"sid": 462472211372448,
+											"parameters": [
+												"thisQuizQuestion"
+											]
+										},
+										{
+											"id": "wait-for-signal",
+											"objectClass": "System",
+											"sid": 701189621839151,
+											"parameters": {
+												"tag": "\"dialogTextDisplayed\""
+											}
+										}
+									],
+									"sid": 506180498757409
+								}
+							]
 						}
 					]
 				},
@@ -533,10 +1310,10 @@
 					"actions": [
 						{
 							"callFunction": "setQuizOptions",
-							"sid": 973826003714143,
+							"sid": 379539520781654,
 							"parameters": [
-								"\"This is OptionB.. ops, A\"",
-								"\"This is OptionB... for real now\""
+								"thisQuizOpA",
+								"thisQuizOpB"
 							]
 						}
 					],

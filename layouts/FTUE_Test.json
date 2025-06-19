@@ -4920,7 +4920,10 @@
 								"DialogType": "",
 								"currTextID": 0,
 								"currLineID": 0,
-								"FileName": ""
+								"FilePath": "",
+								"dicKey": "",
+								"filesReady": false,
+								"thisNPCFile_Path": ""
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
@@ -5017,7 +5020,10 @@
 								"DialogType": "",
 								"currTextID": 0,
 								"currLineID": 0,
-								"FileName": ""
+								"FilePath": "",
+								"dicKey": "",
+								"filesReady": false,
+								"thisNPCFile_Path": ""
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
