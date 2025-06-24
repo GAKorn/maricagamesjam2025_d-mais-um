@@ -997,6 +997,115 @@
 					"sid": 249629004883137,
 					"children": [
 						{
+							"functionName": "resetTextVisuals",
+							"functionDescription": "Reset options visibility",
+							"functionCategory": "Quiz Config",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 716647145361156,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-opacity",
+											"objectClass": "dialogOptionA",
+											"sid": 180970498064541,
+											"parameters": {
+												"comparison": 1,
+												"opacity": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "dialogOptionA",
+											"sid": 158337638492903,
+											"parameters": {
+												"opacity": "0"
+											}
+										}
+									],
+									"sid": 403245006461520
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-opacity",
+											"objectClass": "dialogOptionB",
+											"sid": 772765033129400,
+											"parameters": {
+												"comparison": 1,
+												"opacity": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "dialogOptionB",
+											"sid": 544728192683452,
+											"parameters": {
+												"opacity": "0"
+											}
+										}
+									],
+									"sid": 812781001800598
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "dialogOptionA",
+											"sid": 452235401466206,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "dialogOptionA",
+											"sid": 576279715368871,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 671003887217836
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-visible",
+											"objectClass": "dialogOptionB",
+											"sid": 360735694732786,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "dialogOptionB",
+											"sid": 651451460670708,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 950961963261270
+								}
+							]
+						},
+						{
 							"functionName": "setQuizTextSize",
 							"functionDescription": "Set the size of the text in the quiz options.",
 							"functionCategory": "Dialog Config",
@@ -1591,36 +1700,6 @@
 												}
 											],
 											"sid": 174526700779005
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 851105845800184
-												}
-											],
-											"actions": [
-												{
-													"id": "set-visible",
-													"objectClass": "dialogOptionA",
-													"sid": 834749524802562,
-													"parameters": {
-														"visibility": "invisible"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 613294919034676,
-													"parameters": {
-														"seconds": "0.001",
-														"use-timescale": true
-													}
-												}
-											],
-											"sid": 143712006657534
 										}
 									]
 								}
@@ -1811,36 +1890,6 @@
 												}
 											],
 											"sid": 679995863076443
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 600032267059939
-												}
-											],
-											"actions": [
-												{
-													"id": "set-visible",
-													"objectClass": "dialogOptionB",
-													"sid": 457306217157793,
-													"parameters": {
-														"visibility": "invisible"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 370260415662186,
-													"parameters": {
-														"seconds": "0.001",
-														"use-timescale": true
-													}
-												}
-											],
-											"sid": 247479274086719
 										}
 									]
 								}
@@ -2107,14 +2156,6 @@
 																	"id": "destroy",
 																	"objectClass": "ArrowIcons",
 																	"sid": 344959729853624
-																},
-																{
-																	"id": "signal",
-																	"objectClass": "System",
-																	"sid": 678714246638103,
-																	"parameters": {
-																		"tag": "\"boxReady\""
-																	}
 																}
 															],
 															"sid": 112400369929156
@@ -2226,6 +2267,14 @@
 											"parameters": {
 												"variable": "isQuizOpOpen",
 												"value": "true"
+											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 757626996051246,
+											"parameters": {
+												"tag": "\"boxReady\""
 											}
 										}
 									],
@@ -2635,11 +2684,29 @@
 											}
 										},
 										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 760859332238085,
+											"parameters": {
+												"type": "log",
+												"message": "OptionA"
+											}
+										},
+										{
 											"id": "set-text",
 											"objectClass": "dialogOptionB",
 											"sid": 441608857608189,
 											"parameters": {
 												"text": "OptionB"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 568770037419873,
+											"parameters": {
+												"type": "log",
+												"message": "OptionB"
 											}
 										},
 										{
@@ -2747,6 +2814,15 @@
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 747806153073843,
+									"parameters": {
+										"type": "log",
+										"message": "text"
+									}
+								},
 								{
 									"id": "typewriter-text",
 									"objectClass": "dialogText",
@@ -2860,123 +2936,6 @@
 								}
 							],
 							"sid": 317678881564852
-						}
-					]
-				},
-				{
-					"functionName": "dialogQuizOptions_Close",
-					"functionDescription": "Close the text inside quiz options.",
-					"functionCategory": "Quiz Config",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "dialogText",
-							"sid": 298698678904097,
-							"disabled": true,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 427689675691472,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-all",
-									"objectClass": "System",
-									"sid": 524902433002505,
-									"parameters": {
-										"object": "quizTextOptions"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 814370765067007,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-opacity",
-											"objectClass": "quizTextOptions",
-											"sid": 785198965710452,
-											"parameters": {
-												"comparison": 5,
-												"opacity": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "tween-one-property",
-											"objectClass": "quizTextOptions",
-											"sid": 308403403374700,
-											"behaviorType": "Tween",
-											"parameters": {
-												"tags": "\"optionsOpacity\"",
-												"property": "offsetOpacity",
-												"end-value": "0",
-												"time": "0.115",
-												"ease": "noease",
-												"destroy-on-complete": "no",
-												"loop": "no",
-												"ping-pong": "no",
-												"repeat-count": "1"
-											}
-										}
-									],
-									"sid": 286372180494661,
-									"disabled": true
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 300560541559490
-										}
-									],
-									"actions": [
-										{
-											"id": "set-visible",
-											"objectClass": "quizTextOptions",
-											"sid": 753580016809992,
-											"parameters": {
-												"visibility": "invisible"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 154976615296543,
-											"parameters": {
-												"seconds": "0.001",
-												"use-timescale": true
-											}
-										}
-									],
-									"sid": 464400917969126,
-									"disabled": true
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 918166418790010,
-							"disabled": true
 						}
 					]
 				},

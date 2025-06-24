@@ -1278,30 +1278,23 @@
 								{
 									"id": "trigger-once-while-true",
 									"objectClass": "System",
-									"sid": 803159283756966
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "NPCs",
-									"sid": 580998651595345,
-									"parameters": {
-										"unique-id": "thisNPC_UID"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 476641393677450
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
 									"sid": 349783904416176
 								}
 							],
 							"actions": [
+								{
+									"callFunction": "resetTextVisuals",
+									"sid": 839028862751476
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 631794804996190,
+									"parameters": {
+										"seconds": "0.001",
+										"use-timescale": true
+									}
+								},
 								{
 									"callFunction": "npcLoadQuiz",
 									"sid": 259433539924766,
@@ -1325,16 +1318,6 @@
 									"parameters": {
 										"seconds": "0.001",
 										"use-timescale": true
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 501312596653039,
-									"disabled": true,
-									"parameters": {
-										"variable": "currentQuestionIndex",
-										"value": "AdvancedRandom.WeightedByName(\"quiz_\"&currentNPC)"
 									}
 								},
 								{
@@ -1399,78 +1382,195 @@
 										"variable": "currentText",
 										"value": "thisQuizQuestion"
 									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 621001680871291,
+									"parameters": {
+										"tag": "\"optionsSet\""
+									}
 								}
 							],
-							"sid": 606667507946557,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 296259114989904,
-											"parameters": {
-												"variable": "currentText",
-												"comparison": 1,
-												"value": "thisQuizFechamento"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 407204145597275,
-											"parameters": {
-												"seconds": "0.25",
-												"use-timescale": true
-											}
-										},
-										{
-											"callFunction": "dialogBoxOpen",
-											"sid": 774387940220956
-										},
-										{
-											"id": "wait-for-signal",
-											"objectClass": "System",
-											"sid": 355093823000988,
-											"parameters": {
-												"tag": "\"dialogOpen\""
-											}
-										},
-										{
-											"callFunction": "dialogText_Update",
-											"sid": 469309830919704,
-											"parameters": [
-												"currentText"
-											]
-										},
-										{
-											"id": "wait-for-signal",
-											"objectClass": "System",
-											"sid": 701189621839151,
-											"disabled": true,
-											"parameters": {
-												"tag": "\"dialogTextDisplayed\""
-											}
-										}
-									],
-									"sid": 506180498757409
-								}
-							]
+							"sid": 606667507946557
 						}
 					]
 				},
 				{
-					"eventType": "variable",
-					"name": "temp_check_input",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 653436806940414
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 513937755727744,
+							"parameters": {
+								"tag": "\"optionsSet\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 226151542587333,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 422035073119389,
+									"parameters": {
+										"variable": "currentText",
+										"comparison": 1,
+										"value": "thisQuizFechamento"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 364710122811632,
+									"parameters": {
+										"seconds": "0.25",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "dialogBoxOpen",
+									"sid": 757045710090940
+								},
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 157826814256757,
+									"parameters": {
+										"tag": "\"dialogOpen\""
+									}
+								},
+								{
+									"callFunction": "dialogText_Update",
+									"sid": 401686234343418,
+									"parameters": [
+										"currentText"
+									]
+								},
+								{
+									"id": "wait-for-signal",
+									"objectClass": "System",
+									"sid": 466220108426349,
+									"disabled": true,
+									"parameters": {
+										"tag": "\"dialogTextDisplayed\""
+									}
+								}
+							],
+							"sid": 677160133532248
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 696265090574134,
+							"parameters": {
+								"tag": "\"dialogTextDisplayed\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 181821802647220,
+							"parameters": {
+								"variable": "isCanQuiz"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "quizOpenBoxes",
+							"sid": 708316235018472
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 837633616533523,
+							"parameters": {
+								"type": "log",
+								"message": "\"Opened Boxes\""
+							}
+						}
+					],
+					"sid": 914037483484259
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 107876737039454,
+							"parameters": {
+								"tag": "\"boxReady\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 423744345014604,
+							"parameters": {
+								"type": "log",
+								"message": "thisQuizOpA"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 809917838329523,
+							"parameters": {
+								"type": "log",
+								"message": "thisQuizOpB"
+							}
+						},
+						{
+							"callFunction": "setQuizOptions",
+							"sid": 598671134545641,
+							"parameters": [
+								"thisQuizOpA",
+								"thisQuizOpB"
+							]
+						}
+					],
+					"sid": 621868066190752
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 606747545887371,
+							"parameters": {
+								"tag": "\"optionsDisplayed\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 924727672083752,
+							"parameters": {
+								"variable": "canAnswer",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 284511245189256
 				},
 				{
 					"eventType": "block",
@@ -1516,15 +1616,6 @@
 									"parameters": {
 										"variable": "selectedOption",
 										"value": "\"A\""
-									}
-								},
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 720037329680532,
-									"parameters": {
-										"variable": "temp_check_input",
-										"value": "1"
 									}
 								},
 								{
@@ -1591,15 +1682,6 @@
 									}
 								},
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 943000772446908,
-									"parameters": {
-										"variable": "temp_check_input",
-										"value": "1"
-									}
-								},
-								{
 									"id": "flash",
 									"objectClass": "quizOptionB",
 									"sid": 925103515461903,
@@ -1663,83 +1745,6 @@
 					"conditions": [],
 					"actions": [],
 					"sid": 714250981821676
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-signal",
-							"objectClass": "System",
-							"sid": 293117903813024,
-							"parameters": {
-								"tag": "\"dialogTextDisplayed\""
-							}
-						},
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 864186262094116,
-							"parameters": {
-								"variable": "isCanQuiz"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "quizOpenBoxes",
-							"sid": 712075724849438
-						}
-					],
-					"sid": 758091552559883
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-signal",
-							"objectClass": "System",
-							"sid": 501333948314894,
-							"parameters": {
-								"tag": "\"boxReady\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "setQuizOptions",
-							"sid": 379539520781654,
-							"parameters": [
-								"thisQuizOpA",
-								"thisQuizOpB"
-							]
-						}
-					],
-					"sid": 174983734645096
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-signal",
-							"objectClass": "System",
-							"sid": 127855722314836,
-							"parameters": {
-								"tag": "\"optionsDisplayed\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 807172794604392,
-							"parameters": {
-								"variable": "canAnswer",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 501856356203677
 				},
 				{
 					"eventType": "block",
