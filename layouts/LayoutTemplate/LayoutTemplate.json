@@ -400,9 +400,43 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {
+						"Flash": {
+							"properties": {}
+						},
 						"Tween": {
 							"properties": {
 								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Toon": {
+							"isEnabled": false,
+							"parameters": {
+								"threshold": 0.25,
+								"levels": 10
+							}
+						},
+						"Tint": {
+							"isEnabled": false,
+							"parameters": {
+								"color": [
+									0.11372549019607843,
+									0.5882352941176471,
+									0.050980392156862744,
+									1
+								]
+							}
+						},
+						"Tint2": {
+							"isEnabled": false,
+							"parameters": {
+								"color": [
+									0.39215686274509803,
+									0.3843137254901961,
+									0.3843137254901961,
+									1
+								]
 							}
 						}
 					},
@@ -447,9 +481,43 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {
+						"Flash": {
+							"properties": {}
+						},
 						"Tween": {
 							"properties": {
 								"enabled": true
+							}
+						}
+					},
+					"effects": {
+						"Toon": {
+							"isEnabled": false,
+							"parameters": {
+								"threshold": 0.25,
+								"levels": 10
+							}
+						},
+						"Tint": {
+							"isEnabled": false,
+							"parameters": {
+								"color": [
+									0.11372549019607843,
+									0.5882352941176471,
+									0.050980392156862744,
+									1
+								]
+							}
+						},
+						"Tint2": {
+							"isEnabled": false,
+							"parameters": {
+								"color": [
+									0.39215686274509803,
+									0.3843137254901961,
+									0.3843137254901961,
+									1
+								]
 							}
 						}
 					},
@@ -746,7 +814,7 @@
 			"instanceVariables": {}
 		},
 		{
-			"type": "quizState",
+			"type": "npcPathsDictionary",
 			"properties": {},
 			"uid": 201,
 			"sid": 299003721191421,

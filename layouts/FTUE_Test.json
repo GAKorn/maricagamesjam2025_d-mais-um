@@ -4923,7 +4923,8 @@
 								"FilePath": "",
 								"dicKey": "",
 								"filesReady": false,
-								"thisNPCFile_Path": ""
+								"thisNPCFile_Path": "",
+								"thisID": "patinho"
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
@@ -5023,7 +5024,8 @@
 								"FilePath": "",
 								"dicKey": "",
 								"filesReady": false,
-								"thisNPCFile_Path": ""
+								"thisNPCFile_Path": "",
+								"thisID": "gui"
 							},
 							"behaviors": {},
 							"instanceFolderItem": {

@@ -208,6 +208,20 @@
 			"name": "Pixellate",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "tint",
+			"name": "Tint",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "toon",
+			"name": "Toon",
+			"author": "Scirra",
+			"bundled": false
 		}
 	],
 	"uniqueId": "5mkaghifvzd",
@@ -308,7 +322,7 @@
 					"dialogOptionA",
 					"dialogOptionB",
 					"npcFiles",
-					"quizState"
+					"npcPathsDictionary"
 				],
 				"subfolders": [],
 				"name": "Dialog"
@@ -360,7 +374,8 @@
 			"UI_Btns",
 			"ArrowIcons",
 			"quizTextOptions",
-			"Dictionary"
+			"Dictionary",
+			"btnsQuiz"
 		],
 		"subfolders": []
 	},
@@ -395,7 +410,8 @@
 					"Functions_ES",
 					"GeneralConfig_ES",
 					"dump",
-					"Dialog_ES"
+					"Dialog_ES",
+					"LoadNPCs_ES"
 				],
 				"subfolders": [
 					{
@@ -505,7 +521,7 @@
 					}
 				},
 				{
-					"name": "npcQuizState.json",
+					"name": "npcPaths.json",
 					"type": "application/json",
 					"sid": 959846733871616,
 					"file-info": {
@@ -637,7 +653,7 @@
 		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
-		"useLoaderLayout": false,
+		"useLoaderLayout": true,
 		"fullscreenMode": "scale-inner",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",

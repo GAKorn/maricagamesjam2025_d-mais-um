@@ -1154,7 +1154,22 @@
 							"functionReturnType": "none",
 							"functionCopyPicked": false,
 							"functionIsAsync": false,
-							"functionParameters": [],
+							"functionParameters": [
+								{
+									"name": "correctChoice",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 347014664448411
+								},
+								{
+									"name": "tweenTime",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 623016661090242
+								}
+							],
 							"eventType": "function-block",
 							"conditions": [],
 							"actions": [],
@@ -1164,7 +1179,7 @@
 									"eventType": "variable",
 									"name": "tweenTimer",
 									"type": "number",
-									"initialValue": "0.2",
+									"initialValue": "0",
 									"comment": "",
 									"isStatic": false,
 									"isConstant": false,
@@ -1173,11 +1188,172 @@
 								{
 									"eventType": "block",
 									"conditions": [],
+									"actions": [],
+									"sid": 444710563073019,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 886552929059259,
+													"parameters": {
+														"variable": "tweenTime",
+														"comparison": 4,
+														"value": "0.2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 267304453739555,
+													"parameters": {
+														"variable": "tweenTimer",
+														"value": "tweenTime"
+													}
+												}
+											],
+											"sid": 739408761478574
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 401482586068145
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 303885124956765,
+													"parameters": {
+														"variable": "tweenTimer",
+														"value": "0.2"
+													}
+												}
+											],
+											"sid": 668159955801397
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 908546177303592,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 245316400297617,
+													"parameters": {
+														"variable": "correctChoice",
+														"comparison": 0,
+														"value": "\"A\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "quizCloseBoxesA",
+													"sid": 629657899418136,
+													"parameters": [
+														"0"
+													]
+												}
+											],
+											"sid": 465369500244344
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 171767924218157,
+													"parameters": {
+														"variable": "correctChoice",
+														"comparison": 0,
+														"value": "\"B\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "quizCloseBoxesB",
+													"sid": 986754302310440,
+													"parameters": [
+														"0"
+													]
+												}
+											],
+											"sid": 358653322262963
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 934025120600695,
+											"parameters": {
+												"tag": "\"quizOptionsClosed\""
+											}
+										}
+									],
+									"sid": 177533628180946
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 861674061309448
+								}
+							]
+						},
+						{
+							"functionName": "quizCloseArrows",
+							"functionDescription": "Close all quiz options (with tween)",
+							"functionCategory": "Dialog Boxes",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 520090694910639,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "tweenTimer",
+									"type": "number",
+									"initialValue": "0.15",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 890930566665849
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
 									"actions": [
 										{
 											"id": "tween-one-property",
 											"objectClass": "ArrowIcons",
-											"sid": 119913570051898,
+											"sid": 525780312200598,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"scaleBtnsW\"",
@@ -1194,7 +1370,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "ArrowIcons",
-											"sid": 741372225921466,
+											"sid": 933942941532117,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"scaleBtnsH\"",
@@ -1211,7 +1387,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "ArrowIcons",
-											"sid": 255187245449954,
+											"sid": 791931733435357,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"scaleBtnsO\"",
@@ -1224,11 +1400,108 @@
 												"ping-pong": "no",
 												"repeat-count": "1"
 											}
+										}
+									],
+									"sid": 112190359676391
+								}
+							]
+						},
+						{
+							"functionName": "quizCloseBoxesA",
+							"functionDescription": "Close all quiz options (with tween)",
+							"functionCategory": "Dialog Boxes",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tweenTime",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 829593282916983
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 147306362739418,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "tweenTimer",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 175457464800080
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 281651615758967,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 548140843313268,
+													"parameters": {
+														"variable": "tweenTime",
+														"comparison": 4,
+														"value": "0.2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 249830758365501,
+													"parameters": {
+														"variable": "tweenTimer",
+														"value": "tweenTime"
+													}
+												}
+											],
+											"sid": 197723390574595
 										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 143489239100832
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 120136090080149,
+													"parameters": {
+														"variable": "tweenTimer",
+														"value": "0.2"
+													}
+												}
+											],
+											"sid": 629122801422734
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionA",
-											"sid": 666899421645690,
+											"sid": 584213374477273,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizAHeight\"",
@@ -1245,7 +1518,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionA",
-											"sid": 802011155660401,
+											"sid": 233080407429802,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizAWidth\"",
@@ -1262,7 +1535,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionA",
-											"sid": 741247578566237,
+											"sid": 692020872051276,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizAOpac\"",
@@ -1275,11 +1548,180 @@
 												"ping-pong": "no",
 												"repeat-count": "1"
 											}
+										}
+									],
+									"sid": 814143631794196
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 731965350799877,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "dialogOptionA",
+													"sid": 875022275444716,
+													"parameters": {
+														"comparison": 5,
+														"opacity": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "dialogOptionA",
+													"sid": 422540052095771,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"optionsOpacity\"",
+														"property": "offsetOpacity",
+														"end-value": "0",
+														"time": "tweenTimer*0.57",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												}
+											],
+											"sid": 174526700779005
 										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 851105845800184
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "dialogOptionA",
+													"sid": 834749524802562,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 613294919034676,
+													"parameters": {
+														"seconds": "0.001",
+														"use-timescale": true
+													}
+												}
+											],
+											"sid": 143712006657534
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "quizCloseBoxesB",
+							"functionDescription": "Close all quiz options (with tween)",
+							"functionCategory": "Dialog Boxes",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "tweenTime",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 243709165559779
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 822745357999065,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "tweenTimer",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 235090937727166
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 683682966796493,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 220792065396002,
+													"parameters": {
+														"variable": "tweenTime",
+														"comparison": 4,
+														"value": "0.2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 269964276630005,
+													"parameters": {
+														"variable": "tweenTimer",
+														"value": "tweenTime"
+													}
+												}
+											],
+											"sid": 164849371685539
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 391019970610445
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 818821495102694,
+													"parameters": {
+														"variable": "tweenTimer",
+														"value": "0.2"
+													}
+												}
+											],
+											"sid": 808594390782272
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionB",
-											"sid": 161924473358744,
+											"sid": 415835889315633,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizBHeight\"",
@@ -1296,7 +1738,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionB",
-											"sid": 158506768795294,
+											"sid": 121847306668345,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizBWidth\"",
@@ -1313,7 +1755,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionB",
-											"sid": 960037729164376,
+											"sid": 676395709525096,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizBOpac\"",
@@ -1328,7 +1770,79 @@
 											}
 										}
 									],
-									"sid": 264228213455853
+									"sid": 115321112879740
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 814423014957585,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "dialogOptionB",
+													"sid": 843362918954170,
+													"parameters": {
+														"comparison": 5,
+														"opacity": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "dialogOptionB",
+													"sid": 945654449514735,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"optionsOpacity\"",
+														"property": "offsetOpacity",
+														"end-value": "0",
+														"time": "tweenTimer*0.57",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												}
+											],
+											"sid": 679995863076443
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 600032267059939
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "dialogOptionB",
+													"sid": 457306217157793,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 370260415662186,
+													"parameters": {
+														"seconds": "0.001",
+														"use-timescale": true
+													}
+												}
+											],
+											"sid": 247479274086719
+										}
+									]
 								}
 							]
 						},
@@ -1346,6 +1860,83 @@
 							"sid": 624208669314636,
 							"children": [
 								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "quizOptionA",
+											"sid": 615143883481520,
+											"parameters": {
+												"color": "originalColor_OptionsA"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionA",
+											"sid": 204105409364116,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Tint\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionA",
+											"sid": 743319167878767,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Tint2\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionA",
+											"sid": 658257659863002,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Toon\""
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "quizOptionB",
+											"sid": 273664303961925,
+											"parameters": {
+												"color": "originalColor_OptionsB"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionB",
+											"sid": 544994863738372,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Tint\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionB",
+											"sid": 493129371379182,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Tint2\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionB",
+											"sid": 592814251461619,
+											"parameters": {
+												"mode": "disable",
+												"effect": "\"Toon\""
+											}
+										}
+									],
+									"sid": 251014667173954
+								},
+								{
 									"eventType": "variable",
 									"name": "tweenTimer",
 									"type": "number",
@@ -1362,7 +1953,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionA",
-											"sid": 780948959333790,
+											"sid": 830542738461849,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizAHeight\"",
@@ -1413,7 +2004,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionB",
-											"sid": 561259813711846,
+											"sid": 444076343678675,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizBHeight\"",
@@ -1614,12 +2205,6 @@
 											"sid": 524381433147539
 										}
 									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 960866198669309
 								},
 								{
 									"eventType": "block",
@@ -2056,6 +2641,14 @@
 											"parameters": {
 												"text": "OptionB"
 											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 245955400653593,
+											"parameters": {
+												"tag": "\"optionsDisplayed\""
+											}
 										}
 									],
 									"sid": 683957251889471
@@ -2284,14 +2877,15 @@
 						{
 							"id": "set-visible",
 							"objectClass": "dialogText",
-							"sid": 897912996812500,
+							"sid": 298698678904097,
 							"disabled": true,
 							"parameters": {
 								"visibility": "invisible"
 							}
 						}
 					],
-					"sid": 426600083320197,
+					"sid": 427689675691472,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -2299,14 +2893,15 @@
 								{
 									"id": "pick-all",
 									"objectClass": "System",
-									"sid": 829775563869810,
+									"sid": 524902433002505,
 									"parameters": {
 										"object": "quizTextOptions"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 378573243086095,
+							"sid": 814370765067007,
+							"disabled": true,
 							"children": [
 								{
 									"eventType": "block",
@@ -2314,7 +2909,7 @@
 										{
 											"id": "compare-opacity",
 											"objectClass": "quizTextOptions",
-											"sid": 196425049317725,
+											"sid": 785198965710452,
 											"parameters": {
 												"comparison": 5,
 												"opacity": "0"
@@ -2325,7 +2920,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizTextOptions",
-											"sid": 793750838989093,
+											"sid": 308403403374700,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"optionsOpacity\"",
@@ -2340,7 +2935,8 @@
 											}
 										}
 									],
-									"sid": 919944502010041
+									"sid": 286372180494661,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2348,14 +2944,14 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 189046309909194
+											"sid": 300560541559490
 										}
 									],
 									"actions": [
 										{
 											"id": "set-visible",
 											"objectClass": "quizTextOptions",
-											"sid": 398420673651649,
+											"sid": 753580016809992,
 											"parameters": {
 												"visibility": "invisible"
 											}
@@ -2363,31 +2959,467 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 370828867642024,
+											"sid": 154976615296543,
 											"parameters": {
 												"seconds": "0.001",
 												"use-timescale": true
 											}
-										},
-										{
-											"id": "set-opacity",
-											"objectClass": "quizTextOptions",
-											"sid": 672698393856365,
-											"disabled": true,
-											"parameters": {
-												"opacity": "100"
-											}
 										}
 									],
-									"sid": 810545473816501
+									"sid": 464400917969126,
+									"disabled": true
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 918166418790010,
+							"disabled": true
 						}
 					]
 				},
 				{
-					"eventType": "comment",
-					"text": "Loading Files"
+					"functionName": "selectOption",
+					"functionDescription": "Send the select option to the system to process.",
+					"functionCategory": "Quiz Config",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "selectedOption",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 136129351310752
+						},
+						{
+							"name": "rightAnswer",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 110784398110197
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 207459690087995,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "isCorrect",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 216832806049576
+						},
+						{
+							"eventType": "variable",
+							"name": "wrongAnswer",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 177084055350510
+						},
+						{
+							"eventType": "comment",
+							"text": "tint the correct one"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 953139059241784,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 632177673916771,
+											"parameters": {
+												"variable": "rightAnswer",
+												"comparison": 0,
+												"value": "\"A\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "quizOptionA",
+											"sid": 554964352252785,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionA",
+											"sid": 735148917782885,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Tint\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionA",
+											"sid": 461716793393506,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Toon\""
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "quizOptionB",
+											"sid": 231616913543600,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionB",
+											"sid": 207596009507664,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Tint2\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionB",
+											"sid": 646094660370772,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Toon\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 234069723576508,
+											"parameters": {
+												"variable": "wrongAnswer",
+												"value": "\"B\""
+											}
+										}
+									],
+									"sid": 499843326200846
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 728513895184850,
+											"parameters": {
+												"variable": "rightAnswer",
+												"comparison": 0,
+												"value": "\"B\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "quizOptionB",
+											"sid": 383157014493625,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionB",
+											"sid": 320203796912464,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Tint\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionB",
+											"sid": 883083514841140,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Toon\""
+											}
+										},
+										{
+											"id": "set-default-color",
+											"objectClass": "quizOptionA",
+											"sid": 333573551032478,
+											"parameters": {
+												"color": "rgbEx(255, 255, 255)"
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionA",
+											"sid": 583251280801456,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Tint2\""
+											}
+										},
+										{
+											"id": "set-effect-enabled",
+											"objectClass": "quizOptionA",
+											"sid": 861948936443412,
+											"parameters": {
+												"mode": "enable",
+												"effect": "\"Toon\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 542275577715441,
+											"parameters": {
+												"variable": "wrongAnswer",
+												"value": "\"A\""
+											}
+										}
+									],
+									"sid": 308983961594483
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 153801292630809,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 114274269742819,
+											"parameters": {
+												"variable": "selectedOption",
+												"comparison": 0,
+												"value": "rightAnswer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 980806732092459,
+											"parameters": {
+												"variable": "isCorrect",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 331075483647645
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 511206237147124
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 861229684407105,
+											"parameters": {
+												"variable": "isCorrect",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 466573217910940
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 812842071289444
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 285437252218064,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 684086672903925,
+											"parameters": {
+												"variable": "wrongAnswer",
+												"comparison": 0,
+												"value": "\"A\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 716381278038122,
+											"parameters": {
+												"seconds": "1.15",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "quizCloseBoxesA",
+											"sid": 437116268725598,
+											"parameters": [
+												"0"
+											]
+										}
+									],
+									"sid": 346069403399876
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 373117843897639,
+											"parameters": {
+												"variable": "wrongAnswer",
+												"comparison": 0,
+												"value": "\"B\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 914770840726980,
+											"parameters": {
+												"seconds": "1.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "quizCloseBoxesB",
+											"sid": 408408642029983,
+											"parameters": [
+												"0"
+											]
+										}
+									],
+									"sid": 919179645454532
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 472862628139058,
+									"parameters": {
+										"seconds": "0.6",
+										"use-timescale": true
+									}
+								}
+							],
+							"sid": 346489673876168,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 673391643772023,
+											"parameters": {
+												"variable": "isCorrect"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 822948106760421
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 528297757547792,
+											"parameters": {
+												"variable": "currQuiz_Score",
+												"value": "100"
+											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 694175160127386,
+											"parameters": {
+												"tag": "\"answerChecked\""
+											}
+										}
+									],
+									"sid": 911146595748848
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 504054208253366
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 972691742961477
+										}
+									],
+									"actions": [
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 776415720359591,
+											"parameters": {
+												"tag": "\"answerChecked\""
+											}
+										}
+									],
+									"sid": 652211931320235
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 379505434545591
@@ -2400,7 +3432,7 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"functionName": "configNPC_Files",
+					"functionName": "configNPC_FilePaths",
 					"functionDescription": "Configure the NPCs file paths and dictionary keys",
 					"functionCategory": "NPC Config",
 					"functionReturnType": "none",
@@ -2434,60 +3466,18 @@
 										"variable": "thisLayout",
 										"value": "Functions.setLayoutType(LayoutName)"
 									}
-								}
-							],
-							"sid": 761092298361009,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 796842492793601,
-											"parameters": {
-												"variable": "thisLayout",
-												"comparison": 0,
-												"value": "\"MainGame\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "NPCs",
-											"sid": 149187096878681,
-											"parameters": {
-												"instance-variable": "DialogType",
-												"value": "\"Quiz\""
-											}
-										}
-									],
-									"sid": 442361061401125
 								},
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 680955658635457
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "NPCs",
-											"sid": 379037774900227,
-											"parameters": {
-												"instance-variable": "DialogType",
-												"value": "\"Dialog\""
-											}
-										}
-									],
-									"sid": 605713717325713
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 928349546536166,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
 								}
-							]
+							],
+							"sid": 761092298361009
 						},
 						{
 							"eventType": "block",
@@ -2497,103 +3487,339 @@
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"conditions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_AndersonPatinho",
-											"sid": 672211649343246,
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 394531494378460,
 											"parameters": {
-												"instance-variable": "FilePath",
-												"value": "\"NPCs/AndersonPatinho/npcPatinho_\"&Self.DialogType&\".json\""
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_AndersonPatinho",
-											"sid": 256503855587756,
-											"parameters": {
-												"instance-variable": "dicKey",
-												"value": "\"patinho\""
+												"object": "objNPC_AndersonPatinho"
 											}
 										}
 									],
-									"sid": 299548831468211
+									"actions": [],
+									"sid": 299548831468211,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 909950937715050,
+													"parameters": {
+														"variable": "thisLayout",
+														"comparison": 0,
+														"value": "\"MainGame\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_AndersonPatinho",
+													"sid": 867416317921260,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"patinho_quiz\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_AndersonPatinho",
+													"sid": 882440632804429,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"patinho\""
+													}
+												}
+											],
+											"sid": 216963174340404
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 200804688212992
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_AndersonPatinho",
+													"sid": 742863862156955,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"patinho_dialog\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_AndersonPatinho",
+													"sid": 948483790736428,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"patinho\""
+													}
+												}
+											],
+											"sid": 354912835338549
+										}
+									]
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"conditions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_DonaCida",
-											"sid": 732400308059877,
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 130521321178113,
 											"parameters": {
-												"instance-variable": "FilePath",
-												"value": "\"NPCs/DonaCida/npcCida_\"&Self.DialogType&\".json\""
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_DonaCida",
-											"sid": 754019247208840,
-											"parameters": {
-												"instance-variable": "dicKey",
-												"value": "\"cida\""
+												"object": "objNPC_DonaCida"
 											}
 										}
 									],
-									"sid": 456764848480966
+									"actions": [],
+									"sid": 456764848480966,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 835029836886693,
+													"parameters": {
+														"variable": "thisLayout",
+														"comparison": 0,
+														"value": "\"MainGame\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_DonaCida",
+													"sid": 411638463428884,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"cida_quiz\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_DonaCida",
+													"sid": 126324812753542,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"cida\""
+													}
+												}
+											],
+											"sid": 727735115465282
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 756313885343440
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_DonaCida",
+													"sid": 227261104479572,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"cida_dialog\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_DonaCida",
+													"sid": 625405125351965,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"cida\""
+													}
+												}
+											],
+											"sid": 862602749525977
+										}
+									]
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"conditions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_GuiDasMares",
-											"sid": 258652636396201,
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 981672747671338,
 											"parameters": {
-												"instance-variable": "FilePath",
-												"value": "\"NPCs/GuiDasMares/npcGui_\"&Self.DialogType&\".json\""
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_GuiDasMares",
-											"sid": 752756892919801,
-											"parameters": {
-												"instance-variable": "dicKey",
-												"value": "\"gui\""
+												"object": "objNPC_GuiDasMares"
 											}
 										}
 									],
-									"sid": 832722017812339
+									"actions": [],
+									"sid": 832722017812339,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 962416530401367,
+													"parameters": {
+														"variable": "thisLayout",
+														"comparison": 0,
+														"value": "\"MainGame\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_GuiDasMares",
+													"sid": 759047406613037,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"gui_quiz\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_GuiDasMares",
+													"sid": 102403076577666,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"gui\""
+													}
+												}
+											],
+											"sid": 635173477487657
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 139876204912835
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_GuiDasMares",
+													"sid": 939298169376481,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"gui_dialog\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_GuiDasMares",
+													"sid": 628907741439077,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"gui\""
+													}
+												}
+											],
+											"sid": 807389457849284
+										}
+									]
 								},
 								{
 									"eventType": "block",
-									"conditions": [],
-									"actions": [
+									"conditions": [
 										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_TiaFernanda",
-											"sid": 893403587295488,
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 997584835554356,
 											"parameters": {
-												"instance-variable": "FilePath",
-												"value": "\"NPCs/TiaFernanda/npcFer_\"&Self.DialogType&\".json\""
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "objNPC_TiaFernanda",
-											"sid": 387151459114458,
-											"parameters": {
-												"instance-variable": "dicKey",
-												"value": "\"fer\""
+												"object": "objNPC_TiaFernanda"
 											}
 										}
 									],
-									"sid": 462349492847472
+									"actions": [],
+									"sid": 462349492847472,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 683435253069730,
+													"parameters": {
+														"variable": "thisLayout",
+														"comparison": 0,
+														"value": "\"MainGame\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_TiaFernanda",
+													"sid": 119508629713018,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"fer_quiz\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_TiaFernanda",
+													"sid": 610122157598514,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"fer\""
+													}
+												}
+											],
+											"sid": 795137304872433
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 626378766007077
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_TiaFernanda",
+													"sid": 312672903843327,
+													"parameters": {
+														"instance-variable": "FilePath",
+														"value": "npcPathsDictionary.Get(\"fer_dialog\")"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objNPC_TiaFernanda",
+													"sid": 731808658586359,
+													"parameters": {
+														"instance-variable": "dicKey",
+														"value": "\"fer\""
+													}
+												}
+											],
+											"sid": 691814333270637
+										}
+									]
 								}
 							]
 						},
@@ -2604,9 +3830,9 @@
 								{
 									"id": "signal",
 									"objectClass": "System",
-									"sid": 435008622756390,
+									"sid": 526692978437215,
 									"parameters": {
-										"tag": "\"pathCreated\""
+										"tag": "\"allPathsCreated\""
 									}
 								}
 							],
@@ -2730,7 +3956,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "quizState",
+											"objectClass": "npcPathsDictionary",
 											"sid": 168404063161670,
 											"parameters": {
 												"key": "dictKey&\"_probTable\"",
@@ -2746,7 +3972,7 @@
 											"sid": 817253837321557,
 											"parameters": {
 												"name": "\"quiz_\"&dictKey",
-												"json": "quizState.Get(dictKey&\"_probTable\")"
+												"json": "npcPathsDictionary.Get(dictKey&\"_probTable\")"
 											}
 										},
 										{
@@ -2755,11 +3981,12 @@
 											"sid": 863320453685928,
 											"parameters": {
 												"variable": "npcQuiz_questionsDone",
-												"value": "quizState.Get(dictKey&\"_questionsDone\")"
+												"value": "npcPathsDictionary.Get(dictKey&\"_questionsDone\")"
 											}
 										}
 									],
-									"sid": 825214545503714
+									"sid": 825214545503714,
+									"disabled": true
 								},
 								{
 									"eventType": "block",
@@ -2781,6 +4008,7 @@
 										}
 									],
 									"sid": 860607120744988,
+									"disabled": true,
 									"children": [
 										{
 											"eventType": "block",
@@ -2816,7 +4044,8 @@
 													}
 												}
 											],
-											"sid": 388616768213253
+											"sid": 388616768213253,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -2832,7 +4061,8 @@
 													}
 												}
 											],
-											"sid": 285060583216955
+											"sid": 285060583216955,
+											"disabled": true
 										}
 									]
 								}
@@ -2848,19 +4078,6 @@
 				}
 			],
 			"sid": 935435722469912
-		},
-		{
-			"functionName": "setQuizQuestion",
-			"functionDescription": "Randomly pick a quiz question based on previous picks.",
-			"functionCategory": "Quiz Config",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 293547746358638
 		}
 	],
 	"sid": 298105393163351

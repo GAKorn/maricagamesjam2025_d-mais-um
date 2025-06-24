@@ -1,0 +1,31 @@
+{
+	"name": "btnsQuiz",
+	"plugin-id": "NinePatch",
+	"sid": 589889304445293,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 572435583041235
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "toon",
+			"name": "Toon"
+		},
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		},
+		{
+			"effectId": "tint",
+			"name": "Tint2"
+		}
+	],
+	"members": [
+		"quizOptionA",
+		"quizOptionB"
+	]
+}

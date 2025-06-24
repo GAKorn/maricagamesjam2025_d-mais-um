@@ -5,6 +5,6 @@
 	"instanceVariables": [],
 	"members": [
 		"npcFiles",
-		"quizState"
+		"npcPathsDictionary"
 	]
 }

@@ -48,7 +48,7 @@
 							"objectClass": "System",
 							"sid": 141212022877952,
 							"parameters": {
-								"variable": "currScore"
+								"variable": "currCoin_Score"
 							}
 						},
 						{

@@ -270,6 +270,14 @@
 							}
 						},
 						{
+							"id": "wait-for-signal",
+							"objectClass": "System",
+							"sid": 172020053745653,
+							"parameters": {
+								"tag": "\"canStart\""
+							}
+						},
+						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 600794855546159,
@@ -325,7 +333,7 @@
 							"sid": 657605165565824,
 							"parameters": {
 								"variable": "subtractCoins",
-								"value": "ceil(currScore*1)"
+								"value": "ceil(currCoin_Score*1)"
 							}
 						},
 						{
@@ -1714,7 +1722,7 @@
 															"objectClass": "System",
 															"sid": 375767934056794,
 															"parameters": {
-																"variable": "currScore",
+																"variable": "currCoin_Score",
 																"comparison": 4,
 																"value": "0"
 															}
@@ -1744,7 +1752,7 @@
 															"objectClass": "System",
 															"sid": 405392525290036,
 															"parameters": {
-																"variable": "currScore",
+																"variable": "currCoin_Score",
 																"value": "subtractCoins"
 															}
 														},
@@ -1983,66 +1991,6 @@
 				}
 			],
 			"sid": 498277785336851
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Quiz Input",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 422510008401053,
-							"parameters": {
-								"key": 40
-							}
-						},
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 364187512818329,
-							"parameters": {
-								"object": "quizOptionA",
-								"type": "start"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 108331102397714,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 375004528592517,
-							"parameters": {
-								"key": 38
-							}
-						},
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 993510299544729,
-							"parameters": {
-								"object": "quizOptionB",
-								"type": "start"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 901011267696445,
-					"isOrBlock": true
-				}
-			],
-			"sid": 151920963629238
 		}
 	],
 	"sid": 841640149488999

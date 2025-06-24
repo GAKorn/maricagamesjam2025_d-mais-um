@@ -4,7 +4,15 @@
 	"sid": 337956885560398,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "thisID",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 664043986934242
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {

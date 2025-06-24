@@ -1,0 +1,13 @@
+{
+    "c2dictionary": true,
+    "data": {
+        "patinho_quiz": "NPCs/AndersonPatinho/npcPatinho_Quiz.json",
+        "patinho_dialog": "NPCs/AndersonPatinho/npcPatinho_Dialog.json",
+        "cida_quiz": "NPCs/DonaCida/npcCida_Quiz.json",
+        "cida_dialog": "NPCs/DonaCida/npcCida_Dialog.json",
+        "gui_quiz": "NPCs/GuiDasMares/npcGui_Quiz.json",
+        "gui_dialog": "NPCs/GuiDasMares/npcGui_Dialog.json",
+        "fer_quiz": "NPCs/TiaFernanda/npcFer_Quiz.json",
+        "fer_dialog": "NPCs/TiaFernanda/npcFer_Dialog.json"
+    }
+}
