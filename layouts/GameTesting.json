@@ -44,7 +44,7 @@
 					}
 				},
 				{
-					"type": "gameLayoutArea",
+					"type": "gameLayoutAreaStart",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -176,8 +176,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -288,
-								"y": -384,
+								"x": 0,
+								"y": 0,
 								"width": 288,
 								"height": 288,
 								"originX": 0,
@@ -376,8 +376,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -288,
-								"y": -208,
+								"x": 0,
+								"y": 176,
 								"width": 48,
 								"height": 112,
 								"originX": 0,
@@ -498,8 +498,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -240,
-								"y": -128,
+								"x": 48,
+								"y": 256,
 								"width": 224,
 								"height": 32,
 								"originX": 0,
@@ -1415,8 +1415,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -208,
-								"y": -128,
+								"x": 80,
+								"y": 256,
 								"width": 16,
 								"height": 16,
 								"originX": 0.5,
@@ -1469,88 +1469,6 @@
 							}
 						},
 						{
-							"type": "objSlowDown",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 49,
-							"sid": 733468742959778,
-							"tags": "",
-							"instanceVariables": {
-								"slowBy": 0.7,
-								"isTutorial": false,
-								"tutorialType": ""
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 733468742959778,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 752,
-								"y": -384,
-								"width": 112,
-								"height": 288,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "objSlowDown",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 50,
-							"sid": 960779865387880,
-							"tags": "",
-							"instanceVariables": {
-								"slowBy": 0.3,
-								"isTutorial": false,
-								"tutorialType": ""
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 960779865387880,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1120,
-								"y": -384,
-								"width": 96,
-								"height": 288,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
 							"type": "objForceIdle",
 							"properties": {
 								"initially-visible": true,
@@ -1559,21 +1477,21 @@
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 51,
-							"sid": 207291452113306,
+							"uid": 49,
+							"sid": 947919672081774,
 							"tags": "",
 							"instanceVariables": {
 								"slowBy": 0.7
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 207291452113306,
+								"sid": 947919672081774,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 496,
+								"x": 880,
 								"y": -384,
 								"width": 112,
 								"height": 288,
@@ -1725,8 +1643,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -16,
-								"y": -48,
+								"x": -480,
+								"y": 16,
 								"width": 16,
 								"height": 36,
 								"originX": 0.5,
@@ -1767,7 +1685,7 @@
 									}
 								},
 								"BlackWhite1": {
-									"isEnabled": true,
+									"isEnabled": false,
 									"parameters": {
 										"threshold": 0.5
 									}
@@ -1780,12 +1698,101 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -224,
-								"y": -336,
+								"x": 64,
+								"y": 48,
 								"width": 48,
 								"height": 48,
 								"originX": 0.5,
 								"originY": 1,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "objNPC_DonaCida",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 50,
+							"sid": 486801424429113,
+							"tags": "",
+							"instanceVariables": {
+								"DialogType": "",
+								"currTextID": 0,
+								"currLineID": 0,
+								"FilePath": "",
+								"dicKey": "",
+								"filesReady": false,
+								"thisNPCFile_Path": "",
+								"thisID": ""
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 486801424429113,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 976,
+								"y": -192,
+								"width": 48,
+								"height": 64,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Camera",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 51,
+							"sid": 611374531380245,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"ScrollTo": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 611374531380245,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": -224,
+								"y": 32,
+								"width": 16,
+								"height": 16,
+								"originX": 0.5,
+								"originY": 0.5,
 								"color": [
 									1,
 									1,

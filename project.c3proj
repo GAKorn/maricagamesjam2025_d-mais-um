@@ -231,7 +231,6 @@
 			"btnStartGame",
 			"btnStartGame_label",
 			"tlmTestDecor",
-			"txtDebugAction",
 			"txtDebugAction2",
 			"txtDebugAction3"
 		],
@@ -239,7 +238,7 @@
 			{
 				"items": [
 					"viewportArea",
-					"gameLayoutArea",
+					"gameLayoutAreaStart",
 					"PlatformInfo",
 					"Browser",
 					"gameCameraArea",
@@ -247,7 +246,8 @@
 					"AJAX",
 					"TimelineController",
 					"FileSystem",
-					"JSON"
+					"JSON",
+					"gameLayoutAreaEnd"
 				],
 				"subfolders": [],
 				"name": "Configuration"
@@ -315,16 +315,29 @@
 			{
 				"items": [
 					"activeDialogArray",
-					"dialogBox",
-					"dialogText",
-					"quizOptionA",
-					"quizOptionB",
-					"dialogOptionA",
-					"dialogOptionB",
 					"npcFiles",
 					"npcPathsDictionary"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"dialogBox",
+							"quizOptionA",
+							"quizOptionB"
+						],
+						"subfolders": [],
+						"name": "Visuals"
+					},
+					{
+						"items": [
+							"dialogOptionA",
+							"dialogOptionB",
+							"dialogText"
+						],
+						"subfolders": [],
+						"name": "Text"
+					}
+				],
 				"name": "Dialog"
 			},
 			{
@@ -346,6 +359,15 @@
 				],
 				"subfolders": [],
 				"name": "Input_Graphics"
+			},
+			{
+				"items": [
+					"txtScore",
+					"sprMumbuHUD",
+					"txtQuizAddScore"
+				],
+				"subfolders": [],
+				"name": "ScoreRelated"
 			}
 		]
 	},
@@ -446,7 +468,32 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "ThirstyCaps.otf",
+					"type": "application/font-sfnt",
+					"sid": 449703734625436,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Mostwasted.ttf",
+					"type": "application/font-sfnt",
+					"sid": 780362176036316,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Dugffiti-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 990232098792343,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {

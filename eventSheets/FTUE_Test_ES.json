@@ -6,6 +6,30 @@
 			"includeSheet": "GeneralConfig_ES"
 		},
 		{
+			"eventType": "comment",
+			"text": "Essas duas variáveis precisam ser usadas em todos os layouts com pontuação."
+		},
+		{
+			"eventType": "variable",
+			"name": "rodoviaria_levelScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 669773034524311
+		},
+		{
+			"eventType": "variable",
+			"name": "rodoviaria_firstTime",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 378823424252126
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -34,6 +58,7 @@
 				}
 			],
 			"sid": 406561648025070,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -50,6 +75,7 @@
 					],
 					"actions": [],
 					"sid": 689679541398227,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -73,9 +99,66 @@
 									}
 								}
 							],
-							"sid": 804061154684337
+							"sid": 804061154684337,
+							"disabled": true
 						}
 					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 565276972608876
+				}
+			],
+			"actions": [],
+			"sid": 226177378986907,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 792220604731944,
+							"parameters": {
+								"variable": "rodoviaria_firstTime"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "reset-eventvar",
+							"objectClass": "System",
+							"sid": 237907989919191,
+							"parameters": {
+								"variable": "rodoviaria_levelScore"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 770005386265776,
+							"parameters": {
+								"seconds": "0.2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 819990634512455,
+							"parameters": {
+								"variable": "rodoviaria_firstTime",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 133512894462330
 				}
 			]
 		},
@@ -830,18 +913,6 @@
 				}
 			],
 			"sid": 434363135596895
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 671725565536091
-				}
-			],
-			"actions": [],
-			"sid": 907612041431045
 		}
 	],
 	"sid": 158160544523100

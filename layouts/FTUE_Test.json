@@ -44,7 +44,7 @@
 					}
 				},
 				{
-					"type": "gameLayoutArea",
+					"type": "gameLayoutAreaStart",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -791,6 +791,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 850672065439381,
 								"expanded": true
@@ -832,6 +840,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -877,6 +893,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 723443383141598,
 								"expanded": true
@@ -918,6 +942,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -963,6 +995,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 351077120603076,
 								"expanded": true
@@ -1004,6 +1044,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1049,6 +1097,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 583554955588633,
 								"expanded": true
@@ -1090,6 +1146,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1135,6 +1199,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 249520763296165,
 								"expanded": true
@@ -1176,6 +1248,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1221,6 +1301,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 969162521570322,
 								"expanded": true
@@ -1262,6 +1350,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1307,6 +1403,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 621047870840266,
 								"expanded": true
@@ -1348,6 +1452,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1393,6 +1505,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 660173914594177,
 								"expanded": true
@@ -1434,6 +1554,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1479,6 +1607,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 618800391465496,
 								"expanded": true
@@ -1520,6 +1656,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1565,6 +1709,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 863574432685534,
 								"expanded": true
@@ -1606,6 +1758,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1651,6 +1811,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 418265356958371,
 								"expanded": true
@@ -1692,6 +1860,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1737,6 +1913,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 688311738695765,
 								"expanded": true
@@ -1778,6 +1962,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1823,6 +2015,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 676212854936090,
 								"expanded": true
@@ -1864,6 +2064,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1909,6 +2117,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 217963369464951,
 								"expanded": true
@@ -1950,6 +2166,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -1995,6 +2219,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 188131511349432,
 								"expanded": true
@@ -2036,6 +2268,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2081,6 +2321,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 676376443338701,
 								"expanded": true
@@ -2122,6 +2370,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2167,6 +2423,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 672260165745675,
 								"expanded": true
@@ -2208,6 +2472,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2253,6 +2525,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 562603463067275,
 								"expanded": true
@@ -2294,6 +2574,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2339,6 +2627,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 985921074794199,
 								"expanded": true
@@ -2380,6 +2676,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2425,6 +2729,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 660598598214336,
 								"expanded": true
@@ -2466,6 +2778,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2511,6 +2831,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 587845593002971,
 								"expanded": true
@@ -2552,6 +2880,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2597,6 +2933,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 792738525062719,
 								"expanded": true
@@ -2638,6 +2982,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2683,6 +3035,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 314423898350100,
 								"expanded": true
@@ -2724,6 +3084,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2769,6 +3137,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 311501234188107,
 								"expanded": true
@@ -2810,6 +3186,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2855,6 +3239,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 152705951552033,
 								"expanded": true
@@ -2896,6 +3288,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -2941,6 +3341,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 914618071822388,
 								"expanded": true
@@ -2982,6 +3390,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -3027,6 +3443,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 697148853209990,
 								"expanded": true
@@ -3068,6 +3492,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -3583,6 +4015,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 453787858198181,
 								"expanded": true
@@ -3624,6 +4064,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -3669,6 +4117,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 938077755984950,
 								"expanded": true
@@ -3712,6 +4168,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 815894327845158,
 								"expanded": true
@@ -3753,6 +4217,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -3876,6 +4348,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 601089815640394,
 								"expanded": true
@@ -3917,6 +4397,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -3962,6 +4450,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 636905810179398,
 								"expanded": true
@@ -4003,6 +4499,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4048,6 +4552,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 379320949946931,
 								"expanded": true
@@ -4089,6 +4601,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4134,6 +4654,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 321211713966517,
 								"expanded": true
@@ -4175,6 +4703,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4220,6 +4756,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 310135932366035,
 								"expanded": true
@@ -4261,6 +4805,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4306,6 +4858,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 222547958662258,
 								"expanded": true
@@ -4347,6 +4907,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4392,6 +4960,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 433517958589254,
 								"expanded": true
@@ -4433,6 +5009,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4478,6 +5062,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 892142269379401,
 								"expanded": true
@@ -4519,6 +5111,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4564,6 +5164,14 @@
 									"properties": {}
 								}
 							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 473245648688919,
 								"expanded": true
@@ -4605,6 +5213,14 @@
 							"behaviors": {
 								"Flash": {
 									"properties": {}
+								}
+							},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
 								}
 							},
 							"instanceFolderItem": {
@@ -4888,8 +5504,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -64,
-								"y": 0,
+								"x": 352,
+								"y": 144,
 								"width": 16,
 								"height": 16,
 								"originX": 0.5,

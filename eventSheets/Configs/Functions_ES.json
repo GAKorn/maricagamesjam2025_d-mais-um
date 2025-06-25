@@ -527,6 +527,56 @@
 									"sid": 324128570493495
 								},
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "levelArea",
+											"sid": 846410134531621,
+											"parameters": {
+												"object": "NPCs"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "NPCs",
+											"sid": 903988824699928,
+											"parameters": {
+												"x": "this_curX+(Self.X-levelArea.X)",
+												"y": "this_curY+(Self.Y-levelArea.Y)"
+											}
+										}
+									],
+									"sid": 721910230783990
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "levelArea",
+											"sid": 421533466216825,
+											"parameters": {
+												"object": "Coins"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Coins",
+											"sid": 302056786800046,
+											"parameters": {
+												"x": "this_curX+(Self.X-levelArea.X)",
+												"y": "this_curY+(Self.Y-levelArea.Y)"
+											}
+										}
+									],
+									"sid": 405173197346630
+								},
+								{
 									"eventType": "comment",
 									"text": "Move the level area itself."
 								},
@@ -583,6 +633,16 @@
 										"comparison": 0,
 										"value": "\"FTUE_Test\""
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 660206658313159,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"GameTesting\""
+									}
 								}
 							],
 							"actions": [
@@ -595,7 +655,8 @@
 									}
 								}
 							],
-							"sid": 266225000738021
+							"sid": 266225000738021,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -617,6 +678,90 @@
 								}
 							],
 							"sid": 309925635003728
+						}
+					]
+				},
+				{
+					"functionName": "scoreVisibility",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "visible",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 838889914732517
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 703266355069686,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 648309277473002,
+									"parameters": {
+										"variable": "visible"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "txtScore",
+									"sid": 687835688387978,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "sprMumbuHUD",
+									"sid": 557218678667552,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 266552490624946
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 158213797901924
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "txtScore",
+									"sid": 441280278490012,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "sprMumbuHUD",
+									"sid": 822314890065536,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 937719101128900
 						}
 					]
 				}
@@ -667,6 +812,16 @@
 										"y": "objPlayer.ImagePointY(1)",
 										"create-hierarchy": false,
 										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "objCoins_Loss",
+									"sid": 543284105429080,
+									"parameters": {
+										"effect": "\"Pixellate\"",
+										"parameter-index": "0",
+										"value": "1"
 									}
 								},
 								{
@@ -3331,12 +3486,20 @@
 									],
 									"actions": [
 										{
-											"id": "add-to-eventvar",
+											"callFunction": "increaseScoreWithQuiz",
+											"sid": 629421274007848,
+											"disabled": true,
+											"parameters": [
+												"100"
+											]
+										},
+										{
+											"id": "set-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 528297757547792,
+											"sid": 315160734553142,
 											"parameters": {
-												"variable": "currQuiz_Score",
-												"value": "100"
+												"variable": "hasChosenTheRightAnswer",
+												"value": "true"
 											}
 										},
 										{
@@ -4037,6 +4200,134 @@
 				}
 			],
 			"sid": 935435722469912
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Camera",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "cameraInitPos",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 782200390439661,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 691029312092953,
+									"parameters": {
+										"first-value": "Camera.Count",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 292022960735994,
+									"parameters": {
+										"object-to-create": "Camera",
+										"layer": "objPlayer.LayerName",
+										"x": "gameLayoutAreaStart.Width/2",
+										"y": "(gameLayoutAreaStart.Height/2)",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 409683882015972
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 436596467913727
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Camera",
+									"sid": 108737856266317,
+									"parameters": {
+										"x": "gameLayoutAreaStart.Width/2",
+										"y": "(gameLayoutAreaStart.Height/2)"
+									}
+								}
+							],
+							"sid": 403467390891441
+						}
+					]
+				},
+				{
+					"functionName": "cameraUpdate",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 917898566671320,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Camera",
+									"sid": 546241294741220,
+									"parameters": {
+										"comparison": 3,
+										"x-co-ordinate": "objPlayer.X"
+									}
+								},
+								{
+									"id": "compare-x",
+									"objectClass": "Camera",
+									"sid": 561563872763567,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "LayoutWidth-(gameLayoutAreaEnd.Width/2)"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Camera",
+									"sid": 658679779470778,
+									"parameters": {
+										"x": "lerp(Self.X, objPlayer.X, 0.035)"
+									}
+								}
+							],
+							"sid": 483233762703810
+						}
+					]
+				}
+			],
+			"sid": 671721626273961
 		}
 	],
 	"sid": 298105393163351

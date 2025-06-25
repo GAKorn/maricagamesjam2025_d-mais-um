@@ -1,0 +1,16 @@
+{
+	"name": "txtQuizAddScore",
+	"plugin-id": "Text",
+	"sid": 543814588596246,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 860261194286827
+		}
+	],
+	"effectTypes": []
+}

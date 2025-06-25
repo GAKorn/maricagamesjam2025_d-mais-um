@@ -82,6 +82,16 @@
 			"sid": 111138070657984
 		},
 		{
+			"eventType": "variable",
+			"name": "hasChosenTheRightAnswer",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 733631518237767
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -90,7 +100,17 @@
 					"sid": 600239184718966
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "dialogText",
+					"sid": 556879095460430,
+					"parameters": {
+						"x": "80",
+						"y": "80"
+					}
+				}
+			],
 			"sid": 134506814363087
 		},
 		{
@@ -921,19 +941,72 @@
 				{
 					"callFunction": "dialogBoxClose",
 					"sid": 263779896596337
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 227114372060043,
-					"parameters": {
-						"seconds": "0.25",
-						"use-timescale": true
-					}
 				}
 			],
 			"sid": 333394568466214,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 937683825428288,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 707491001427118,
+									"parameters": {
+										"variable": "hasChosenTheRightAnswer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "increaseScoreWithQuiz",
+									"sid": 829706858442154,
+									"parameters": [
+										"100"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 872827018438669,
+									"parameters": {
+										"seconds": "0.25",
+										"use-timescale": true
+									}
+								}
+							],
+							"sid": 418970983732881
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 902852295747037
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 246071168974530,
+									"parameters": {
+										"seconds": "0.25",
+										"use-timescale": true
+									}
+								}
+							],
+							"sid": 431615690228432
+						}
+					]
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -1282,6 +1355,14 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "reset-eventvar",
+									"objectClass": "System",
+									"sid": 502238617153388,
+									"parameters": {
+										"variable": "hasChosenTheRightAnswer"
+									}
+								},
 								{
 									"callFunction": "resetTextVisuals",
 									"sid": 839028862751476
@@ -1869,9 +1950,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 256902090494521,
+							"sid": 679884296564168,
 							"parameters": {
-								"seconds": "3",
+								"seconds": "2",
 								"use-timescale": true
 							}
 						},

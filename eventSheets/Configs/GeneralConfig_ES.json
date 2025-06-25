@@ -37,10 +37,10 @@
 			"eventType": "variable",
 			"name": "GameScaleFactor",
 			"type": "number",
-			"initialValue": "3",
+			"initialValue": "3.75",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": false,
+			"isConstant": true,
 			"sid": 313141377846132
 		},
 		{
@@ -52,6 +52,10 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 554345772440509
+		},
+		{
+			"eventType": "comment",
+			"text": "Scores"
 		},
 		{
 			"eventType": "variable",
@@ -72,6 +76,20 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 460032078651876
+		},
+		{
+			"eventType": "variable",
+			"name": "currTotalScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 691021776404894
+		},
+		{
+			"eventType": "comment",
+			"text": "other"
 		},
 		{
 			"eventType": "variable",
@@ -107,6 +125,24 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "gameLayoutAreaEnd",
+					"sid": 531401338997201,
+					"parameters": {
+						"x": "LayoutWidth",
+						"y": "0"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 743185987356053,
+					"parameters": {
+						"type": "log",
+						"message": "gameLayoutAreaEnd.X"
+					}
+				},
 				{
 					"id": "reset-eventvar",
 					"objectClass": "System",
@@ -164,14 +200,6 @@
 					"parameters": {
 						"opacity": "45"
 					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "txtDebugAction",
-					"sid": 864787798585281,
-					"parameters": {
-						"text": "\"Coin Score: \"&currCoin_Score"
-					}
 				}
 			],
 			"sid": 815492278755839
@@ -197,8 +225,66 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "scoreVisibility",
+							"sid": 667179957648265,
+							"parameters": [
+								true
+							]
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txtScore",
+							"sid": 247144656629776,
+							"parameters": {
+								"text": "currTotalScore"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 645867758834592,
+							"parameters": {
+								"variable": "currTotalScore",
+								"value": "currCoin_Score+currQuiz_Score"
+							}
+						}
+					],
 					"sid": 656479303971756
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 618861618799434,
+							"parameters": {
+								"variable": "LayoutType",
+								"comparison": 0,
+								"value": "\"HUB\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "scoreVisibility",
+							"sid": 731771167798628,
+							"parameters": [
+								true
+							]
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txtScore",
+							"sid": 262679926684726,
+							"parameters": {
+								"text": "totalPlayerScore"
+							}
+						}
+					],
+					"sid": 700396581084524
 				},
 				{
 					"eventType": "block",
@@ -214,7 +300,15 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "scoreVisibility",
+							"sid": 643815140132953,
+							"parameters": [
+								false
+							]
+						}
+					],
 					"sid": 110153041346972
 				}
 			],
@@ -227,6 +321,49 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "objCoins",
+							"sid": 137166152797443
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-animation",
+							"objectClass": "objCoins",
+							"sid": 822921064168821
+						},
+						{
+							"id": "set-animation-speed",
+							"objectClass": "objCoins",
+							"sid": 852109577901861,
+							"parameters": {
+								"speed": "round(random(9,11))"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 525818776417541,
+							"parameters": {
+								"seconds": "random(0,1.15)",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "start-animation",
+							"objectClass": "objCoins",
+							"sid": 476779953957773,
+							"parameters": {
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 983219288644791
+				},
 				{
 					"eventType": "block",
 					"conditions": [],
@@ -259,6 +396,14 @@
 										"variable": "currCoin_Score",
 										"value": "1"
 									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 237746424053013,
+									"parameters": {
+										"tag": "\"scoreIncrease\""
+									}
 								}
 							],
 							"sid": 175663456372447
@@ -284,7 +429,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "objCoins_Loss",
-											"sid": 535324688461331,
+											"sid": 291614916095282,
 											"parameters": {
 												"instance-variable": "activeCollision",
 												"comparison": 0,
@@ -296,19 +441,27 @@
 										{
 											"id": "destroy",
 											"objectClass": "objCoins_Loss",
-											"sid": 525044219741957
+											"sid": 170087444092190
 										},
 										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
-											"sid": 905733772143622,
+											"sid": 178188592143203,
 											"parameters": {
 												"variable": "currCoin_Score",
 												"value": "1"
 											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 879267971779832,
+											"parameters": {
+												"tag": "\"scoreIncrease\""
+											}
 										}
 									],
-									"sid": 504873501746339
+									"sid": 392622790889949
 								}
 							]
 						}
@@ -325,30 +478,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-enabled",
-							"objectClass": "objCoins_Loss",
-							"sid": 799923685062626,
-							"disabled": true,
-							"behaviorType": "Bullet",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
 							"id": "set-opacity",
 							"objectClass": "objCoins_Loss",
 							"sid": 799598922399942,
-							"parameters": {
-								"opacity": "50"
-							}
-						},
-						{
-							"id": "set-scale",
-							"objectClass": "objCoins_Loss",
-							"sid": 256205397628577,
 							"disabled": true,
 							"parameters": {
-								"scale": "0.5"
+								"opacity": "50"
 							}
 						},
 						{
@@ -373,43 +508,6 @@
 						}
 					],
 					"sid": 528707927467177
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "sprPlayerAnimations",
-							"sid": 342785399785790,
-							"parameters": {
-								"object": "objCoins_Loss"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "objCoins_Loss",
-							"sid": 916722975122423,
-							"parameters": {
-								"instance-variable": "activeCollision",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "objCoins_Loss",
-							"sid": 961628778309932,
-							"parameters": {
-								"instance-variable": "activeCollision",
-								"value": "2"
-							}
-						}
-					],
-					"sid": 958550998057959,
-					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -498,6 +596,105 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "ScoreDisplayAndSomeLogic",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 871201487356761
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "sprMumbuHUD",
+							"sid": 487561955837620,
+							"parameters": {
+								"x": "16",
+								"y": "80"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "txtScore",
+							"sid": 158665339126431,
+							"parameters": {
+								"x": "208",
+								"y": "48"
+							}
+						}
+					],
+					"sid": 445771265885007
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 168199152331876,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 517517290666018,
+									"parameters": {
+										"tag": "\"scoreIncrease\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprMumbuHUD",
+									"sid": 569180452493492,
+									"parameters": {
+										"animation": "\"Spinning\"",
+										"from": "current-frame"
+									}
+								}
+							],
+							"sid": 181871036203988
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "sprMumbuHUD",
+									"sid": 521623062348950,
+									"parameters": {
+										"animation": "\"Spinning\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "sprMumbuHUD",
+									"sid": 963290250772265,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 974609390516344
+						}
+					]
+				}
+			],
+			"sid": 181364325526015
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Checkpoint",
 			"description": "",
 			"isActiveOnStart": true,
@@ -538,13 +735,281 @@
 			"sid": 494844440960960
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "LoadingFiles",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [],
-			"sid": 665968215193342
+			"functionName": "calculateLevelScoreRecord",
+			"functionDescription": "",
+			"functionCategory": "Score",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "totScore",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 418087199635137
+				},
+				{
+					"name": "lvlScore",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 882018932355540
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 858892075472944,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "gotRecord",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 700935199794934
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 165183906416303,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 811002419090418,
+									"parameters": {
+										"variable": "totScore",
+										"comparison": 4,
+										"value": "lvlScore"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 120867657616292,
+									"parameters": {
+										"variable": "gotRecord",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 245721372224414
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 276487803977364
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 346058249880528,
+									"parameters": {
+										"variable": "gotRecord",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 219460196857276
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 924474616730288
+				}
+			]
+		},
+		{
+			"functionName": "increaseScoreWithQuiz",
+			"functionDescription": "",
+			"functionCategory": "Score",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "scoreToIncrease",
+					"type": "number",
+					"initialValue": "100",
+					"comment": "",
+					"sid": 918821798877556
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 667307204825765,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 937202669395469,
+							"parameters": {
+								"object-to-create": "txtQuizAddScore",
+								"layer": "txtScore.LayerName",
+								"x": "208",
+								"y": "144",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "txtQuizAddScore",
+							"sid": 272439041955740
+						},
+						{
+							"id": "set-font-size",
+							"objectClass": "txtQuizAddScore",
+							"sid": 249375861639127,
+							"parameters": {
+								"size-pt": "80"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "txtQuizAddScore",
+							"sid": 228147114005130,
+							"parameters": {
+								"width": "160",
+								"height": "128"
+							}
+						},
+						{
+							"id": "set-horizontal-alignment",
+							"objectClass": "txtQuizAddScore",
+							"sid": 228325604230865,
+							"parameters": {
+								"horizontal-alignment": "center"
+							}
+						},
+						{
+							"id": "set-font-face",
+							"objectClass": "txtQuizAddScore",
+							"sid": 724347525223387,
+							"parameters": {
+								"font-face": "\"ThirstyCaps\"",
+								"style": "bold-and-italic"
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "txtQuizAddScore",
+							"sid": 718618747538381,
+							"parameters": {
+								"color": "rgbEx(6, 43, 3)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "txtQuizAddScore",
+							"sid": 214339528466011,
+							"parameters": {
+								"text": "\"+\"&scoreToIncrease"
+							}
+						}
+					],
+					"sid": 809120221455729
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 361733307723399,
+							"parameters": {
+								"seconds": "0.15",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "txtQuizAddScore",
+							"sid": 566581359411299,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "32",
+								"time": "0.45",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "txtQuizAddScore",
+							"sid": 142412682288251,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "160",
+								"time": "0.45",
+								"ease": "noease",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 142345562818827,
+							"parameters": {
+								"seconds": "0.375",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 651973049306265,
+							"parameters": {
+								"tag": "\"scoreIncrease\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 202115164982556,
+							"parameters": {
+								"variable": "currQuiz_Score",
+								"value": "scoreToIncrease"
+							}
+						}
+					],
+					"sid": 124698295559852
+				}
+			]
 		}
 	],
 	"sid": 139471198204685

@@ -44,7 +44,7 @@
 					}
 				},
 				{
-					"type": "gameLayoutArea",
+					"type": "gameLayoutAreaStart",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",

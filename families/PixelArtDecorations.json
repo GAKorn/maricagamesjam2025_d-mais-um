@@ -11,6 +11,9 @@
 		}
 	],
 	"members": [
-		"sprPlayerAnimations"
+		"sprPlayerAnimations",
+		"objCoins",
+		"objCoins_Loss",
+		"sprMumbuHUD"
 	]
 }

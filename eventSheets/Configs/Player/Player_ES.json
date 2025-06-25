@@ -160,6 +160,16 @@
 			"sid": 910190141436373
 		},
 		{
+			"eventType": "variable",
+			"name": "totalPlayerScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 313447300317183
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Gaming",
@@ -216,10 +226,15 @@
 							"id": "set-position",
 							"objectClass": "Camera",
 							"sid": 338052605337239,
+							"disabled": true,
 							"parameters": {
 								"x": "objPlayer.X",
 								"y": "objPlayer.BBoxTop-cameraY_Offset"
 							}
+						},
+						{
+							"callFunction": "cameraInitPos",
+							"sid": 773420229196232
 						},
 						{
 							"id": "set-position",
@@ -267,6 +282,15 @@
 							"parameters": {
 								"mode": "disable",
 								"effect": "\"BlackWhite1\""
+							}
+						},
+						{
+							"id": "set-double-jump",
+							"objectClass": "objPlayer",
+							"sid": 738147353734141,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "enabled"
 							}
 						},
 						{
@@ -371,6 +395,10 @@
 							"parameters": {
 								"gravity": "plGravity"
 							}
+						},
+						{
+							"callFunction": "cameraUpdate",
+							"sid": 958554691948930
 						}
 					],
 					"sid": 187170596502392,
@@ -386,14 +414,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "set-x",
-									"objectClass": "Camera",
-									"sid": 798925774885359,
-									"parameters": {
-										"x": "lerp(Self.X, objPlayer.X, 0.05)"
-									}
-								},
 								{
 									"id": "set-text",
 									"objectClass": "stateDebugText",
@@ -1221,7 +1241,8 @@
 													"sid": 504123564210948
 												}
 											],
-											"sid": 776885063228709
+											"sid": 776885063228709,
+											"disabled": true
 										},
 										{
 											"eventType": "block",
@@ -1243,7 +1264,8 @@
 													"sid": 140608651659176
 												}
 											],
-											"sid": 933079655864595
+											"sid": 933079655864595,
+											"disabled": true
 										}
 									]
 								},
@@ -1968,6 +1990,41 @@
 						}
 					],
 					"sid": 752571080150154
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "finishLayout",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 797479802335072,
+									"parameters": {
+										"object": "endPoint"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "objPlayer",
+									"sid": 143832135716282,
+									"behaviorType": "Platform",
+									"parameters": {
+										"input": "start-ignoring"
+									}
+								}
+							],
+							"sid": 236758519595314
+						}
+					],
+					"sid": 957143236594492
 				},
 				{
 					"eventType": "block",
