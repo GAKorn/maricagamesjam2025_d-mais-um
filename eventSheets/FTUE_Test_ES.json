@@ -13,7 +13,7 @@
 			"eventType": "variable",
 			"name": "rodoviaria_levelScore",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "200",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,

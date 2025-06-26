@@ -1,0 +1,29 @@
+{
+	"name": "endScreenBG",
+	"plugin-id": "NinePatch",
+	"sid": 222313267963821,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 863232578017984
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 250,
+		"height": 251,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 162606,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

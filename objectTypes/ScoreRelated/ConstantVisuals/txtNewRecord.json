@@ -1,0 +1,21 @@
+{
+	"name": "txtNewRecord",
+	"plugin-id": "Text",
+	"sid": 608142620076401,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 866412052728792
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	]
+}

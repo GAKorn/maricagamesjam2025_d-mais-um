@@ -1,0 +1,10 @@
+{
+	"name": "txtEndScreen_Record",
+	"plugin-id": "Text",
+	"sid": 209479439145895,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

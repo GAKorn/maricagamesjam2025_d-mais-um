@@ -2019,6 +2019,19 @@
 									"parameters": {
 										"input": "start-ignoring"
 									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 186014137326986,
+									"parameters": {
+										"variable": "isEndScreen",
+										"value": "true"
+									}
+								},
+								{
+									"callFunction": "setUpEndScreen",
+									"sid": 313734550230482
 								}
 							],
 							"sid": 236758519595314

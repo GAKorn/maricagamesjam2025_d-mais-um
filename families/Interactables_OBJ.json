@@ -12,6 +12,7 @@
 		"objForceIdle",
 		"objCoins",
 		"objCoins_Loss",
-		"objLevelCheckpoint"
+		"objLevelCheckpoint",
+		"objCheckObstacle"
 	]
 }

@@ -1,0 +1,19 @@
+{
+	"name": "Stars_Spr",
+	"plugin-id": "Sprite",
+	"sid": 440057215628895,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 325398667924891
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Star3",
+		"Star2",
+		"Star1"
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"name": "txtDisplayRecord",
+	"plugin-id": "Text",
+	"sid": 527196271192319,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

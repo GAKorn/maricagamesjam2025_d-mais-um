@@ -59,6 +59,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "maxObstacleScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 688975580217447
+		},
+		{
+			"eventType": "variable",
 			"name": "currCoin_Score",
 			"type": "number",
 			"initialValue": "0",
@@ -79,6 +89,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "curr_ObstacleScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 477238371780162
+		},
+		{
+			"eventType": "variable",
 			"name": "currTotalScore",
 			"type": "number",
 			"initialValue": "0",
@@ -86,6 +106,50 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 691021776404894
+		},
+		{
+			"eventType": "comment",
+			"text": "Fixed Score Levels"
+		},
+		{
+			"eventType": "variable",
+			"name": "ObstacleScoreValue",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 472018256038767
+		},
+		{
+			"eventType": "variable",
+			"name": "quizScoreValue",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 778959517798936
+		},
+		{
+			"eventType": "variable",
+			"name": "coinValue",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 880570029005690
+		},
+		{
+			"eventType": "variable",
+			"name": "coinLost_Value",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 380737403314970
 		},
 		{
 			"eventType": "comment",
@@ -113,6 +177,50 @@
 		},
 		{
 			"eventType": "comment",
+			"text": "Endscreen"
+		},
+		{
+			"eventType": "variable",
+			"name": "isEndScreen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 330692826766805
+		},
+		{
+			"eventType": "variable",
+			"name": "canInteract_EndScreen",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 560995928307462
+		},
+		{
+			"eventType": "variable",
+			"name": "recordToDisplay",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 411941936259825
+		},
+		{
+			"eventType": "variable",
+			"name": "scoreToDisplay",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 272661807781558
+		},
+		{
+			"eventType": "comment",
 			"text": "This event sheet is to be included in every layout event sheet."
 		},
 		{
@@ -133,6 +241,19 @@
 						"x": "LayoutWidth",
 						"y": "0"
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 149094689292330,
+					"parameters": {
+						"variable": "maxObstacleScore",
+						"value": "Hazards_OBJ.Count*ObstacleScoreValue"
+					}
+				},
+				{
+					"callFunction": "setUpEndScreenObjects",
+					"sid": 832571974303071
 				},
 				{
 					"id": "log",
@@ -162,9 +283,41 @@
 				{
 					"id": "reset-eventvar",
 					"objectClass": "System",
+					"sid": 695912048558277,
+					"parameters": {
+						"variable": "isEndScreen"
+					}
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 983765196975884,
+					"parameters": {
+						"variable": "canInteract_EndScreen"
+					}
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
 					"sid": 976612345784733,
 					"parameters": {
 						"variable": "currCoin_Score"
+					}
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 280021298492090,
+					"parameters": {
+						"variable": "curr_ObstacleScore"
+					}
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 515561335677349,
+					"parameters": {
+						"variable": "currQuiz_Score"
 					}
 				},
 				{
@@ -181,7 +334,34 @@
 					}
 				}
 			],
-			"sid": 316334012379133
+			"sid": 316334012379133,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-group-active",
+							"objectClass": "System",
+							"sid": 521548853601526,
+							"parameters": {
+								"group-name": "\"isRecord\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 389546281183850,
+							"parameters": {
+								"group-name": "\"isRecord\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 444729293842640
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -199,6 +379,22 @@
 					"sid": 761931737290944,
 					"parameters": {
 						"opacity": "45"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "txtEndScreen_Record",
+					"sid": 938766676572656,
+					"parameters": {
+						"text": "recordToDisplay"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "txtEndScreen_ThisScore",
+					"sid": 608059429427459,
+					"parameters": {
+						"text": "scoreToDisplay"
 					}
 				}
 			],
@@ -227,13 +423,6 @@
 					],
 					"actions": [
 						{
-							"callFunction": "scoreVisibility",
-							"sid": 667179957648265,
-							"parameters": [
-								true
-							]
-						},
-						{
 							"id": "set-text",
 							"objectClass": "txtScore",
 							"sid": 247144656629776,
@@ -244,14 +433,40 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 645867758834592,
+							"sid": 457273172633228,
 							"parameters": {
 								"variable": "currTotalScore",
-								"value": "currCoin_Score+currQuiz_Score"
+								"value": "currCoin_Score+currQuiz_Score+curr_ObstacleScore"
 							}
 						}
 					],
-					"sid": 656479303971756
+					"sid": 656479303971756,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 974811930331739,
+									"parameters": {
+										"variable": "isEndScreen"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "scoreVisibility",
+									"sid": 178625631322025,
+									"parameters": [
+										true
+									]
+								}
+							],
+							"sid": 282410571753817
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -310,6 +525,67 @@
 						}
 					],
 					"sid": 110153041346972
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 446230219564481,
+							"parameters": {
+								"variable": "LayoutType",
+								"comparison": 0,
+								"value": "\"Map\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "scoreVisibility",
+							"sid": 822505460991794,
+							"parameters": [
+								false
+							]
+						},
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 906482700719524,
+							"parameters": {
+								"cursor-style": "cell"
+							}
+						}
+					],
+					"sid": 177546763825260
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 657918808170608,
+							"parameters": {
+								"variable": "LayoutType",
+								"comparison": 0,
+								"value": "\"Map\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 602890635950035,
+							"parameters": {
+								"cursor-style": "none"
+							}
+						}
+					],
+					"sid": 228694833976602,
+					"disabled": true
 				}
 			],
 			"sid": 219207118946400
@@ -391,10 +667,10 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 117169273661691,
+									"sid": 485500657006194,
 									"parameters": {
 										"variable": "currCoin_Score",
-										"value": "1"
+										"value": "coinValue"
 									}
 								},
 								{
@@ -446,10 +722,10 @@
 										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
-											"sid": 178188592143203,
+											"sid": 871621083040959,
 											"parameters": {
 												"variable": "currCoin_Score",
-												"value": "1"
+												"value": "coinLost_Value"
 											}
 										},
 										{
@@ -596,6 +872,41 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "CheckObstaclePassed",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "objPlayer",
+							"sid": 690017493258448,
+							"parameters": {
+								"object": "objCheckObstacle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "objCheckObstacle",
+							"sid": 626605683967883
+						},
+						{
+							"callFunction": "increaseScoreWithObstacles",
+							"sid": 272571938000938
+						}
+					],
+					"sid": 553289205380464
+				}
+			],
+			"sid": 494611464627286
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "ScoreDisplayAndSomeLogic",
 			"description": "",
 			"isActiveOnStart": true,
@@ -735,75 +1046,353 @@
 			"sid": 494844440960960
 		},
 		{
-			"functionName": "calculateLevelScoreRecord",
-			"functionDescription": "",
-			"functionCategory": "Score",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "totScore",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 418087199635137
-				},
-				{
-					"name": "lvlScore",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 882018932355540
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 858892075472944,
+			"eventType": "group",
+			"disabled": false,
+			"title": "EndScreen",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "variable",
-					"name": "gotRecord",
+					"name": "this_maxLevelScore",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 652027452268979
+				},
+				{
+					"eventType": "variable",
+					"name": "isRecord",
 					"type": "boolean",
 					"initialValue": "false",
 					"comment": "",
-					"isStatic": false,
+					"isStatic": true,
 					"isConstant": false,
-					"sid": 700935199794934
+					"sid": 703171902731610
+				},
+				{
+					"eventType": "variable",
+					"name": "totalScoreCache",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 150788891250283
+				},
+				{
+					"eventType": "variable",
+					"name": "thisLevelScoreCache",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 597057791472077
+				},
+				{
+					"eventType": "variable",
+					"name": "thisLevelRecord",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 724025940601347
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 165183906416303,
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 782277386705032,
+							"parameters": {
+								"tag": "\"endScreenReady\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 193140176164580,
+							"parameters": {
+								"variable": "this_maxLevelScore",
+								"value": "Functions.calculateLevelMaxScore"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 218183365700331,
+							"parameters": {
+								"variable": "totalScoreCache",
+								"value": "currTotalScore"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 821112132703306,
+							"parameters": {
+								"variable": "thisLevelRecord",
+								"value": "Functions.GetLevelScore(LayoutName)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 685711480085616,
+							"parameters": {
+								"variable": "thisLevelScoreCache",
+								"value": "thisLevelRecord"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 949181192239486,
+							"parameters": {
+								"group-name": "\"isRecord\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 920666903775216,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						}
+					],
+					"sid": 238393393551410
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "isRecord",
+					"description": "",
+					"isActiveOnStart": false,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 882822141032444,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 500439881355437,
+											"parameters": {
+												"variable": "currTotalScore",
+												"comparison": 4,
+												"value": "thisLevelRecord"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 946992317914385,
+											"parameters": {
+												"variable": "isRecord",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 815438178847281
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 711473644252152
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 988382408664152,
+											"parameters": {
+												"variable": "isRecord",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 541443803159336
+								}
+							]
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
+									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 811002419090418,
+									"sid": 755819474401707,
 									"parameters": {
-										"variable": "totScore",
-										"comparison": 4,
-										"value": "lvlScore"
+										"variable": "isRecord"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-boolean-eventvar",
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 120867657616292,
+									"sid": 401225127439324,
 									"parameters": {
-										"variable": "gotRecord",
-										"value": "true"
+										"variable": "thisLevelScoreCache",
+										"value": "0"
 									}
 								}
 							],
-							"sid": 245721372224414
+							"sid": 905424330788662,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 501935623535183,
+											"parameters": {
+												"variable": "scoreToDisplay",
+												"comparison": 2,
+												"value": "currTotalScore"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 641278204820523,
+											"parameters": {
+												"variable": "totalScoreCache",
+												"comparison": 5,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 842227621574779,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 728328334441490,
+													"parameters": {
+														"interval-seconds": "0.05"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 398395136195332,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 104285405238516,
+															"parameters": {
+																"variable": "totalScoreCache",
+																"comparison": 5,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 865999924234523,
+															"parameters": {
+																"variable": "totalScoreCache",
+																"value": "10"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 824044786323202,
+															"parameters": {
+																"variable": "scoreToDisplay",
+																"value": "10"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 453721870708111,
+															"parameters": {
+																"variable": "recordToDisplay",
+																"value": "10"
+															}
+														}
+													],
+													"sid": 944407767667506
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 566839924963987
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 148488542831903,
+															"parameters": {
+																"variable": "totalScoreCache",
+																"value": "1"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 706963426615749,
+															"parameters": {
+																"variable": "scoreToDisplay",
+																"value": "1"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 426263090430106,
+															"parameters": {
+																"variable": "recordToDisplay",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 960058686456771
+												}
+											]
+										}
+									]
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -811,205 +1400,545 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 276487803977364
+									"sid": 184799230549025
+								}
+							],
+							"actions": [],
+							"sid": 529035736110022,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 183071351308999,
+											"parameters": {
+												"variable": "recordToDisplay",
+												"comparison": 2,
+												"value": "thisLevelRecord"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 707062465343517,
+											"parameters": {
+												"variable": "thisLevelScoreCache",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 660964235343990,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 195996843849382,
+													"parameters": {
+														"interval-seconds": "0.05"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 620595001004647,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 858427176080007,
+															"parameters": {
+																"variable": "thisLevelScoreCache",
+																"comparison": 5,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 489987748739323,
+															"parameters": {
+																"variable": "thisLevelScoreCache",
+																"value": "10"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 812975785374865,
+															"parameters": {
+																"variable": "recordToDisplay",
+																"value": "10"
+															}
+														}
+													],
+													"sid": 543714131741786
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 417764841596504
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 649010413041280,
+															"parameters": {
+																"variable": "thisLevelScoreCache",
+																"value": "1"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 854212801285534,
+															"parameters": {
+																"variable": "recordToDisplay",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 901409326771327
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 571311356917889,
+											"parameters": {
+												"variable": "scoreToDisplay",
+												"comparison": 2,
+												"value": "currTotalScore"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 458315672851457,
+											"parameters": {
+												"variable": "totalScoreCache",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 419291028864523,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "every-x-seconds",
+													"objectClass": "System",
+													"sid": 643774232818241,
+													"parameters": {
+														"interval-seconds": "0.05"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 999529009516403,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 536915190164323,
+															"parameters": {
+																"variable": "totalScoreCache",
+																"comparison": 5,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 148532568408670,
+															"parameters": {
+																"variable": "totalScoreCache",
+																"value": "10"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 793561681281133,
+															"parameters": {
+																"variable": "scoreToDisplay",
+																"value": "10"
+															}
+														}
+													],
+													"sid": 992599010108716
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 816767495314471
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 834686111002462,
+															"parameters": {
+																"variable": "totalScoreCache",
+																"value": "1"
+															}
+														},
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 400839818320474,
+															"parameters": {
+																"variable": "scoreToDisplay",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 248837006112047
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "setting some nice visuals"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 631325040635629,
+									"parameters": {
+										"variable": "isRecord"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 758545536706699,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 410818352994812,
+											"parameters": {
+												"variable": "scoreToDisplay",
+												"comparison": 0,
+												"value": "thisLevelRecord"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-value",
+											"objectClass": "txtEndScreen_ThisScore",
+											"sid": 501313835517573,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"recordTween\"",
+												"start-value": "120",
+												"end-value": "150",
+												"time": "1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 117123763448504,
+											"parameters": {
+												"tag": "\"newRecord\""
+											}
+										}
+									],
+									"sid": 190412639505489
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-playing",
+											"objectClass": "txtEndScreen_ThisScore",
+											"sid": 402503151399537,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"recordTween\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-font-size",
+											"objectClass": "txtEndScreen_ThisScore",
+											"sid": 466824906715085,
+											"parameters": {
+												"size-pt": "Self.Tween.Value(\"recordTween\")"
+											}
+										}
+									],
+									"sid": 202847937903362
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 642638772485621,
+									"parameters": {
+										"tag": "\"newRecord\""
+									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-boolean-eventvar",
+									"callFunction": "newRecordText",
+									"sid": 719333323818899
+								}
+							],
+							"sid": 587618227630879
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 346058249880528,
+									"sid": 761372565159004,
 									"parameters": {
-										"variable": "gotRecord",
-										"value": "false"
+										"variable": "thisLevelScoreCache",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 621537115899622,
+									"parameters": {
+										"variable": "totalScoreCache",
+										"comparison": 0,
+										"value": "0"
 									}
 								}
 							],
-							"sid": 219460196857276
+							"actions": [
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 948185672283085,
+									"parameters": {
+										"tag": "\"recordNumberAnimationEnded\""
+									}
+								}
+							],
+							"sid": 624897779789249
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 154654179062442
+						}
+					],
+					"sid": 344153646686899
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-signal",
+							"objectClass": "System",
+							"sid": 534040588472953,
+							"parameters": {
+								"tag": "\"recordNumberAnimationEnded\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AnimateStars",
+							"sid": 613464983482842,
+							"parameters": [
+								"Functions.setStarToAnimate(this_maxLevelScore,currTotalScore)"
+							]
+						}
+					],
+					"sid": 840065466994056,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 293002933945942,
+									"parameters": {
+										"variable": "totalPlayerScore",
+										"value": "currTotalScore"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 561906267710009,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								}
+							],
+							"sid": 988789956305468
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 759320373976750,
+									"parameters": {
+										"variable": "isRecord"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "SetLevelScore",
+									"sid": 288394073615509,
+									"parameters": [
+										"LayoutName",
+										"currTotalScore"
+									]
+								}
+							],
+							"sid": 175810967861030
 						}
 					]
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 924474616730288
-				}
-			]
-		},
-		{
-			"functionName": "increaseScoreWithQuiz",
-			"functionDescription": "",
-			"functionCategory": "Score",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "scoreToIncrease",
-					"type": "number",
-					"initialValue": "100",
-					"comment": "",
-					"sid": 918821798877556
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 667307204825765,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
+					"conditions": [
 						{
-							"id": "create-object",
+							"id": "on-signal",
 							"objectClass": "System",
-							"sid": 937202669395469,
+							"sid": 399484188894502,
 							"parameters": {
-								"object-to-create": "txtQuizAddScore",
-								"layer": "txtScore.LayerName",
-								"x": "208",
-								"y": "144",
-								"create-hierarchy": false,
-								"template-name": "\"\""
-							}
-						},
-						{
-							"id": "move-to-top",
-							"objectClass": "txtQuizAddScore",
-							"sid": 272439041955740
-						},
-						{
-							"id": "set-font-size",
-							"objectClass": "txtQuizAddScore",
-							"sid": 249375861639127,
-							"parameters": {
-								"size-pt": "80"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "txtQuizAddScore",
-							"sid": 228147114005130,
-							"parameters": {
-								"width": "160",
-								"height": "128"
-							}
-						},
-						{
-							"id": "set-horizontal-alignment",
-							"objectClass": "txtQuizAddScore",
-							"sid": 228325604230865,
-							"parameters": {
-								"horizontal-alignment": "center"
-							}
-						},
-						{
-							"id": "set-font-face",
-							"objectClass": "txtQuizAddScore",
-							"sid": 724347525223387,
-							"parameters": {
-								"font-face": "\"ThirstyCaps\"",
-								"style": "bold-and-italic"
-							}
-						},
-						{
-							"id": "set-font-color",
-							"objectClass": "txtQuizAddScore",
-							"sid": 718618747538381,
-							"parameters": {
-								"color": "rgbEx(6, 43, 3)"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "txtQuizAddScore",
-							"sid": 214339528466011,
-							"parameters": {
-								"text": "\"+\"&scoreToIncrease"
+								"tag": "\"starsAnimated\""
 							}
 						}
 					],
-					"sid": 809120221455729
+					"actions": [
+						{
+							"callFunction": "setUpEndScreenPressAnything",
+							"sid": 707609217509195
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 852763979677092,
+							"parameters": {
+								"variable": "canInteract_EndScreen",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 389128161201843
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [
+					"conditions": [
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 361733307723399,
-							"parameters": {
-								"seconds": "0.15",
-								"use-timescale": true
-							}
+							"id": "on-any-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 186042264645746
 						},
 						{
-							"id": "tween-one-property",
-							"objectClass": "txtQuizAddScore",
-							"sid": 566581359411299,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "offsetY",
-								"end-value": "32",
-								"time": "0.45",
-								"ease": "noease",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 973987544775009
 						},
 						{
-							"id": "tween-one-property",
-							"objectClass": "txtQuizAddScore",
-							"sid": 142412682288251,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "offsetOpacity",
-								"end-value": "160",
-								"time": "0.45",
-								"ease": "noease",
-								"destroy-on-complete": "yes",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 142345562818827,
-							"parameters": {
-								"seconds": "0.375",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "signal",
-							"objectClass": "System",
-							"sid": 651973049306265,
-							"parameters": {
-								"tag": "\"scoreIncrease\""
-							}
-						},
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 202115164982556,
-							"parameters": {
-								"variable": "currQuiz_Score",
-								"value": "scoreToIncrease"
-							}
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 406493751303321
 						}
 					],
-					"sid": 124698295559852
+					"actions": [],
+					"sid": 307806719134748,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 653973546937756,
+									"parameters": {
+										"variable": "canInteract_EndScreen"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 400642515664845
+								}
+							],
+							"sid": 287772484892506
+						}
+					],
+					"isOrBlock": true
 				}
-			]
+			],
+			"sid": 935062623998970
 		}
 	],
 	"sid": 139471198204685

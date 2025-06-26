@@ -222,6 +222,13 @@
 			"name": "Toon",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "vignette",
+			"name": "Vignette",
+			"author": "Brad Larson",
+			"bundled": false
 		}
 	],
 	"uniqueId": "5mkaghifvzd",
@@ -274,7 +281,8 @@
 					"objAirFixedHazard",
 					"objCoins",
 					"objCoins_Loss",
-					"objLevelCheckpoint"
+					"objLevelCheckpoint",
+					"objCheckObstacle"
 				],
 				"subfolders": [],
 				"name": "LevelDesign"
@@ -361,12 +369,50 @@
 				"name": "Input_Graphics"
 			},
 			{
-				"items": [
-					"txtScore",
-					"sprMumbuHUD",
-					"txtQuizAddScore"
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"endScreenBG",
+							"objFade"
+						],
+						"subfolders": [
+							{
+								"items": [
+									"Star1",
+									"Star2",
+									"Star3"
+								],
+								"subfolders": [],
+								"name": "Stars"
+							},
+							{
+								"items": [
+									"endScreenHeaderShadow",
+									"txtNext",
+									"endScreenHeader",
+									"txtEndScreen_Record",
+									"txtEndScreen_ThisScore",
+									"txtDisplayRecord",
+									"txtDisplayScore"
+								],
+								"subfolders": [],
+								"name": "Texts"
+							}
+						],
+						"name": "EndScreen"
+					},
+					{
+						"items": [
+							"sprMumbuHUD",
+							"txtAddScore",
+							"txtScore",
+							"txtNewRecord"
+						],
+						"subfolders": [],
+						"name": "ConstantVisuals"
+					}
 				],
-				"subfolders": [],
 				"name": "ScoreRelated"
 			}
 		]
@@ -378,6 +424,13 @@
 			"members": [
 				"btnStartGame",
 				"btnStartGame_label"
+			]
+		},
+		{
+			"members": [
+				"Star1",
+				"Star2",
+				"Star3"
 			]
 		}
 	],
@@ -397,7 +450,9 @@
 			"ArrowIcons",
 			"quizTextOptions",
 			"Dictionary",
-			"btnsQuiz"
+			"btnsQuiz",
+			"txtEndScreen",
+			"Stars_Spr"
 		],
 		"subfolders": []
 	},

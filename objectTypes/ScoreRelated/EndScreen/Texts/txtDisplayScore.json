@@ -1,0 +1,10 @@
+{
+	"name": "txtDisplayScore",
+	"plugin-id": "Text",
+	"sid": 790748667711096,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

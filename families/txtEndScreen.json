@@ -1,0 +1,23 @@
+{
+	"name": "txtEndScreen",
+	"plugin-id": "Text",
+	"sid": 219070395894386,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 448547003652687
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"txtEndScreen_ThisScore",
+		"endScreenHeader",
+		"endScreenHeaderShadow",
+		"txtDisplayRecord",
+		"txtDisplayScore",
+		"txtEndScreen_Record",
+		"txtNext"
+	]
+}

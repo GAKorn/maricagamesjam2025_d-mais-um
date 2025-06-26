@@ -1,17 +1,11 @@
 {
-	"name": "Camera",
+	"name": "objCheckObstacle",
 	"plugin-id": "Sprite",
-	"sid": 177292717345506,
+	"sid": 621296522055540,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [
-		{
-			"behaviorId": "scrollto",
-			"name": "ScrollTo",
-			"sid": 960423522426504
-		}
-	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -21,18 +15,18 @@
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 1,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4776554,
+						"imageSpriteId": 3663364,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 553826232758515,
+				"sid": 208313571621304,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
