@@ -1724,7 +1724,7 @@
 							"type": "objNPC_DonaCida",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Animation 1",
+								"initial-animation": "Animation 2",
 								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
@@ -1745,6 +1745,14 @@
 								"thisID": ""
 							},
 							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 486801424429113,
 								"expanded": true
@@ -1754,8 +1762,8 @@
 							"world": {
 								"x": 976,
 								"y": -192,
-								"width": 48,
-								"height": 64,
+								"width": 6.144,
+								"height": 16.384,
 								"originX": 0.5,
 								"originY": 1,
 								"color": [

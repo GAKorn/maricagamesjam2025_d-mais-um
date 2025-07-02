@@ -2177,6 +2177,217 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Look To Player and Fake Character Sprite",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Fake Character"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 117993848298393,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 261434739625566,
+									"parameters": {
+										"variable": "PlayerCharacter",
+										"comparison": 0,
+										"value": "\"Mumbuquinha\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "objFakeCharacter",
+									"sid": 393787973459093,
+									"parameters": {
+										"animation": "\"Vermelhinha\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 455854156184683
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 391429786433031,
+									"parameters": {
+										"variable": "PlayerCharacter",
+										"comparison": 0,
+										"value": "\"Vermelhinha\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "objFakeCharacter",
+									"sid": 770172319001788,
+									"parameters": {
+										"animation": "\"Mumbuquinha\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 996095776629087
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 555327958465592,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "objPlayer",
+											"sid": 345053851566712,
+											"parameters": {
+												"comparison": 3,
+												"x-co-ordinate": "objFakeCharacter.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "objFakeCharacter",
+											"sid": 367839068504549,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 294280228285642
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 136751862092083
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "objFakeCharacter",
+											"sid": 643320625776939,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 167452282248661
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "NPCs"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 305949631347717
+						}
+					],
+					"actions": [],
+					"sid": 783785242475861,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 897503405865841,
+									"parameters": {
+										"object": "NPCs"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 390576769497287,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-x",
+											"objectClass": "NPCs",
+											"sid": 837666423911321,
+											"parameters": {
+												"comparison": 5,
+												"x-co-ordinate": "objPlayer.X"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "NPCs",
+											"sid": 134001912624497,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 977428249627696
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 676726393185935
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "NPCs",
+											"sid": 957428860327740,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 943585953781026
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 843900531740694
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "testingSeconds",
 			"description": "",
 			"isActiveOnStart": false,

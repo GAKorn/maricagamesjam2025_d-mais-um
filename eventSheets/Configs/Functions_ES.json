@@ -7271,6 +7271,147 @@
 					"sid": 649498456772298
 				}
 			]
+		},
+		{
+			"functionName": "interactionButtonsOpen2",
+			"functionDescription": "",
+			"functionCategory": "Interacition Buttons",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "btnsUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 254180231214773
+				},
+				{
+					"name": "multi",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 777673637887539
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 542886956901008,
+					"parameters": {
+						"type": "log",
+						"message": "btnsUID"
+					}
+				}
+			],
+			"sid": 464907544808574,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "tweenTimer",
+					"type": "number",
+					"initialValue": "0.375",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 150078157179472
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 160676576757330,
+							"parameters": {
+								"variable": "tweenTimer",
+								"value": "tweenTimer*multi"
+							}
+						}
+					],
+					"sid": 296804379009643
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "ArrowIcons",
+							"sid": 334691344730969,
+							"parameters": {
+								"unique-id": "btnsUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "ArrowIcons",
+							"sid": 117572095607119,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"scaleBtnsW\"",
+								"property": "offsetWidth",
+								"end-value": "16",
+								"time": "tweenTimer*0.3",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "ArrowIcons",
+							"sid": 912005859265608,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"scaleBtnsH\"",
+								"property": "offsetHeight",
+								"end-value": "16",
+								"time": "tweenTimer*0.3",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "ArrowIcons",
+							"sid": 715138019408392,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"scaleBtnsO\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "tweenTimer*0.2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 185258866771306,
+							"parameters": {
+								"tag": "\"interactionButtonsOpen_Done\""
+							}
+						}
+					],
+					"sid": 912004654543408
+				}
+			]
 		}
 	],
 	"sid": 298105393163351

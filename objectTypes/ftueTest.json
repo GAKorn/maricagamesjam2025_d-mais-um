@@ -6,7 +6,12 @@
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "pixellate",
+			"name": "Pixellate"
+		}
+	],
 	"animations": {
 		"items": [
 			{
@@ -20,7 +25,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 7336487,
+						"imageSpriteId": 2182011,
 						"collisionPoly": {
 							"points": [
 								0.7608173076923077,

@@ -284,6 +284,16 @@
 					"sid": 119292901866871
 				},
 				{
+					"eventType": "variable",
+					"name": "thisArrowUID_forChangeChar2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 636501929163334
+				},
+				{
 					"eventType": "comment",
 					"text": "Set the button view"
 				},
@@ -318,6 +328,19 @@
 									"sid": 489826422008922,
 									"parameters": {
 										"object-to-create": "arrowDown",
+										"layer": "\"NPC_Areas\"",
+										"x": "objFakeCharacter.X",
+										"y": "objChangeCharacterArea.Y-8",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 586326183687323,
+									"parameters": {
+										"object-to-create": "spr_ChangeChar",
 										"layer": "\"NPC_Areas\"",
 										"x": "objFakeCharacter.X",
 										"y": "objChangeCharacterArea.Y-8",
@@ -371,6 +394,56 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-created",
+									"objectClass": "spr_ChangeChar",
+									"sid": 939191627946460
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 257070275504909,
+									"parameters": {
+										"variable": "thisArrowUID_forChangeChar2",
+										"value": "spr_ChangeChar.UID"
+									}
+								},
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "spr_ChangeChar",
+									"sid": 387763145560605,
+									"parameters": {
+										"mode": "enable",
+										"effect": "\"Pixellate\""
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "spr_ChangeChar",
+									"sid": 141805514516439,
+									"parameters": {
+										"effect": "\"Pixellate\"",
+										"parameter-index": "0",
+										"value": "1"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "spr_ChangeChar",
+									"sid": 424230391747724,
+									"parameters": {
+										"action": "add",
+										"tags": "\"characterChange\""
+									}
+								}
+							],
+							"sid": 607556002827989
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "has-tags",
 									"objectClass": "ArrowIcons",
 									"sid": 415293655834717,
@@ -382,9 +455,18 @@
 							"actions": [
 								{
 									"callFunction": "interactionButtonsOpen",
-									"sid": 686904651244842,
+									"sid": 851648142919426,
+									"disabled": true,
 									"parameters": [
 										"thisArrowUID_forChangeChar",
+										"0.3"
+									]
+								},
+								{
+									"callFunction": "interactionButtonsOpen2",
+									"sid": 275821498968849,
+									"parameters": [
+										"thisArrowUID_forChangeChar2",
 										"0.3"
 									]
 								},
@@ -394,7 +476,36 @@
 									"sid": 752230179161707
 								}
 							],
-							"sid": 517323541950167
+							"sid": 517323541950167,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-mobile",
+											"objectClass": "PlatformInfo",
+											"sid": 445128572480847,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "interactionButtonsOpen",
+											"sid": 184205658025974,
+											"parameters": [
+												"thisArrowUID_forChangeChar",
+												"0.3"
+											]
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 866143987166395
+										}
+									],
+									"sid": 139627795152585
+								}
+							]
 						}
 					]
 				},
@@ -429,216 +540,18 @@
 									"parameters": [
 										"thisArrowUID_forChangeChar"
 									]
+								},
+								{
+									"callFunction": "quizCloseArrowsDelete",
+									"sid": 673776089615688,
+									"parameters": [
+										"thisArrowUID_forChangeChar2"
+									]
 								}
 							],
 							"sid": 437682228566867
 						}
 					]
-				},
-				{
-					"eventType": "group",
-					"disabled": false,
-					"title": "Look To Player and Fake Character Sprite",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Fake Character"
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 155193260359469,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 359493716673345,
-											"parameters": {
-												"variable": "PlayerCharacter",
-												"comparison": 0,
-												"value": "\"Mumbuquinha\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "objFakeCharacter",
-											"sid": 251399352570694,
-											"parameters": {
-												"animation": "\"Vermelhinha\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 958934002993746
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 623127859546929,
-											"parameters": {
-												"variable": "PlayerCharacter",
-												"comparison": 0,
-												"value": "\"Vermelhinha\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "objFakeCharacter",
-											"sid": 211614057254791,
-											"parameters": {
-												"animation": "\"Mumbuquinha\"",
-												"from": "beginning"
-											}
-										}
-									],
-									"sid": 120895605976447
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 348902474909768,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-x",
-													"objectClass": "objPlayer",
-													"sid": 841257839840265,
-													"parameters": {
-														"comparison": 3,
-														"x-co-ordinate": "objFakeCharacter.X"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-mirrored",
-													"objectClass": "objFakeCharacter",
-													"sid": 430629668694971,
-													"parameters": {
-														"state": "mirrored"
-													}
-												}
-											],
-											"sid": 975906041195628
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 993046344726995
-												}
-											],
-											"actions": [
-												{
-													"id": "set-mirrored",
-													"objectClass": "objFakeCharacter",
-													"sid": 478661286171730,
-													"parameters": {
-														"state": "not-mirrored"
-													}
-												}
-											],
-											"sid": 890910134170339
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "NPCs"
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 741957837607521,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each",
-											"objectClass": "System",
-											"sid": 494875279223000,
-											"parameters": {
-												"object": "NPCs"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 442993260949425,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-x",
-													"objectClass": "NPCs",
-													"sid": 837411090879283,
-													"parameters": {
-														"comparison": 5,
-														"x-co-ordinate": "objPlayer.X"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-mirrored",
-													"objectClass": "NPCs",
-													"sid": 492005249088555,
-													"parameters": {
-														"state": "mirrored"
-													}
-												}
-											],
-											"sid": 329980975509140
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 378687961242370
-												}
-											],
-											"actions": [
-												{
-													"id": "set-mirrored",
-													"objectClass": "NPCs",
-													"sid": 955639045662473,
-													"parameters": {
-														"state": "not-mirrored"
-													}
-												}
-											],
-											"sid": 765946139243716
-										}
-									]
-								}
-							]
-						}
-					],
-					"sid": 664143112761943
 				},
 				{
 					"eventType": "comment",
@@ -702,6 +615,15 @@
 									"sid": 247489962270813,
 									"parameters": {
 										"object": "objChangeCharacterArea",
+										"type": "start"
+									}
+								},
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 258541935566310,
+									"parameters": {
+										"object": "spr_ChangeChar",
 										"type": "start"
 									}
 								}

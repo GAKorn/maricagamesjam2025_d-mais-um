@@ -678,6 +678,14 @@
 										"thisID": "patinho"
 									},
 									"behaviors": {},
+									"effects": {
+										"Pixellate": {
+											"isEnabled": true,
+											"parameters": {
+												"size": 1
+											}
+										}
+									},
 									"instanceFolderItem": {
 										"sid": 394778169673694,
 										"expanded": true
@@ -705,7 +713,7 @@
 									"type": "objNPC_DonaCida",
 									"properties": {
 										"initially-visible": true,
-										"initial-animation": "Animation 1",
+										"initial-animation": "Animation 2",
 										"initial-frame": 0,
 										"enable-collisions": true,
 										"live-preview": false
@@ -726,6 +734,14 @@
 										"thisID": ""
 									},
 									"behaviors": {},
+									"effects": {
+										"Pixellate": {
+											"isEnabled": true,
+											"parameters": {
+												"size": 1
+											}
+										}
+									},
 									"instanceFolderItem": {
 										"sid": 557253148278270,
 										"expanded": true
@@ -735,8 +751,8 @@
 									"world": {
 										"x": 184,
 										"y": 256,
-										"width": 48,
-										"height": 80,
+										"width": 32,
+										"height": 64,
 										"originX": 0.5,
 										"originY": 1,
 										"color": [
@@ -774,6 +790,14 @@
 										"thisID": "gui"
 									},
 									"behaviors": {},
+									"effects": {
+										"Pixellate": {
+											"isEnabled": true,
+											"parameters": {
+												"size": 1
+											}
+										}
+									},
 									"instanceFolderItem": {
 										"sid": 847721097029118,
 										"expanded": true
@@ -822,6 +846,14 @@
 										"thisID": ""
 									},
 									"behaviors": {},
+									"effects": {
+										"Pixellate": {
+											"isEnabled": true,
+											"parameters": {
+												"size": 1
+											}
+										}
+									},
 									"instanceFolderItem": {
 										"sid": 549815356978418,
 										"expanded": true
