@@ -115,7 +115,7 @@
 			"eventType": "variable",
 			"name": "ObstacleScoreValue",
 			"type": "number",
-			"initialValue": "50",
+			"initialValue": "20",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -221,6 +221,30 @@
 		},
 		{
 			"eventType": "comment",
+			"text": "To set next level"
+		},
+		{
+			"eventType": "variable",
+			"name": "nextLevelSet",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 838346643477972
+		},
+		{
+			"eventType": "variable",
+			"name": "isGameReady",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 130637142853478
+		},
+		{
+			"eventType": "comment",
 			"text": "This event sheet is to be included in every layout event sheet."
 		},
 		{
@@ -233,6 +257,15 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 485247231977754,
+					"parameters": {
+						"variable": "LayoutType",
+						"value": "Functions.setLayoutType(LayoutName)"
+					}
+				},
 				{
 					"id": "set-position",
 					"objectClass": "gameLayoutAreaEnd",
@@ -325,12 +358,12 @@
 					"sid": 461480156244384
 				},
 				{
-					"id": "set-eventvar-value",
+					"id": "set-group-active",
 					"objectClass": "System",
-					"sid": 891512736798263,
+					"sid": 977869683903010,
 					"parameters": {
-						"variable": "LayoutType",
-						"value": "Functions.setLayoutType(LayoutName)"
+						"group-name": "\"testingSeconds\"",
+						"state": "deactivated"
 					}
 				}
 			],
@@ -367,6 +400,31 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-signal",
+					"objectClass": "System",
+					"sid": 104518377689190,
+					"parameters": {
+						"tag": "\"gameReady\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 934068961150654,
+					"parameters": {
+						"variable": "isGameReady",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 335850456808397
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 448354192866878
@@ -395,6 +453,15 @@
 					"sid": 608059429427459,
 					"parameters": {
 						"text": "scoreToDisplay"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 663625991041500,
+					"parameters": {
+						"type": "log",
+						"message": "testSeconds"
 					}
 				}
 			],
@@ -438,10 +505,62 @@
 								"variable": "currTotalScore",
 								"value": "currCoin_Score+currQuiz_Score+curr_ObstacleScore"
 							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 404882958939624,
+							"parameters": {
+								"group-name": "\"Quiz\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 385856370750866,
+							"parameters": {
+								"group-name": "\"Dialog\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 167857946282721,
+							"parameters": {
+								"group-name": "\"Dialog V2\"",
+								"state": "deactivated"
+							}
 						}
 					],
 					"sid": 656479303971756,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 319731808781311,
+									"parameters": {
+										"object": "NPCs"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "NPCs",
+									"sid": 849404005252458,
+									"parameters": {
+										"instance-variable": "hadPlayerContact",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 141379559709068
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -497,9 +616,105 @@
 							"parameters": {
 								"text": "totalPlayerScore"
 							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 697309835657039,
+							"parameters": {
+								"group-name": "\"Quiz\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 956914378206756,
+							"parameters": {
+								"group-name": "\"Dialog\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 761848642765218,
+							"parameters": {
+								"group-name": "\"Dialog V2\"",
+								"state": "activated"
+							}
 						}
 					],
-					"sid": 700396581084524
+					"sid": 700396581084524,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "NPCs",
+									"sid": 325218110526665,
+									"parameters": {
+										"instance-variable": "hadPlayerContact"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "NPCs",
+									"sid": 115743363363664,
+									"parameters": {
+										"collisions": "enabled"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "NPCs",
+									"sid": 468429472725479,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 766781322967902
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 180338822073187
+								}
+							],
+							"actions": [
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "NPCs",
+									"sid": 317802211757677,
+									"parameters": {
+										"collisions": "disabled"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "NPCs",
+									"sid": 385475752284660,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 198421562507124
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 594446182820642
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1813,17 +2028,30 @@
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 573206614121675
+								}
+							],
 							"actions": [
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 293002933945942,
+									"sid": 582438290955120,
 									"parameters": {
 										"variable": "totalPlayerScore",
 										"value": "currTotalScore"
 									}
-								},
+								}
+							],
+							"sid": 878859392344931
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
 								{
 									"id": "wait",
 									"objectClass": "System",
@@ -1877,7 +2105,10 @@
 					"actions": [
 						{
 							"callFunction": "setUpEndScreenPressAnything",
-							"sid": 707609217509195
+							"sid": 452252963011055,
+							"parameters": [
+								"\"Aperte qualquer coisa para continuar\""
+							]
 						},
 						{
 							"id": "set-boolean-eventvar",
@@ -1927,9 +2158,12 @@
 							],
 							"actions": [
 								{
-									"id": "restart-layout",
-									"objectClass": "System",
-									"sid": 400642515664845
+									"callFunction": "endGameLevel",
+									"sid": 673106148703487,
+									"parameters": [
+										"LayoutName",
+										"nextLevelSet"
+									]
 								}
 							],
 							"sid": 287772484892506
@@ -1939,6 +2173,41 @@
 				}
 			],
 			"sid": 935062623998970
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "testingSeconds",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 365689282555313,
+							"parameters": {
+								"interval-seconds": "0.25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 196904724566169,
+							"parameters": {
+								"variable": "testSeconds",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 390096696799097
+				}
+			],
+			"sid": 935367166481426
 		}
 	],
 	"sid": 139471198204685

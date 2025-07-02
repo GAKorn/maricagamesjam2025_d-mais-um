@@ -2,62 +2,6 @@
 	"name": "PlayerFSM_ES",
 	"events": [
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 124010493412583
-				}
-			],
-			"actions": [],
-			"sid": 841231310213433,
-			"disabled": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 494812221853497,
-							"parameters": {
-								"variable": "LayoutType",
-								"comparison": 0,
-								"value": "\"MAIN_GAME\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 207721887831660,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 210857998567200
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 572331747012851,
-							"parameters": {
-								"variable": "LayoutType",
-								"comparison": 0,
-								"value": "\"HUB\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 885261678305739,
-					"disabled": true
-				}
-			]
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "HUB State Machine",

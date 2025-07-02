@@ -51,6 +51,20 @@
 			"desc": "",
 			"show": true,
 			"sid": 483283790396970
+		},
+		{
+			"name": "wasTalked_in_the_Warehouse",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 422119864545813
+		},
+		{
+			"name": "hadPlayerContact",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 461950071528791
 		}
 	],
 	"behaviorTypes": [],

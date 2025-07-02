@@ -1,40 +1,37 @@
 {
-	"name": "objNPC_DonaCida",
+	"name": "Ruler",
 	"plugin-id": "Sprite",
-	"sid": 906001605993021,
+	"sid": 556808423436530,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
 		{
-			"name": "thisID",
-			"type": "string",
-			"desc": "",
-			"show": true,
-			"sid": 800163323909312
+			"effectId": "pixellate",
+			"name": "Pixellate"
 		}
 	],
-	"behaviorTypes": [],
-	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 1,
+						"width": 16,
+						"height": 16,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 286897,
+						"imageSpriteId": 720937,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 673679776455193,
+				"sid": 812435837332781,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -5,23 +5,76 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 692822845340867,
+					"parameters": {
+						"variable": "isGameReady"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 352704251742478,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 673873429169960
+						}
+					],
+					"actions": [
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 783978320435407,
+							"parameters": {
+								"tag": "\"canStart\""
+							}
+						}
+					],
+					"sid": 562389119863935,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 357830928684347
+				}
+			],
+			"actions": [],
+			"sid": 300893095381642,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 392081257051472
+					"sid": 761742067048250
 				}
 			],
 			"actions": [
 				{
 					"id": "request-project-file",
 					"objectClass": "AJAX",
-					"sid": 724504450505731,
+					"sid": 499464759730293,
 					"parameters": {
 						"tag": "\"loadPaths\"",
 						"file": "npcPaths.json"
 					}
 				}
 			],
-			"sid": 959097757332047,
+			"sid": 577761380305454,
 			"children": [
 				{
 					"eventType": "comment",
@@ -33,7 +86,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 993066316857057,
+							"sid": 594489315189284,
 							"parameters": {
 								"first-value": "objNPC_AndersonPatinho.Count",
 								"comparison": 4,
@@ -42,7 +95,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 957437581526154,
+					"sid": 113581919103760,
 					"children": [
 						{
 							"eventType": "block",
@@ -50,7 +103,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 976938440003394,
+									"sid": 956701166382593,
 									"parameters": {
 										"object": "objNPC_AndersonPatinho"
 									}
@@ -60,14 +113,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "objNPC_AndersonPatinho",
-									"sid": 468010936770356,
+									"sid": 291403005334776,
 									"parameters": {
 										"instance-variable": "filesReady",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 738642303746482
+							"sid": 174075879399591
 						}
 					]
 				},
@@ -81,7 +134,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 988704127992239,
+							"sid": 461128885612852,
 							"parameters": {
 								"first-value": "objNPC_DonaCida.Count",
 								"comparison": 4,
@@ -90,7 +143,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 516332892266705,
+					"sid": 957178313537791,
 					"children": [
 						{
 							"eventType": "block",
@@ -98,7 +151,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 821386631730920,
+									"sid": 285788248738322,
 									"parameters": {
 										"object": "objNPC_DonaCida"
 									}
@@ -108,14 +161,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "objNPC_DonaCida",
-									"sid": 930180484295453,
+									"sid": 908160156815577,
 									"parameters": {
 										"instance-variable": "filesReady",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 856347670991800
+							"sid": 359738114240099
 						}
 					]
 				},
@@ -129,7 +182,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 941521097562087,
+							"sid": 134641898965533,
 							"parameters": {
 								"first-value": "objNPC_GuiDasMares.Count",
 								"comparison": 4,
@@ -138,7 +191,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 803116626317389,
+					"sid": 494834121606016,
 					"children": [
 						{
 							"eventType": "block",
@@ -146,7 +199,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 707519942739182,
+									"sid": 646225849815282,
 									"parameters": {
 										"object": "objNPC_GuiDasMares"
 									}
@@ -156,14 +209,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "objNPC_GuiDasMares",
-									"sid": 681015920566657,
+									"sid": 919449294358320,
 									"parameters": {
 										"instance-variable": "filesReady",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 562005359101287
+							"sid": 802006617696366
 						}
 					]
 				},
@@ -177,7 +230,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 886945354470065,
+							"sid": 661785703913626,
 							"parameters": {
 								"first-value": "objNPC_TiaFernanda.Count",
 								"comparison": 4,
@@ -186,7 +239,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 461638999000930,
+					"sid": 157335526704305,
 					"children": [
 						{
 							"eventType": "block",
@@ -194,7 +247,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 145348417536508,
+									"sid": 734479412924228,
 									"parameters": {
 										"object": "objNPC_TiaFernanda"
 									}
@@ -204,14 +257,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "objNPC_TiaFernanda",
-									"sid": 114044092853113,
+									"sid": 343625416665098,
 									"parameters": {
 										"instance-variable": "filesReady",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 913995528092293
+							"sid": 149747892418230
 						}
 					]
 				}
@@ -223,7 +276,7 @@
 				{
 					"id": "on-completed",
 					"objectClass": "AJAX",
-					"sid": 769030432603962,
+					"sid": 345657762381122,
 					"parameters": {
 						"tag": "\"loadPaths\""
 					}
@@ -233,7 +286,7 @@
 				{
 					"id": "load",
 					"objectClass": "npcPathsDictionary",
-					"sid": 584644370347955,
+					"sid": 603735977572071,
 					"parameters": {
 						"json": "AJAX.LastData"
 					}
@@ -241,18 +294,18 @@
 				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 640165562514654
+					"sid": 897933577876587
 				},
 				{
 					"id": "signal",
 					"objectClass": "System",
-					"sid": 983996935713596,
+					"sid": 766472905095448,
 					"parameters": {
 						"tag": "\"starterDictionaryLoaded\""
 					}
 				}
 			],
-			"sid": 825433369294972
+			"sid": 414693094297855
 		},
 		{
 			"eventType": "block",
@@ -260,7 +313,7 @@
 				{
 					"id": "on-signal",
 					"objectClass": "System",
-					"sid": 121109922632656,
+					"sid": 855084976503575,
 					"parameters": {
 						"tag": "\"starterDictionaryLoaded\""
 					}
@@ -270,19 +323,19 @@
 				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 758030556270944
+					"sid": 177027930755005
 				},
 				{
 					"id": "request-project-file",
 					"objectClass": "AJAX",
-					"sid": 866581876091637,
+					"sid": 269245763922189,
 					"parameters": {
 						"tag": "\"loadNPCJSON\"",
 						"file": "npcFiles.json"
 					}
 				}
 			],
-			"sid": 165795276411985
+			"sid": 205451510113616
 		},
 		{
 			"eventType": "block",
@@ -290,7 +343,7 @@
 				{
 					"id": "on-completed",
 					"objectClass": "AJAX",
-					"sid": 246838284640856,
+					"sid": 518722189785383,
 					"parameters": {
 						"tag": "\"loadNPCJSON\""
 					}
@@ -300,7 +353,7 @@
 				{
 					"id": "load",
 					"objectClass": "npcFiles",
-					"sid": 374320497227850,
+					"sid": 260310611558372,
 					"parameters": {
 						"json": "AJAX.LastData"
 					}
@@ -308,18 +361,18 @@
 				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 909879287555401
+					"sid": 855591229452537
 				},
 				{
 					"id": "signal",
 					"objectClass": "System",
-					"sid": 211070757062240,
+					"sid": 665822960281977,
 					"parameters": {
 						"tag": "\"fileRepLoaded\""
 					}
 				}
 			],
-			"sid": 140823988993846
+			"sid": 797768544797689
 		},
 		{
 			"eventType": "block",
@@ -327,7 +380,7 @@
 				{
 					"id": "on-signal",
 					"objectClass": "System",
-					"sid": 133808988865282,
+					"sid": 557013305757196,
 					"parameters": {
 						"tag": "\"fileRepLoaded\""
 					}
@@ -337,14 +390,14 @@
 				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
-					"sid": 193784349229068
+					"sid": 352201651011620
 				},
 				{
 					"callFunction": "configNPC_FilePaths",
-					"sid": 827661703051249
+					"sid": 319868843139663
 				}
 			],
-			"sid": 173028461868121
+			"sid": 154554659106732
 		},
 		{
 			"eventType": "block",
@@ -352,7 +405,7 @@
 				{
 					"id": "on-signal",
 					"objectClass": "System",
-					"sid": 378971870580210,
+					"sid": 992136194669037,
 					"parameters": {
 						"tag": "\"allPathsCreated\""
 					}
@@ -362,7 +415,7 @@
 				{
 					"id": "set-group-active",
 					"objectClass": "System",
-					"sid": 668916490163025,
+					"sid": 944043911410676,
 					"parameters": {
 						"group-name": "\"LoadingNPCs\"",
 						"state": "activated"
@@ -371,13 +424,13 @@
 				{
 					"id": "signal",
 					"objectClass": "System",
-					"sid": 328844497103057,
+					"sid": 965627701563326,
 					"parameters": {
 						"tag": "\"groupActivated\""
 					}
 				}
 			],
-			"sid": 517870743571284
+			"sid": 291061663124544
 		},
 		{
 			"eventType": "group",
@@ -396,7 +449,7 @@
 						{
 							"id": "on-signal",
 							"objectClass": "System",
-							"sid": 389664754839113,
+							"sid": 788528437925670,
 							"parameters": {
 								"tag": "\"groupActivated\""
 							}
@@ -406,19 +459,19 @@
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 638383930244451
+							"sid": 811294018714976
 						},
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 700267822181663,
+							"sid": 814436785327827,
 							"parameters": {
 								"seconds": "0.1",
 								"use-timescale": true
 							}
 						}
 					],
-					"sid": 257277354468679,
+					"sid": 915751963684691,
 					"children": [
 						{
 							"eventType": "comment",
@@ -430,7 +483,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 292509355890438,
+									"sid": 501758917757280,
 									"parameters": {
 										"first-value": "objNPC_AndersonPatinho.Count",
 										"comparison": 4,
@@ -439,7 +492,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 480096268607590,
+							"sid": 976897553971924,
 							"children": [
 								{
 									"eventType": "block",
@@ -447,11 +500,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 551508034539979
+											"sid": 216645155727551
 										}
 									],
 									"actions": [],
-									"sid": 873701691588151,
+									"sid": 539927236002950,
 									"children": [
 										{
 											"eventType": "block",
@@ -459,7 +512,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 442945955767280,
+													"sid": 750099720451107,
 													"parameters": {
 														"object": "objNPC_AndersonPatinho"
 													}
@@ -469,12 +522,12 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 863153465939563
+													"sid": 108259002370832
 												},
 												{
 													"id": "request-url",
 													"objectClass": "AJAX",
-													"sid": 761606907899249,
+													"sid": 953403510230233,
 													"parameters": {
 														"tag": "\"loadPatinho\"",
 														"url": "objNPC_AndersonPatinho.FilePath"
@@ -483,10 +536,10 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 424184945890792
+													"sid": 230550928687411
 												}
 											],
-											"sid": 115177473432189
+											"sid": 757184046528283
 										}
 									]
 								}
@@ -502,7 +555,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 297741565561476,
+									"sid": 311887216788796,
 									"parameters": {
 										"first-value": "objNPC_DonaCida.Count",
 										"comparison": 4,
@@ -511,7 +564,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 786819845050199,
+							"sid": 304444200876490,
 							"children": [
 								{
 									"eventType": "block",
@@ -519,11 +572,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 985846092700191
+											"sid": 207765937887458
 										}
 									],
 									"actions": [],
-									"sid": 711188369760639,
+									"sid": 190336524677751,
 									"children": [
 										{
 											"eventType": "block",
@@ -531,7 +584,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 164675676144202,
+													"sid": 291467933170760,
 													"parameters": {
 														"object": "objNPC_DonaCida"
 													}
@@ -541,19 +594,19 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 314998342596759
+													"sid": 963592797909833
 												},
 												{
 													"id": "request-url",
 													"objectClass": "AJAX",
-													"sid": 105676482023083,
+													"sid": 333385093559846,
 													"parameters": {
 														"tag": "\"loadCida\"",
 														"url": "objNPC_DonaCida.FilePath"
 													}
 												}
 											],
-											"sid": 157678115685747
+											"sid": 817489417608666
 										}
 									]
 								}
@@ -569,7 +622,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 146676246580885,
+									"sid": 144216661025102,
 									"parameters": {
 										"first-value": "objNPC_GuiDasMares.Count",
 										"comparison": 4,
@@ -578,7 +631,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 608821094532309,
+							"sid": 342551406932093,
 							"children": [
 								{
 									"eventType": "block",
@@ -586,11 +639,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 781913083020634
+											"sid": 875382274970250
 										}
 									],
 									"actions": [],
-									"sid": 652585221439840,
+									"sid": 538202537575306,
 									"children": [
 										{
 											"eventType": "block",
@@ -598,7 +651,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 204274880525071,
+													"sid": 412967987846141,
 													"parameters": {
 														"object": "objNPC_GuiDasMares"
 													}
@@ -608,19 +661,19 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 149076840231754
+													"sid": 835165241234895
 												},
 												{
 													"id": "request-url",
 													"objectClass": "AJAX",
-													"sid": 429328301503324,
+													"sid": 431905506381086,
 													"parameters": {
 														"tag": "\"loadGui\"",
 														"url": "objNPC_GuiDasMares.FilePath"
 													}
 												}
 											],
-											"sid": 636790188646093
+											"sid": 536154238597876
 										}
 									]
 								}
@@ -636,7 +689,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 193593431024082,
+									"sid": 341336002415275,
 									"parameters": {
 										"first-value": "objNPC_TiaFernanda.Count",
 										"comparison": 4,
@@ -645,7 +698,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 721300593774194,
+							"sid": 540484408801563,
 							"children": [
 								{
 									"eventType": "block",
@@ -653,11 +706,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 387701548088726
+											"sid": 136149634409575
 										}
 									],
 									"actions": [],
-									"sid": 483897763398563,
+									"sid": 635815337798389,
 									"children": [
 										{
 											"eventType": "block",
@@ -665,7 +718,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 537955793206009,
+													"sid": 288334731786189,
 													"parameters": {
 														"object": "objNPC_TiaFernanda"
 													}
@@ -675,19 +728,19 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 717807123815472
+													"sid": 693038646836211
 												},
 												{
 													"id": "request-url",
 													"objectClass": "AJAX",
-													"sid": 349881963634318,
+													"sid": 777998046368669,
 													"parameters": {
 														"tag": "\"loadFer\"",
 														"url": "objNPC_TiaFernanda.FilePath"
 													}
 												}
 											],
-											"sid": 408115739152710
+											"sid": 481019877767516
 										}
 									]
 								}
@@ -703,7 +756,7 @@
 					"eventType": "block",
 					"conditions": [],
 					"actions": [],
-					"sid": 886507710560629,
+					"sid": 885668058535191,
 					"children": [
 						{
 							"eventType": "block",
@@ -711,7 +764,7 @@
 								{
 									"id": "on-completed",
 									"objectClass": "AJAX",
-									"sid": 377423094423140,
+									"sid": 262438532580912,
 									"parameters": {
 										"tag": "\"loadPatinho\""
 									}
@@ -721,11 +774,11 @@
 								{
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
-									"sid": 738096625010449,
+									"sid": 480839709765556,
 									"disabled": true
 								}
 							],
-							"sid": 891385789851606,
+							"sid": 826314608028479,
 							"children": [
 								{
 									"eventType": "block",
@@ -733,7 +786,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 927909986077185,
+											"sid": 624520027404041,
 											"parameters": {
 												"first-value": "AJAX.LastData",
 												"comparison": 1,
@@ -743,11 +796,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 228610760469559
+											"sid": 921623577878433
 										}
 									],
 									"actions": [],
-									"sid": 637887729462490,
+									"sid": 810920136991272,
 									"children": [
 										{
 											"eventType": "block",
@@ -755,7 +808,7 @@
 												{
 													"id": "has-key",
 													"objectClass": "npcFiles",
-													"sid": 525472363475096,
+													"sid": 157769557093769,
 													"parameters": {
 														"key": "objNPC_AndersonPatinho.dicKey"
 													}
@@ -765,20 +818,20 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 564355181219395,
+													"sid": 568070664123720,
 													"disabled": true
 												},
 												{
 													"id": "set-key",
 													"objectClass": "npcFiles",
-													"sid": 506378208298585,
+													"sid": 243587529514667,
 													"parameters": {
 														"key": "objNPC_AndersonPatinho.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 318059303588501
+											"sid": 291788699870541
 										},
 										{
 											"eventType": "block",
@@ -786,27 +839,27 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 956033703829695
+													"sid": 825678253343047
 												}
 											],
 											"actions": [
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 815344239693416,
+													"sid": 744529057914337,
 													"disabled": true
 												},
 												{
 													"id": "add-key",
 													"objectClass": "npcFiles",
-													"sid": 978245623390477,
+													"sid": 772995950899582,
 													"parameters": {
 														"key": "objNPC_AndersonPatinho.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 754414554746875
+											"sid": 363640112242742
 										}
 									]
 								},
@@ -817,19 +870,19 @@
 										{
 											"id": "wait-for-previous-actions",
 											"objectClass": "System",
-											"sid": 191667754555900,
+											"sid": 572802478577806,
 											"disabled": true
 										},
 										{
 											"id": "signal",
 											"objectClass": "System",
-											"sid": 955960111021602,
+											"sid": 947198217307055,
 											"parameters": {
 												"tag": "\"patinhoLoaded\""
 											}
 										}
 									],
-									"sid": 379226248747009
+									"sid": 247596684932809
 								}
 							]
 						},
@@ -839,7 +892,7 @@
 								{
 									"id": "on-completed",
 									"objectClass": "AJAX",
-									"sid": 940979792514417,
+									"sid": 470624358529717,
 									"parameters": {
 										"tag": "\"loadCida\""
 									}
@@ -849,11 +902,11 @@
 								{
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
-									"sid": 954612082032918,
+									"sid": 645672654145840,
 									"disabled": true
 								}
 							],
-							"sid": 216779008013577,
+							"sid": 284237630462691,
 							"children": [
 								{
 									"eventType": "block",
@@ -861,7 +914,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 681972508941324,
+											"sid": 141743554896631,
 											"parameters": {
 												"first-value": "AJAX.LastData",
 												"comparison": 1,
@@ -871,11 +924,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 356353036311056
+											"sid": 781257261585202
 										}
 									],
 									"actions": [],
-									"sid": 817133252715185,
+									"sid": 854641156866811,
 									"children": [
 										{
 											"eventType": "block",
@@ -883,7 +936,7 @@
 												{
 													"id": "has-key",
 													"objectClass": "npcFiles",
-													"sid": 208247918444375,
+													"sid": 842116577906013,
 													"parameters": {
 														"key": "objNPC_DonaCida.dicKey"
 													}
@@ -893,20 +946,20 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 708659496188481,
+													"sid": 588254688613768,
 													"disabled": true
 												},
 												{
 													"id": "set-key",
 													"objectClass": "npcFiles",
-													"sid": 457281424322429,
+													"sid": 701947651724373,
 													"parameters": {
 														"key": "objNPC_DonaCida.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 494403705275477
+											"sid": 378966162738385
 										},
 										{
 											"eventType": "block",
@@ -914,27 +967,27 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 502934380159157
+													"sid": 293104226204253
 												}
 											],
 											"actions": [
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 320640698177559,
+													"sid": 236706307775030,
 													"disabled": true
 												},
 												{
 													"id": "add-key",
 													"objectClass": "npcFiles",
-													"sid": 203632454717323,
+													"sid": 375563811615264,
 													"parameters": {
 														"key": "objNPC_DonaCida.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 630195912237608
+											"sid": 211950747046324
 										}
 									]
 								},
@@ -945,19 +998,19 @@
 										{
 											"id": "wait-for-previous-actions",
 											"objectClass": "System",
-											"sid": 275492892188802,
+											"sid": 376088024471947,
 											"disabled": true
 										},
 										{
 											"id": "signal",
 											"objectClass": "System",
-											"sid": 921210615220879,
+											"sid": 946362966107686,
 											"parameters": {
 												"tag": "\"cidaLoaded\""
 											}
 										}
 									],
-									"sid": 304122256646639
+									"sid": 868929846488451
 								}
 							]
 						},
@@ -967,7 +1020,7 @@
 								{
 									"id": "on-completed",
 									"objectClass": "AJAX",
-									"sid": 390815851831869,
+									"sid": 323698324872458,
 									"parameters": {
 										"tag": "\"loadGui\""
 									}
@@ -977,11 +1030,11 @@
 								{
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
-									"sid": 371459637663419,
+									"sid": 286375443373358,
 									"disabled": true
 								}
 							],
-							"sid": 321319185974722,
+							"sid": 205983279057049,
 							"children": [
 								{
 									"eventType": "block",
@@ -989,7 +1042,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 605370174812334,
+											"sid": 384767071125991,
 											"parameters": {
 												"first-value": "AJAX.LastData",
 												"comparison": 1,
@@ -999,11 +1052,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 991167268319348
+											"sid": 752005524968139
 										}
 									],
 									"actions": [],
-									"sid": 426110262230889,
+									"sid": 677699376874965,
 									"children": [
 										{
 											"eventType": "block",
@@ -1011,7 +1064,7 @@
 												{
 													"id": "has-key",
 													"objectClass": "npcFiles",
-													"sid": 112339638338361,
+													"sid": 611287939756462,
 													"parameters": {
 														"key": "objNPC_GuiDasMares.dicKey"
 													}
@@ -1021,20 +1074,20 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 302099353823391,
+													"sid": 410517539765391,
 													"disabled": true
 												},
 												{
 													"id": "set-key",
 													"objectClass": "npcFiles",
-													"sid": 224296658529904,
+													"sid": 508196387561745,
 													"parameters": {
 														"key": "objNPC_GuiDasMares.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 460649839599574
+											"sid": 223216944566583
 										},
 										{
 											"eventType": "block",
@@ -1042,27 +1095,27 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 296445763286050
+													"sid": 511038954052463
 												}
 											],
 											"actions": [
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 953184131772264,
+													"sid": 119070077227841,
 													"disabled": true
 												},
 												{
 													"id": "add-key",
 													"objectClass": "npcFiles",
-													"sid": 666399741774045,
+													"sid": 322385749581278,
 													"parameters": {
 														"key": "objNPC_GuiDasMares.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 481043909960995
+											"sid": 359085057498583
 										}
 									]
 								},
@@ -1073,19 +1126,19 @@
 										{
 											"id": "wait-for-previous-actions",
 											"objectClass": "System",
-											"sid": 852650535124199,
+											"sid": 911075706689955,
 											"disabled": true
 										},
 										{
 											"id": "signal",
 											"objectClass": "System",
-											"sid": 417111584376834,
+											"sid": 291621241071321,
 											"parameters": {
 												"tag": "\"guiLoaded\""
 											}
 										}
 									],
-									"sid": 283407350210774
+									"sid": 949615286311995
 								}
 							]
 						},
@@ -1095,7 +1148,7 @@
 								{
 									"id": "on-completed",
 									"objectClass": "AJAX",
-									"sid": 569667208970701,
+									"sid": 598173227086348,
 									"parameters": {
 										"tag": "\"loadFer\""
 									}
@@ -1105,11 +1158,11 @@
 								{
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
-									"sid": 926501989900829,
+									"sid": 756676936006824,
 									"disabled": true
 								}
 							],
-							"sid": 603680875947471,
+							"sid": 492792585119161,
 							"children": [
 								{
 									"eventType": "block",
@@ -1117,7 +1170,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 699952388495004,
+											"sid": 206891796168162,
 											"parameters": {
 												"first-value": "AJAX.LastData",
 												"comparison": 1,
@@ -1127,11 +1180,11 @@
 										{
 											"id": "trigger-once-while-true",
 											"objectClass": "System",
-											"sid": 639365914499609
+											"sid": 897238646991998
 										}
 									],
 									"actions": [],
-									"sid": 404882631500638,
+									"sid": 589855102957510,
 									"children": [
 										{
 											"eventType": "block",
@@ -1139,7 +1192,7 @@
 												{
 													"id": "has-key",
 													"objectClass": "npcFiles",
-													"sid": 615435700389886,
+													"sid": 662468143345232,
 													"parameters": {
 														"key": "objNPC_TiaFernanda.dicKey"
 													}
@@ -1149,20 +1202,20 @@
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 293332702340356,
+													"sid": 611617399220328,
 													"disabled": true
 												},
 												{
 													"id": "set-key",
 													"objectClass": "npcFiles",
-													"sid": 497357235048428,
+													"sid": 745320361635153,
 													"parameters": {
 														"key": "objNPC_TiaFernanda.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 187992619542401
+											"sid": 317420136033558
 										},
 										{
 											"eventType": "block",
@@ -1170,27 +1223,27 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 391218430099215
+													"sid": 464724881112250
 												}
 											],
 											"actions": [
 												{
 													"id": "wait-for-previous-actions",
 													"objectClass": "System",
-													"sid": 765555499373326,
+													"sid": 554701529402697,
 													"disabled": true
 												},
 												{
 													"id": "add-key",
 													"objectClass": "npcFiles",
-													"sid": 668288300558026,
+													"sid": 390921149942097,
 													"parameters": {
 														"key": "objNPC_TiaFernanda.dicKey",
 														"value": "AJAX.LastData"
 													}
 												}
 											],
-											"sid": 147308692714465
+											"sid": 245421365505867
 										}
 									]
 								},
@@ -1201,19 +1254,19 @@
 										{
 											"id": "wait-for-previous-actions",
 											"objectClass": "System",
-											"sid": 939895132755046,
+											"sid": 401396506478244,
 											"disabled": true
 										},
 										{
 											"id": "signal",
 											"objectClass": "System",
-											"sid": 690465057673956,
+											"sid": 392466096300558,
 											"parameters": {
 												"tag": "\"ferLoaded\""
 											}
 										}
 									],
-									"sid": 581662959678657
+									"sid": 101311570326128
 								}
 							]
 						}
@@ -1227,7 +1280,7 @@
 					"eventType": "block",
 					"conditions": [],
 					"actions": [],
-					"sid": 687365627420727,
+					"sid": 748270495131581,
 					"children": [
 						{
 							"eventType": "comment",
@@ -1239,14 +1292,14 @@
 								{
 									"id": "on-signal",
 									"objectClass": "System",
-									"sid": 682818501511568,
+									"sid": 935787123836954,
 									"parameters": {
 										"tag": "\"patinhoLoaded\""
 									}
 								}
 							],
 							"actions": [],
-							"sid": 991925110324969,
+							"sid": 559743066464627,
 							"children": [
 								{
 									"eventType": "block",
@@ -1254,7 +1307,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 669168567496449,
+											"sid": 280528316744597,
 											"parameters": {
 												"first-value": "objNPC_AndersonPatinho.Count",
 												"comparison": 4,
@@ -1263,7 +1316,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 632192783832796,
+									"sid": 815328650337847,
 									"children": [
 										{
 											"eventType": "block",
@@ -1271,7 +1324,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 363930396073008,
+													"sid": 447999918121260,
 													"parameters": {
 														"object": "objNPC_AndersonPatinho"
 													}
@@ -1281,14 +1334,14 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "objNPC_AndersonPatinho",
-													"sid": 544486015599464,
+													"sid": 138842969599039,
 													"parameters": {
 														"instance-variable": "filesReady",
 														"value": "true"
 													}
 												}
 											],
-											"sid": 870194073469987
+											"sid": 317435384164134
 										}
 									]
 								}
@@ -1300,14 +1353,14 @@
 								{
 									"id": "on-signal",
 									"objectClass": "System",
-									"sid": 360007523078259,
+									"sid": 565184275351296,
 									"parameters": {
 										"tag": "\"cidaLoaded\""
 									}
 								}
 							],
 							"actions": [],
-							"sid": 397946268336213,
+							"sid": 713462337519906,
 							"children": [
 								{
 									"eventType": "block",
@@ -1315,7 +1368,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 907879712429137,
+											"sid": 381881980200652,
 											"parameters": {
 												"first-value": "objNPC_DonaCida.Count",
 												"comparison": 4,
@@ -1324,7 +1377,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 315757656001916,
+									"sid": 872356111931470,
 									"children": [
 										{
 											"eventType": "block",
@@ -1332,7 +1385,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 151526789888071,
+													"sid": 115567398702552,
 													"parameters": {
 														"object": "objNPC_DonaCida"
 													}
@@ -1342,14 +1395,14 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "objNPC_DonaCida",
-													"sid": 805483243535108,
+													"sid": 155721385047097,
 													"parameters": {
 														"instance-variable": "filesReady",
 														"value": "true"
 													}
 												}
 											],
-											"sid": 225310198670471
+											"sid": 461960017785080
 										}
 									]
 								}
@@ -1361,14 +1414,14 @@
 								{
 									"id": "on-signal",
 									"objectClass": "System",
-									"sid": 505952218935972,
+									"sid": 182031267276050,
 									"parameters": {
 										"tag": "\"guiLoaded\""
 									}
 								}
 							],
 							"actions": [],
-							"sid": 473080729007123,
+							"sid": 993174974544498,
 							"children": [
 								{
 									"eventType": "block",
@@ -1376,7 +1429,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 137183413493486,
+											"sid": 870335266713156,
 											"parameters": {
 												"first-value": "objNPC_GuiDasMares.Count",
 												"comparison": 4,
@@ -1385,7 +1438,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 224183776529339,
+									"sid": 857211536004879,
 									"children": [
 										{
 											"eventType": "block",
@@ -1393,7 +1446,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 670071586488573,
+													"sid": 295729378145641,
 													"parameters": {
 														"object": "objNPC_GuiDasMares"
 													}
@@ -1403,14 +1456,14 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "objNPC_GuiDasMares",
-													"sid": 629630964627988,
+													"sid": 220963706270588,
 													"parameters": {
 														"instance-variable": "filesReady",
 														"value": "true"
 													}
 												}
 											],
-											"sid": 915473720317598
+											"sid": 805107097518125
 										}
 									]
 								}
@@ -1422,14 +1475,14 @@
 								{
 									"id": "on-signal",
 									"objectClass": "System",
-									"sid": 588272918958626,
+									"sid": 377031567052577,
 									"parameters": {
 										"tag": "\"ferLoaded\""
 									}
 								}
 							],
 							"actions": [],
-							"sid": 160486674925075,
+							"sid": 917556684828432,
 							"children": [
 								{
 									"eventType": "block",
@@ -1437,7 +1490,7 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 338944323119940,
+											"sid": 124696305057150,
 											"parameters": {
 												"first-value": "objNPC_TiaFernanda.Count",
 												"comparison": 4,
@@ -1446,7 +1499,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 544262489956550,
+									"sid": 797675979334760,
 									"children": [
 										{
 											"eventType": "block",
@@ -1454,7 +1507,7 @@
 												{
 													"id": "for-each",
 													"objectClass": "System",
-													"sid": 354240626154682,
+													"sid": 116026352978295,
 													"parameters": {
 														"object": "objNPC_TiaFernanda"
 													}
@@ -1464,14 +1517,14 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "objNPC_TiaFernanda",
-													"sid": 172300911155613,
+													"sid": 117725038012812,
 													"parameters": {
 														"instance-variable": "filesReady",
 														"value": "true"
 													}
 												}
 											],
-											"sid": 269290086727793
+											"sid": 997100332646725
 										}
 									]
 								}
@@ -1491,7 +1544,7 @@
 					"comment": "",
 					"isStatic": true,
 					"isConstant": false,
-					"sid": 342939576639750
+					"sid": 379339079522827
 				},
 				{
 					"eventType": "variable",
@@ -1501,7 +1554,7 @@
 					"comment": "",
 					"isStatic": true,
 					"isConstant": false,
-					"sid": 309574320110652
+					"sid": 598337017217399
 				},
 				{
 					"eventType": "block",
@@ -1509,21 +1562,21 @@
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 153986745699227
+							"sid": 635026898514746
 						}
 					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 786171272156091,
+							"sid": 928671275886500,
 							"parameters": {
 								"variable": "npcMax",
 								"value": "NPCs.Count"
 							}
 						}
 					],
-					"sid": 151412872695203
+					"sid": 384399736905887
 				},
 				{
 					"eventType": "block",
@@ -1531,7 +1584,7 @@
 						{
 							"id": "on-signal",
 							"objectClass": "System",
-							"sid": 830082511810217,
+							"sid": 274803611260729,
 							"parameters": {
 								"tag": "\"ferLoaded\""
 							}
@@ -1539,7 +1592,7 @@
 						{
 							"id": "on-signal",
 							"objectClass": "System",
-							"sid": 516464603451623,
+							"sid": 814359327645376,
 							"parameters": {
 								"tag": "\"guiLoaded\""
 							}
@@ -1547,7 +1600,7 @@
 						{
 							"id": "on-signal",
 							"objectClass": "System",
-							"sid": 346295399580439,
+							"sid": 400523732613855,
 							"parameters": {
 								"tag": "\"cidaLoaded\""
 							}
@@ -1555,7 +1608,7 @@
 						{
 							"id": "on-signal",
 							"objectClass": "System",
-							"sid": 954298185330671,
+							"sid": 947280118627574,
 							"parameters": {
 								"tag": "\"patinhoLoaded\""
 							}
@@ -1565,13 +1618,13 @@
 						{
 							"id": "reset-eventvar",
 							"objectClass": "System",
-							"sid": 786144583540721,
+							"sid": 987921366877385,
 							"parameters": {
 								"variable": "npcReady"
 							}
 						}
 					],
-					"sid": 614409590736301,
+					"sid": 171129214028885,
 					"children": [
 						{
 							"eventType": "block",
@@ -1579,7 +1632,7 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 562661788139653,
+									"sid": 779864123731983,
 									"parameters": {
 										"object": "NPCs"
 									}
@@ -1587,7 +1640,7 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "NPCs",
-									"sid": 481928339316825,
+									"sid": 940373386016475,
 									"parameters": {
 										"instance-variable": "filesReady"
 									}
@@ -1597,14 +1650,14 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 675085263788651,
+									"sid": 511588618102300,
 									"parameters": {
 										"variable": "npcReady",
 										"value": "1"
 									}
 								}
 							],
-							"sid": 906736670904449
+							"sid": 425857872986682
 						}
 					],
 					"isOrBlock": true
@@ -1615,7 +1668,7 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 542881679945254,
+							"sid": 103962122914808,
 							"parameters": {
 								"first-value": "npcReady",
 								"comparison": 0,
@@ -1627,16 +1680,39 @@
 						{
 							"id": "signal",
 							"objectClass": "System",
-							"sid": 524778577354949,
+							"sid": 370384624219791,
 							"parameters": {
 								"tag": "\"canStart\""
 							}
 						}
 					],
-					"sid": 375114348903884
+					"sid": 677525222073803,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 619056978894844
+								}
+							],
+							"actions": [
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 592568944915709,
+									"parameters": {
+										"tag": "\"canStart\""
+									}
+								}
+							],
+							"sid": 402937002221356
+						}
+					]
 				}
 			],
-			"sid": 547764838360889
+			"sid": 991314197184368
 		}
 	],
 	"sid": 728707818043818

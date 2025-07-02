@@ -204,6 +204,13 @@
 		},
 		{
 			"type": "effect",
+			"id": "inverse",
+			"name": "Inverse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
 			"id": "pixellate",
 			"name": "Pixellate",
 			"author": "Scirra",
@@ -239,7 +246,9 @@
 			"btnStartGame_label",
 			"tlmTestDecor",
 			"txtDebugAction2",
-			"txtDebugAction3"
+			"txtDebugAction3",
+			"ftueTest",
+			"Ruler"
 		],
 		"subfolders": [
 			{
@@ -282,9 +291,19 @@
 					"objCoins",
 					"objCoins_Loss",
 					"objLevelCheckpoint",
-					"objCheckObstacle"
+					"objCheckObstacle",
+					"objDialogArea"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"objChangeCharacterArea",
+							"objFakeCharacter"
+						],
+						"subfolders": [],
+						"name": "ChangeCharacter"
+					}
+				],
 				"name": "LevelDesign"
 			},
 			{
@@ -363,7 +382,9 @@
 					"arrowDown",
 					"arrowUp",
 					"arrowLeft",
-					"arrowRight"
+					"arrowRight",
+					"spr_HasDialog",
+					"spr_ChangeChar"
 				],
 				"subfolders": [],
 				"name": "Input_Graphics"
@@ -461,7 +482,8 @@
 			"Intro",
 			"GameTesting",
 			"FTUE_Test",
-			"CurrentMapTest"
+			"CurrentMapTest",
+			"GalpaoTecnologico"
 		],
 		"subfolders": [
 			{
@@ -476,10 +498,7 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Intro_ES",
-			"GameTesting_ES",
-			"FTUE_Test_ES",
-			"CurrentMapTest_ES"
+			"GameTesting_ES"
 		],
 		"subfolders": [
 			{
@@ -494,14 +513,23 @@
 					{
 						"items": [
 							"Player_ES",
-							"PlayerFSM_ES",
-							"PlatformPlayer_ES"
+							"PlayerFSM_ES"
 						],
 						"subfolders": [],
 						"name": "Player"
 					}
 				],
 				"name": "Configs"
+			},
+			{
+				"items": [
+					"FTUE_Test_ES",
+					"Intro_ES",
+					"CurrentMapTest_ES",
+					"GalpaoTecnologico_ES"
+				],
+				"subfolders": [],
+				"name": "Level"
 			}
 		]
 	},

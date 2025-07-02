@@ -115,7 +115,17 @@
 					"sid": 565276972608876
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 359060000378944,
+					"parameters": {
+						"variable": "nextLevelSet",
+						"value": "\"GalpaoTecnologico\""
+					}
+				}
+			],
 			"sid": 226177378986907,
 			"children": [
 				{
@@ -155,6 +165,23 @@
 							"parameters": {
 								"variable": "rodoviaria_firstTime",
 								"value": "false"
+							}
+						},
+						{
+							"id": "reset-eventvar",
+							"objectClass": "System",
+							"sid": 361370730097760,
+							"parameters": {
+								"variable": "totalPlayerScore"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 382328418755256,
+							"parameters": {
+								"variable": "PlayerCharacter",
+								"value": "\"Mumbuquinha\""
 							}
 						}
 					],

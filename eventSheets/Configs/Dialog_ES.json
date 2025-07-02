@@ -92,6 +92,38 @@
 			"sid": 733631518237767
 		},
 		{
+			"eventType": "variable",
+			"name": "activeArrayHeight",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 143078577825194
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 215150902149939
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 992626396560282,
+					"parameters": {
+						"variable": "activeArrayHeight",
+						"value": "activeDialogArray.Height"
+					}
+				}
+			],
+			"sid": 420541895516246
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -159,6 +191,7 @@
 					"id": "set-position",
 					"objectClass": "arrowDown",
 					"sid": 251015265315979,
+					"disabled": true,
 					"parameters": {
 						"x": "384",
 						"y": "828"
@@ -168,13 +201,142 @@
 					"id": "set-position",
 					"objectClass": "arrowUp",
 					"sid": 331730034235920,
+					"disabled": true,
 					"parameters": {
 						"x": "1536",
 						"y": "828"
 					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 148718256581594,
+					"parameters": {
+						"type": "log",
+						"message": "\"All Dialogs in place\""
+					}
+				},
+				{
+					"id": "clear",
+					"objectClass": "activeDialogArray",
+					"sid": 548741800633714,
+					"parameters": {
+						"value": "0"
+					}
 				}
 			],
-			"sid": 134506814363087
+			"sid": 134506814363087,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-tags",
+							"objectClass": "ArrowIcons",
+							"sid": 364645203278406,
+							"parameters": {
+								"tags": "\"QuizArrow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "arrowDown",
+							"sid": 767876998290061,
+							"parameters": {
+								"x": "384",
+								"y": "828"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "arrowUp",
+							"sid": 292108144829696,
+							"parameters": {
+								"x": "1536",
+								"y": "828"
+							}
+						}
+					],
+					"sid": 254657667841090
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 939574924474196,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 131600627728105,
+									"parameters": {
+										"object": "NPCs"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "NPCs",
+									"sid": 722794908731640,
+									"parameters": {
+										"instance-variable": "currTextID",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 532317503977323,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "NPCs",
+											"sid": 822429611040343,
+											"parameters": {
+												"instance-variable": "wasTalked_in_the_Warehouse"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "NPCs",
+											"sid": 605281535013236,
+											"parameters": {
+												"instance-variable": "currLineID",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPCs",
+											"sid": 577948084339003,
+											"parameters": {
+												"instance-variable": "wasTalked_in_the_Warehouse",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 941142455018975
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 474209624533064
+				}
+			]
 		},
 		{
 			"eventType": "variable",
@@ -228,763 +390,6 @@
 			"sid": 206845287103866
 		},
 		{
-			"eventType": "group",
-			"disabled": true,
-			"title": "NPC Config",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "group",
-					"disabled": true,
-					"title": "ConfigAllNPCs",
-					"description": "",
-					"isActiveOnStart": true,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Request dictionary"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-start-of-layout",
-									"objectClass": "System",
-									"sid": 565766703925269
-								}
-							],
-							"actions": [
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 950275564176077,
-									"parameters": {
-										"tag": "\"dialogDictionary\"",
-										"file": "npcFiles.json"
-									}
-								}
-							],
-							"sid": 120343287117172
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-start-of-layout",
-									"objectClass": "System",
-									"sid": 788070663738754
-								}
-							],
-							"actions": [
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 270526441688554,
-									"parameters": {
-										"tag": "\"loadPaths\"",
-										"file": "npcPaths.json"
-									}
-								}
-							],
-							"sid": 509866981108098
-						},
-						{
-							"eventType": "comment",
-							"text": "Load dictionary"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-completed",
-									"objectClass": "AJAX",
-									"sid": 567736111067019,
-									"parameters": {
-										"tag": "\"loadPaths\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "load",
-									"objectClass": "npcPathsDictionary",
-									"sid": 927009397383166,
-									"parameters": {
-										"json": "AJAX.LastData"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 639327848281022
-								},
-								{
-									"callFunction": "configNPC_FilePaths",
-									"sid": 928720699388277
-								}
-							],
-							"sid": 753429586270505
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-signal",
-									"objectClass": "System",
-									"sid": 957111267813325,
-									"parameters": {
-										"tag": "\"allPathsCreated\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 621608520150044
-								},
-								{
-									"id": "signal",
-									"objectClass": "System",
-									"sid": 966710525759671,
-									"parameters": {
-										"tag": "\"canStart\""
-									}
-								}
-							],
-							"sid": 245170032932805,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-completed",
-									"objectClass": "AJAX",
-									"sid": 162144499868155,
-									"parameters": {
-										"tag": "\"dialogDictionary\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "load",
-									"objectClass": "npcFiles",
-									"sid": 394054772310419,
-									"parameters": {
-										"json": "AJAX.LastData"
-									}
-								},
-								{
-									"id": "signal",
-									"objectClass": "System",
-									"sid": 259120918971924,
-									"parameters": {
-										"tag": "\"firstDicReady\""
-									}
-								}
-							],
-							"sid": 199987999328562
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-signal",
-									"objectClass": "System",
-									"sid": 953841347632173,
-									"parameters": {
-										"tag": "\"firstDicReady\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 453393800773027,
-									"parameters": {
-										"tag": "\"dialogStateDictionary\"",
-										"file": "npcPaths.json"
-									}
-								}
-							],
-							"sid": 116981228849365
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-completed",
-									"objectClass": "AJAX",
-									"sid": 129154612497308,
-									"parameters": {
-										"tag": "\"dialogStateDictionary\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "load",
-									"objectClass": "npcPathsDictionary",
-									"sid": 270777769887520,
-									"parameters": {
-										"json": "AJAX.LastData"
-									}
-								},
-								{
-									"id": "signal",
-									"objectClass": "System",
-									"sid": 198438906835040,
-									"parameters": {
-										"tag": "\"dictionaryLoaded\""
-									}
-								}
-							],
-							"sid": 614461727168572
-						},
-						{
-							"eventType": "comment",
-							"text": "Confirm dictionary loaded and call config NPCs"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-signal",
-									"objectClass": "System",
-									"sid": 954116685181745,
-									"disabled": true,
-									"parameters": {
-										"tag": "\"canStart\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "configNPC_FilePaths",
-									"sid": 636704265607119,
-									"disabled": true
-								}
-							],
-							"sid": 212284424654913,
-							"disabled": true
-						},
-						{
-							"eventType": "group",
-							"disabled": false,
-							"title": "setNPCsJSONS",
-							"description": "",
-							"isActiveOnStart": true,
-							"children": [
-								{
-									"eventType": "variable",
-									"name": "canConfigDic",
-									"type": "boolean",
-									"initialValue": "false",
-									"comment": "Check if can config NPCs or not.",
-									"isStatic": true,
-									"isConstant": false,
-									"sid": 565913796271751
-								},
-								{
-									"eventType": "comment",
-									"text": "triggered after all needed paths are created"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "on-signal",
-											"objectClass": "System",
-											"sid": 327809489623137,
-											"parameters": {
-												"tag": "\"pathCreated\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 342115310520198,
-											"parameters": {
-												"variable": "canConfigDic",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 164276475483203
-								},
-								{
-									"eventType": "comment",
-									"text": "Check if NPCs can be configured. Each subevent is triggered once."
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-boolean-eventvar",
-											"objectClass": "System",
-											"sid": 282395352563852,
-											"parameters": {
-												"variable": "canConfigDic"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 477411470746423,
-									"children": [
-										{
-											"eventType": "comment",
-											"text": "This is Patinho"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 688503148856243,
-													"parameters": {
-														"first-value": "objNPC_AndersonPatinho.Count",
-														"comparison": 1,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 942764232162220,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 381854635462345
-														}
-													],
-													"actions": [
-														{
-															"id": "request-url",
-															"objectClass": "AJAX",
-															"sid": 577394495422625,
-															"parameters": {
-																"tag": "\"patinhoJSON\"",
-																"url": "objNPC_AndersonPatinho.FilePath"
-															}
-														}
-													],
-													"sid": 223210701659606
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "This is Dona Cida"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 723312461751194,
-													"parameters": {
-														"first-value": "objNPC_DonaCida.Count",
-														"comparison": 1,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 459603234373047,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 266067190718690
-														}
-													],
-													"actions": [
-														{
-															"id": "request-url",
-															"objectClass": "AJAX",
-															"sid": 959389386669513,
-															"parameters": {
-																"tag": "\"cidaJSON\"",
-																"url": "objNPC_DonaCida.FilePath"
-															}
-														}
-													],
-													"sid": 355445106627489
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "This is Mestre Gui"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 324268350581865,
-													"parameters": {
-														"first-value": "objNPC_GuiDasMares.Count",
-														"comparison": 1,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 887862254477152,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 271659712700281
-														}
-													],
-													"actions": [
-														{
-															"id": "request-url",
-															"objectClass": "AJAX",
-															"sid": 511129896375222,
-															"parameters": {
-																"tag": "\"guiJSON\"",
-																"url": "objNPC_GuiDasMares.FilePath"
-															}
-														}
-													],
-													"sid": 318171624067569
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "This is Tia Fer"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 202726828830017,
-													"parameters": {
-														"first-value": "objNPC_TiaFernanda.Count",
-														"comparison": 1,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 117554772132324,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "trigger-once-while-true",
-															"objectClass": "System",
-															"sid": 753438324467096
-														}
-													],
-													"actions": [
-														{
-															"id": "request-url",
-															"objectClass": "AJAX",
-															"sid": 900325423508507,
-															"parameters": {
-																"tag": "\"ferJSON\"",
-																"url": "objNPC_TiaFernanda.FilePath"
-															}
-														}
-													],
-													"sid": 131280895148952
-												}
-											]
-										}
-									]
-								},
-								{
-									"eventType": "comment",
-									"text": "When files are ready"
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 343332373286273,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-completed",
-													"objectClass": "AJAX",
-													"sid": 767432029930901,
-													"parameters": {
-														"tag": "\"patinhoJSON\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-key",
-													"objectClass": "npcFiles",
-													"sid": 102068988554343,
-													"parameters": {
-														"key": "objNPC_AndersonPatinho.dicKey",
-														"value": "AJAX.LastData"
-													}
-												},
-												{
-													"id": "signal",
-													"objectClass": "System",
-													"sid": 716526236716455,
-													"parameters": {
-														"tag": "\"patinhoReady\""
-													}
-												}
-											],
-											"sid": 478234415398884
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-completed",
-													"objectClass": "AJAX",
-													"sid": 255398787674284,
-													"parameters": {
-														"tag": "\"cidaJSON\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-key",
-													"objectClass": "npcFiles",
-													"sid": 644862727903214,
-													"parameters": {
-														"key": "objNPC_DonaCida.dicKey",
-														"value": "AJAX.LastData"
-													}
-												},
-												{
-													"id": "signal",
-													"objectClass": "System",
-													"sid": 856298637667751,
-													"parameters": {
-														"tag": "\"cidaReady\""
-													}
-												}
-											],
-											"sid": 368603647408190
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-completed",
-													"objectClass": "AJAX",
-													"sid": 303579399972588,
-													"parameters": {
-														"tag": "\"guiJSON\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-key",
-													"objectClass": "npcFiles",
-													"sid": 434448903605747,
-													"parameters": {
-														"key": "objNPC_GuiDasMares.dicKey",
-														"value": "AJAX.LastData"
-													}
-												},
-												{
-													"id": "signal",
-													"objectClass": "System",
-													"sid": 120292484488151,
-													"parameters": {
-														"tag": "\"guiReady\""
-													}
-												}
-											],
-											"sid": 404914676826869
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-completed",
-													"objectClass": "AJAX",
-													"sid": 671937447764243,
-													"parameters": {
-														"tag": "\"ferJSON\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-key",
-													"objectClass": "npcFiles",
-													"sid": 163793532575113,
-													"parameters": {
-														"key": "objNPC_TiaFernanda.dicKey",
-														"value": "AJAX.LastData"
-													}
-												},
-												{
-													"id": "signal",
-													"objectClass": "System",
-													"sid": 516067127967164,
-													"parameters": {
-														"tag": "\"ferReady\""
-													}
-												}
-											],
-											"sid": 765966876128002
-										}
-									]
-								},
-								{
-									"eventType": "comment",
-									"text": "Confirm files are ready"
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [],
-									"sid": 710117206483037,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-signal",
-													"objectClass": "System",
-													"sid": 296260659845547,
-													"parameters": {
-														"tag": "\"patinhoReady\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "objNPC_AndersonPatinho",
-													"sid": 149690950486368,
-													"parameters": {
-														"instance-variable": "filesReady",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 534455646758664
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-signal",
-													"objectClass": "System",
-													"sid": 288809146457618,
-													"parameters": {
-														"tag": "\"cidaReady\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "objNPC_DonaCida",
-													"sid": 551371795055125,
-													"parameters": {
-														"instance-variable": "filesReady",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 613292991038799
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-signal",
-													"objectClass": "System",
-													"sid": 731445205608848,
-													"parameters": {
-														"tag": "\"guiReady\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "objNPC_GuiDasMares",
-													"sid": 542547986359289,
-													"parameters": {
-														"instance-variable": "filesReady",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 121622497283580
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "on-signal",
-													"objectClass": "System",
-													"sid": 887165301574666,
-													"parameters": {
-														"tag": "\"ferReady\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "objNPC_TiaFernanda",
-													"sid": 364472655885950,
-													"parameters": {
-														"instance-variable": "filesReady",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 569155339175590
-										}
-									]
-								}
-							],
-							"sid": 231823610812072
-						}
-					],
-					"sid": 566522268777355
-				}
-			],
-			"sid": 163289681978076
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -1004,15 +409,33 @@
 				{
 					"callFunction": "dialogBoxClose",
 					"sid": 263779896596337
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "objPlayer",
+					"sid": 458914741464829,
+					"parameters": {
+						"instance-variable": "isDialog",
+						"value": "false"
+					}
 				}
 			],
 			"sid": 333394568466214,
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "objPlayer",
+							"sid": 848729129741543,
+							"parameters": {
+								"instance-variable": "isQuiz"
+							}
+						}
+					],
 					"actions": [],
-					"sid": 937683825428288,
+					"sid": 937495618061961,
 					"children": [
 						{
 							"eventType": "block",
@@ -1020,7 +443,7 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 707491001427118,
+									"sid": 903316088207394,
 									"parameters": {
 										"variable": "hasChosenTheRightAnswer"
 									}
@@ -1029,7 +452,7 @@
 							"actions": [
 								{
 									"callFunction": "increaseScoreWithQuiz",
-									"sid": 250198491200494,
+									"sid": 131343614503375,
 									"parameters": [
 										"QuizScoreValue"
 									]
@@ -1037,14 +460,23 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 872827018438669,
+									"sid": 823804992689298,
 									"parameters": {
 										"seconds": "0.25",
 										"use-timescale": true
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "objPlayer",
+									"sid": 283947974307071,
+									"parameters": {
+										"instance-variable": "isQuiz",
+										"value": "false"
+									}
 								}
 							],
-							"sid": 418970983732881
+							"sid": 786428014751402
 						},
 						{
 							"eventType": "block",
@@ -1052,48 +484,32 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 902852295747037
+									"sid": 594774511187674
 								}
 							],
 							"actions": [
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 246071168974530,
+									"sid": 209852811612257,
 									"parameters": {
 										"seconds": "0.25",
 										"use-timescale": true
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "objPlayer",
+									"sid": 330087517065801,
+									"parameters": {
+										"instance-variable": "isQuiz",
+										"value": "false"
+									}
 								}
 							],
-							"sid": 431615690228432
+							"sid": 673016109155430
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "objPlayer",
-							"sid": 915955338407772,
-							"parameters": {
-								"instance-variable": "isQuiz"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "objPlayer",
-							"sid": 755851368666402,
-							"parameters": {
-								"instance-variable": "isQuiz",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 991529729179991
 				}
 			]
 		},
@@ -1123,7 +539,7 @@
 			"disabled": false,
 			"title": "Quiz",
 			"description": "",
-			"isActiveOnStart": true,
+			"isActiveOnStart": false,
 			"children": [
 				{
 					"eventType": "comment",
@@ -1534,6 +950,15 @@
 									"parameters": {
 										"tag": "\"optionsSet\""
 									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 913168872035776,
+									"parameters": {
+										"type": "log",
+										"message": "\"start quiz\""
+									}
 								}
 							],
 							"sid": 606667507946557
@@ -1570,6 +995,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 700438949874095,
+									"parameters": {
+										"type": "log",
+										"message": "\"Sow quix question\""
+									}
+								},
 								{
 									"id": "wait",
 									"objectClass": "System",
@@ -1608,7 +1042,15 @@
 									}
 								}
 							],
-							"sid": 677160133532248
+							"sid": 677160133532248,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 249583521341625
+								}
+							]
 						}
 					]
 				},
@@ -2029,6 +1471,2433 @@
 				}
 			],
 			"sid": 452743506879968
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Dialog",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "tweenTimer",
+					"type": "number",
+					"initialValue": "0.375",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 891272237679781
+				},
+				{
+					"eventType": "variable",
+					"name": "thisArrowUID_forDialog",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 441183503801836
+				},
+				{
+					"eventType": "variable",
+					"name": "thisDIalogArea",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 881480144691428
+				},
+				{
+					"eventType": "variable",
+					"name": "thisNPCName_ForDialog",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 535484701863205
+				},
+				{
+					"eventType": "variable",
+					"name": "thisNPC_UID_forDialog",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 122126116642034
+				},
+				{
+					"eventType": "variable",
+					"name": "canDialog",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 331711489342848
+				},
+				{
+					"eventType": "variable",
+					"name": "isLongerDialog",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 999437815466818
+				},
+				{
+					"eventType": "comment",
+					"text": "Actual Dialog"
+				},
+				{
+					"eventType": "variable",
+					"name": "currentDialogText",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 692766368557633
+				},
+				{
+					"eventType": "variable",
+					"name": "currentNextText",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 457053357520680
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Dialog V1",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objPlayer",
+									"sid": 390283050769726,
+									"parameters": {
+										"instance-variable": "isDialog"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 987526512253902,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 916130446919533,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "objPlayer",
+													"sid": 743767803959179,
+													"parameters": {
+														"object": "objDialogArea"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "NPCs",
+													"sid": 902407636247989,
+													"parameters": {
+														"object": "objDialogArea"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 686721984083143,
+													"parameters": {
+														"variable": "thisDIalogArea",
+														"value": "objDialogArea.UID"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 447971301187074,
+													"parameters": {
+														"variable": "thisNPC_UID_forDialog",
+														"value": "NPCs.UID"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 282126277874334,
+													"parameters": {
+														"variable": "thisNPCName_ForDialog",
+														"value": "NPCs.dicKey"
+													}
+												}
+											],
+											"sid": 874842169747799,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 401429893180360
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 835512333796524,
+															"parameters": {
+																"object-to-create": "arrowUp",
+																"layer": "\"NPC_Areas\"",
+																"x": "(NPCs.X)",
+																"y": "NPCs.BBoxTop-(((162/GameScaleFactor)*0.35)+4)",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														}
+													],
+													"sid": 688930952440019,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-created",
+															"objectClass": "arrowUp",
+															"sid": 704601910069836
+														}
+													],
+													"actions": [
+														{
+															"id": "change-tags",
+															"objectClass": "arrowUp",
+															"sid": 107108755157835,
+															"parameters": {
+																"action": "add",
+																"tags": "\"dialogInteraction\""
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 990509577177191,
+															"parameters": {
+																"variable": "thisArrowUID_forDialog",
+																"value": "arrowUp.UID"
+															}
+														},
+														{
+															"callFunction": "interactionButtonsOpen",
+															"sid": 849674469302677,
+															"parameters": [
+																"thisArrowUID_forDialog",
+																"1"
+															]
+														},
+														{
+															"id": "wait-for-previous-actions",
+															"objectClass": "System",
+															"sid": 721295761107389
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 412320991049300,
+															"parameters": {
+																"tag": "\"isDialogReady\""
+															}
+														}
+													],
+													"sid": 362865477545912,
+													"disabled": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 604204759959321
+												}
+											],
+											"actions": [
+												{
+													"id": "reset-eventvar",
+													"objectClass": "System",
+													"sid": 760497738081762,
+													"parameters": {
+														"variable": "thisNPC_UID_forDialog"
+													}
+												},
+												{
+													"id": "reset-eventvar",
+													"objectClass": "System",
+													"sid": 621350145322424,
+													"parameters": {
+														"variable": "thisNPCName_ForDialog"
+													}
+												}
+											],
+											"sid": 952395080461953,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "has-tags",
+															"objectClass": "arrowUp",
+															"sid": 441212786611813,
+															"parameters": {
+																"tags": "\"dialogInteraction\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "quizCloseArrowsDelete",
+															"sid": 493787936649216,
+															"parameters": [
+																"thisArrowUID_forDialog"
+															]
+														},
+														{
+															"id": "reset-eventvar",
+															"objectClass": "System",
+															"sid": 401633852345003,
+															"parameters": {
+																"variable": "thisArrowUID_forDialog"
+															}
+														}
+													],
+													"sid": 280899109236817,
+													"disabled": true
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 746093033053178,
+									"parameters": {
+										"tag": "\"isDialogReady\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 252889570793642,
+									"parameters": {
+										"variable": "canDialog",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 702053314560448,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 835939901368287,
+									"parameters": {
+										"variable": "canDialog"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 721603327889554,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-opacity",
+											"objectClass": "arrowUp",
+											"sid": 814996875985924,
+											"parameters": {
+												"comparison": 0,
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "arrowUp",
+											"sid": 896968181880122,
+											"parameters": {
+												"tags": "\"dialogInteraction\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 658044138118545,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-on-mobile",
+													"objectClass": "PlatformInfo",
+													"sid": 460894727527473
+												}
+											],
+											"actions": [],
+											"sid": 168421988672388,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-touched-object",
+															"objectClass": "Touch",
+															"sid": 716958755539061,
+															"parameters": {
+																"object": "NPCs",
+																"type": "start"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 798644997928527,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 705491565914849,
+																	"parameters": {
+																		"first-value": "NPCs.UID",
+																		"comparison": 0,
+																		"second-value": "thisNPC_UID_forDialog"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "objPlayer",
+																	"sid": 328368373608275,
+																	"parameters": {
+																		"instance-variable": "isDialog",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 308128469303245,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-touched-object",
+															"objectClass": "Touch",
+															"sid": 191263944653094,
+															"parameters": {
+																"object": "objDialogArea",
+																"type": "start"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 648132642891338,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 309043019002977,
+																	"parameters": {
+																		"first-value": "objDialogArea.UID",
+																		"comparison": 0,
+																		"second-value": "thisDIalogArea"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "objPlayer",
+																	"sid": 747033505035618,
+																	"parameters": {
+																		"instance-variable": "isDialog",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 603148990485709,
+															"disabled": true
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 350312742067095
+												}
+											],
+											"actions": [],
+											"sid": 185822810473716,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-key-pressed",
+															"objectClass": "Keyboard",
+															"sid": 649788242626264,
+															"parameters": {
+																"key": 38
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "objPlayer",
+															"sid": 549330058611738,
+															"parameters": {
+																"instance-variable": "isDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 606614822076076,
+													"disabled": true
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objPlayer",
+									"sid": 420115629912235,
+									"parameters": {
+										"instance-variable": "isDialog"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "ArrowIcons",
+									"sid": 352759423923943
+								}
+							],
+							"sid": 953602382000295,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 348630168758452,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 597586800749695,
+													"parameters": {
+														"object": "NPCs",
+														"expression": "NPCs.UID",
+														"comparison": 0,
+														"value": "thisNPC_UID_forDialog"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "npcLoadDiIalog",
+													"sid": 778821553910322,
+													"parameters": [
+														"NPCs.dicKey"
+													]
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 926756387064118,
+													"parameters": {
+														"variable": "currentDialogText",
+														"value": "activeDialogArray.At(NPCs.currTextID,NPCs.currLineID)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 536456529786653,
+													"parameters": {
+														"variable": "currentNextText",
+														"value": "activeDialogArray.At(NPCs.currTextID+1,NPCs.currLineID)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 808853344484610,
+													"parameters": {
+														"type": "log",
+														"message": "currentDialogText"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 717070350479820,
+													"parameters": {
+														"type": "log",
+														"message": "currentNextText"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 875479592197550,
+													"parameters": {
+														"tag": "\"dialogLoaded\""
+													}
+												}
+											],
+											"sid": 106214526295567,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 806228011364035,
+															"parameters": {
+																"first-value": "currentNextText",
+																"comparison": 1,
+																"second-value": "0"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 508706466475953,
+															"parameters": {
+																"first-value": "currentNextText",
+																"comparison": 1,
+																"second-value": "\"\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 506172698166857,
+															"parameters": {
+																"variable": "isLongerDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 170674866131610,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 260188294257053
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 365755531884769,
+															"parameters": {
+																"variable": "isLongerDialog",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 731488593230611,
+													"disabled": true
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 665563171385600,
+									"parameters": {
+										"tag": "\"dialogLoaded\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 386838253938545,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 692070707718350
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 174400844780100,
+											"parameters": {
+												"seconds": "0.15",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "dialogBoxOpen",
+											"sid": 514641607352963
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 422298004775033,
+											"disabled": true,
+											"parameters": {
+												"group-name": "\"testingSeconds\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "wait-for-signal",
+											"objectClass": "System",
+											"sid": 956771604289083,
+											"parameters": {
+												"tag": "\"dialogOpen\""
+											}
+										},
+										{
+											"callFunction": "dialogText_Update",
+											"sid": 146846741839706,
+											"parameters": [
+												"currentDialogText"
+											]
+										}
+									],
+									"sid": 997092745674591,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-typewriter-text-finished",
+									"objectClass": "dialogText",
+									"sid": 959055654131980
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objPlayer",
+									"sid": 530572112894889,
+									"parameters": {
+										"instance-variable": "isDialog"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 342594711540750,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 828213180644820,
+											"parameters": {
+												"variable": "isLongerDialog"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 674363386710214,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 111883486108256,
+													"parameters": {
+														"object": "NPCs",
+														"expression": "NPCs.UID",
+														"comparison": 0,
+														"value": "thisNPC_UID_forDialog"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "npcLoadDiIalog",
+													"sid": 143575477079336,
+													"disabled": true,
+													"parameters": [
+														"NPCs.dicKey"
+													]
+												},
+												{
+													"id": "add-to-instvar",
+													"objectClass": "NPCs",
+													"sid": 771085182164451,
+													"parameters": {
+														"instance-variable": "currTextID",
+														"value": "1"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 484607760166017,
+													"parameters": {
+														"seconds": "0.001",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 697683582178976,
+													"parameters": {
+														"variable": "currentDialogText",
+														"value": "activeDialogArray.At(NPCs.currTextID,NPCs.currLineID)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 179339983352366,
+													"parameters": {
+														"variable": "currentNextText",
+														"value": "activeDialogArray.At(NPCs.currTextID+1,NPCs.currLineID)"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 326775587733614,
+													"parameters": {
+														"type": "log",
+														"message": "currentDialogText"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 855746613647682,
+													"parameters": {
+														"type": "log",
+														"message": "currentNextText"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 727294433981788,
+													"disabled": true,
+													"parameters": {
+														"tag": "\"dialogLoaded\""
+													}
+												}
+											],
+											"sid": 943679555181603,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 357499564617220,
+															"parameters": {
+																"first-value": "currentNextText",
+																"comparison": 1,
+																"second-value": "0"
+															}
+														},
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 494811679339450,
+															"parameters": {
+																"first-value": "currentNextText",
+																"comparison": 1,
+																"second-value": "\"\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 238232134184340,
+															"parameters": {
+																"variable": "isLongerDialog",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 380613783689484,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 570614146755780
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 864671366318009,
+															"parameters": {
+																"variable": "isLongerDialog",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 535690168291195,
+													"disabled": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "setUpEndScreenPressAnything",
+													"sid": 118740935677292,
+													"parameters": [
+														"\"Aperte qualquer coisa para o próximo texto\""
+													]
+												}
+											],
+											"sid": 854105153972269,
+											"disabled": true
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 395929600140101
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "setUpEndScreenPressAnything",
+											"sid": 210489532981886,
+											"parameters": [
+												"\"Aperte qualquer coisa para encerrar\""
+											]
+										}
+									],
+									"sid": 607956993737647,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-running-typewriter-text",
+									"objectClass": "dialogText",
+									"sid": 167376325397547
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "txtNext",
+									"sid": 742621806650834,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"tweenResetOpacity\"",
+										"property": "offsetOpacity",
+										"end-value": "0",
+										"time": "0.15",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 207111636971012,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "txtNext",
+									"sid": 615604365874102,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "100"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 238181062607360,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 287961839992447
+										},
+										{
+											"id": "on-any-touch-start",
+											"objectClass": "Touch",
+											"sid": 961874462463580
+										}
+									],
+									"actions": [],
+									"sid": 914165552337072,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 228054378472681,
+													"parameters": {
+														"variable": "isLongerDialog"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 708015218833988,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 485999643830920
+														}
+													],
+													"actions": [
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 730775698890991,
+															"parameters": {
+																"seconds": "0.15",
+																"use-timescale": true
+															}
+														},
+														{
+															"callFunction": "dialogText_Update",
+															"sid": 190683196974589,
+															"parameters": [
+																"currentDialogText"
+															]
+														}
+													],
+													"sid": 719891882014341,
+													"disabled": true
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 781453676607017
+												}
+											],
+											"actions": [
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 310524797887168,
+													"parameters": {
+														"tag": "\"dialogEnd\""
+													}
+												},
+												{
+													"id": "tween-one-property",
+													"objectClass": "txtNext",
+													"sid": 160006745273813,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"tweenResetOpacity\"",
+														"property": "offsetOpacity",
+														"end-value": "0",
+														"time": "0.15",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												}
+											],
+											"sid": 376978142417855,
+											"disabled": true
+										}
+									],
+									"isOrBlock": true
+								}
+							]
+						}
+					],
+					"sid": 828657933381555
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Dialog V2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objPlayer",
+									"sid": 508504794848177,
+									"parameters": {
+										"instance-variable": "isDialog"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "objPlayer",
+									"sid": 799961461027458,
+									"parameters": {
+										"object": "objDialogArea"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "NPCs",
+									"sid": 433934309826472,
+									"parameters": {
+										"object": "objDialogArea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 430314015498633,
+									"parameters": {
+										"variable": "thisDIalogArea",
+										"value": "objDialogArea.UID"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 977789222825301,
+									"parameters": {
+										"variable": "thisNPC_UID_forDialog",
+										"value": "NPCs.UID"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 856248561187492,
+									"parameters": {
+										"variable": "thisNPCName_ForDialog",
+										"value": "NPCs.dicKey"
+									}
+								}
+							],
+							"sid": 927917169658944,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 593759509118941,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 534580630859084,
+													"parameters": {
+														"object": "NPCs",
+														"expression": "NPCs.UID",
+														"comparison": 0,
+														"value": "thisNPC_UID_forDialog"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "NPCs",
+													"sid": 260352797650130,
+													"parameters": {
+														"instance-variable": "wasTalked_in_the_Warehouse"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "npcLoadDiIalog",
+													"sid": 924264977767775,
+													"parameters": [
+														"NPCs.dicKey"
+													]
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 449036076601747,
+													"parameters": {
+														"variable": "currentDialogText",
+														"value": "activeDialogArray.At(NPCs.currTextID,NPCs.currLineID)"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 671134963825220,
+													"parameters": {
+														"variable": "currentNextText",
+														"value": "activeDialogArray.At(NPCs.currTextID+1,NPCs.currLineID)"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 780299383077003,
+													"parameters": {
+														"tag": "\"dialogDataLoaded\""
+													}
+												}
+											],
+											"sid": 796900625508860
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 700121287806270,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-signal",
+													"objectClass": "System",
+													"sid": 402095649344595,
+													"parameters": {
+														"tag": "\"dialogDataLoaded\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 380515568239688,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 506762014055891
+														}
+													],
+													"actions": [],
+													"sid": 149491929648123,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-on-mobile",
+																	"objectClass": "PlatformInfo",
+																	"sid": 247882556139097
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 851658639723080,
+																	"parameters": {
+																		"object-to-create": "spr_HasDialog",
+																		"layer": "\"NPC_Areas\"",
+																		"x": "(NPCs.X)",
+																		"y": "NPCs.BBoxTop-(((162/GameScaleFactor)*0.35)+4)",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																}
+															],
+															"sid": 618372995219084
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 245876953877897
+																}
+															],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 373650616499721,
+																	"parameters": {
+																		"object-to-create": "arrowUp",
+																		"layer": "\"NPC_Areas\"",
+																		"x": "(NPCs.X)",
+																		"y": "NPCs.BBoxTop-(((162/GameScaleFactor)*0.35)+4)",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																}
+															],
+															"sid": 366564945429131
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 280317881296553,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-created",
+													"objectClass": "arrowUp",
+													"sid": 700892203068520
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 291603215840015,
+													"parameters": {
+														"variable": "thisArrowUID_forDialog",
+														"value": "arrowUp.UID"
+													}
+												},
+												{
+													"id": "change-tags",
+													"objectClass": "arrowUp",
+													"sid": 863215387364315,
+													"parameters": {
+														"action": "add",
+														"tags": "\"dialogInteraction\""
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 387327516606974,
+													"parameters": {
+														"tag": "\"graphicCreated\""
+													}
+												}
+											],
+											"sid": 348103496414419
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-created",
+													"objectClass": "spr_HasDialog",
+													"sid": 811235492876586
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 242841260825243,
+													"parameters": {
+														"variable": "thisArrowUID_forDialog",
+														"value": "spr_HasDialog.UID"
+													}
+												},
+												{
+													"id": "change-tags",
+													"objectClass": "spr_HasDialog",
+													"sid": 235898978813286,
+													"parameters": {
+														"action": "add",
+														"tags": "\"dialogInteraction\""
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 342751203006842,
+													"parameters": {
+														"tag": "\"graphicCreated\""
+													}
+												}
+											],
+											"sid": 765778109758849
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 196120464457668,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-signal",
+													"objectClass": "System",
+													"sid": 183345005814900,
+													"parameters": {
+														"tag": "\"graphicCreated\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "interactionButtonsOpen",
+													"sid": 498823920281046,
+													"parameters": [
+														"thisArrowUID_forDialog",
+														"1"
+													]
+												}
+											],
+											"sid": 999485877068217
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 919638060554860,
+									"disabled": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "objPlayer",
+									"sid": 538326586559616,
+									"parameters": {
+										"object": "objDialogArea"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "quizCloseArrowsDelete",
+									"sid": 969252120898086,
+									"parameters": [
+										"thisArrowUID_forDialog"
+									]
+								}
+							],
+							"sid": 260611250236023,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 815797213961143,
+											"parameters": {
+												"object": "ArrowIcons"
+											}
+										},
+										{
+											"id": "has-tags",
+											"objectClass": "NPCs",
+											"sid": 331083364205354,
+											"parameters": {
+												"tags": "\"dialogInteraction\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "quizCloseArrowsDelete",
+											"sid": 708897293299062,
+											"parameters": [
+												"ArrowIcons.UID"
+											]
+										}
+									],
+									"sid": 294721524802812,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 633278856487258,
+									"parameters": {
+										"tag": "\"interactionButtonsOpen_Done\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 425542203475433,
+									"parameters": {
+										"variable": "canDialog",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 832564009441781
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 853878774428170,
+									"parameters": {
+										"variable": "canDialog"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 898413457896179,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 963460553108930,
+											"parameters": {
+												"object": "ArrowIcons",
+												"expression": "ArrowIcons.UID",
+												"comparison": 0,
+												"value": "thisArrowUID_forDialog"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 650982846603268,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "ArrowIcons",
+													"sid": 424773369784017,
+													"parameters": {
+														"comparison": 0,
+														"opacity": "100"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 786590298223052,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-mobile",
+															"objectClass": "PlatformInfo",
+															"sid": 869023858282593,
+															"isInverted": true
+														}
+													],
+													"actions": [],
+													"sid": 970376072521144,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "on-key-pressed",
+																	"objectClass": "Keyboard",
+																	"sid": 447251728995736,
+																	"parameters": {
+																		"key": 38
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "objPlayer",
+																	"sid": 546289904213178,
+																	"parameters": {
+																		"instance-variable": "isDialog",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "signal",
+																	"objectClass": "System",
+																	"sid": 476294461878787,
+																	"parameters": {
+																		"tag": "\"dialogStart\""
+																	}
+																}
+															],
+															"sid": 278331402717853
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 548619098600960
+														}
+													],
+													"actions": [],
+													"sid": 593629608075076,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "on-touched-object",
+																	"objectClass": "Touch",
+																	"sid": 463668156200672,
+																	"parameters": {
+																		"object": "ArrowIcons",
+																		"type": "start"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "objPlayer",
+																	"sid": 562612632800346,
+																	"parameters": {
+																		"instance-variable": "isDialog",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "signal",
+																	"objectClass": "System",
+																	"sid": 594076374010275,
+																	"parameters": {
+																		"tag": "\"dialogStart\""
+																	}
+																}
+															],
+															"sid": 812305371765494
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "on-touched-object",
+																	"objectClass": "Touch",
+																	"sid": 612847549626599,
+																	"parameters": {
+																		"object": "NPCs",
+																		"type": "start"
+																	}
+																},
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 317612108986785,
+																	"parameters": {
+																		"object": "NPCs",
+																		"expression": "NPCs.UID",
+																		"comparison": 0,
+																		"value": "thisNPC_UID_forDialog"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "objPlayer",
+																	"sid": 984320626232609,
+																	"parameters": {
+																		"instance-variable": "isDialog",
+																		"value": "true"
+																	}
+																},
+																{
+																	"id": "signal",
+																	"objectClass": "System",
+																	"sid": 356704130460897,
+																	"parameters": {
+																		"tag": "\"dialogStart\""
+																	}
+																}
+															],
+															"sid": 881849932830126
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "variable",
+							"name": "textToShow",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 746780933760531
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objPlayer",
+									"sid": 972326916307448,
+									"parameters": {
+										"instance-variable": "isDialog"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 128832425559695,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-signal",
+											"objectClass": "System",
+											"sid": 942363231315264,
+											"parameters": {
+												"tag": "\"dialogStart\""
+											}
+										},
+										{
+											"id": "on-signal",
+											"objectClass": "System",
+											"sid": 513703485827738,
+											"parameters": {
+												"tag": "\"continueDialog\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 308067380137750,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 679670061596059,
+													"parameters": {
+														"object": "NPCs",
+														"expression": "NPCs.UID",
+														"comparison": 0,
+														"value": "thisNPC_UID_forDialog"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 180290393901752,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 993507062419535
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 569408807972609,
+															"parameters": {
+																"variable": "textToShow",
+																"value": "currentDialogText"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 783449809787742,
+															"parameters": {
+																"seconds": "0.05",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 620072542535194,
+															"parameters": {
+																"variable": "currentDialogText",
+																"value": "currentNextText"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 420476651529866,
+															"parameters": {
+																"seconds": "0.05",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "add-to-instvar",
+															"objectClass": "NPCs",
+															"sid": 624036095072224,
+															"parameters": {
+																"instance-variable": "currTextID",
+																"value": "1"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 384632238346326,
+															"parameters": {
+																"seconds": "0.05",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 623502320377872,
+															"parameters": {
+																"variable": "currentNextText",
+																"value": "activeDialogArray.At(NPCs.currTextID+1,NPCs.currLineID)"
+															}
+														}
+													],
+													"sid": 373450116458454,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [],
+															"sid": 800678374447166,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 906356475729961,
+																			"parameters": {
+																				"first-value": "currentDialogText",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		},
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 371727486165506,
+																			"parameters": {
+																				"first-value": "currentDialogText",
+																				"comparison": 0,
+																				"second-value": "\"\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-boolean-eventvar",
+																			"objectClass": "System",
+																			"sid": 249391143241634,
+																			"parameters": {
+																				"variable": "isLongerDialog",
+																				"value": "false"
+																			}
+																		}
+																	],
+																	"sid": 795124988730239,
+																	"isOrBlock": true
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 617997579736456
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-boolean-eventvar",
+																			"objectClass": "System",
+																			"sid": 628087510655369,
+																			"parameters": {
+																				"variable": "isLongerDialog",
+																				"value": "true"
+																			}
+																		}
+																	],
+																	"sid": 892199980843586
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 635095470827278,
+																	"parameters": {
+																		"seconds": "0.15",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"callFunction": "dialogBoxOpen",
+																	"sid": 198834140905407
+																},
+																{
+																	"id": "wait-for-signal",
+																	"objectClass": "System",
+																	"sid": 122088311765097,
+																	"parameters": {
+																		"tag": "\"dialogOpen\""
+																	}
+																},
+																{
+																	"callFunction": "dialogText_Update",
+																	"sid": 892080864627411,
+																	"parameters": [
+																		"textToShow"
+																	]
+																}
+															],
+															"sid": 790688932913344,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-boolean-eventvar",
+																			"objectClass": "System",
+																			"sid": 414103841071664,
+																			"parameters": {
+																				"variable": "isLongerDialog"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "setUpEndScreenPressAnything",
+																			"sid": 673063840660414,
+																			"parameters": [
+																				"\"Aperte qualquer coisa para o próximo texto\""
+																			]
+																		}
+																	],
+																	"sid": 600224789816304
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 145993977051534
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "setUpEndScreenPressAnything",
+																			"sid": 736774120105982,
+																			"parameters": [
+																				"\"Aperte qualquer coisa para encerrar\""
+																			]
+																		}
+																	],
+																	"sid": 856265949270753
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									],
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 299126469049131,
+									"parameters": {
+										"tag": "\"dialogTextDisplayed\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 510438713634006,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 998755042791018,
+											"parameters": {
+												"variable": "isLongerDialog"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "setUpEndScreenPressAnything",
+											"sid": 763307256807602,
+											"parameters": [
+												"\"Aperte qualquer coisa para o próximo texto\""
+											]
+										}
+									],
+									"sid": 137851598981209
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 318194056904589
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "setUpEndScreenPressAnything",
+											"sid": 939165728405268,
+											"parameters": [
+												"\"Aperte qualquer coisa para encerrar\""
+											]
+										}
+									],
+									"sid": 523325977760327
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "txtNext",
+									"sid": 951610847411845,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "100"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 832494895486806,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-any-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 400807980383066
+										},
+										{
+											"id": "on-any-touch-start",
+											"objectClass": "Touch",
+											"sid": 483154172295685
+										}
+									],
+									"actions": [],
+									"sid": 500629767808716,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-text",
+													"objectClass": "txtNext",
+													"sid": 141102341346776,
+													"parameters": {
+														"text-to-compare": "\"Aperte qualquer coisa para o próximo texto\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 260444969058206,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 465526740619950
+														}
+													],
+													"actions": [
+														{
+															"id": "tween-one-property",
+															"objectClass": "txtNext",
+															"sid": 252661421538185,
+															"behaviorType": "Tween",
+															"parameters": {
+																"tags": "\"tweenResetOpacity\"",
+																"property": "offsetOpacity",
+																"end-value": "0",
+																"time": "0.15",
+																"ease": "default",
+																"destroy-on-complete": "no",
+																"loop": "no",
+																"ping-pong": "no",
+																"repeat-count": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 798710550024140,
+															"parameters": {
+																"tag": "\"continueDialog\""
+															}
+														}
+													],
+													"sid": 117973060389798
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-text",
+													"objectClass": "txtNext",
+													"sid": 256387379296720,
+													"parameters": {
+														"text-to-compare": "\"Aperte qualquer coisa para encerrar\"",
+														"case-sensitivity": "ignore-case"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "txtNext",
+													"sid": 163841579395740,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"tweenResetOpacity\"",
+														"property": "offsetOpacity",
+														"end-value": "0",
+														"time": "0.15",
+														"ease": "default",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no",
+														"repeat-count": "1"
+													}
+												},
+												{
+													"id": "signal",
+													"objectClass": "System",
+													"sid": 957551311766071,
+													"parameters": {
+														"tag": "\"finishDialog\""
+													}
+												}
+											],
+											"sid": 916727539000603,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 976866168427937
+														}
+													],
+													"actions": [
+														{
+															"id": "tween-one-property",
+															"objectClass": "txtNext",
+															"sid": 563067547515555,
+															"behaviorType": "Tween",
+															"parameters": {
+																"tags": "\"tweenResetOpacity\"",
+																"property": "offsetOpacity",
+																"end-value": "0",
+																"time": "0.15",
+																"ease": "default",
+																"destroy-on-complete": "no",
+																"loop": "no",
+																"ping-pong": "no",
+																"repeat-count": "1"
+															}
+														},
+														{
+															"id": "signal",
+															"objectClass": "System",
+															"sid": 533729157829622,
+															"parameters": {
+																"tag": "\"finishDialog\""
+															}
+														}
+													],
+													"sid": 550183566435540
+												}
+											]
+										}
+									],
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-signal",
+									"objectClass": "System",
+									"sid": 419428582460682,
+									"parameters": {
+										"tag": "\"finishDialog\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 411535995427827,
+									"parameters": {
+										"tag": "\"dialogEnd\""
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 183687532985373,
+									"parameters": {
+										"variable": "canDialog",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "quizCloseArrowsDelete",
+									"sid": 502018976788289,
+									"parameters": [
+										"thisArrowUID_forDialog"
+									]
+								}
+							],
+							"sid": 282103862529582,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 755115238751802,
+											"parameters": {
+												"object": "NPCs",
+												"expression": "NPCs.UID",
+												"comparison": 0,
+												"value": "thisNPC_UID_forDialog"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPCs",
+											"sid": 295695729431498,
+											"parameters": {
+												"instance-variable": "wasTalked_in_the_Warehouse",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 656770498302440
+								}
+							]
+						}
+					],
+					"sid": 864362349271361
+				}
+			],
+			"sid": 637070171261142
 		}
 	],
 	"sid": 129935000358570

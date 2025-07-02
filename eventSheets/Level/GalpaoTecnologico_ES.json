@@ -1,0 +1,777 @@
+{
+	"name": "GalpaoTecnologico_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "GeneralConfig_ES"
+		},
+		{
+			"eventType": "variable",
+			"name": "hasPatinho",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 977702969274965
+		},
+		{
+			"eventType": "variable",
+			"name": "hasCida",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 514411692741366
+		},
+		{
+			"eventType": "variable",
+			"name": "hasGui",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 380104925727466
+		},
+		{
+			"eventType": "variable",
+			"name": "hasFer",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 595976984370911
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 938387749694566
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 520123790586444,
+					"disabled": true,
+					"parameters": {
+						"variable": "nextLevelSet",
+						"value": "\"GameTesting\""
+					}
+				}
+			],
+			"sid": 404505982792146,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 678159306871194,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 166633969487189,
+									"parameters": {
+										"variable": "hasCida"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "objNPC_DonaCida",
+									"sid": 753380126906343,
+									"parameters": {
+										"instance-variable": "hadPlayerContact",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 407810253940258
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 890053349212932,
+									"parameters": {
+										"variable": "hasFer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "objNPC_TiaFernanda",
+									"sid": 811715143445389,
+									"parameters": {
+										"instance-variable": "hadPlayerContact",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 660460700806710
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 111030422930014,
+									"parameters": {
+										"variable": "hasPatinho"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "objNPC_AndersonPatinho",
+									"sid": 454713815548894,
+									"parameters": {
+										"instance-variable": "hadPlayerContact",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 826433012626898
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 582496894569412,
+									"parameters": {
+										"variable": "hasGui"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "objNPC_GuiDasMares",
+									"sid": 683261752670277,
+									"parameters": {
+										"instance-variable": "hadPlayerContact",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 316842996407968
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 799213519912589,
+					"parameters": {
+						"object": "NPCs"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 279254446101262,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "NPCs",
+							"sid": 387188522407421,
+							"parameters": {
+								"instance-variable": "hadPlayerContact"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "NPCs",
+							"sid": 560222003561350,
+							"parameters": {
+								"collisions": "enabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NPCs",
+							"sid": 583409529184325,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 818713627399347
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 684253680116203
+						}
+					],
+					"actions": [
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "NPCs",
+							"sid": 733965134467800,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NPCs",
+							"sid": 386775885429437,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 422395059250934
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ChangeCharacter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "tweenTimer",
+					"type": "number",
+					"initialValue": "0.375",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 170967789353727
+				},
+				{
+					"eventType": "variable",
+					"name": "thisArrowUID_forChangeChar",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 119292901866871
+				},
+				{
+					"eventType": "comment",
+					"text": "Set the button view"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "objPlayer",
+							"sid": 647757012640533,
+							"parameters": {
+								"object": "objChangeCharacterArea"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 713792952205956,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 889872156532436
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 489826422008922,
+									"parameters": {
+										"object-to-create": "arrowDown",
+										"layer": "\"NPC_Areas\"",
+										"x": "objFakeCharacter.X",
+										"y": "objChangeCharacterArea.Y-8",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 132203600551091,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 639066810355562
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "arrowDown",
+									"sid": 517861980332911
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 485149834329862,
+									"parameters": {
+										"variable": "thisArrowUID_forChangeChar",
+										"value": "arrowDown.UID"
+									}
+								},
+								{
+									"id": "change-tags",
+									"objectClass": "arrowDown",
+									"sid": 792182484280980,
+									"parameters": {
+										"action": "add",
+										"tags": "\"characterChange\""
+									}
+								}
+							],
+							"sid": 774574240480437
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "ArrowIcons",
+									"sid": 415293655834717,
+									"parameters": {
+										"tags": "\"characterChange\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "interactionButtonsOpen",
+									"sid": 686904651244842,
+									"parameters": [
+										"thisArrowUID_forChangeChar",
+										"0.3"
+									]
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 752230179161707
+								}
+							],
+							"sid": 517323541950167
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 907631547019769
+						}
+					],
+					"actions": [],
+					"sid": 231006553025734,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-tags",
+									"objectClass": "ArrowIcons",
+									"sid": 359665458068147,
+									"parameters": {
+										"tags": "\"characterChange\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "quizCloseArrowsDelete",
+									"sid": 898576667755055,
+									"parameters": [
+										"thisArrowUID_forChangeChar"
+									]
+								}
+							],
+							"sid": 437682228566867
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Look To Player and Fake Character Sprite",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Fake Character"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 155193260359469,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 359493716673345,
+											"parameters": {
+												"variable": "PlayerCharacter",
+												"comparison": 0,
+												"value": "\"Mumbuquinha\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "objFakeCharacter",
+											"sid": 251399352570694,
+											"parameters": {
+												"animation": "\"Vermelhinha\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 958934002993746
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 623127859546929,
+											"parameters": {
+												"variable": "PlayerCharacter",
+												"comparison": 0,
+												"value": "\"Vermelhinha\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "objFakeCharacter",
+											"sid": 211614057254791,
+											"parameters": {
+												"animation": "\"Mumbuquinha\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 120895605976447
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 348902474909768,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "objPlayer",
+													"sid": 841257839840265,
+													"parameters": {
+														"comparison": 3,
+														"x-co-ordinate": "objFakeCharacter.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "objFakeCharacter",
+													"sid": 430629668694971,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 975906041195628
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 993046344726995
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "objFakeCharacter",
+													"sid": 478661286171730,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												}
+											],
+											"sid": 890910134170339
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "NPCs"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 741957837607521,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 494875279223000,
+											"parameters": {
+												"object": "NPCs"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 442993260949425,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "NPCs",
+													"sid": 837411090879283,
+													"parameters": {
+														"comparison": 5,
+														"x-co-ordinate": "objPlayer.X"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "NPCs",
+													"sid": 492005249088555,
+													"parameters": {
+														"state": "mirrored"
+													}
+												}
+											],
+											"sid": 329980975509140
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 378687961242370
+												}
+											],
+											"actions": [
+												{
+													"id": "set-mirrored",
+													"objectClass": "NPCs",
+													"sid": 955639045662473,
+													"parameters": {
+														"state": "not-mirrored"
+													}
+												}
+											],
+											"sid": 765946139243716
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 664143112761943
+				},
+				{
+					"eventType": "comment",
+					"text": "Actual change character logic"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "objPlayer",
+							"sid": 960087554269966,
+							"parameters": {
+								"object": "objChangeCharacterArea"
+							}
+						},
+						{
+							"id": "compare-opacity",
+							"objectClass": "arrowDown",
+							"sid": 546772102932339,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "arrowDown",
+							"sid": 197640420481649,
+							"parameters": {
+								"tags": "\"characterChange\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 585679751262803,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 476281274498549,
+									"parameters": {
+										"key": 40
+									}
+								},
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 198337166892773,
+									"parameters": {
+										"object": "objFakeCharacter",
+										"type": "start"
+									}
+								},
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 247489962270813,
+									"parameters": {
+										"object": "objChangeCharacterArea",
+										"type": "start"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 372038852474847,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 151399854864431,
+											"parameters": {
+												"variable": "PlayerCharacter",
+												"comparison": 0,
+												"value": "\"Mumbuquinha\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 880217919745263,
+											"parameters": {
+												"variable": "PlayerCharacter",
+												"value": "\"Vermelhinha\""
+											}
+										}
+									],
+									"sid": 181344880158832
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 522531788884610
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 212747967690080,
+											"parameters": {
+												"variable": "PlayerCharacter",
+												"value": "\"Mumbuquinha\""
+											}
+										}
+									],
+									"sid": 155462957023706
+								}
+							],
+							"isOrBlock": true
+						}
+					]
+				}
+			],
+			"sid": 122362595395318
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [],
+			"sid": 256711646797875
+		}
+	],
+	"sid": 964937660740204
+}

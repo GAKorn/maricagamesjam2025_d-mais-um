@@ -16,6 +16,10 @@
 		{
 			"effectId": "blacknwhite",
 			"name": "BlackWhite1"
+		},
+		{
+			"effectId": "inverse",
+			"name": "Inverse"
 		}
 	],
 	"animations": {

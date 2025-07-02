@@ -13,6 +13,9 @@
 		"objCoins",
 		"objCoins_Loss",
 		"objLevelCheckpoint",
-		"objCheckObstacle"
+		"objCheckObstacle",
+		"objDialogArea",
+		"objChangeCharacterArea",
+		"objFakeCharacter"
 	]
 }

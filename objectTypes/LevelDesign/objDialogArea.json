@@ -1,16 +1,16 @@
 {
-	"name": "objNPC_DonaCida",
+	"name": "objDialogArea",
 	"plugin-id": "Sprite",
-	"sid": 906001605993021,
+	"sid": 618768969149277,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
 		{
-			"name": "thisID",
-			"type": "string",
+			"name": "slowBy",
+			"type": "number",
 			"desc": "",
 			"show": true,
-			"sid": 800163323909312
+			"sid": 937268459234648
 		}
 	],
 	"behaviorTypes": [],
@@ -20,21 +20,28 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 1,
+						"width": 288,
+						"height": 288,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 286897,
+						"imageSpriteId": 5787297,
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 673679776455193,
+				"sid": 239831090287730,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

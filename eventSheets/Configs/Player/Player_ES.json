@@ -170,76 +170,175 @@
 			"sid": 313447300317183
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Gaming",
-			"description": "",
-			"isActiveOnStart": true,
+			"functionName": "SetUpPlayer",
+			"functionDescription": "",
+			"functionCategory": "Player Config",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "layout",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 909382731786199
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 906343899167096,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "thisLayoutType",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 584557697405099
+				},
+				{
 					"eventType": "block",
-					"conditions": [
+					"conditions": [],
+					"actions": [
 						{
-							"id": "on-start-of-layout",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 687096782639739
+							"sid": 638120949118672,
+							"parameters": {
+								"variable": "thisLayoutType",
+								"value": "Functions.setLayoutType(layout)"
+							}
 						}
 					],
+					"sid": 958786596381435
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 625551350866166,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 375831918886919,
+									"parameters": {
+										"variable": "thisLayoutType",
+										"comparison": 0,
+										"value": "\"MainGame\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 499145412552628,
+									"parameters": {
+										"group-name": "\"Player_Gaming\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 372764309230780
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 705803150095741
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 230940015897700,
+									"parameters": {
+										"group-name": "\"Player_HUB\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 882903014479769
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
 					"actions": [
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "objPlayer",
+							"sid": 350343376181346,
+							"behaviorType": "Platform",
+							"parameters": {
+								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 504517145744561,
+							"parameters": {
+								"type": "log",
+								"message": "\"Input no-longer ignored\""
+							}
+						},
 						{
 							"id": "set-enabled",
 							"objectClass": "objPlayer",
-							"sid": 979415361211379,
+							"sid": 457886146713662,
 							"behaviorType": "Platform",
 							"parameters": {
 								"state": "disabled"
 							}
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 588749085897709,
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 340071451620840,
 							"parameters": {
-								"seconds": "0",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 538886881157487,
-							"parameters": {
-								"variable": "cameraY_Offset",
-								"value": "75"
+								"type": "log",
+								"message": "\"Plat was disabled\""
 							}
 						},
 						{
 							"id": "set-position",
 							"objectClass": "objPlayer",
-							"sid": 559571337881411,
+							"sid": 809418359390209,
 							"parameters": {
 								"x": "startPoint.X",
-								"y": "startPoint.Y-1"
+								"y": "startPoint.Y"
 							}
 						},
 						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 338052605337239,
-							"disabled": true,
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 721087340376609,
 							"parameters": {
-								"x": "objPlayer.X",
-								"y": "objPlayer.BBoxTop-cameraY_Offset"
+								"type": "log",
+								"message": "\"Player Positioned\""
 							}
 						},
 						{
 							"callFunction": "cameraInitPos",
-							"sid": 773420229196232
+							"sid": 722513722568566
 						},
 						{
 							"id": "set-position",
 							"objectClass": "stateDebugText",
-							"sid": 608114363654934,
+							"sid": 771670488818048,
 							"parameters": {
 								"x": "objPlayer.X",
 								"y": "objPlayer.BBoxTop-cameraY_Offset"
@@ -248,7 +347,8 @@
 						{
 							"id": "add-child",
 							"objectClass": "objPlayer",
-							"sid": 162901560656718,
+							"sid": 102289776246667,
+							"disabled": true,
 							"parameters": {
 								"child": "stateDebugText",
 								"transform-x": true,
@@ -263,31 +363,23 @@
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "stateDebugText",
-							"sid": 751808821815869,
-							"parameters": {
-								"text": "objCoins.Count"
-							}
-						},
-						{
-							"id": "move-to-top",
-							"objectClass": "sprPlayerAnimations",
-							"sid": 819028087220576
-						},
-						{
 							"id": "set-effect-enabled",
 							"objectClass": "sprPlayerAnimations",
-							"sid": 879203504419040,
+							"sid": 796091283217296,
 							"parameters": {
 								"mode": "disable",
 								"effect": "\"BlackWhite1\""
 							}
 						},
 						{
+							"id": "move-to-top",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 641248091906208
+						},
+						{
 							"id": "set-double-jump",
 							"objectClass": "objPlayer",
-							"sid": 738147353734141,
+							"sid": 271299788226853,
 							"behaviorType": "Platform",
 							"parameters": {
 								"state": "enabled"
@@ -296,7 +388,7 @@
 						{
 							"id": "wait-for-signal",
 							"objectClass": "System",
-							"sid": 172020053745653,
+							"sid": 600668968684310,
 							"parameters": {
 								"tag": "\"canStart\""
 							}
@@ -304,20 +396,480 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 600794855546159,
+							"sid": 370975952415221,
 							"parameters": {
 								"seconds": "2",
 								"use-timescale": true
 							}
+						}
+					],
+					"sid": 331411633683099,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 933322015196714,
+									"parameters": {
+										"variable": "thisLayoutType",
+										"comparison": 0,
+										"value": "\"MainGame\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 682644772775299,
+									"parameters": {
+										"group-name": "\"GameIsSaving\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 574311400589993
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "objPlayer",
+							"sid": 229906711575190,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "enabled"
+							}
 						},
 						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 228287820263293,
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 445552215904900,
 							"parameters": {
-								"group-name": "\"GameIsSaving\"",
-								"state": "activated"
+								"type": "log",
+								"message": "LayoutType"
 							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 332781897575549,
+							"parameters": {
+								"type": "log",
+								"message": "\"PlatEnabled\""
+							}
+						},
+						{
+							"id": "signal",
+							"objectClass": "System",
+							"sid": 365165186521706,
+							"parameters": {
+								"tag": "\"gameReady\""
+							}
+						}
+					],
+					"sid": 749235997627870
+				}
+			]
+		},
+		{
+			"functionName": "UpdatePlayer",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "layout",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 181413529090094
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 955507905345013,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "thisLayoutType",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 550141110016046
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 668913205646157,
+							"parameters": {
+								"variable": "thisLayoutType",
+								"value": "Functions.setLayoutType(layout)"
+							}
+						}
+					],
+					"sid": 212877085043620
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 661142524858088,
+							"parameters": {
+								"object": "objPlayer",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "objPlayer",
+							"sid": 475241957893662,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "plSpeed"
+							}
+						},
+						{
+							"id": "set-jump-strength",
+							"objectClass": "objPlayer",
+							"sid": 109312072611282,
+							"behaviorType": "Platform",
+							"parameters": {
+								"jump-strength": "plJumpStr"
+							}
+						},
+						{
+							"id": "set-max-fall-speed",
+							"objectClass": "objPlayer",
+							"sid": 813709879758680,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-fall-speed": "plFallSpeed"
+							}
+						},
+						{
+							"id": "set-gravity",
+							"objectClass": "objPlayer",
+							"sid": 747266731828351,
+							"behaviorType": "Platform",
+							"parameters": {
+								"gravity": "plGravity"
+							}
+						},
+						{
+							"callFunction": "cameraUpdate",
+							"sid": 264207884300802
+						}
+					],
+					"sid": 874614155303632
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 512426189487968
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetUpPlayer",
+					"sid": 856790539975044,
+					"disabled": true,
+					"parameters": [
+						"LayoutName"
+					]
+				}
+			],
+			"sid": 370370018563758,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 621990305501007
+						}
+					],
+					"actions": [],
+					"sid": 202672019848751,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-group-active",
+									"objectClass": "System",
+									"sid": 295633754203742,
+									"parameters": {
+										"group-name": "\"Player_Gaming\""
+									}
+								},
+								{
+									"id": "is-group-active",
+									"objectClass": "System",
+									"sid": 940723189704869,
+									"parameters": {
+										"group-name": "\"Player_HUB\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 324962110923282,
+									"parameters": {
+										"group-name": "\"Player_Gaming\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 679982516127937,
+									"parameters": {
+										"group-name": "\"Player_HUB\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 255379942912704,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 640481815343535,
+									"parameters": {
+										"tag": "\"playerGroupsDeactivated\""
+									}
+								}
+							],
+							"sid": 718676264901683
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 259250238707524
+								},
+								{
+									"id": "is-group-active",
+									"objectClass": "System",
+									"sid": 328142481460322,
+									"parameters": {
+										"group-name": "\"Player_Gaming\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 178689793321542,
+									"parameters": {
+										"group-name": "\"Player_Gaming\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 987596674363292,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 233132579896643,
+									"parameters": {
+										"tag": "\"playerGroupsDeactivated\""
+									}
+								}
+							],
+							"sid": 419093524208668
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 535797781253147
+								},
+								{
+									"id": "is-group-active",
+									"objectClass": "System",
+									"sid": 404538758717489,
+									"parameters": {
+										"group-name": "\"Player_HUB\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 203717460679483,
+									"parameters": {
+										"group-name": "\"Player_HUB\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 839159595342918,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 358774699514201,
+									"parameters": {
+										"tag": "\"playerGroupsDeactivated\""
+									}
+								}
+							],
+							"sid": 441156887090077
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 769447556226800
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 515179753801888,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "signal",
+									"objectClass": "System",
+									"sid": 302854094512363,
+									"parameters": {
+										"tag": "\"playerGroupsDeactivated\""
+									}
+								}
+							],
+							"sid": 969216591701729
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-signal",
+					"objectClass": "System",
+					"sid": 240420315153731,
+					"parameters": {
+						"tag": "\"playerGroupsDeactivated\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetUpPlayer",
+					"sid": 739035533600951,
+					"parameters": [
+						"LayoutName"
+					]
+				}
+			],
+			"sid": 633311183969227
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 623978736405973
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "UpdatePlayer",
+					"sid": 327240769025544,
+					"parameters": [
+						"LayoutName"
+					]
+				}
+			],
+			"sid": 815058631318997
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player_Gaming",
+			"description": "Controls what happens when the player is in a gaming level.",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 687096782639739
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetUpPlayer",
+							"sid": 786407532440953,
+							"disabled": true,
+							"parameters": [
+								"\"\""
+							]
 						},
 						{
 							"callFunction": "LevelCheckpointSave",
@@ -343,62 +895,13 @@
 					],
 					"actions": [
 						{
-							"id": "set-position-to-another-object",
-							"objectClass": "sprPlayerAnimations",
-							"sid": 648632166721614,
-							"parameters": {
-								"object": "objPlayer",
-								"image-point-optional": "0"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 657605165565824,
+							"sid": 731697073593511,
 							"parameters": {
 								"variable": "subtractCoins",
-								"value": "ceil(currCoin_Score*1)"
+								"value": "ceil(currTotalScore*0.7)"
 							}
-						},
-						{
-							"id": "set-max-speed",
-							"objectClass": "objPlayer",
-							"sid": 634657660029496,
-							"behaviorType": "Platform",
-							"parameters": {
-								"max-speed": "plSpeed"
-							}
-						},
-						{
-							"id": "set-jump-strength",
-							"objectClass": "objPlayer",
-							"sid": 813438662984062,
-							"behaviorType": "Platform",
-							"parameters": {
-								"jump-strength": "plJumpStr"
-							}
-						},
-						{
-							"id": "set-max-fall-speed",
-							"objectClass": "objPlayer",
-							"sid": 967808044059719,
-							"behaviorType": "Platform",
-							"parameters": {
-								"max-fall-speed": "plFallSpeed"
-							}
-						},
-						{
-							"id": "set-gravity",
-							"objectClass": "objPlayer",
-							"sid": 990109991376779,
-							"behaviorType": "Platform",
-							"parameters": {
-								"gravity": "plGravity"
-							}
-						},
-						{
-							"callFunction": "cameraUpdate",
-							"sid": 958554691948930
 						}
 					],
 					"sid": 187170596502392,
@@ -418,12 +921,37 @@
 									"id": "set-text",
 									"objectClass": "stateDebugText",
 									"sid": 935587824348686,
+									"disabled": true,
 									"parameters": {
 										"text": "objPlayer.State"
 									}
 								}
 							],
-							"sid": 385316796371681
+							"sid": 385316796371681,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 213915671396215
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 258808242817163,
+											"parameters": {
+												"type": "log",
+												"message": "\"Should be moving.\""
+											}
+										}
+									],
+									"sid": 463746867510483
+								}
+							]
 						}
 					]
 				},
@@ -465,13 +993,7 @@
 									"isInverted": true
 								}
 							],
-							"actions": [
-								{
-									"callFunction": "Jump",
-									"sid": 525240774767364,
-									"disabled": true
-								}
-							],
+							"actions": [],
 							"sid": 115554407358662,
 							"children": [
 								{
@@ -1944,12 +2466,6 @@
 											"parameters": {
 												"state": "disabled"
 											}
-										},
-										{
-											"id": "stop-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 435651142289144,
-											"disabled": true
 										}
 									],
 									"sid": 904644723611752
@@ -1964,15 +2480,6 @@
 										}
 									],
 									"actions": [
-										{
-											"id": "start-animation",
-											"objectClass": "sprPlayerAnimations",
-											"sid": 128550731922209,
-											"disabled": true,
-											"parameters": {
-												"from": "current-frame"
-											}
-										},
 										{
 											"id": "set-enabled",
 											"objectClass": "objPlayer",
@@ -1990,6 +2497,116 @@
 						}
 					],
 					"sid": 752571080150154
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "checkNPCs",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 278724203785540,
+									"parameters": {
+										"object": "objNPC_AndersonPatinho"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 146370990158545,
+									"parameters": {
+										"variable": "hasPatinho",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 246760039529479
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 746372503244856,
+									"parameters": {
+										"object": "objNPC_TiaFernanda"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 216387530394960,
+									"parameters": {
+										"variable": "hasFer",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 635620129004792
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 295459774261887,
+									"parameters": {
+										"object": "objNPC_GuiDasMares"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 447332324007255,
+									"parameters": {
+										"variable": "hasGui",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 586832135300456
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 123561527025038,
+									"parameters": {
+										"object": "objNPC_DonaCida"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 494451731352649,
+									"parameters": {
+										"variable": "hasCida",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 361323768129126
+						}
+					],
+					"sid": 347372615396313
 				},
 				{
 					"eventType": "group",
@@ -2061,6 +2678,152 @@
 				}
 			],
 			"sid": 498277785336851
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player_HUB",
+			"description": "Controls the player in the Galpão Tecnológico",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 690692462381581
+						}
+					],
+					"actions": [],
+					"sid": 620289997231455
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 182862713974457
+						}
+					],
+					"actions": [],
+					"sid": 230732346366781
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Controls",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objPlayer",
+									"sid": 663984541453382,
+									"parameters": {
+										"instance-variable": "isDialog"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 110324182812706,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 610898497807978,
+											"parameters": {
+												"key": 37
+											}
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 163297205344755,
+											"parameters": {
+												"object": "btn2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "objPlayer",
+											"sid": 264098120363925,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "left"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 163630430813864,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 441212232222606,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "key-is-down",
+											"objectClass": "Keyboard",
+											"sid": 975551632159743,
+											"parameters": {
+												"key": 39
+											}
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 226540267006496,
+											"parameters": {
+												"object": "btn1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "objPlayer",
+											"sid": 840170848489919,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "right"
+											}
+										},
+										{
+											"id": "set-mirrored",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 339600511161673,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 522408227699924,
+									"isOrBlock": true
+								}
+							]
+						}
+					],
+					"sid": 483417040971726
+				}
+			],
+			"sid": 360351327360194
 		}
 	],
 	"sid": 841640149488999

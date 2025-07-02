@@ -1643,8 +1643,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": -480,
-								"y": 16,
+								"x": 32,
+								"y": 80,
 								"width": 16,
 								"height": 36,
 								"originX": 0.5,
@@ -1688,6 +1688,12 @@
 									"isEnabled": false,
 									"parameters": {
 										"threshold": 0.5
+									}
+								},
+								"Inverse": {
+									"isEnabled": true,
+									"parameters": {
+										"intensity": 1
 									}
 								}
 							},
@@ -1734,6 +1740,8 @@
 								"dicKey": "",
 								"filesReady": false,
 								"thisNPCFile_Path": "",
+								"wasTalked_in_the_Warehouse": false,
+								"hadPlayerContact": false,
 								"thisID": ""
 							},
 							"behaviors": {},
@@ -1749,7 +1757,7 @@
 								"width": 48,
 								"height": 64,
 								"originX": 0.5,
-								"originY": 0.5,
+								"originY": 1,
 								"color": [
 									1,
 									1,

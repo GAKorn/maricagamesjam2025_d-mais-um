@@ -389,6 +389,12 @@
 							"parameters": {
 								"threshold": 0.01
 							}
+						},
+						"Inverse": {
+							"isEnabled": true,
+							"parameters": {
+								"intensity": 1
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -554,5 +560,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "PlatformPlayer_ES"
+	"eventSheet": null
 }

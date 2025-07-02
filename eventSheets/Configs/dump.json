@@ -182,11 +182,6 @@
 											"parameters": {
 												"vector-x": "slideVectorX"
 											}
-										},
-										{
-											"callFunction": "MoveLeft",
-											"sid": 548785957739822,
-											"disabled": true
 										}
 									],
 									"sid": 857992975897793,
@@ -229,11 +224,6 @@
 											"parameters": {
 												"vector-x": "slideVectorX"
 											}
-										},
-										{
-											"callFunction": "MoveRight",
-											"sid": 816893419724592,
-											"disabled": true
 										}
 									],
 									"sid": 290606399753304,
