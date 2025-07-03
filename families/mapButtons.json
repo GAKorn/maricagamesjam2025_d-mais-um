@@ -1,0 +1,29 @@
+{
+	"name": "mapButtons",
+	"plugin-id": "Sprite",
+	"sid": 227824147132911,
+	"instanceVariables": [
+		{
+			"name": "level",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 645885226641879
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "grayscale",
+			"name": "Grayscale"
+		}
+	],
+	"members": [
+		"btnAeroporto",
+		"btnEspraiado",
+		"btnFazendaCama",
+		"btnGalpao",
+		"btnItaipuacu",
+		"btnRestinga"
+	]
+}

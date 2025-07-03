@@ -1,0 +1,310 @@
+{
+	"name": "LevelSelect_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "GeneralConfig_ES"
+		},
+		{
+			"eventType": "variable",
+			"name": "canEspraiado",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 925128436896606
+		},
+		{
+			"eventType": "variable",
+			"name": "canGalpao",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 763174680988526
+		},
+		{
+			"eventType": "variable",
+			"name": "canFazenda",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 623964495070476
+		},
+		{
+			"eventType": "variable",
+			"name": "canAeroporto",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 917975051317774
+		},
+		{
+			"eventType": "variable",
+			"name": "canRestinga",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 855788448176000
+		},
+		{
+			"eventType": "variable",
+			"name": "canItaipuacu",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 446389881821091
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 464605827446100
+				}
+			],
+			"actions": [],
+			"sid": 499703937781094,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Control  visual"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 942247212971012,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 659605584697117,
+									"parameters": {
+										"variable": "canGalpao"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btnGalpao",
+									"sid": 935271030019937,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Grayscale\""
+									}
+								}
+							],
+							"sid": 677067419339050
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 797814182782617,
+									"parameters": {
+										"variable": "canEspraiado"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btnEspraiado",
+									"sid": 391994337865552,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Grayscale\""
+									}
+								}
+							],
+							"sid": 750995467780648
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 310252134016587,
+									"parameters": {
+										"variable": "canAeroporto"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btnAeroporto",
+									"sid": 931161036553257,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Grayscale\""
+									}
+								}
+							],
+							"sid": 690647865584031
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 884642339373979,
+									"parameters": {
+										"variable": "canFazenda"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btnFazendaCama",
+									"sid": 516430396377785,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Grayscale\""
+									}
+								}
+							],
+							"sid": 754181212433621
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 799249465897294,
+									"parameters": {
+										"variable": "canItaipuacu"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btnItaipuacu",
+									"sid": 658725133089955,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Grayscale\""
+									}
+								}
+							],
+							"sid": 369286472334105
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 619527075170685,
+									"parameters": {
+										"variable": "canRestinga"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-enabled",
+									"objectClass": "btnRestinga",
+									"sid": 119864482214363,
+									"parameters": {
+										"mode": "disable",
+										"effect": "\"Grayscale\""
+									}
+								}
+							],
+							"sid": 483037290636805
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ControlClicks",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 326012738591560,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "mapButtons"
+							}
+						},
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 610370676281782,
+							"parameters": {
+								"object": "mapButtons",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 759432416423070,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-effect-enabled",
+									"objectClass": "mapButtons",
+									"sid": 834157183674480,
+									"parameters": {
+										"effect": "\"Grayscale\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 549391065158794,
+									"parameters": {
+										"layout": "mapButtons.level"
+									}
+								}
+							],
+							"sid": 480437184938556
+						}
+					],
+					"isOrBlock": true
+				}
+			],
+			"sid": 247406226413315
+		}
+	],
+	"sid": 133932264538027
+}

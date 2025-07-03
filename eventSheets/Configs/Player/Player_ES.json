@@ -876,8 +876,6 @@
 							"sid": 495497041188100,
 							"disabled": true,
 							"parameters": [
-								"objPlayer.X",
-								"objPlayer.Y",
 								".1"
 							]
 						}

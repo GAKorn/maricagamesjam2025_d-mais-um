@@ -705,6 +705,37 @@
 								{
 									"id": "else",
 									"objectClass": "System",
+									"sid": 131733079403166
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 285110128757760,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"LevelSelect\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 494797868925392,
+									"parameters": {
+										"value": "\"Map\""
+									}
+								}
+							],
+							"sid": 499709111950479
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
 									"sid": 505599123635943
 								}
 							],
@@ -1742,8 +1773,6 @@
 									"sid": 272296173744815,
 									"disabled": true,
 									"parameters": [
-										"objPlayer.X",
-										"objPlayer.Y",
 										"0.1"
 									]
 								},
@@ -1774,6 +1803,37 @@
 							"sid": 851044777418995
 						}
 					]
+				},
+				{
+					"functionName": "fadeIn",
+					"functionDescription": "",
+					"functionCategory": "Game Config",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "objFade2",
+							"sid": 660543517713589,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"openGame\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.25",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 346298461714919
 				}
 			],
 			"sid": 483852009524089
@@ -1974,8 +2034,6 @@
 													"callFunction": "LevelCheckpointSave",
 													"sid": 557249689228555,
 													"parameters": [
-														"objPlayer.X",
-														"objPlayer.Y",
 														"0.05"
 													]
 												}
@@ -2030,20 +2088,6 @@
 							"functionIsAsync": false,
 							"functionParameters": [
 								{
-									"name": "playerX",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"sid": 892201384348394
-								},
-								{
-									"name": "playerY",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"sid": 214402303009267
-								},
-								{
 									"name": "savingTime",
 									"type": "number",
 									"initialValue": "0",
@@ -2061,15 +2105,6 @@
 									"parameters": {
 										"variable": "gameIsSaving",
 										"value": "true"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "objPlayer",
-									"sid": 137447470239356,
-									"parameters": {
-										"x": "playerX",
-										"y": "playerY"
 									}
 								}
 							],

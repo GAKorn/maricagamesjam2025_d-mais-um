@@ -258,6 +258,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-position",
+					"objectClass": "objFade2",
+					"sid": 802259687172086,
+					"parameters": {
+						"x": "0",
+						"y": "0"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 485247231977754,
@@ -265,6 +274,10 @@
 						"variable": "LayoutType",
 						"value": "Functions.setLayoutType(LayoutName)"
 					}
+				},
+				{
+					"callFunction": "GameScale",
+					"sid": 561164073498095
 				},
 				{
 					"id": "set-position",
@@ -287,6 +300,10 @@
 				{
 					"callFunction": "setUpEndScreenObjects",
 					"sid": 832571974303071
+				},
+				{
+					"callFunction": "fadeIn",
+					"sid": 577448468571099
 				},
 				{
 					"id": "log",
@@ -352,10 +369,6 @@
 					"parameters": {
 						"variable": "currQuiz_Score"
 					}
-				},
-				{
-					"callFunction": "GameScale",
-					"sid": 461480156244384
 				},
 				{
 					"id": "set-group-active",
@@ -762,17 +775,74 @@
 							"parameters": [
 								false
 							]
-						},
-						{
-							"id": "set-cursor-style2",
-							"objectClass": "Mouse",
-							"sid": 906482700719524,
-							"parameters": {
-								"cursor-style": "cell"
-							}
 						}
 					],
-					"sid": 177546763825260
+					"sid": 177546763825260,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 544625094829009,
+									"parameters": {
+										"object": "mapButtons"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 437004698401424,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-effect-enabled",
+											"objectClass": "mapButtons",
+											"sid": 515111639771242,
+											"parameters": {
+												"effect": "\"Grayscale\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style2",
+											"objectClass": "Mouse",
+											"sid": 339507506247906,
+											"parameters": {
+												"cursor-style": "cell"
+											}
+										}
+									],
+									"sid": 946572074743455
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 259544508070712
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style2",
+									"objectClass": "Mouse",
+									"sid": 886843002325293,
+									"parameters": {
+										"cursor-style": "crosshair"
+									}
+								}
+							],
+							"sid": 881345692913208
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -785,6 +855,17 @@
 								"variable": "LayoutType",
 								"comparison": 0,
 								"value": "\"Map\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 921595085078942,
+							"parameters": {
+								"variable": "LayoutType",
+								"comparison": 0,
+								"value": "\"Menu\""
 							},
 							"isInverted": true
 						}

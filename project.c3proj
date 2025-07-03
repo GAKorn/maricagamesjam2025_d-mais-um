@@ -395,7 +395,8 @@
 					{
 						"items": [
 							"endScreenBG",
-							"objFade"
+							"objFade",
+							"objFade2"
 						],
 						"subfolders": [
 							{
@@ -435,6 +436,18 @@
 					}
 				],
 				"name": "ScoreRelated"
+			},
+			{
+				"items": [
+					"btnEspraiado",
+					"btnRestinga",
+					"btnItaipuacu",
+					"btnAeroporto",
+					"btnFazendaCama",
+					"btnGalpao"
+				],
+				"subfolders": [],
+				"name": "LevelSelect"
 			}
 		]
 	},
@@ -473,7 +486,8 @@
 			"Dictionary",
 			"btnsQuiz",
 			"txtEndScreen",
-			"Stars_Spr"
+			"Stars_Spr",
+			"mapButtons"
 		],
 		"subfolders": []
 	},
@@ -483,7 +497,8 @@
 			"GameTesting",
 			"FTUE_Test",
 			"CurrentMapTest",
-			"GalpaoTecnologico"
+			"GalpaoTecnologico",
+			"LevelSelect"
 		],
 		"subfolders": [
 			{
@@ -498,7 +513,8 @@
 	},
 	"eventSheets": {
 		"items": [
-			"GameTesting_ES"
+			"GameTesting_ES",
+			"LevelSelect_ES"
 		],
 		"subfolders": [
 			{

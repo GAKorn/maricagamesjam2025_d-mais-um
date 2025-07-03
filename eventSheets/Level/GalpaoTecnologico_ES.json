@@ -338,12 +338,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 586326183687323,
+									"sid": 212523177569258,
 									"parameters": {
 										"object-to-create": "spr_ChangeChar",
 										"layer": "\"NPC_Areas\"",
 										"x": "objFakeCharacter.X",
-										"y": "objChangeCharacterArea.Y-8",
+										"y": "objChangeCharacterArea.Y-9",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
