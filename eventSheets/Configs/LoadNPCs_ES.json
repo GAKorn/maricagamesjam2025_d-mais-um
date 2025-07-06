@@ -63,19 +63,65 @@
 					"sid": 761742067048250
 				}
 			],
-			"actions": [
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 499464759730293,
-					"parameters": {
-						"tag": "\"loadPaths\"",
-						"file": "npcPaths.json"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 577761380305454,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 968773407597720,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 865982231559533,
+									"parameters": {
+										"variable": "hasLoadedDialogState"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 675275086445200,
+									"parameters": {
+										"tag": "\"dialogState\"",
+										"file": "dialogState.json"
+									}
+								}
+							],
+							"sid": 709759528357194
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 418397634384843
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 890225024880169,
+									"parameters": {
+										"tag": "\"loadPaths\"",
+										"file": "npcPaths.json"
+									}
+								}
+							],
+							"sid": 871331345081596
+						}
+					]
+				},
 				{
 					"eventType": "comment",
 					"text": "patinho existe"
@@ -269,6 +315,58 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 109904025815098,
+					"parameters": {
+						"tag": "\"dialogState\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "dialogState",
+					"sid": 872183695581989,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 373795049541850
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 444673935454442,
+					"parameters": {
+						"variable": "hasLoadedDialogState",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 932905091442820
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 827457642312377,
+					"parameters": {
+						"tag": "\"loadPaths\"",
+						"file": "npcPaths.json"
+					}
+				}
+			],
+			"sid": 801220194253827
 		},
 		{
 			"eventType": "block",

@@ -343,7 +343,8 @@
 				"items": [
 					"activeDialogArray",
 					"npcFiles",
-					"npcPathsDictionary"
+					"npcPathsDictionary",
+					"dialogState"
 				],
 				"subfolders": [
 					{
@@ -495,7 +496,6 @@
 		"items": [
 			"Intro",
 			"GameTesting",
-			"FTUE_Test",
 			"CurrentMapTest",
 			"GalpaoTecnologico",
 			"LevelSelect"
@@ -508,13 +508,25 @@
 				],
 				"subfolders": [],
 				"name": "LayoutTemplate"
+			},
+			{
+				"items": [
+					"FTUE_Test",
+					"Espraiado",
+					"Restinga"
+				],
+				"subfolders": [],
+				"name": "Levels"
 			}
 		]
 	},
 	"eventSheets": {
 		"items": [
 			"GameTesting_ES",
-			"LevelSelect_ES"
+			"LevelSelect_ES",
+			"Intro_ES",
+			"GalpaoTecnologico_ES",
+			"CurrentMapTest_ES"
 		],
 		"subfolders": [
 			{
@@ -540,9 +552,8 @@
 			{
 				"items": [
 					"FTUE_Test_ES",
-					"Intro_ES",
-					"CurrentMapTest_ES",
-					"GalpaoTecnologico_ES"
+					"Espraiado_ES",
+					"Restinga_ES"
 				],
 				"subfolders": [],
 				"name": "Level"
@@ -670,6 +681,14 @@
 					"name": "npcPaths.json",
 					"type": "application/json",
 					"sid": 959846733871616,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "dialogState.json",
+					"type": "application/json",
+					"sid": 828370585202913,
 					"file-info": {
 						"purpose": "none"
 					}

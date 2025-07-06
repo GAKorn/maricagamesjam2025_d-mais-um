@@ -5,6 +5,7 @@
 	"instanceVariables": [],
 	"members": [
 		"npcFiles",
-		"npcPathsDictionary"
+		"npcPathsDictionary",
+		"dialogState"
 	]
 }

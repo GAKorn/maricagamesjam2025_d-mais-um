@@ -37,7 +37,7 @@
 			"eventType": "variable",
 			"name": "GameScaleFactor",
 			"type": "number",
-			"initialValue": "3.75",
+			"initialValue": "3.735",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,

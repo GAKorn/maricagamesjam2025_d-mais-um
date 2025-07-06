@@ -1667,6 +1667,14 @@
 			"sid": 299003721191421,
 			"tags": "",
 			"instanceVariables": {}
+		},
+		{
+			"type": "dialogState",
+			"properties": {},
+			"uid": 309,
+			"sid": 499392201586299,
+			"tags": "",
+			"instanceVariables": {}
 		}
 	],
 	"effectTypes": [],
