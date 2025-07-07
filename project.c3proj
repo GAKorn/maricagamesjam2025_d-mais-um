@@ -531,7 +531,9 @@
 					"FTUE_Test",
 					"Espraiado",
 					"Aeroporto",
-					"Fazenda"
+					"Fazenda",
+					"Itaipuacu",
+					"Restinga"
 				],
 				"subfolders": [],
 				"name": "Levels"
@@ -572,7 +574,9 @@
 					"FTUE_Test_ES",
 					"Espraiado_ES",
 					"Aeroporto_ES",
-					"Fazenda_ES"
+					"Fazenda_ES",
+					"Itaipuacu_ES",
+					"Restinga_ES"
 				],
 				"subfolders": [],
 				"name": "Level"

@@ -194,7 +194,7 @@
 					"sid": 815670297924791,
 					"tags": "",
 					"instanceVariables": {
-						"level": ""
+						"level": "Fazenda"
 					},
 					"behaviors": {},
 					"effects": {
@@ -241,7 +241,7 @@
 					"sid": 136628566296813,
 					"tags": "",
 					"instanceVariables": {
-						"level": ""
+						"level": "Itaipuacu"
 					},
 					"behaviors": {},
 					"effects": {
@@ -288,7 +288,7 @@
 					"sid": 504579223941616,
 					"tags": "",
 					"instanceVariables": {
-						"level": ""
+						"level": "Restinga"
 					},
 					"behaviors": {},
 					"effects": {

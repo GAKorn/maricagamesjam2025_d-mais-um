@@ -1,0 +1,125 @@
+{
+	"name": "Itaipuacu_ES",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "GeneralConfig_ES"
+		},
+		{
+			"eventType": "comment",
+			"text": "Essas duas variáveis precisam ser usadas em todos os layouts com pontuação."
+		},
+		{
+			"eventType": "variable",
+			"name": "itaipuacu_levelScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 173568436689862
+		},
+		{
+			"eventType": "variable",
+			"name": "itaipuacu_firstTime",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 707219018553041
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 900144815030174
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 540589496882846,
+					"parameters": {
+						"variable": "nextLevelSet",
+						"value": "\"GalpaoTecnologico\""
+					}
+				}
+			],
+			"sid": 895523795217930,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 253893686200041,
+							"parameters": {
+								"variable": "itaipuacu_firstTime"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "reset-eventvar",
+							"objectClass": "System",
+							"sid": 242685301666223,
+							"parameters": {
+								"variable": "itaipuacu_levelScore"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 142300793440828,
+							"parameters": {
+								"seconds": "0.2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 419420319466796,
+							"parameters": {
+								"variable": "itaipuacu_firstTime",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 152759277243068
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "objPlayer",
+					"sid": 476390372329706,
+					"parameters": {
+						"object": "endPoint"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 650295389838338,
+					"parameters": {
+						"variable": "canRestinga",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 516609230405538
+		}
+	],
+	"sid": 293766516829018
+}

@@ -673,6 +673,36 @@
 										"comparison": 0,
 										"value": "\"Aeroporto\""
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 632662786030204,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"Fazenda\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 520900336067434,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"Itaipuacu\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 851140206907712,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"Restinga\""
+									}
 								}
 							],
 							"actions": [
@@ -1679,6 +1709,102 @@
 										}
 									],
 									"sid": 724789880397335
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 636980482656552
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 826565218766004,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Fazenda\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 437777029178494,
+											"parameters": {
+												"variable": "thisLevelScore",
+												"value": "fazenda_levelScore"
+											}
+										}
+									],
+									"sid": 787013861502977
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 676772462437782
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 646730156969224,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Itaipuacu\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 232696590046611,
+											"parameters": {
+												"variable": "thisLevelScore",
+												"value": "itaipuacu_levelScore"
+											}
+										}
+									],
+									"sid": 223048187871686
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 505046205610373
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 917599520236474,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Restinga\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 155728057802826,
+											"parameters": {
+												"variable": "thisLevelScore",
+												"value": "restinga_levelScore"
+											}
+										}
+									],
+									"sid": 909448070620336
 								}
 							]
 						},
@@ -1833,6 +1959,102 @@
 										}
 									],
 									"sid": 410471074006440
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 912816272546891
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 930510763948232,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Fazenda\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 159513716377153,
+											"parameters": {
+												"variable": "fazenda_levelScore",
+												"value": "scoreToSet"
+											}
+										}
+									],
+									"sid": 333746511090567
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 973337607519042
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 356266168544007,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Itaipuacu\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 544141397849008,
+											"parameters": {
+												"variable": "itaipuacu_levelScore",
+												"value": "scoreToSet"
+											}
+										}
+									],
+									"sid": 376195256245616
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 860088325787624
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 584603294727663,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Restinga\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 638211580478917,
+											"parameters": {
+												"variable": "restinga_levelScore",
+												"value": "scoreToSet"
+											}
+										}
+									],
+									"sid": 328572378875330
 								}
 							]
 						}
