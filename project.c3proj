@@ -155,6 +155,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Timer",
 			"name": "Timer",
 			"author": "Scirra",
@@ -247,7 +254,6 @@
 			"tlmTestDecor",
 			"txtDebugAction2",
 			"txtDebugAction3",
-			"ftueTest",
 			"Ruler"
 		],
 		"subfolders": [
@@ -292,7 +298,9 @@
 					"objCoins_Loss",
 					"objLevelCheckpoint",
 					"objCheckObstacle",
-					"objDialogArea"
+					"objDialogArea",
+					"objGroundMovableHazard",
+					"obAirMovableHazard"
 				],
 				"subfolders": [
 					{
@@ -449,6 +457,15 @@
 				],
 				"subfolders": [],
 				"name": "LevelSelect"
+			},
+			{
+				"items": [
+					"Rodoviaria_Level",
+					"Espraiado_Level",
+					"Espraiado_BG1"
+				],
+				"subfolders": [],
+				"name": "Art_Level"
 			}
 		]
 	},
@@ -513,7 +530,8 @@
 				"items": [
 					"FTUE_Test",
 					"Espraiado",
-					"Restinga"
+					"Aeroporto",
+					"Fazenda"
 				],
 				"subfolders": [],
 				"name": "Levels"
@@ -553,7 +571,8 @@
 				"items": [
 					"FTUE_Test_ES",
 					"Espraiado_ES",
-					"Restinga_ES"
+					"Aeroporto_ES",
+					"Fazenda_ES"
 				],
 				"subfolders": [],
 				"name": "Level"

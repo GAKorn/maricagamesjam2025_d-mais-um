@@ -1,0 +1,56 @@
+{
+	"name": "Espraiado_Level",
+	"plugin-id": "Sprite",
+	"sid": 458591907287133,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 3328,
+						"height": 288,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3588982,
+						"collisionPoly": {
+							"points": [
+								0.3206129807692308,
+								0.06597222222222222,
+								0.5621995192307693,
+								0.0763888888888889,
+								1,
+								0.8888888888888888,
+								1,
+								1,
+								0,
+								1,
+								0,
+								0.8888888888888888
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 669268672416853,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

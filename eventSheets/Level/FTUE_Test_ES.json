@@ -13,7 +13,7 @@
 			"eventType": "variable",
 			"name": "rodoviaria_levelScore",
 			"type": "number",
-			"initialValue": "200",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -28,83 +28,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 378823424252126
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "objPlayer",
-					"sid": 652619558545368,
-					"parameters": {
-						"object": "endPoint"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 877866344332685,
-					"disabled": true,
-					"parameters": {
-						"layout": "CurrentMapTest"
-					}
-				},
-				{
-					"id": "restart-layout",
-					"objectClass": "System",
-					"sid": 550546007805147
-				}
-			],
-			"sid": 406561648025070,
-			"disabled": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-group-active",
-							"objectClass": "System",
-							"sid": 991983618304425,
-							"parameters": {
-								"group-name": "\"FTUE\""
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [],
-					"sid": 689679541398227,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-all",
-									"objectClass": "System",
-									"sid": 689885865556895,
-									"parameters": {
-										"object": "objSlowDown"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-collisions-enabled",
-									"objectClass": "objSlowDown",
-									"sid": 673630486779141,
-									"parameters": {
-										"collisions": "disabled"
-									}
-								}
-							],
-							"sid": 804061154684337,
-							"disabled": true
-						}
-					]
-				}
-			]
 		},
 		{
 			"eventType": "block",
@@ -188,6 +111,31 @@
 					"sid": 133512894462330
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "objPlayer",
+					"sid": 330623494569849,
+					"parameters": {
+						"object": "endPoint"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 489500479287779,
+					"parameters": {
+						"variable": "canEspraiado",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 476292852816355
 		},
 		{
 			"eventType": "group",

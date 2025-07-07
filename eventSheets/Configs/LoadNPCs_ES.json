@@ -1779,6 +1779,7 @@
 							"id": "signal",
 							"objectClass": "System",
 							"sid": 370384624219791,
+							"disabled": true,
 							"parameters": {
 								"tag": "\"canStart\""
 							}

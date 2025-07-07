@@ -285,6 +285,17 @@
 										"effect": "\"Grayscale\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "mapButtons",
+									"sid": 946663866685526,
+									"parameters": {
+										"instance-variable": "level",
+										"comparison": 0,
+										"value": "\"\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [

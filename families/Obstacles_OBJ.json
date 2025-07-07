@@ -9,6 +9,8 @@
 		"objLevelSolid",
 		"objLevelJumThru",
 		"objGroundFixedHazard",
-		"objAirFixedHazard"
+		"objAirFixedHazard",
+		"objGroundMovableHazard",
+		"obAirMovableHazard"
 	]
 }

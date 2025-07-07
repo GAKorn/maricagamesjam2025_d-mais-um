@@ -653,6 +653,26 @@
 										"comparison": 0,
 										"value": "\"GameTesting\""
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 989792690783295,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"Espraiado\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 384858809973092,
+									"parameters": {
+										"variable": "thisLayoutName",
+										"comparison": 0,
+										"value": "\"Aeroporto\""
+									}
 								}
 							],
 							"actions": [
@@ -1595,6 +1615,70 @@
 										}
 									],
 									"sid": 452577957040719
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 862098960130690
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 246581190761718,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Espraiado\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 948399289505540,
+											"parameters": {
+												"variable": "thisLevelScore",
+												"value": "espraiado_levelScore"
+											}
+										}
+									],
+									"sid": 680485967531315
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 325499390869387
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 754238491116101,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Aeroporto\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 686844819179193,
+											"parameters": {
+												"variable": "thisLevelScore",
+												"value": "aeroporto_levelScore"
+											}
+										}
+									],
+									"sid": 724789880397335
 								}
 							]
 						},
@@ -1685,6 +1769,70 @@
 										}
 									],
 									"sid": 484365131392138
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 652166622235647
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 282229751816190,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Espraiado\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 697388802526547,
+											"parameters": {
+												"variable": "espraiado_levelScore",
+												"value": "scoreToSet"
+											}
+										}
+									],
+									"sid": 354096951556110
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 665436130219435
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 893057697305706,
+											"parameters": {
+												"variable": "levelName",
+												"comparison": 0,
+												"value": "\"Aeroporto\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 278989165262620,
+											"parameters": {
+												"variable": "aeroporto_levelScore",
+												"value": "scoreToSet"
+											}
+										}
+									],
+									"sid": 410471074006440
 								}
 							]
 						}
@@ -1720,62 +1868,8 @@
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 521005952908658,
-									"parameters": {
-										"variable": "nextLevel",
-										"comparison": 0,
-										"value": "\"\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 334693010363420,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 225090526879902,
-											"parameters": {
-												"variable": "levelName",
-												"comparison": 0,
-												"value": "\"FTUE_Test\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 796396699831947,
-											"parameters": {
-												"variable": "nextLevel",
-												"value": "\"Intro\""
-											}
-										}
-									],
-									"sid": 337603070601143
-								}
-							]
-						},
-						{
-							"eventType": "block",
 							"conditions": [],
 							"actions": [
-								{
-									"callFunction": "LevelCheckpointSave",
-									"sid": 272296173744815,
-									"disabled": true,
-									"parameters": [
-										"0.1"
-									]
-								},
 								{
 									"id": "wait",
 									"objectClass": "System",
@@ -1792,12 +1886,6 @@
 									"parameters": {
 										"layout": "nextLevel"
 									}
-								},
-								{
-									"id": "restart-layout",
-									"objectClass": "System",
-									"sid": 675380786262445,
-									"disabled": true
 								}
 							],
 							"sid": 851044777418995
@@ -1818,13 +1906,13 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "objFade2",
-							"sid": 660543517713589,
+							"sid": 877814854805396,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"openGame\"",
 								"property": "offsetOpacity",
 								"end-value": "0",
-								"time": "0.25",
+								"time": "0.325",
 								"ease": "noease",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -2032,9 +2120,9 @@
 												},
 												{
 													"callFunction": "LevelCheckpointSave",
-													"sid": 557249689228555,
+													"sid": 195286594392144,
 													"parameters": [
-														"0.05"
+														"0.00001"
 													]
 												}
 											],

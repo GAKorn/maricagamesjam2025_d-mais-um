@@ -1,5 +1,5 @@
 {
-	"name": "Espraiado_ES",
+	"name": "Fazenda_ES",
 	"events": [
 		{
 			"eventType": "include",
@@ -11,23 +11,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "espraiado_levelScore",
+			"name": "fazenda_levelScore",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 761200114198219
+			"sid": 601757323779733
 		},
 		{
 			"eventType": "variable",
-			"name": "espraiado_firstTime",
+			"name": "fazenda_firstTime",
 			"type": "boolean",
 			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 730588831333578
+			"sid": 669599446727538
 		},
 		{
 			"eventType": "block",
@@ -35,21 +35,21 @@
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 471367245469499
+					"sid": 851511601452858
 				}
 			],
 			"actions": [
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 341461365217820,
+					"sid": 275049189468639,
 					"parameters": {
 						"variable": "nextLevelSet",
 						"value": "\"GalpaoTecnologico\""
 					}
 				}
 			],
-			"sid": 412061822160005,
+			"sid": 102846570296994,
 			"children": [
 				{
 					"eventType": "block",
@@ -57,9 +57,9 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 552078243335414,
+							"sid": 345393530471711,
 							"parameters": {
-								"variable": "espraiado_firstTime"
+								"variable": "fazenda_firstTime"
 							}
 						}
 					],
@@ -67,15 +67,15 @@
 						{
 							"id": "reset-eventvar",
 							"objectClass": "System",
-							"sid": 886489576476668,
+							"sid": 251150220103892,
 							"parameters": {
-								"variable": "espraiado_levelScore"
+								"variable": "fazenda_levelScore"
 							}
 						},
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 211934466180061,
+							"sid": 483408542692009,
 							"parameters": {
 								"seconds": "0.2",
 								"use-timescale": true
@@ -84,14 +84,14 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 883482403766366,
+							"sid": 563207340057334,
 							"parameters": {
-								"variable": "espraiado_firstTime",
+								"variable": "fazenda_firstTime",
 								"value": "false"
 							}
 						}
 					],
-					"sid": 695352687635149
+					"sid": 244612147336752
 				}
 			]
 		},
@@ -101,7 +101,7 @@
 				{
 					"id": "on-collision-with-another-object",
 					"objectClass": "objPlayer",
-					"sid": 511126840313311,
+					"sid": 270413834500307,
 					"parameters": {
 						"object": "endPoint"
 					}
@@ -111,15 +111,15 @@
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 205930256223411,
+					"sid": 265570550373784,
 					"parameters": {
-						"variable": "canAeroporto",
+						"variable": "canItaipuacu",
 						"value": "true"
 					}
 				}
 			],
-			"sid": 455175630893831
+			"sid": 853925461039248
 		}
 	],
-	"sid": 575530309944352
+	"sid": 743944282014976
 }

@@ -895,10 +895,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 731697073593511,
+							"sid": 181302325902056,
 							"parameters": {
 								"variable": "subtractCoins",
-								"value": "ceil(currTotalScore*0.7)"
+								"value": "ceil(currTotalScore*0.65)"
 							}
 						}
 					],
@@ -1855,20 +1855,20 @@
 										{
 											"id": "flash",
 											"objectClass": "sprPlayerAnimations",
-											"sid": 235253534019551,
+											"sid": 301874173991496,
 											"behaviorType": "Flash",
 											"parameters": {
 												"on-time": "0.1",
 												"off-time": "0.1",
-												"duration": "1.0"
+												"duration": "2"
 											}
 										},
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 198941656502179,
+											"sid": 230064579574095,
 											"parameters": {
-												"seconds": "1.0",
+												"seconds": "2.0",
 												"use-timescale": true
 											}
 										},
@@ -2638,7 +2638,7 @@
 								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 186014137326986,
+									"sid": 638924393911565,
 									"parameters": {
 										"variable": "isEndScreen",
 										"value": "true"
@@ -2646,7 +2646,7 @@
 								},
 								{
 									"callFunction": "setUpEndScreen",
-									"sid": 313734550230482
+									"sid": 694255833268530
 								}
 							],
 							"sid": 236758519595314
@@ -2721,7 +2721,7 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "objPlayer",
-									"sid": 663984541453382,
+									"sid": 198125029078345,
 									"parameters": {
 										"instance-variable": "isDialog"
 									},
@@ -2729,7 +2729,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 110324182812706,
+							"sid": 482623123728271,
 							"children": [
 								{
 									"eventType": "block",
@@ -2737,7 +2737,7 @@
 										{
 											"id": "key-is-down",
 											"objectClass": "Keyboard",
-											"sid": 610898497807978,
+											"sid": 278187241796486,
 											"parameters": {
 												"key": 37
 											}
@@ -2745,7 +2745,7 @@
 										{
 											"id": "is-touching-object",
 											"objectClass": "Touch",
-											"sid": 163297205344755,
+											"sid": 726759666986239,
 											"parameters": {
 												"object": "btn2"
 											}
@@ -2755,7 +2755,7 @@
 										{
 											"id": "simulate-control",
 											"objectClass": "objPlayer",
-											"sid": 264098120363925,
+											"sid": 989939843711636,
 											"behaviorType": "Platform",
 											"parameters": {
 												"control": "left"
@@ -2764,13 +2764,13 @@
 										{
 											"id": "set-mirrored",
 											"objectClass": "sprPlayerAnimations",
-											"sid": 163630430813864,
+											"sid": 191105154496425,
 											"parameters": {
 												"state": "mirrored"
 											}
 										}
 									],
-									"sid": 441212232222606,
+									"sid": 478811686242619,
 									"isOrBlock": true
 								},
 								{
@@ -2779,7 +2779,7 @@
 										{
 											"id": "key-is-down",
 											"objectClass": "Keyboard",
-											"sid": 975551632159743,
+											"sid": 673331671765550,
 											"parameters": {
 												"key": 39
 											}
@@ -2787,7 +2787,7 @@
 										{
 											"id": "is-touching-object",
 											"objectClass": "Touch",
-											"sid": 226540267006496,
+											"sid": 315392836150154,
 											"parameters": {
 												"object": "btn1"
 											}
@@ -2797,7 +2797,7 @@
 										{
 											"id": "simulate-control",
 											"objectClass": "objPlayer",
-											"sid": 840170848489919,
+											"sid": 439463289103879,
 											"behaviorType": "Platform",
 											"parameters": {
 												"control": "right"
@@ -2806,19 +2806,62 @@
 										{
 											"id": "set-mirrored",
 											"objectClass": "sprPlayerAnimations",
-											"sid": 339600511161673,
+											"sid": 947207231646041,
 											"parameters": {
 												"state": "not-mirrored"
 											}
 										}
 									],
-									"sid": 522408227699924,
+									"sid": 788305109057137,
 									"isOrBlock": true
 								}
 							]
 						}
 					],
-					"sid": 483417040971726
+					"sid": 145373647883318
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "finishLayout2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "objPlayer",
+									"sid": 336478357522019,
+									"parameters": {
+										"object": "endPoint"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "objPlayer",
+									"sid": 535225531600370,
+									"behaviorType": "Platform",
+									"parameters": {
+										"input": "start-ignoring"
+									}
+								},
+								{
+									"callFunction": "endGameLevel",
+									"sid": 454242913787919,
+									"parameters": [
+										"LayoutName",
+										"nextLevelSet"
+									]
+								}
+							],
+							"sid": 437588803701020
+						}
+					],
+					"sid": 195905751241090
 				}
 			],
 			"sid": 360351327360194

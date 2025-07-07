@@ -1207,89 +1207,146 @@
 										"seconds": "0.001",
 										"use-timescale": true
 									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 287176537320226,
-									"parameters": {
-										"variable": "currentQuestionIndex",
-										"value": "floor(random(activeDialogArray.Height))"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 820122231739358,
-									"parameters": {
-										"variable": "thisQuizQuestion",
-										"value": "activeDialogArray.At(0,currentQuestionIndex)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 958748803789706,
-									"parameters": {
-										"variable": "thisQuizOpA",
-										"value": "activeDialogArray.At(1,currentQuestionIndex)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 894124491482431,
-									"parameters": {
-										"variable": "thisQuizOpB",
-										"value": "activeDialogArray.At(2,currentQuestionIndex)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 524293739309225,
-									"parameters": {
-										"variable": "correctAnswer",
-										"value": "activeDialogArray.At(3,currentQuestionIndex)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 509712541518986,
-									"parameters": {
-										"variable": "thisQuizFechamento",
-										"value": "activeDialogArray.At(4,currentQuestionIndex)"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 185581075399869,
-									"parameters": {
-										"variable": "currentText",
-										"value": "thisQuizQuestion"
-									}
-								},
-								{
-									"id": "signal",
-									"objectClass": "System",
-									"sid": 621001680871291,
-									"parameters": {
-										"tag": "\"optionsSet\""
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 913168872035776,
-									"parameters": {
-										"type": "log",
-										"message": "\"start quiz\""
-									}
 								}
 							],
-							"sid": 606667507946557
+							"sid": 606667507946557,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 933553381579599,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 895524618237821,
+													"parameters": {
+														"first-value": "LayoutName",
+														"comparison": 0,
+														"second-value": "\"FTUE_Test\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 827198055037464,
+													"parameters": {
+														"variable": "currentQuestionIndex",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 614559144601350
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 191617865186853
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 841261788952963,
+													"parameters": {
+														"variable": "currentQuestionIndex",
+														"value": "floor(random(activeDialogArray.Height))"
+													}
+												}
+											],
+											"sid": 354399165655691
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 950402501375616,
+											"parameters": {
+												"variable": "thisQuizQuestion",
+												"value": "activeDialogArray.At(0,currentQuestionIndex)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 752949328041491,
+											"parameters": {
+												"variable": "thisQuizOpA",
+												"value": "activeDialogArray.At(1,currentQuestionIndex)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 466513151266835,
+											"parameters": {
+												"variable": "thisQuizOpB",
+												"value": "activeDialogArray.At(2,currentQuestionIndex)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 870864897411612,
+											"parameters": {
+												"variable": "correctAnswer",
+												"value": "activeDialogArray.At(3,currentQuestionIndex)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 587740178090342,
+											"parameters": {
+												"variable": "thisQuizFechamento",
+												"value": "activeDialogArray.At(4,currentQuestionIndex)"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 103012523819635,
+											"parameters": {
+												"variable": "currentText",
+												"value": "thisQuizQuestion"
+											}
+										},
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 809933921149322,
+											"parameters": {
+												"tag": "\"optionsSet\""
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 321792997530343,
+											"parameters": {
+												"type": "log",
+												"message": "\"start quiz\""
+											}
+										}
+									],
+									"sid": 616206606793619
+								}
+							]
 						}
 					]
 				},

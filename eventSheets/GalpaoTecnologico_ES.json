@@ -9,7 +9,7 @@
 			"eventType": "variable",
 			"name": "hasPatinho",
 			"type": "boolean",
-			"initialValue": "false",
+			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -19,7 +19,7 @@
 			"eventType": "variable",
 			"name": "hasCida",
 			"type": "boolean",
-			"initialValue": "false",
+			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "hasGui",
 			"type": "boolean",
-			"initialValue": "false",
+			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -39,7 +39,7 @@
 			"eventType": "variable",
 			"name": "hasFer",
 			"type": "boolean",
-			"initialValue": "false",
+			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -58,11 +58,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 520123790586444,
-					"disabled": true,
+					"sid": 239745166441178,
 					"parameters": {
 						"variable": "nextLevelSet",
-						"value": "\"GameTesting\""
+						"value": "\"LevelSelect\""
 					}
 				}
 			],
