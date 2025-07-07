@@ -2,32 +2,563 @@
     "c2array": true,
     "size": [
         5,
-        2,
+        61,
         1
     ],
     "data": [
         [
             [
-                "Quiz da Fer"
+                "Ô meu filho… Eu sou a Dona Cida do Bolinho! Trabalho com venda, conta certa e sonho grande. Tu quer aprender comigo como cuidar bem do dinheiro e fazer o teu negócio crescer?"
             ],
             [
-                "Quiz da Fer 2"
+                "Quem quer viver com sossego e ainda ter dinheiro pra realizar seus sonhos precisa fazer o quê?"
+            ],
+            [
+                "No meu caderno, planejar quer dizer guardar dinheiro só pro agora ou também pro que vier depois?"
+            ],
+            [
+                "Quem torra tudo de uma vez, corre risco de acabar como?"
+            ],
+            [
+                "Você acha que saber dar nome ao que se sente ajuda a ficar menos perdido, igual quando o herói sabe quem é o vilão?"
+            ],
+            [
+                "Quem não entende o que sente pode acabar explodindo ou segurando tudo por dentro, como se fosse…"
+            ],
+            [
+                "Entender o próprio coração ajuda até a ter equilíbrio em coisas como quê?"
+            ],
+            [
+                "Me conta com sinceridade: se eu misturar resto de comida com plástico, isso ajuda ou atrapalha quem recicla depois?"
+            ],
+            [
+                "Papel, plástico, vidro e casca de fruta devem ficar todos juntos num saco só ou em lugares separados?"
+            ],
+            [
+                "Você acha que separar o lixo é coisa só de burguês safado que mora em casa grande ou todo mundo pode fazer?"
+            ],
+            [
+                "Você concorda que saber da HISTÓRIA POLÍTICA de Maricá ajuda a gente a entender o presente e sonhar o futuro, ou isso é papo furado, pombas?"
+            ],
+            [
+                "A luta política de Maricá foi feita só pelos poderosos ou também pelo povo simples que não aceitou viver calado?"
+            ],
+            [
+                "Quem não conhece a própria história costuma ficar mais…"
+            ],
+            [
+                "O dinheiro que entra sem descontar nenhum gasto é chamado de quê?"
+            ],
+            [
+                "O que mostra se o negócio realmente tá sobrando dinheiro?"
+            ],
+            [
+                "Quem confunde lucro com receita pode acabar achando que tá…"
+            ],
+            [
+                "Quando a raiva vem forte, é melhor respirar fundo ou soltar um Kamehameha sem pensar?"
+            ],
+            [
+                "Cabeça quente costuma trazer mais o quê?"
+            ],
+            [
+                "Fingir que não sente nada resolve ou só engana?"
+            ],
+            [
+                "Quando eu esqueço o chuveiro ligado, além de gastar dinheiro, tô desperdiçando o quê que é tão importante?"
+            ],
+            [
+                "Você acredita que desligar a luz quando sai do cômodo é bobagem ou faz diferença pro planeta?"
+            ],
+            [
+                "Gastar energia sem necessidade é ruim só pro nosso bolso ou também faz mal pro planeta?"
+            ],
+            [
+                "Me fala uma coisa: CULTURA POPULAR é só festa ou também é jeito do povo dizer “tamo aqui”, com orgulho?"
+            ],
+            [
+                "Você acha que música, comida boa e maracatu fazem parte da cultura que conta quem a gente é?"
+            ],
+            [
+                "Quem vive a cultura popular sente mais…"
+            ],
+            [
+                "Quando alguém vê uma chance e age antes de todo mundo, tá mostrando o quê?"
+            ],
+            [
+                "Quem enxerga oportunidade costuma olhar pro que está…"
+            ],
+            [
+                "Na feira, quem demora pra agir pode acabar…"
+            ],
+            [
+                "Escutar de verdade é ouvir sem fazer o quê?"
+            ],
+            [
+                "Ter empatia é tentar sentir o que o outro está…"
+            ],
+            [
+                "Você acredita que uma escuta ativa pode evitar muita briga antes dela começar?"
+            ],
+            [
+                "Levar sacola de casa pro mercado ajuda ou atrapalha a natureza?"
+            ],
+            [
+                "Catar lixo na rua, mesmo não sendo nosso, é coisa boa ou feia?"
+            ],
+            [
+                "Planeta limpo começa na lua ou no nosso quintal?"
+            ],
+            [
+                "Lugares como igrejas antigas, praias e pedras cheias de história servem só pra turista ver ou também ensinam quem mora aqui?"
+            ],
+            [
+                "Quem conhece os LOCAIS HISTÓRICOS se sente mais…"
+            ],
+            [
+                "Você acha que cada canto de Maricá tem história guardada ou é tudo só pedra e areia?"
+            ],
+            [
+                "Quem trata bem o freguês conquista algo muito importante, que se chama…"
+            ],
+            [
+                "Networking ajuda a criar o quê?"
+            ],
+            [
+                "Um bom atendimento faz o cliente querer…"
+            ],
+            [
+                "Errar faz parte do caminho para o quê?"
+            ],
+            [
+                "Quem morre de medo de errar fica parado ou se arrisca a aprender coisas novas?"
+            ],
+            [
+                "Quem nunca erra acaba não aprendendo a fazer o quê?"
+            ],
+            [
+                "Cortar árvore à toa pode dar problema no futuro ou não tem nada a ver?"
+            ],
+            [
+                "Além das plantas, quem mais vive nos cantinhos verdes da cidade?"
+            ],
+            [
+                "Natureza é coisa que se compra de novo se a gente destruir?"
+            ],
+            [
+                "Você acredita que SOLIDARIEDADE é só favor ou também é justiça entre o povo?"
+            ],
+            [
+                "Quando o vizinho ajuda vizinho, isso mostra que Maricá é…"
+            ],
+            [
+                "O futuro bom é aquele que chega pra todo mundo ou só pros mesmos de sempre?"
+            ],
+            [
+                "O aluguel da barraca é custo…"
+            ],
+            [
+                "A farinha dos bolinhos é um custo…"
+            ],
+            [
+                "Saber separar custos ajuda a fazer um preço mais…"
+            ],
+            [
+                "Você diria que ter confiança em si faz a vida ficar mais leve ou tão pesada quanto armadura de cavaleiro?"
+            ],
+            [
+                "Autoestima é gostar de si sem precisar provar nada pra quem?"
+            ],
+            [
+                "Quem confia em si mesmo anda firme, mesmo quando o céu tá cheio de quê?"
+            ],
+            [
+                "Comprar fruta da região ajuda ou atrapalha o planeta?"
+            ],
+            [
+                "Produto orgânico costuma ter menos o quê?"
+            ],
+            [
+                "Além de fazer bem pra saúde, consumir local ajuda quem?"
+            ],
+            [
+                "Você acha que crescer de verdade é só prédio novo ou também é povo com dinheiro no bolso e escola boa?"
+            ],
+            [
+                "Maricá está mudando, mas pra ser cidade boa, tem que cuidar primeiro de quem?"
+            ],
+            [
+                "O crescimento justo acontece quando a cidade cresce pra…"
             ]
         ],
         [
             [
-                "Teste A"
+                "Sim "
             ],
             [
-                "Teste A2"
+                "Apostar"
+            ],
+            [
+                "Também pro depois"
+            ],
+            [
+                "Na pindaíba"
+            ],
+            [
+                "Sim"
+            ],
+            [
+                "Bomba"
+            ],
+            [
+                "Treino"
+            ],
+            [
+                "Ajuda"
+            ],
+            [
+                "Separados"
+            ],
+            [
+                "Todo mundo"
+            ],
+            [
+                "Concordo"
+            ],
+            [
+                "Pelo povo"
+            ],
+            [
+                "Perdido"
+            ],
+            [
+                "Lucro"
+            ],
+            [
+                "Receita"
+            ],
+            [
+                "Rico"
+            ],
+            [
+                "Respirar"
+            ],
+            [
+                "Problema"
+            ],
+            [
+                "Engana"
+            ],
+            [
+                "Sabão"
+            ],
+            [
+                "Bobagem"
+            ],
+            [
+                "Só pro bolso"
+            ],
+            [
+                "Tamo aqui"
+            ],
+            [
+                "Sim"
+            ],
+            [
+                "Orgulho"
+            ],
+            [
+                "Iniciativa"
+            ],
+            [
+                "Faltando"
+            ],
+            [
+                "Ganhando prêmio"
+            ],
+            [
+                "Interromper"
+            ],
+            [
+                "Sentindo"
+            ],
+            [
+                "Sim"
+            ],
+            [
+                "Ajuda"
+            ],
+            [
+                "Feia"
+            ],
+            [
+                "Lua"
+            ],
+            [
+                "Também ensinam"
+            ],
+            [
+                "Parte de algo maior"
+            ],
+            [
+                "História"
+            ],
+            [
+                "Confiança"
+            ],
+            [
+                "Parcerias"
+            ],
+            [
+                "Fugir"
+            ],
+            [
+                "Aprendizado"
+            ],
+            [
+                "Parado"
+            ],
+            [
+                "Melhorar"
+            ],
+            [
+                "Dá problema"
+            ],
+            [
+                "Animais"
+            ],
+            [
+                "Sim"
+            ],
+            [
+                "Justiça"
+            ],
+            [
+                "Comunitária"
+            ],
+            [
+                "Todo mundo"
+            ],
+            [
+                "Fixo"
+            ],
+            [
+                "Fixo"
+            ],
+            [
+                "Justo"
+            ],
+            [
+                "Leve"
+            ],
+            [
+                "Ninguém"
+            ],
+            [
+                "Nuvens"
+            ],
+            [
+                "Atrapalha"
+            ],
+            [
+                "Cor"
+            ],
+            [
+                "Internet"
+            ],
+            [
+                "Povo e escola"
+            ],
+            [
+                "Do povo"
+            ],
+            [
+                "Todos"
             ]
         ],
         [
             [
-                "Resposta B"
+                "Não"
             ],
             [
-                "Resposta B2"
+                "Planejar"
+            ],
+            [
+                "Só pro agora"
+            ],
+            [
+                "No lucro certo"
+            ],
+            [
+                "Não"
+            ],
+            [
+                "Nuvem"
+            ],
+            [
+                "Grito"
+            ],
+            [
+                "Atrapalha"
+            ],
+            [
+                "Juntos"
+            ],
+            [
+                "Só casa grande"
+            ],
+            [
+                "Papo furado"
+            ],
+            [
+                "Só poderosos"
+            ],
+            [
+                "Livre"
+            ],
+            [
+                "Receita"
+            ],
+            [
+                "Lucro"
+            ],
+            [
+                "Falido"
+            ],
+            [
+                "Atacar"
+            ],
+            [
+                "Vitória"
+            ],
+            [
+                "Resolve"
+            ],
+            [
+                "Água"
+            ],
+            [
+                "Faz diferença"
+            ],
+            [
+                "Também pro planeta"
+            ],
+            [
+                "Só festa"
+            ],
+            [
+                "Não"
+            ],
+            [
+                "Vergonha"
+            ],
+            [
+                "Descanso"
+            ],
+            [
+                "Sobrando"
+            ],
+            [
+                "Perdendo a venda"
+            ],
+            [
+                "Cortar assunto"
+            ],
+            [
+                "Comendo"
+            ],
+            [
+                "Não"
+            ],
+            [
+                "Atrapalha"
+            ],
+            [
+                "Boa"
+            ],
+            [
+                "Quintal"
+            ],
+            [
+                "Só turista"
+            ],
+            [
+                "Sozinho"
+            ],
+            [
+                "Só pedra"
+            ],
+            [
+                "Dívida"
+            ],
+            [
+                "Despesas"
+            ],
+            [
+                "Voltar"
+            ],
+            [
+                "Medo"
+            ],
+            [
+                "Arrisca"
+            ],
+            [
+                "Evitar problemas"
+            ],
+            [
+                "Nada a ver"
+            ],
+            [
+                "Computadores"
+            ],
+            [
+                "Não"
+            ],
+            [
+                "Só favor"
+            ],
+            [
+                "Egoísta"
+            ],
+            [
+                "Só alguns"
+            ],
+            [
+                "Variável"
+            ],
+            [
+                "Variável"
+            ],
+            [
+                "Aleatório"
+            ],
+            [
+                "Pesada"
+            ],
+            [
+                "Todo mundo"
+            ],
+            [
+                "Dúvidas"
+            ],
+            [
+                "Ajuda"
+            ],
+            [
+                "Veneno"
+            ],
+            [
+                "Produtor"
+            ],
+            [
+                "Só prédio"
+            ],
+            [
+                "Dos ricos"
+            ],
+            [
+                "Poucos"
             ]
         ],
         [
@@ -36,14 +567,368 @@
             ],
             [
                 "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
+            ],
+            [
+                "B"
+            ],
+            [
+                "A"
             ]
         ],
         [
             [
-                "Resposta era A"
+                "Tá tudo bem! Bora pro Galpão, que lá eu te conto meus segredos pra não deixar faltar nada no caixa… nem na vida!"
             ],
             [
-                "Resposta era B"
+                "Planejar é olhar pro presente e também pro futuro, pra não ficar contando moeda quando o aperto chegar."
+            ],
+            [
+                "Planejar é ter certeza que amanhã não vai faltar nada, porque o futuro chega rápido e sem avisar."
+            ],
+            [
+                "Quem torra tudo de uma vez acaba na pindaíba, sem dinheiro nem pra farinha do próximo bolinho."
+            ],
+            [
+                "Quando a gente entende o que sente, não se confunde sobre quem é o inimigo nem dentro, nem fora."
+            ],
+            [
+                "Segurar demais ou explodir é como guardar chakra demais. Melhor é deixar fluir, sem exagero."
+            ],
+            [
+                "Conhecer o que se sente ajuda até no treino, pra não errar o próximo golpe ou decisão."
+            ],
+            [
+                "Misturar tudo é igual meus gatos derrubando a lixeira. Ninguém consegue arrumar a bagunça depois!"
+            ],
+            [
+                "Cada coisa tem seu lugar, igual meus potinhos de ração pros gatos. Separar o lixo é carinho pelo planeta!"
+            ],
+            [
+                "Todo mundo pode separar o lixo, até quem mora em kitnet cheia de gato. É só questão de hábito!"
+            ],
+            [
+                "Quem conhece a história sabe de onde veio e pode construir um futuro sem deixar ninguém pra trás."
+            ],
+            [
+                "Foi o povo que bateu o pé e fez barulho pra cidade mudar. Essa é a nossa força!"
+            ],
+            [
+                "Sem saber a história, a gente fica perdido, casa do baralho. História é bússola pra vida."
+            ],
+            [
+                "Receita é tudo que entra, mas só vira lucro depois que a gente desconta os gastos."
+            ],
+            [
+                "Lucro é o que prova se o negócio tá dando certo ou se tá só no faz de conta."
+            ],
+            [
+                "Quem mistura lucro com receita pode achar que tá rico, mas às vezes tá só empatando as contas."
+            ],
+            [
+                "Até o Goku respira fundo antes do golpe. Quem respira governa o momento."
+            ],
+            [
+                "Cabeça quente só cria confusão, igual vilão que grita antes de atacar. Melhor manter a calma."
+            ],
+            [
+                "Fingir é como usar genjutsu em si mesmo. Melhor é reconhecer a raiva e escolher o que fazer com ela."
+            ],
+            [
+                "Água vale mais que qualquer joia. Cada gota conta pra natureza e pros peixinhos também, hihihi!"
+            ],
+            [
+                "Uma luz apagada parece pouco, mas junta muita economia no final. E o planeta agradece com dias mais fresquinhos!"
+            ],
+            [
+                "Energia gasta à toa esquenta o mundo e pesa no bolso. Melhor economizar, pra sobrar pro sorvete e pros gatos!"
+            ],
+            [
+                "Cultura é voz do povo, é resistência, é alegria misturada com luta."
+            ],
+            [
+                "Cultura popular é nosso retrato, do jeito que fala, dança, canta e cozinha. É identidade, pombas!"
+            ],
+            [
+                "Cultura popular é orgulho, não vergonha. É dizer que a gente existe e ninguém apaga."
+            ],
+            [
+                "Iniciativa é correr atrás do que ninguém viu ainda, sem ficar parado esperando sorte."
+            ],
+            [
+                "Enxergar oportunidade é ver o que está faltando e correr pra oferecer antes dos outros."
+            ],
+            [
+                "Quem demora pra agir, perde a chance e vê outro vendedor ganhar a venda."
+            ],
+            [
+                "Ouvir sem interromper é sinal de respeito. Às vezes o silêncio vale mais do que mil conselhos."
+            ],
+            [
+                "Empatia é sentir o que o outro sente, não o que ele comeu. Isso cria laço."
+            ],
+            [
+                "Quem escuta corretamente, percebe o próximo golpe antes dele chegar."
+            ],
+            [
+                "Sacola de casa é vitória! Evita plástico no mar e sobra espaço pros peixinhos nadarem felizes."
+            ],
+            [
+                "Cuidar do planeta começa na calçada. Juntar o lixo é um ato de amor, igual dar ração pros meus gatos de rua."
+            ],
+            [
+                "O planeta limpo começa no quintal. Até meus gatos concordam, mesmo bagunçando tudo!"
+            ],
+            [
+                "Cada lugar conta um pedaço de quem somos. Maricá fala através das suas pedras, lagoas e mares."
+            ],
+            [
+                "Quem conhece a cidade se sente parte de uma história grande, não só da própria vidinha."
+            ],
+            [
+                "Até pedra fala se a gente parar pra ouvir. Nossa cidade respira memória até na casa do baralho!"
+            ],
+            [
+                "Confiança faz o freguês voltar e falar bem do negócio, e isso vale mais que qualquer propaganda."
+            ],
+            [
+                "Networking cria parceria, gente que se ajuda nos dias bons e nos dias ruins também."
+            ],
+            [
+                "Atendimento bom faz o cliente querer voltar sempre, e ainda trazer mais gente junto."
+            ],
+            [
+                "Errar ensina. Quem nunca erra, nunca descobre como acertar melhor da próxima vez."
+            ],
+            [
+                "Ficar parado é deixar o vilão vencer sem luta. Melhor tentar, mesmo arriscando errar."
+            ],
+            [
+                "Quem nunca erra não aprende a melhorar. O tropeço de hoje prepara o passo firme de amanhã."
+            ],
+            [
+                "Tirar árvore sem necessidade bagunça tudo: sombra, bichos, água… É efeito dominó, e ninguém quer isso!"
+            ],
+            [
+                "Bichinhos, aves, insetos… É vida escondida em todo canto verde. E computador não faz fotossíntese, né?"
+            ],
+            [
+                "Natureza não vende em loja. Estragou, perdeu. Melhor cuidar, igual cuido dos meus gatinhos!"
+            ],
+            [
+                "Solidariedade é justiça, é o povo dizendo “ninguém solta a mão de ninguém”."
+            ],
+            [
+                "Maricá é comunitária até o talo. Aqui ninguém fica pra trás se depender da gente."
+            ],
+            [
+                "Se não vier pra todo mundo, nem é futuro, é só injustiça. Aqui o sonho é coletivo, pombas!"
+            ],
+            [
+                "Aluguel é custo fixo porque a gente paga todo mês, vendendo muito ou pouco."
+            ],
+            [
+                "Farinha é variável, porque quanto mais vende, mais a gente gasta pra produzir."
+            ],
+            [
+                "Quem entende os custos faz preço justo e não fica no prejuízo."
+            ],
+            [
+                "Confiança é armadura leve. Quem carrega peso demais não alcança o próximo episódio."
+            ],
+            [
+                "Autoestima é não viver buscando aplauso, só estar em paz consigo mesmo."
+            ],
+            [
+                "A confiança faz a gente seguir, mesmo quando o caminho fica nublado."
+            ],
+            [
+                "Fruta daqui gasta menos caminhão pra chegar e ainda vem fresquinha. Meus gatos até tentam roubar banana!"
+            ],
+            [
+                "Orgânico tem menos veneno e faz bem pra gente e pro solo também. E ninguém quer veneno no prato, né?"
+            ],
+            [
+                "Comprar local ajuda o produtor da cidade. E faz o dinheiro girar perto da gente, igual meus gatos correndo atrás do próprio rabo."
+            ],
+            [
+                "Crescer é dar dignidade ao povo. Prédio sozinho não enche barriga nem educa criança."
+            ],
+            [
+                "Cidade boa é a que cuida do povo. Sem isso, é só fachada bonita e nada por trás."
+            ],
+            [
+                "Crescer pra todos e todas é o que faz a cidade ser forte. Senão vira terra só pra quem já tem coisa pra casseta."
             ]
         ]
     ]

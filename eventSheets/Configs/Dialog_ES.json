@@ -885,6 +885,26 @@
 				},
 				{
 					"eventType": "variable",
+					"name": "rand1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 259238747560897
+				},
+				{
+					"eventType": "variable",
+					"name": "rand2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 337225753867741
+				},
+				{
+					"eventType": "variable",
 					"name": "currentText",
 					"type": "string",
 					"initialValue": "",
@@ -892,6 +912,261 @@
 					"isStatic": true,
 					"isConstant": false,
 					"sid": 582690131118152
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 595864632189231
+						}
+					],
+					"actions": [],
+					"sid": 608994286616584,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 895524618237821,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"FTUE_Test\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 496676070940282,
+									"parameters": {
+										"variable": "rand1",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 141883363801315,
+									"parameters": {
+										"variable": "rand2",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 204055937962295
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 517777089086613
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 325693362160264,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Espraiado\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 375658344239459,
+									"parameters": {
+										"variable": "rand1",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 652784562164246,
+									"parameters": {
+										"variable": "rand2",
+										"value": "12"
+									}
+								}
+							],
+							"sid": 245650926686591
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 253455850585426
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 162934538385093,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Aeroporto\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 472862999567430,
+									"parameters": {
+										"variable": "rand1",
+										"value": "13"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 609333996647645,
+									"parameters": {
+										"variable": "rand2",
+										"value": "24"
+									}
+								}
+							],
+							"sid": 138279461368968
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 846211953069531
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 417462315554826,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Fazenda\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 339838320488647,
+									"parameters": {
+										"variable": "rand1",
+										"value": "25"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 415209163266503,
+									"parameters": {
+										"variable": "rand2",
+										"value": "37"
+									}
+								}
+							],
+							"sid": 352732971731313
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 262760714778420
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 202497202468746,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Itaipuacu\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 371562043547176,
+									"parameters": {
+										"variable": "rand1",
+										"value": "38"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 204571974359249,
+									"parameters": {
+										"variable": "rand2",
+										"value": "48"
+									}
+								}
+							],
+							"sid": 213354417205198
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 144931151200884
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 636249813642421,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Restinga\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 982467604497463,
+									"parameters": {
+										"variable": "rand1",
+										"value": "49"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 588317257643780,
+									"parameters": {
+										"variable": "rand2",
+										"value": "60"
+									}
+								}
+							],
+							"sid": 174886005041762
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1223,7 +1498,7 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 895524618237821,
+													"sid": 449859593063819,
 													"parameters": {
 														"first-value": "LayoutName",
 														"comparison": 0,
@@ -1250,21 +1525,21 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 191617865186853
+													"sid": 322560729554194
 												}
 											],
 											"actions": [
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 841261788952963,
+													"sid": 871123239278996,
 													"parameters": {
 														"variable": "currentQuestionIndex",
-														"value": "floor(random(activeDialogArray.Height))"
+														"value": "floor(random(rand1,rand2+1))"
 													}
 												}
 											],
-											"sid": 354399165655691
+											"sid": 646079145446608
 										}
 									]
 								},
@@ -1272,6 +1547,15 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 437713924650009,
+											"parameters": {
+												"variable": "currentQuestionIndex",
+												"value": "floor(random(activeDialogArray.Height))"
+											}
+										},
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",

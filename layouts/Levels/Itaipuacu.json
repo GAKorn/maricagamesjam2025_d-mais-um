@@ -509,7 +509,7 @@
 							"world": {
 								"x": 448,
 								"y": 160,
-								"width": 112,
+								"width": 96,
 								"height": 16,
 								"originX": 0,
 								"originY": 0,
@@ -1447,6 +1447,366 @@
 								"angle": 0,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1092,
+							"sid": 669507002966100,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 669507002966100,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1760,
+								"y": 288,
+								"width": 48,
+								"height": 32,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1093,
+							"sid": 470287867473223,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 470287867473223,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1936,
+								"y": 288,
+								"width": 48,
+								"height": 32,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1094,
+							"sid": 893485011741614,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 893485011741614,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2336,
+								"y": 288,
+								"width": 48,
+								"height": 32,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1095,
+							"sid": 685871175644309,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 685871175644309,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2544,
+								"y": 288,
+								"width": 48,
+								"height": 32,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1096,
+							"sid": 425572014545805,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 425572014545805,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2832,
+								"y": 288,
+								"width": 48,
+								"height": 32,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1097,
+							"sid": 708751928132881,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 708751928132881,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1808,
+								"y": 272,
+								"width": 48,
+								"height": 32,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1098,
+							"sid": 478214780961727,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 478214780961727,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1984,
+								"y": 272,
+								"width": 48,
+								"height": 32,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Ruler",
+							"properties": {
+								"initially-visible": false,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1099,
+							"sid": 418187916256499,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 418187916256499,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2592,
+								"y": 288,
+								"width": 240,
+								"height": 16,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 912636178276982,
@@ -1752,7 +2112,53 @@
 					"name": "Decor",
 					"overriden": 0,
 					"subLayers": [],
-					"instances": [],
+					"instances": [
+						{
+							"type": "Itaipuacu_Level",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1091,
+							"sid": 388282649324601,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 388282649324601,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 0,
+								"y": 0,
+								"width": 3328,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
 					"sid": 402934491667106,
 					"effectTypes": [],
 					"isInitiallyVisible": true,

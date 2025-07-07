@@ -405,7 +405,8 @@
 						"items": [
 							"endScreenBG",
 							"objFade",
-							"objFade2"
+							"objFade2",
+							"objFade3"
 						],
 						"subfolders": [
 							{
@@ -462,10 +463,38 @@
 				"items": [
 					"Rodoviaria_Level",
 					"Espraiado_Level",
-					"Espraiado_BG1"
+					"Espraiado_BG1",
+					"Itaipuacu_Level"
 				],
 				"subfolders": [],
 				"name": "Art_Level"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [],
+						"subfolders": [
+							{
+								"items": [],
+								"subfolders": [],
+								"name": "Bronze"
+							},
+							{
+								"items": [],
+								"subfolders": [],
+								"name": "Prata"
+							},
+							{
+								"items": [],
+								"subfolders": [],
+								"name": "Prime"
+							}
+						],
+						"name": "Sponsors"
+					}
+				],
+				"name": "_Intro"
 			}
 		]
 	},
@@ -816,7 +845,9 @@
 		}
 	},
 	"timelines": {
-		"items": [],
+		"items": [
+			"Intro_TL"
+		],
 		"subfolders": [
 			{
 				"items": [],
