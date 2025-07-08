@@ -23,6 +23,10 @@
 		"Espraiado_Level",
 		"Espraiado_BG1",
 		"Itaipuacu_Level",
-		"Rodoviaria_Level"
+		"Rodoviaria_Level",
+		"obAirMovableHazard",
+		"objGroundMovableHazard",
+		"Restinga_Level",
+		"Fazenda_Level"
 	]
 }

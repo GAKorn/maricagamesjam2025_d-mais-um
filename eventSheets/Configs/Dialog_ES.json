@@ -917,9 +917,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-start-of-layout",
+							"id": "every-tick",
 							"objectClass": "System",
-							"sid": 595864632189231
+							"sid": 166451374684193
 						}
 					],
 					"actions": [],
@@ -1490,7 +1490,7 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [],
-									"sid": 933553381579599,
+									"sid": 728015394584247,
 									"children": [
 										{
 											"eventType": "block",
@@ -1498,7 +1498,7 @@
 												{
 													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 449859593063819,
+													"sid": 457085912423618,
 													"parameters": {
 														"first-value": "LayoutName",
 														"comparison": 0,
@@ -1510,14 +1510,14 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 827198055037464,
+													"sid": 984620351031914,
 													"parameters": {
 														"variable": "currentQuestionIndex",
 														"value": "0"
 													}
 												}
 											],
-											"sid": 614559144601350
+											"sid": 317123803984397
 										},
 										{
 											"eventType": "block",
@@ -1525,21 +1525,21 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 322560729554194
+													"sid": 651662271601059
 												}
 											],
 											"actions": [
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 871123239278996,
+													"sid": 621547133882973,
 													"parameters": {
 														"variable": "currentQuestionIndex",
 														"value": "floor(random(rand1,rand2+1))"
 													}
 												}
 											],
-											"sid": 646079145446608
+											"sid": 890120738563125
 										}
 									]
 								},
@@ -1548,9 +1548,19 @@
 									"conditions": [],
 									"actions": [
 										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 269906346068927,
+											"parameters": {
+												"seconds": "0.001",
+												"use-timescale": true
+											}
+										},
+										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
 											"sid": 437713924650009,
+											"disabled": true,
 											"parameters": {
 												"variable": "currentQuestionIndex",
 												"value": "floor(random(activeDialogArray.Height))"
@@ -1994,12 +2004,6 @@
 					],
 					"sid": 742837788154204,
 					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 714250981821676
 				},
 				{
 					"eventType": "block",

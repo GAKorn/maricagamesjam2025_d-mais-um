@@ -363,7 +363,7 @@
 					"type": "sprPlayerAnimations",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Mumbuquinha_Idle",
+						"initial-animation": "Mumbuquinha_Idle1",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false

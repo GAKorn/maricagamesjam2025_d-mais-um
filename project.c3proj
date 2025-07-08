@@ -29,6 +29,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
@@ -269,7 +276,8 @@
 					"TimelineController",
 					"FileSystem",
 					"JSON",
-					"gameLayoutAreaEnd"
+					"gameLayoutAreaEnd",
+					"Audio"
 				],
 				"subfolders": [],
 				"name": "Configuration"
@@ -464,7 +472,9 @@
 					"Rodoviaria_Level",
 					"Espraiado_Level",
 					"Espraiado_BG1",
-					"Itaipuacu_Level"
+					"Itaipuacu_Level",
+					"Restinga_Level",
+					"Fazenda_Level"
 				],
 				"subfolders": [],
 				"name": "Art_Level"
@@ -473,25 +483,50 @@
 				"items": [],
 				"subfolders": [
 					{
-						"items": [],
+						"items": [
+							"logodmaisumcoricone2x"
+						],
 						"subfolders": [
 							{
 								"items": [],
-								"subfolders": [],
-								"name": "Bronze"
+								"subfolders": [
+									{
+										"items": [
+											"bmtca"
+										],
+										"subfolders": [],
+										"name": "Bronze"
+									},
+									{
+										"items": [
+											"neobiz"
+										],
+										"subfolders": [],
+										"name": "Prata"
+									},
+									{
+										"items": [
+											"adaptideas",
+											"algoritec",
+											"leste",
+											"tcre"
+										],
+										"subfolders": [],
+										"name": "Prime"
+									}
+								],
+								"name": "Sponsors"
 							},
 							{
-								"items": [],
+								"items": [
+									"LOGOCODEMARVERSÃOPRINCIPAL",
+									"prefeitura_marica_horizontal_vermelho_slogan"
+								],
 								"subfolders": [],
-								"name": "Prata"
-							},
-							{
-								"items": [],
-								"subfolders": [],
-								"name": "Prime"
+								"name": "Pref"
 							}
 						],
-						"name": "Sponsors"
+						"name": "Logos"
 					}
 				],
 				"name": "_Intro"
@@ -534,7 +569,8 @@
 			"btnsQuiz",
 			"txtEndScreen",
 			"Stars_Spr",
-			"mapButtons"
+			"mapButtons",
+			"Logos"
 		],
 		"subfolders": []
 	},
@@ -622,7 +658,16 @@
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "mumbuTheme.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 487708853856683,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {
@@ -845,9 +890,7 @@
 		}
 	},
 	"timelines": {
-		"items": [
-			"Intro_TL"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [],

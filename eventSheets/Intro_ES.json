@@ -19,6 +19,7 @@
 					"id": "set-text",
 					"objectClass": "btnStartGame_label",
 					"sid": 128351583205684,
+					"disabled": true,
 					"parameters": {
 						"text": "\"Start Game\""
 					}
@@ -27,13 +28,170 @@
 					"id": "request-fullscreen",
 					"objectClass": "Browser",
 					"sid": 711171779197894,
+					"disabled": true,
 					"parameters": {
 						"mode": "stretch-scale-inner",
 						"navigation-ui": "auto"
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 922183201785398,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "sponsorVanish",
+					"sid": 839004975915362
 				}
 			],
 			"sid": 937966680171728
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Logos",
+					"sid": 159312277072541,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"sponsorVanish\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 584770604357851,
+					"disabled": true,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "prefShow",
+					"sid": 615488056065410
+				}
+			],
+			"sid": 176313411813950
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Logos",
+					"sid": 466951221333992,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"prefShow\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 930569656190813,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 124731127886901,
+					"disabled": true,
+					"parameters": {
+						"audio-file": "mumbuTheme",
+						"loop": "not-looping",
+						"volume": "-20",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 578697095928758,
+					"parameters": {
+						"seconds": "2.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "prefVanish",
+					"sid": 197584742566263
+				}
+			],
+			"sid": 520471906768405
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Logos",
+					"sid": 795180582970362,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"prefVanish\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 668622475152006,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "studioShow",
+					"sid": 677319517896453
+				}
+			],
+			"sid": 439440749967402
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Logos",
+					"sid": 106307222135701,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"studioShow\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 457519491888250,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"callFunction": "studioVanish",
+					"sid": 409264802449716
+				}
+			],
+			"sid": 818294231188598
 		},
 		{
 			"eventType": "block",
@@ -104,6 +262,295 @@
 						}
 					],
 					"sid": 914309872558241
+				}
+			]
+		},
+		{
+			"functionName": "sponsorVanish",
+			"functionDescription": "",
+			"functionCategory": "Intro",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 304670312765087,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 866259646661375,
+							"parameters": {
+								"object": "Logos"
+							}
+						},
+						{
+							"id": "compare-opacity",
+							"objectClass": "Logos",
+							"sid": 800156699535535,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Logos",
+							"sid": 236847661175010,
+							"parameters": {
+								"tags": "\"sponsor\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logos",
+							"sid": 730589713662762,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"sponsorVanish\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "2",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 901281465770259
+				}
+			]
+		},
+		{
+			"functionName": "prefShow",
+			"functionDescription": "",
+			"functionCategory": "Intro",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 834283679646524,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 125903850187431,
+							"parameters": {
+								"object": "Logos"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Logos",
+							"sid": 510246121341146,
+							"parameters": {
+								"tags": "\"pref\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logos",
+							"sid": 693469763685274,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"prefShow\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 224253313031353
+				}
+			]
+		},
+		{
+			"functionName": "prefVanish",
+			"functionDescription": "",
+			"functionCategory": "Intro",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 688766616859497,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 270070908299705,
+							"parameters": {
+								"object": "Logos"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Logos",
+							"sid": 126573674680221,
+							"parameters": {
+								"tags": "\"pref\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logos",
+							"sid": 550401010691798,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"prefVanish\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "2",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 626339216912543
+				}
+			]
+		},
+		{
+			"functionName": "studioShow",
+			"functionDescription": "",
+			"functionCategory": "Intro",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 274622976239347,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 682460710342248,
+							"parameters": {
+								"object": "Logos"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Logos",
+							"sid": 987981607958324,
+							"parameters": {
+								"tags": "\"studio\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logos",
+							"sid": 348234423386347,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"studioShow\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 764253062258511
+				}
+			]
+		},
+		{
+			"functionName": "studioVanish",
+			"functionDescription": "",
+			"functionCategory": "Intro",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 572147782612578,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 641326103905981,
+							"parameters": {
+								"object": "Logos"
+							}
+						},
+						{
+							"id": "has-tags",
+							"objectClass": "Logos",
+							"sid": 216262885295323,
+							"parameters": {
+								"tags": "\"studio\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Logos",
+							"sid": 998133601369712,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"studioVanish\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "2",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 523490595742004
 				}
 			]
 		}

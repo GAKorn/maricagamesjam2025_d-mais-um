@@ -1,0 +1,56 @@
+{
+	"name": "logodmaisumcoricone2x",
+	"plugin-id": "Sprite",
+	"sid": 762274830124784,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1684,
+						"height": 1191,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9773238,
+						"collisionPoly": {
+							"points": [
+								0.18824228028503562,
+								0.35852225020990763,
+								0.8883610451306413,
+								0.399664147774979,
+								0.8711401425178147,
+								0.6062132661628883,
+								0.1846793349168646,
+								0.6397984886649875,
+								0.1021377672209026,
+								0.5575146935348446,
+								0.10985748218527316,
+								0.42065491183879095
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 870342466774899,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

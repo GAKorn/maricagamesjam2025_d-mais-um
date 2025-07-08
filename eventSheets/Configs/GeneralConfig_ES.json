@@ -2621,6 +2621,80 @@
 				}
 			],
 			"sid": 935367166481426
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Birdies",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 937652997820143,
+							"parameters": {
+								"object": "obAirMovableHazard"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 892408917134070,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-values",
+									"objectClass": "System",
+									"sid": 994246551714594,
+									"parameters": {
+										"value": "obAirMovableHazard.Sine.CyclePosition",
+										"lower-bound": "0.25",
+										"upper-bound": "0.75"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "obAirMovableHazard",
+									"sid": 609986225087123,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 589276867049714
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 988692331856070
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "obAirMovableHazard",
+									"sid": 872755593740350,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 698810814958093
+						}
+					]
+				}
+			],
+			"sid": 993379492298717
 		}
 	],
 	"sid": 139471198204685

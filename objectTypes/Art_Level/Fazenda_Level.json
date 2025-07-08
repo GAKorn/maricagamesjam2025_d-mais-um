@@ -1,0 +1,58 @@
+{
+	"name": "Fazenda_Level",
+	"plugin-id": "Sprite",
+	"sid": 308766546074457,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 3328,
+						"height": 288,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3757146,
+						"collisionPoly": {
+							"points": [
+								0.6060697115384616,
+								0.4201388888888889,
+								0.8599759615384616,
+								0.6111111111111112,
+								1,
+								0.8888888888888888,
+								1,
+								1,
+								0,
+								1,
+								0,
+								0.8888888888888888,
+								0.2653245192307692,
+								0.4340277777777778
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 311122070183474,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
