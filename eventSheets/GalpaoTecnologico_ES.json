@@ -71,6 +71,51 @@
 					"eventType": "block",
 					"conditions": [],
 					"actions": [],
+					"sid": 816100013018318,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 595099316050580,
+									"parameters": {
+										"variable": "mainGameEnd"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 762345846248088
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 279848039305847
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 472537587222413,
+									"parameters": {
+										"variable": "nextLevelSet",
+										"value": "\"LevelSelect\""
+									}
+								}
+							],
+							"sid": 442581189142890
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
 					"sid": 678159306871194,
 					"children": [
 						{

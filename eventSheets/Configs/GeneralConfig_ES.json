@@ -244,6 +244,16 @@
 			"sid": 130637142853478
 		},
 		{
+			"eventType": "variable",
+			"name": "mainGameEnd",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 652219562289096
+		},
+		{
 			"eventType": "comment",
 			"text": "This event sheet is to be included in every layout event sheet."
 		},
@@ -894,6 +904,32 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "Coin_SFX_Volume",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 330458349090113
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 793716396940118,
+							"parameters": {
+								"variable": "Coin_SFX_Volume",
+								"value": "SFX_Sound-20"
+							}
+						}
+					],
+					"sid": 561067582334739
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -947,7 +983,7 @@
 							"conditions": [
 								{
 									"id": "on-collision-with-another-object",
-									"objectClass": "objPlayer",
+									"objectClass": "sprPlayerAnimations",
 									"sid": 423649057068911,
 									"parameters": {
 										"object": "objCoins"
@@ -959,6 +995,18 @@
 									"id": "destroy",
 									"objectClass": "objCoins",
 									"sid": 650432826812333
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 553823695909446,
+									"parameters": {
+										"audio-file": "Coin 3",
+										"loop": "not-looping",
+										"volume": "Coin_SFX_Volume",
+										"stereo-pan": "0",
+										"tag-optional": "\"coinSound\""
+									}
 								},
 								{
 									"id": "add-to-eventvar",
@@ -985,7 +1033,7 @@
 							"conditions": [
 								{
 									"id": "on-collision-with-another-object",
-									"objectClass": "objPlayer",
+									"objectClass": "sprPlayerAnimations",
 									"sid": 514059124536441,
 									"parameters": {
 										"object": "objCoins_Loss"
@@ -1014,6 +1062,18 @@
 											"id": "destroy",
 											"objectClass": "objCoins_Loss",
 											"sid": 170087444092190
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 502474305000112,
+											"parameters": {
+												"audio-file": "Coin 3",
+												"loop": "not-looping",
+												"volume": "Coin_SFX_Volume",
+												"stereo-pan": "0",
+												"tag-optional": "\"coinSound\""
+											}
 										},
 										{
 											"id": "add-to-eventvar",
@@ -2625,10 +2685,134 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Birdies",
+			"title": "Birdies_and_Hazards",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 727824271885298
+						}
+					],
+					"actions": [],
+					"sid": 794357998859526,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 259985692336301,
+									"parameters": {
+										"object": "Hazards_OBJ"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Hazards_OBJ",
+									"sid": 882492747251241,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 947909257521320
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 465976968633820,
+									"parameters": {
+										"object": "obAirMovableHazard"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "obAirMovableHazard",
+									"sid": 365893901724082,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 624212884253328,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-name-exists",
+											"objectClass": "System",
+											"sid": 581710881579467,
+											"parameters": {
+												"layer": "\"Decor\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-layer",
+											"objectClass": "obAirMovableHazard",
+											"sid": 685797185272205,
+											"parameters": {
+												"layer": "\"Decor\""
+											}
+										}
+									],
+									"sid": 868558220227052
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-name-exists",
+											"objectClass": "System",
+											"sid": 752181251271823,
+											"parameters": {
+												"layer": "\"Decor1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-layer",
+											"objectClass": "obAirMovableHazard",
+											"sid": 181459441747181,
+											"parameters": {
+												"layer": "\"Decor1\""
+											}
+										}
+									],
+									"sid": 375255247975559
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "move-to-top",
+											"objectClass": "obAirMovableHazard",
+											"sid": 744145787505667
+										}
+									],
+									"sid": 423073762381338
+								}
+							]
+						}
+					]
+				},
 				{
 					"eventType": "block",
 					"conditions": [

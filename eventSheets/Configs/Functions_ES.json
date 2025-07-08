@@ -2128,13 +2128,13 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "objFade2",
-							"sid": 877814854805396,
+							"sid": 929804150453421,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"openGame\"",
 								"property": "offsetOpacity",
 								"end-value": "0",
-								"time": "0.325",
+								"time": "0.35",
 								"ease": "noease",
 								"destroy-on-complete": "no",
 								"loop": "no",

@@ -655,7 +655,32 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "Coin 3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 121454971654028,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Slide.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 912375371971356,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Jump 3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 612804368914698,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

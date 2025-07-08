@@ -2,6 +2,28 @@
 	"name": "PlayerFSM_ES",
 	"events": [
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 540709720940960
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "sprPlayerAnimations",
+					"sid": 836464461696981,
+					"parameters": {
+						"animation": "PlayerCharacter&\"_\"&objPlayer.State",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 647585120123168
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "HUB State Machine",
@@ -9,6 +31,26 @@
 			"isActiveOnStart": false,
 			"children": [],
 			"sid": 536696322010488
+		},
+		{
+			"eventType": "variable",
+			"name": "SFX_Sound",
+			"type": "number",
+			"initialValue": "-18",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 106317833301922
+		},
+		{
+			"eventType": "variable",
+			"name": "Music_Sound",
+			"type": "number",
+			"initialValue": "-20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 924694420370642
 		},
 		{
 			"eventType": "group",
@@ -207,6 +249,85 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "on-landed",
+											"objectClass": "objPlayer",
+											"sid": 264155161634794,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [],
+									"sid": 730163919907225,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-moving",
+													"objectClass": "objPlayer",
+													"sid": 255748479596075,
+													"behaviorType": "Platform",
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objPlayer",
+													"sid": 824485653618862,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"IDLE\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 122691576952187,
+													"parameters": {
+														"variable": "canSlide",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 231157051618905
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 194966378049621
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "objPlayer",
+													"sid": 654893130283475,
+													"parameters": {
+														"instance-variable": "State",
+														"value": "\"MOVING\""
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 292197716303787,
+													"parameters": {
+														"variable": "canSlide",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 333559472866367
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "is-moving",
 											"objectClass": "objPlayer",
 											"sid": 783781865261576,
@@ -281,6 +402,7 @@
 									"id": "set-animation",
 									"objectClass": "sprPlayerAnimations",
 									"sid": 896385546697596,
+									"disabled": true,
 									"parameters": {
 										"animation": "\"Mumbuquinha_Idle1\"",
 										"from": "beginning"
@@ -352,6 +474,7 @@
 									"id": "set-animation",
 									"objectClass": "sprPlayerAnimations",
 									"sid": 394863717032279,
+									"disabled": true,
 									"parameters": {
 										"animation": "\"Vermelhinha_Running1\"",
 										"from": "beginning"
@@ -422,9 +545,10 @@
 								{
 									"id": "set-animation",
 									"objectClass": "sprPlayerAnimations",
-									"sid": 285267203572138,
+									"sid": 811122698925020,
+									"disabled": true,
 									"parameters": {
-										"animation": "\"Mumbuquinha_Idle1\"",
+										"animation": "\"Vermelinha_Jmp\"",
 										"from": "beginning"
 									}
 								}
@@ -448,6 +572,18 @@
 											"parameters": {
 												"animation": "\"Standard\"",
 												"from": "beginning"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 219490388305348,
+											"parameters": {
+												"audio-file": "Jump 3",
+												"loop": "not-looping",
+												"volume": "SFX_Sound",
+												"stereo-pan": "0",
+												"tag-optional": "\"jumpSound\""
 											}
 										}
 									],
@@ -493,9 +629,10 @@
 								{
 									"id": "set-animation",
 									"objectClass": "sprPlayerAnimations",
-									"sid": 508732333749049,
+									"sid": 869662055091577,
+									"disabled": true,
 									"parameters": {
-										"animation": "\"Mumbuquinha_Idle1\"",
+										"animation": "\"Vermelinha_Fll\"",
 										"from": "beginning"
 									}
 								}
@@ -565,6 +702,7 @@
 									"id": "set-animation",
 									"objectClass": "sprPlayerAnimations",
 									"sid": 103361506246839,
+									"disabled": true,
 									"parameters": {
 										"animation": "\"Mumbuquinha_Slide1\"",
 										"from": "beginning"
@@ -590,6 +728,18 @@
 											"parameters": {
 												"animation": "\"Sliding\"",
 												"from": "beginning"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 913487616717088,
+											"parameters": {
+												"audio-file": "Slide",
+												"loop": "not-looping",
+												"volume": "SFX_Sound",
+												"stereo-pan": "0",
+												"tag-optional": "\"slideSound\""
 											}
 										}
 									],
@@ -636,6 +786,7 @@
 									"id": "set-animation",
 									"objectClass": "sprPlayerAnimations",
 									"sid": 621951217738115,
+									"disabled": true,
 									"parameters": {
 										"animation": "\"Mumbuquinha_Idle1\"",
 										"from": "beginning"

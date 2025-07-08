@@ -121,6 +121,139 @@
 			],
 			"sid": 341482220227669,
 			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 222628977029673
+				}
+			],
+			"actions": [],
+			"sid": 105593808732861,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 142117569684015,
+							"parameters": {
+								"variable": "canAeroporto"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 859879232103129,
+							"parameters": {
+								"variable": "canEspraiado"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 835951248051854,
+							"parameters": {
+								"variable": "canGalpao"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 970756476161607,
+							"parameters": {
+								"variable": "canFazenda"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 690801173601664,
+							"parameters": {
+								"variable": "canItaipuacu"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 724158872734974,
+							"parameters": {
+								"variable": "canRestinga"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 162850390980001,
+							"parameters": {
+								"variable": "aeroporto_firstTime"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 824494696486780,
+							"parameters": {
+								"variable": "espraiado_firstTime"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 493557762488174,
+							"parameters": {
+								"variable": "itaipuacu_firstTime"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 239309002098072,
+							"parameters": {
+								"variable": "fazenda_firstTime"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 118392429655040,
+							"parameters": {
+								"variable": "restinga_firstTime"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 253185922014691,
+							"parameters": {
+								"variable": "rodoviaria_firstTime"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 291491410862290,
+							"parameters": {
+								"variable": "mainGameEnd",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 115046166350584
+				}
+			]
 		}
 	],
 	"sid": 897475397858505

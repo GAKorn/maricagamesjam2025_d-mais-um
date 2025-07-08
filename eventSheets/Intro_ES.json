@@ -67,11 +67,22 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 584770604357851,
-					"disabled": true,
+					"sid": 896769874172995,
 					"parameters": {
-						"seconds": "3",
+						"seconds": "0.35",
 						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 617246832794079,
+					"parameters": {
+						"audio-file": "mumbuTheme",
+						"loop": "not-looping",
+						"volume": "Music_Sound",
+						"stereo-pan": "0",
+						"tag-optional": "\"mumbuTheme\""
 					}
 				},
 				{
@@ -98,31 +109,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 930569656190813,
+					"sid": 319471473221015,
 					"parameters": {
-						"seconds": "0.5",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 124731127886901,
-					"disabled": true,
-					"parameters": {
-						"audio-file": "mumbuTheme",
-						"loop": "not-looping",
-						"volume": "-20",
-						"stereo-pan": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 578697095928758,
-					"parameters": {
-						"seconds": "2.5",
+						"seconds": "3",
 						"use-timescale": true
 					}
 				},
@@ -240,6 +229,164 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-destroyed",
+					"objectClass": "objFade3",
+					"sid": 520086025015677
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 685057099900125,
+					"parameters": {
+						"seconds": "2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "btnStartGame_label",
+					"sid": 682901528872322,
+					"parameters": {
+						"instance-variable": "isDoable",
+						"value": "true"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "btnStartGame_label",
+					"sid": 329086283670166,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"showMessagePressAnything\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "yes",
+						"ping-pong": "yes",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 315104404073514
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "btnStartGame_label",
+					"sid": 605070222999752,
+					"parameters": {
+						"instance-variable": "isDoable"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 571042807886276,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 505321628345301
+						},
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 316359976190522
+						},
+						{
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 385195264777833
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-tweens",
+							"objectClass": "btnStartGame_label",
+							"sid": 168218001189248,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"showMessagePressAnything\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 432986089853231,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "btnStartGame_label",
+							"sid": 796979099363154,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "2"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 475385973196654,
+							"parameters": {
+								"seconds": "0.15",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-effect-enabled",
+							"objectClass": "btnStartGame_label",
+							"sid": 260830986057603,
+							"parameters": {
+								"mode": "enable",
+								"effect": "\"Tint\""
+							}
+						}
+					],
+					"sid": 538660345934053,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-flash-ended",
+					"objectClass": "btnStartGame_label",
+					"sid": 189259136840986,
+					"behaviorType": "Flash"
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 474129923999267,
+					"parameters": {
+						"layout": "FTUE_Test"
+					}
+				}
+			],
+			"sid": 413879087605173
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-touched-object",
 					"objectClass": "Touch",
 					"sid": 631319360037938,
@@ -270,6 +417,7 @@
 				}
 			],
 			"sid": 622850620376301,
+			"disabled": true,
 			"isOrBlock": true
 		},
 		{
@@ -283,6 +431,7 @@
 			],
 			"actions": [],
 			"sid": 514729761583895,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -304,7 +453,8 @@
 							}
 						}
 					],
-					"sid": 914309872558241
+					"sid": 914309872558241,
+					"disabled": true
 				}
 			]
 		},

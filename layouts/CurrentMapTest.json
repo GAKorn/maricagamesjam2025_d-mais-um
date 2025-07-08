@@ -266,8 +266,32 @@
 							"uid": 81,
 							"sid": 959237361963604,
 							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
+							"instanceVariables": {
+								"isDoable": false
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								},
+								"Flash": {
+									"properties": {}
+								}
+							},
+							"effects": {
+								"Tint": {
+									"isEnabled": true,
+									"parameters": {
+										"color": [
+											1,
+											0,
+											0,
+											1
+										]
+									}
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 959237361963604,
 								"expanded": true

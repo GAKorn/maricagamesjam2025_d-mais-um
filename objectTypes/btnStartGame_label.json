@@ -4,7 +4,31 @@
 	"sid": 235883064723272,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
-	"behaviorTypes": [],
-	"effectTypes": []
+	"instanceVariables": [
+		{
+			"name": "isDoable",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 519727982096025
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 984394641683364
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 270608001979477
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	]
 }
