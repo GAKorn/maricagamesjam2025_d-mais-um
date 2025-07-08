@@ -197,6 +197,49 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-tweens-finished",
+					"objectClass": "Logos",
+					"sid": 951205448744123,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"studioVanish\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 122467687963289,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "objFade3",
+					"sid": 233401736190957,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"introIMG_Reveal\"",
+						"property": "offsetOpacity",
+						"end-value": "0",
+						"time": "2",
+						"ease": "default",
+						"destroy-on-complete": "yes",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 847239758930557
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-touched-object",
 					"objectClass": "Touch",
 					"sid": 631319360037938,

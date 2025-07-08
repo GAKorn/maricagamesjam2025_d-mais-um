@@ -27,6 +27,7 @@
 		"obAirMovableHazard",
 		"objGroundMovableHazard",
 		"Restinga_Level",
-		"Fazenda_Level"
+		"Fazenda_Level",
+		"introScreen"
 	]
 }

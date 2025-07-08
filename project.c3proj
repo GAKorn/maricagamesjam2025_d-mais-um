@@ -261,7 +261,8 @@
 			"tlmTestDecor",
 			"txtDebugAction2",
 			"txtDebugAction3",
-			"Ruler"
+			"Ruler",
+			"introScreen"
 		],
 		"subfolders": [
 			{
