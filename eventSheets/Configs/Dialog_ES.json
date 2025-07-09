@@ -146,55 +146,105 @@
 				{
 					"id": "set-position",
 					"objectClass": "dialogText",
-					"sid": 556879095460430,
+					"sid": 333568933385653,
 					"parameters": {
-						"x": "80",
-						"y": "80"
+						"x": "136",
+						"y": "224"
 					}
 				},
 				{
 					"id": "set-position",
 					"objectClass": "dialogOptionA",
-					"sid": 596397931328578,
+					"sid": 407353331865333,
 					"parameters": {
-						"x": "80",
-						"y": "592"
+						"x": "160",
+						"y": "640"
 					}
 				},
 				{
 					"id": "set-position",
 					"objectClass": "dialogOptionB",
-					"sid": 649564860215233,
+					"sid": 552072749068003,
 					"parameters": {
-						"x": "1232",
-						"y": "592"
+						"x": "1184",
+						"y": "640"
 					}
 				},
 				{
 					"id": "set-position",
 					"objectClass": "dialogBox",
-					"sid": 619407212573660,
+					"sid": 937516313801609,
 					"parameters": {
 						"x": "960",
-						"y": "560"
+						"y": "584"
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "dialogBox",
+					"sid": 214173312058298,
+					"parameters": {
+						"height": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "dialogBox",
+					"sid": 274846433359185,
+					"parameters": {
+						"opacity": "0"
 					}
 				},
 				{
 					"id": "set-position",
 					"objectClass": "quizOptionA",
-					"sid": 914446454971785,
+					"sid": 401602643784203,
 					"parameters": {
-						"x": "384",
-						"y": "720"
+						"x": "448",
+						"y": "744"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "quizOptionA",
+					"sid": 487963888427490,
+					"parameters": {
+						"width": "0",
+						"height": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "quizOptionA",
+					"sid": 475090912715864,
+					"parameters": {
+						"opacity": "0"
 					}
 				},
 				{
 					"id": "set-position",
 					"objectClass": "quizOptionB",
-					"sid": 981648314775596,
+					"sid": 451517315415584,
 					"parameters": {
-						"x": "1536",
-						"y": "720"
+						"x": "1472",
+						"y": "744"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "quizOptionB",
+					"sid": 537477612100915,
+					"parameters": {
+						"width": "0",
+						"height": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "quizOptionB",
+					"sid": 626804946119659,
+					"parameters": {
+						"opacity": "0"
 					}
 				},
 				{
@@ -253,19 +303,53 @@
 						{
 							"id": "set-position",
 							"objectClass": "arrowDown",
-							"sid": 767876998290061,
+							"sid": 123558187989175,
 							"parameters": {
-								"x": "384",
-								"y": "828"
+								"x": "448",
+								"y": "864"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "arrowDown",
+							"sid": 744759370039694,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "arrowDown",
+							"sid": 650384187446265,
+							"parameters": {
+								"opacity": "0"
 							}
 						},
 						{
 							"id": "set-position",
 							"objectClass": "arrowUp",
-							"sid": 292108144829696,
+							"sid": 304207086890614,
 							"parameters": {
-								"x": "1536",
-								"y": "828"
+								"x": "1472",
+								"y": "864"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "arrowUp",
+							"sid": 593786434050003,
+							"parameters": {
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "arrowUp",
+							"sid": 722724738805830,
+							"parameters": {
+								"opacity": "0"
 							}
 						}
 					],
@@ -3342,6 +3426,60 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "objPlayer",
+									"sid": 406494049010802,
+									"parameters": {
+										"instance-variable": "isDialog"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 783174951648141,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 101909029026426,
+											"parameters": {
+												"variable": "textToShow",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 744643388063332,
+											"parameters": {
+												"variable": "textToShow",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "signal",
+											"objectClass": "System",
+											"sid": 646237276272290,
+											"parameters": {
+												"tag": "\"finishDialog\""
+											}
+										}
+									],
+									"sid": 905400339020937,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "objPlayer",
 									"sid": 508504794848177,
 									"parameters": {
 										"instance-variable": "isDialog"
@@ -3511,10 +3649,10 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 851658639723080,
+																	"sid": 661301269388552,
 																	"parameters": {
 																		"object-to-create": "spr_HasDialog",
-																		"layer": "\"NPC_Areas\"",
+																		"layer": "\"Layer 2\"",
 																		"x": "(NPCs.X)",
 																		"y": "NPCs.BBoxTop-(((162/GameScaleFactor)*0.35)+4)",
 																		"create-hierarchy": false,
@@ -3537,10 +3675,10 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 373650616499721,
+																	"sid": 671627407641427,
 																	"parameters": {
 																		"object-to-create": "arrowUp",
-																		"layer": "\"NPC_Areas\"",
+																		"layer": "\"Layer 2\"",
 																		"x": "(NPCs.X)",
 																		"y": "NPCs.BBoxTop-(((162/GameScaleFactor)*0.35)+4)",
 																		"create-hierarchy": false,
@@ -3588,6 +3726,15 @@
 													"parameters": {
 														"action": "add",
 														"tags": "\"dialogInteraction\""
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "arrowUp",
+													"sid": 250114159087470,
+													"parameters": {
+														"width": "0",
+														"height": "0"
 													}
 												},
 												{

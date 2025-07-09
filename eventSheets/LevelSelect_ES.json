@@ -74,7 +74,16 @@
 					"sid": 464605827446100
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "objFade3",
+					"sid": 623643208936102,
+					"parameters": {
+						"opacity": "25"
+					}
+				}
+			],
 			"sid": 499703937781094,
 			"children": [
 				{

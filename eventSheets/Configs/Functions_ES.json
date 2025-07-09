@@ -1358,18 +1358,18 @@
 								{
 									"id": "set-font-face",
 									"objectClass": "txtNewRecord",
-									"sid": 886574588911778,
+									"sid": 558503360125803,
 									"parameters": {
-										"font-face": "\"Mostwasted\"",
+										"font-face": "\"Dimbo Regular\"",
 										"style": "normal"
 									}
 								},
 								{
 									"id": "set-text",
 									"objectClass": "txtNewRecord",
-									"sid": 950127030920043,
+									"sid": 659482653641520,
 									"parameters": {
-										"text": "\"Novo\"&newline&\"Recorde!!!\""
+										"text": "\"Novo\"&newline&\"Récorde!!!\""
 									}
 								}
 							],
@@ -2144,6 +2144,319 @@
 						}
 					],
 					"sid": 346298461714919
+				},
+				{
+					"functionName": "playLevelTheme",
+					"functionDescription": "",
+					"functionCategory": "Audio",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "LevelName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 450507396405005
+						},
+						{
+							"name": "musicLevel",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 111853010830433
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 317682793817369,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 286216470367265,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 496548567808411,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"FTUE_Test\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 898221342068348,
+											"parameters": {
+												"audio-file": "Juhani Junkala [Chiptune Adventures] 2. Stage 2",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 459951929674006
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 133195858326573
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 328813729216686,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"Espraiado\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 200559214572686,
+											"parameters": {
+												"audio-file": "Juhani Junkala [Retro Game Music Pack] Ending",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 274902897545385
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 480791582217554
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 552286694138637,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"Aeroporto\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 855073164919685,
+											"parameters": {
+												"audio-file": "Juhani Junkala [Retro Game Music Pack] Level 1",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 252218483696547
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 727814653689231
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 945078453538739,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"Fazenda\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 598430028961561,
+											"parameters": {
+												"audio-file": "Juhani Junkala [Retro Game Music Pack] Level 2",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 290282173934314
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 838087558749056
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 406082346548038,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"Itaipuacu\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 242966603661503,
+											"parameters": {
+												"audio-file": "Juhani Junkala [Retro Game Music Pack] Level 3",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 128207236360556
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 749570521835099
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 862345130669851,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"Restinga\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 274756224623755,
+											"parameters": {
+												"audio-file": "Juhani Junkala [Retro Game Music Pack] Title Screen",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 956213616223678
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 416733032457995
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 416140599792086,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"GalpaoTecnologico\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 804113279816077,
+											"parameters": {
+												"audio-file": "TownTheme",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 534254249422088
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 849677625914223
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 639366127690829,
+											"parameters": {
+												"variable": "LevelName",
+												"comparison": 0,
+												"value": "\"LevelSelect\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 386723294977589,
+											"parameters": {
+												"audio-file": "TownTheme",
+												"loop": "looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 254952912149001
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 483852009524089
@@ -3721,12 +4034,12 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionA",
-											"sid": 830542738461849,
+											"sid": 368746047055901,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizAHeight\"",
 												"property": "offsetHeight",
-												"end-value": "288",
+												"end-value": "272",
 												"time": "tweenTimer",
 												"ease": "easeincirc",
 												"destroy-on-complete": "no",
@@ -3738,12 +4051,12 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionA",
-											"sid": 584162995270746,
+											"sid": 600656696528542,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizAWidth\"",
 												"property": "offsetWidth",
-												"end-value": "640",
+												"end-value": "624",
 												"time": "tweenTimer",
 												"ease": "easeincirc",
 												"destroy-on-complete": "no",
@@ -3772,12 +4085,12 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionB",
-											"sid": 444076343678675,
+											"sid": 373002965202569,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizBHeight\"",
 												"property": "offsetHeight",
-												"end-value": "288",
+												"end-value": "272",
 												"time": "tweenTimer",
 												"ease": "easeincirc",
 												"destroy-on-complete": "no",
@@ -3789,12 +4102,12 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "quizOptionB",
-											"sid": 780790736390216,
+											"sid": 747781226387130,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"quizBWidth\"",
 												"property": "offsetWidth",
-												"end-value": "640",
+												"end-value": "624",
 												"time": "tweenTimer",
 												"ease": "easeincirc",
 												"destroy-on-complete": "no",
@@ -4177,12 +4490,12 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "dialogBox",
-									"sid": 905953745391946,
+									"sid": 164351111795726,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"dialogBoxHeight\"",
 										"property": "offsetHeight",
-										"end-value": "496",
+										"end-value": "416",
 										"time": "0.4",
 										"ease": "noease",
 										"destroy-on-complete": "no",
@@ -4790,6 +5103,7 @@
 											"id": "set-default-color",
 											"objectClass": "quizOptionA",
 											"sid": 554964352252785,
+											"disabled": true,
 											"parameters": {
 												"color": "rgbEx(255, 255, 255)"
 											}
@@ -4807,6 +5121,7 @@
 											"id": "set-effect-enabled",
 											"objectClass": "quizOptionA",
 											"sid": 461716793393506,
+											"disabled": true,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Toon\""
@@ -4816,6 +5131,7 @@
 											"id": "set-default-color",
 											"objectClass": "quizOptionB",
 											"sid": 231616913543600,
+											"disabled": true,
 											"parameters": {
 												"color": "rgbEx(255, 255, 255)"
 											}
@@ -4833,6 +5149,7 @@
 											"id": "set-effect-enabled",
 											"objectClass": "quizOptionB",
 											"sid": 646094660370772,
+											"disabled": true,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Toon\""
@@ -4869,6 +5186,7 @@
 											"id": "set-default-color",
 											"objectClass": "quizOptionB",
 											"sid": 383157014493625,
+											"disabled": true,
 											"parameters": {
 												"color": "rgbEx(255, 255, 255)"
 											}
@@ -4886,6 +5204,7 @@
 											"id": "set-effect-enabled",
 											"objectClass": "quizOptionB",
 											"sid": 883083514841140,
+											"disabled": true,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Toon\""
@@ -4895,6 +5214,7 @@
 											"id": "set-default-color",
 											"objectClass": "quizOptionA",
 											"sid": 333573551032478,
+											"disabled": true,
 											"parameters": {
 												"color": "rgbEx(255, 255, 255)"
 											}
@@ -4912,6 +5232,7 @@
 											"id": "set-effect-enabled",
 											"objectClass": "quizOptionA",
 											"sid": 861948936443412,
+											"disabled": true,
 											"parameters": {
 												"mode": "enable",
 												"effect": "\"Toon\""
@@ -6113,10 +6434,10 @@
 								{
 									"id": "set-position",
 									"objectClass": "Star1",
-									"sid": 825380944640342,
+									"sid": 355218969489273,
 									"parameters": {
-										"x": "836",
-										"y": "472"
+										"x": "840",
+										"y": "464"
 									}
 								},
 								{
@@ -6157,10 +6478,10 @@
 								{
 									"id": "set-position",
 									"objectClass": "Star2",
-									"sid": 881664284402806,
+									"sid": 773672029692517,
 									"parameters": {
-										"x": "1084",
-										"y": "472"
+										"x": "1096",
+										"y": "464"
 									}
 								},
 								{
@@ -6671,13 +6992,13 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Star1",
-									"sid": 655297822544935,
+									"sid": 844857223548054,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"star1Size\"",
 										"property": "size",
-										"end-x": "255",
-										"end-y": "255",
+										"end-x": "129",
+										"end-y": "129",
 										"time": "0.2",
 										"ease": "default",
 										"destroy-on-complete": "no",
@@ -6715,13 +7036,13 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Star2",
-									"sid": 552623363803116,
+									"sid": 550609733744123,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"star2Size\"",
 										"property": "size",
-										"end-x": "255",
-										"end-y": "255",
+										"end-x": "129",
+										"end-y": "129",
 										"time": "0.2",
 										"ease": "default",
 										"destroy-on-complete": "no",
@@ -6759,13 +7080,13 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Star3",
-									"sid": 125074235833857,
+									"sid": 683682687072116,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"star3Size\"",
 										"property": "size",
-										"end-x": "320",
-										"end-y": "320",
+										"end-x": "161.25",
+										"end-y": "161.25",
 										"time": "0.2",
 										"ease": "default",
 										"destroy-on-complete": "no",

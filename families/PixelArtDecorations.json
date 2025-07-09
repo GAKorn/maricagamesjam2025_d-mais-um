@@ -28,6 +28,10 @@
 		"objGroundMovableHazard",
 		"Restinga_Level",
 		"Fazenda_Level",
-		"introScreen"
+		"introScreen",
+		"objFakeCharacter",
+		"galpao",
+		"Aeroporto_Level",
+		"Rodoviaria_BG1"
 	]
 }

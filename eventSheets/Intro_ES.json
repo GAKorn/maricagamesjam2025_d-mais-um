@@ -35,6 +35,23 @@
 					}
 				},
 				{
+					"id": "set-size",
+					"objectClass": "mumbu_Logo",
+					"sid": 729431030913102,
+					"parameters": {
+						"width": "0",
+						"height": "0"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "mumbu_Logo",
+					"sid": 610127106924965,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 922183201785398,
@@ -46,6 +63,27 @@
 				{
 					"callFunction": "sponsorVanish",
 					"sid": 839004975915362
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 679975825386681,
+					"parameters": {
+						"seconds": "0.35",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 535729279151189,
+					"parameters": {
+						"audio-file": "Juhani Junkala [Chiptune Adventures] 2. Stage 2",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
 				}
 			],
 			"sid": 937966680171728
@@ -67,22 +105,10 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 896769874172995,
+					"sid": 192463336429189,
 					"parameters": {
-						"seconds": "0.35",
+						"seconds": "1",
 						"use-timescale": true
-					}
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 617246832794079,
-					"parameters": {
-						"audio-file": "mumbuTheme",
-						"loop": "not-looping",
-						"volume": "Music_Sound",
-						"stereo-pan": "0",
-						"tag-optional": "\"mumbuTheme\""
 					}
 				},
 				{
@@ -109,7 +135,7 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 319471473221015,
+					"sid": 140114236518768,
 					"parameters": {
 						"seconds": "3",
 						"use-timescale": true
@@ -139,9 +165,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 668622475152006,
+					"sid": 920063708322596,
 					"parameters": {
-						"seconds": "3",
+						"seconds": "2",
 						"use-timescale": true
 					}
 				},
@@ -199,9 +225,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 122467687963289,
+					"sid": 366603006167711,
 					"parameters": {
-						"seconds": "3",
+						"seconds": "2",
 						"use-timescale": true
 					}
 				},
@@ -231,32 +257,67 @@
 				{
 					"id": "on-destroyed",
 					"objectClass": "objFade3",
-					"sid": 520086025015677
+					"sid": 612445444809888
 				}
 			],
 			"actions": [
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 685057099900125,
+					"sid": 530491017995799,
 					"parameters": {
-						"seconds": "2",
+						"seconds": "1.1",
 						"use-timescale": true
 					}
 				},
 				{
-					"id": "set-boolean-instvar",
-					"objectClass": "btnStartGame_label",
-					"sid": 682901528872322,
+					"id": "tween-one-property",
+					"objectClass": "mumbu_Logo",
+					"sid": 981709555481517,
+					"behaviorType": "Tween",
 					"parameters": {
-						"instance-variable": "isDoable",
-						"value": "true"
+						"tags": "\"logo_Appear\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "0.9",
+						"ease": "easeinexpo",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "mumbu_Logo",
+					"sid": 212907103844622,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"logo_AppearSize\"",
+						"property": "size",
+						"end-x": "1921",
+						"end-y": "1081",
+						"time": "1.2",
+						"ease": "easeinexpo",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 750502195193901,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
 					}
 				},
 				{
 					"id": "tween-one-property",
 					"objectClass": "btnStartGame_label",
-					"sid": 329086283670166,
+					"sid": 977674563195849,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"showMessagePressAnything\"",
@@ -269,9 +330,18 @@
 						"ping-pong": "yes",
 						"repeat-count": "1"
 					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "btnStartGame_label",
+					"sid": 323535228280165,
+					"parameters": {
+						"instance-variable": "isDoable",
+						"value": "true"
+					}
 				}
 			],
-			"sid": 315104404073514
+			"sid": 510966928778468
 		},
 		{
 			"eventType": "block",
@@ -315,6 +385,14 @@
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"showMessagePressAnything\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "btnStartGame_label",
+							"sid": 339477846517437,
+							"parameters": {
+								"opacity": "100"
 							}
 						},
 						{

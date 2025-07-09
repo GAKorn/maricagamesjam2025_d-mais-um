@@ -12,9 +12,14 @@
 			"sid": 863232578017984
 		}
 	],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "tint",
+			"name": "Tint"
+		}
+	],
 	"image": {
-		"width": 250,
+		"width": 251,
 		"height": 251,
 		"originX": 0.5,
 		"originY": 0.5,
@@ -22,7 +27,7 @@
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
 		"fileType": "image/png",
-		"imageSpriteId": 162606,
+		"imageSpriteId": 881082,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

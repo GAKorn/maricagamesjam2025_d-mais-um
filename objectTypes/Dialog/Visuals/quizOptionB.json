@@ -14,7 +14,7 @@
 	],
 	"effectTypes": [],
 	"image": {
-		"width": 250,
+		"width": 251,
 		"height": 251,
 		"originX": 0.5,
 		"originY": 0.5,
@@ -22,7 +22,7 @@
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
 		"fileType": "image/png",
-		"imageSpriteId": 2386165,
+		"imageSpriteId": 2850367,
 		"useCollisionPoly": true,
 		"tag": ""
 	}

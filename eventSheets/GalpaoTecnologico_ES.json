@@ -85,7 +85,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 785159722073837,
+									"parameters": {
+										"variable": "nextLevelSet",
+										"value": "\"Credits\""
+									}
+								}
+							],
 							"sid": 762345846248088
 						},
 						{
@@ -369,10 +379,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 489826422008922,
+									"sid": 864212294905752,
 									"parameters": {
 										"object-to-create": "arrowDown",
-										"layer": "\"NPC_Areas\"",
+										"layer": "\"Layer 2\"",
 										"x": "objFakeCharacter.X",
 										"y": "objChangeCharacterArea.Y-8",
 										"create-hierarchy": false,
@@ -382,10 +392,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 212523177569258,
+									"sid": 446771342760448,
 									"parameters": {
 										"object-to-create": "spr_ChangeChar",
-										"layer": "\"NPC_Areas\"",
+										"layer": "\"Layer 2\"",
 										"x": "objFakeCharacter.X",
 										"y": "objChangeCharacterArea.Y-9",
 										"create-hierarchy": false,
@@ -420,6 +430,15 @@
 									"parameters": {
 										"variable": "thisArrowUID_forChangeChar",
 										"value": "arrowDown.UID"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "arrowDown",
+									"sid": 211532418979106,
+									"parameters": {
+										"width": "0",
+										"height": "0"
 									}
 								},
 								{
@@ -698,6 +717,15 @@
 												"variable": "PlayerCharacter",
 												"value": "\"Vermelhinha\""
 											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 174830877824051,
+											"parameters": {
+												"animation": "playerAnimation",
+												"from": "beginning"
+											}
 										}
 									],
 									"sid": 181344880158832
@@ -719,6 +747,15 @@
 											"parameters": {
 												"variable": "PlayerCharacter",
 												"value": "\"Mumbuquinha\""
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "sprPlayerAnimations",
+											"sid": 321922243163482,
+											"parameters": {
+												"animation": "playerAnimation",
+												"from": "beginning"
 											}
 										}
 									],

@@ -254,6 +254,26 @@
 			"sid": 652219562289096
 		},
 		{
+			"eventType": "variable",
+			"name": "SFX_Sound",
+			"type": "number",
+			"initialValue": "-22",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 874221556314987
+		},
+		{
+			"eventType": "variable",
+			"name": "Music_Sound",
+			"type": "number",
+			"initialValue": "-12",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 833607292248614
+		},
+		{
 			"eventType": "comment",
 			"text": "This event sheet is to be included in every layout event sheet."
 		},
@@ -314,6 +334,14 @@
 				{
 					"callFunction": "fadeIn",
 					"sid": 577448468571099
+				},
+				{
+					"callFunction": "playLevelTheme",
+					"sid": 270547393631715,
+					"parameters": [
+						"LayoutName",
+						"Music_Sound"
+					]
 				},
 				{
 					"id": "log",
@@ -586,27 +614,87 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [
+							"conditions": [],
+							"actions": [],
+							"sid": 661971356458462,
+							"children": [
 								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 974811930331739,
-									"parameters": {
-										"variable": "isEndScreen"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "objPlayer",
+											"sid": 563974225670652,
+											"parameters": {
+												"instance-variable": "isDialog"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "objPlayer",
+											"sid": 982373497883616,
+											"parameters": {
+												"instance-variable": "isQuiz"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 712461543007002,
+											"parameters": {
+												"variable": "isEndScreen"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "scoreVisibility",
+											"sid": 641443509477615,
+											"parameters": [
+												true
+											]
+										}
+									],
+									"sid": 799123008784603,
+									"isOrBlock": true
+								},
 								{
-									"callFunction": "scoreVisibility",
-									"sid": 178625631322025,
-									"parameters": [
-										true
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 181589414367129
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "scoreVisibility",
+											"sid": 310464406344778,
+											"parameters": [
+												false
+											]
+										}
+									],
+									"sid": 912776575409254
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 886644945594041
 								}
-							],
-							"sid": 282410571753817
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 282410571753817,
+							"isOrBlock": true
 						}
 					]
 				},
@@ -2810,6 +2898,92 @@
 									"sid": 423073762381338
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 995494581825131,
+									"parameters": {
+										"object": "objGroundMovableHazard"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "objGroundMovableHazard",
+									"sid": 505726052483796,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 940293381948347,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-name-exists",
+											"objectClass": "System",
+											"sid": 610850669372160,
+											"parameters": {
+												"layer": "\"Decor\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-layer",
+											"objectClass": "objGroundMovableHazard",
+											"sid": 426250175439190,
+											"parameters": {
+												"layer": "\"Decor\""
+											}
+										}
+									],
+									"sid": 943638338353083
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-name-exists",
+											"objectClass": "System",
+											"sid": 992136929337018,
+											"parameters": {
+												"layer": "\"Decor1\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-layer",
+											"objectClass": "objGroundMovableHazard",
+											"sid": 452289990202207,
+											"parameters": {
+												"layer": "\"Decor1\""
+											}
+										}
+									],
+									"sid": 695397693718697
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "move-to-top",
+											"objectClass": "objGroundMovableHazard",
+											"sid": 623689022225349
+										}
+									],
+									"sid": 707212911463683
+								}
+							]
 						}
 					]
 				},
@@ -2879,6 +3053,29 @@
 				}
 			],
 			"sid": 993379492298717
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 810386566825818
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Audio",
+					"sid": 967081147713127
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 418674272256185
+				}
+			],
+			"sid": 904121685581281
 		}
 	],
 	"sid": 139471198204685

@@ -2,6 +2,16 @@
 	"name": "PlayerFSM_ES",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "playerAnimation",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 943500811468127
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -12,16 +22,44 @@
 			],
 			"actions": [
 				{
-					"id": "set-animation",
-					"objectClass": "sprPlayerAnimations",
-					"sid": 836464461696981,
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 791456210340073,
 					"parameters": {
-						"animation": "PlayerCharacter&\"_\"&objPlayer.State",
-						"from": "beginning"
+						"variable": "playerAnimation",
+						"value": "PlayerCharacter&\"_\"&objPlayer.State"
 					}
 				}
 			],
-			"sid": 647585120123168
+			"sid": 647585120123168,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 591995319632181,
+							"parameters": {
+								"animation": "playerAnimation"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "sprPlayerAnimations",
+							"sid": 215592001228533,
+							"parameters": {
+								"animation": "playerAnimation",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 575278575225534
+				}
+			]
 		},
 		{
 			"eventType": "group",
@@ -31,26 +69,6 @@
 			"isActiveOnStart": false,
 			"children": [],
 			"sid": 536696322010488
-		},
-		{
-			"eventType": "variable",
-			"name": "SFX_Sound",
-			"type": "number",
-			"initialValue": "-18",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 106317833301922
-		},
-		{
-			"eventType": "variable",
-			"name": "Music_Sound",
-			"type": "number",
-			"initialValue": "-20",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 924694420370642
 		},
 		{
 			"eventType": "group",

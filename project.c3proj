@@ -262,7 +262,7 @@
 			"txtDebugAction2",
 			"txtDebugAction3",
 			"Ruler",
-			"introScreen"
+			"txtThanks"
 		],
 		"subfolders": [
 			{
@@ -475,13 +475,20 @@
 					"Espraiado_BG1",
 					"Itaipuacu_Level",
 					"Restinga_Level",
-					"Fazenda_Level"
+					"Fazenda_Level",
+					"galpao",
+					"Aeroporto_Level",
+					"Rodoviaria_BG1",
+					"Restinga_BG1"
 				],
 				"subfolders": [],
 				"name": "Art_Level"
 			},
 			{
-				"items": [],
+				"items": [
+					"introScreen",
+					"mumbu_Logo"
+				],
 				"subfolders": [
 					{
 						"items": [
@@ -581,7 +588,8 @@
 			"GameTesting",
 			"CurrentMapTest",
 			"GalpaoTecnologico",
-			"LevelSelect"
+			"LevelSelect",
+			"Credits"
 		],
 		"subfolders": [
 			{
@@ -612,7 +620,8 @@
 			"LevelSelect_ES",
 			"Intro_ES",
 			"GalpaoTecnologico_ES",
-			"CurrentMapTest_ES"
+			"CurrentMapTest_ES",
+			"Credits_ES"
 		],
 		"subfolders": [
 			{
@@ -686,9 +695,57 @@
 		"music": {
 			"items": [
 				{
-					"name": "mumbuTheme.webm",
+					"name": "Juhani Junkala [Retro Game Music Pack] Ending.webm",
 					"type": "audio/webm; codecs=opus",
-					"sid": 487708853856683,
+					"sid": 643204806692366,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Juhani Junkala [Retro Game Music Pack] Level 1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 251235531624688,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Juhani Junkala [Retro Game Music Pack] Level 2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 613014770729460,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Juhani Junkala [Retro Game Music Pack] Level 3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 413331328668658,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Juhani Junkala [Retro Game Music Pack] Title Screen.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 977792128594581,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "TownTheme.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 968660505982823,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Juhani Junkala [Chiptune Adventures] 2. Stage 2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 539633253594279,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -722,6 +779,14 @@
 					"name": "Dugffiti-Regular.ttf",
 					"type": "application/font-sfnt",
 					"sid": 990232098792343,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Dimbo Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 507198062425924,
 					"file-info": {
 						"purpose": "none"
 					}

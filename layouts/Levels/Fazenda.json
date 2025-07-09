@@ -1755,7 +1755,7 @@
 					],
 					"sid": 521047015569278,
 					"effectTypes": [],
-					"isInitiallyVisible": true,
+					"isInitiallyVisible": false,
 					"isInitiallyInteractive": true,
 					"isHTMLElementsLayer": false,
 					"color": [
@@ -2580,7 +2580,7 @@
 					],
 					"sid": 949384778016068,
 					"effectTypes": [],
-					"isInitiallyVisible": true,
+					"isInitiallyVisible": false,
 					"isInitiallyInteractive": true,
 					"isHTMLElementsLayer": false,
 					"color": [
@@ -8078,8 +8078,8 @@
 							"world": {
 								"x": 3248,
 								"y": 256,
-								"width": 48,
-								"height": 80,
+								"width": 32,
+								"height": 64,
 								"originX": 0.5,
 								"originY": 1,
 								"color": [

@@ -1,0 +1,70 @@
+{
+	"name": "mumbu_Logo",
+	"plugin-id": "Sprite",
+	"sid": 103512946155376,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 953499081632452
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1921,
+						"height": 1081,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5318837,
+						"collisionPoly": {
+							"points": [
+								0.5465903175429464,
+								0.21461609620721553,
+								0.6189484643414888,
+								0.21461609620721553,
+								0.7933368037480479,
+								0.32932469935245146,
+								0.8084331077563769,
+								0.5226641998149861,
+								0.5502342529932327,
+								0.7650323774283071,
+								0.49817803227485685,
+								0.7742830712303422,
+								0.4211348256116606,
+								0.7622571692876966,
+								0.18740239458615304,
+								0.5161887141535615,
+								0.1931285788651744,
+								0.32192414431082333,
+								0.3768870380010411,
+								0.21554116558741906
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 243734605014131,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"name": "Credits_ES",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 207300095078349
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 638583301070009,
+					"parameters": {
+						"audio-file": "Juhani Junkala [Chiptune Adventures] 2. Stage 2",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 980900089217794
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 898264856615857
+				},
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 699176213666486
+				},
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 225227196386559
+				}
+			],
+			"actions": [
+				{
+					"id": "close",
+					"objectClass": "Browser",
+					"sid": 375543449811574
+				}
+			],
+			"sid": 754198675902237,
+			"isOrBlock": true
+		}
+	],
+	"sid": 661187252612929
+}
