@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 44002,
-	"name": "Mumbuquinha_v2",
+	"name": "Mumbuquinha2.0",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
@@ -996,13 +996,13 @@
 		"subfolders": []
 	},
 	"properties": {
-		"description": "",
+		"description": "Jogo Mumbuquinha 2.0 feito para a Primeira Maricá Games Jam",
 		"version": "1.0.0.0",
 		"autoIncrementVersion": false,
-		"author": "",
-		"authorEmail": "",
+		"author": "D+1 Design e Jogos",
+		"authorEmail": "danieldesantanna@gmail.com",
 		"authorWebsite": "",
-		"appId": "",
+		"appId": "com.dmaisum.mumbuquinha2",
 		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,

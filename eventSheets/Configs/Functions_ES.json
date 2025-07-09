@@ -6645,10 +6645,10 @@
 								{
 									"id": "set-position",
 									"objectClass": "txtEndScreen_Record",
-									"sid": 679627474537519,
+									"sid": 130018401799024,
 									"parameters": {
 										"x": "608",
-										"y": "664"
+										"y": "688"
 									}
 								},
 								{
@@ -6689,10 +6689,10 @@
 								{
 									"id": "set-position",
 									"objectClass": "txtEndScreen_ThisScore",
-									"sid": 454822753483225,
+									"sid": 194090372996509,
 									"parameters": {
 										"x": "1056",
-										"y": "664"
+										"y": "688"
 									}
 								},
 								{

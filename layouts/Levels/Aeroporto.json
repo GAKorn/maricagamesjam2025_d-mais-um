@@ -43,7 +43,53 @@
 					"name": "GameBG",
 					"overriden": 0,
 					"subLayers": [],
-					"instances": [],
+					"instances": [
+						{
+							"type": "Espraiado_BG1",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 1133,
+							"sid": 446466612408144,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"effects": {
+								"Pixellate": {
+									"isEnabled": true,
+									"parameters": {
+										"size": 1
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 446466612408144,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 0,
+								"y": 0,
+								"width": 3328,
+								"height": 288,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						}
+					],
 					"sid": 456532136954416,
 					"effectTypes": [],
 					"isInitiallyVisible": true,
@@ -1054,7 +1100,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2672,
+								"x": 2640,
 								"y": 224,
 								"width": 32,
 								"height": 32,
@@ -1116,7 +1162,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2832,
+								"x": 2912,
 								"y": 224,
 								"width": 32,
 								"height": 32,
@@ -1319,7 +1365,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 3152,
+								"x": 3088,
 								"y": 0,
 								"width": 112,
 								"height": 288,
@@ -1615,7 +1661,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2688,
+								"x": 2656,
 								"y": 256,
 								"width": 16,
 								"height": 64,
@@ -1652,7 +1698,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 2848,
+								"x": 2928,
 								"y": 256,
 								"width": 16,
 								"height": 80,
@@ -1772,7 +1818,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 3264,
+								"x": 3200,
 								"y": 0,
 								"width": 16,
 								"height": 288,
@@ -7185,7 +7231,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 3248,
+								"x": 3184,
 								"y": 256,
 								"width": 32,
 								"height": 64,

@@ -394,85 +394,9 @@
 								}
 							],
 							"sid": 365088538366138,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "NPCs",
-											"sid": 230874791613817,
-											"parameters": {
-												"instance-variable": "wasTalked_in_the_Warehouse"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "NPCs",
-											"sid": 773225020574179,
-											"parameters": {
-												"instance-variable": "currLineID",
-												"value": "1"
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "NPCs",
-											"sid": 370653826839657,
-											"parameters": {
-												"instance-variable": "wasTalked_in_the_Warehouse",
-												"value": "false"
-											}
-										}
-									],
-									"sid": 616321552499830
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 939574924474196,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 131600627728105,
-									"parameters": {
-										"object": "NPCs"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "NPCs",
-									"sid": 722794908731640,
-									"parameters": {
-										"instance-variable": "currTextID",
-										"value": "0"
-									}
-								}
-							],
-							"sid": 532317503977323,
 							"disabled": true
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 474209624533064
 				}
 			]
 		},
@@ -3566,6 +3490,24 @@
 											],
 											"actions": [
 												{
+													"id": "set-instvar-value",
+													"objectClass": "NPCs",
+													"sid": 760756190083078,
+													"parameters": {
+														"instance-variable": "currLineID",
+														"value": "dialogState.Get(NPCs.dicKey&\"_pointer_line\")"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 792947843106995,
+													"parameters": {
+														"seconds": "0.1",
+														"use-timescale": true
+													}
+												},
+												{
 													"callFunction": "npcLoadDiIalog",
 													"sid": 924264977767775,
 													"parameters": [
@@ -4698,7 +4640,17 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "NPCs",
+											"sid": 607998231049634,
+											"parameters": {
+												"instance-variable": "wasTalked_in_the_Warehouse",
+												"value": "true"
+											}
+										}
+									],
 									"sid": 656770498302440,
 									"children": [
 										{
@@ -4706,6 +4658,7 @@
 											"conditions": [],
 											"actions": [],
 											"sid": 515869927618930,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -4743,6 +4696,7 @@
 														}
 													],
 													"sid": 314065582515979,
+													"disabled": true,
 													"isOrBlock": true
 												},
 												{
@@ -4765,7 +4719,8 @@
 															}
 														}
 													],
-													"sid": 478975251074262
+													"sid": 478975251074262,
+													"disabled": true
 												}
 											]
 										},
@@ -4774,6 +4729,7 @@
 											"conditions": [],
 											"actions": [],
 											"sid": 179384177178154,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -4793,10 +4749,10 @@
 														{
 															"id": "set-key",
 															"objectClass": "dialogState",
-															"sid": 358270325055877,
+															"sid": 920238379715646,
 															"parameters": {
 																"key": "NPCs.dicKey&\"_pointer_line\"",
-																"value": "NPCs.currLineID"
+																"value": "NPCs.currLineID+1"
 															}
 														},
 														{
@@ -4809,7 +4765,8 @@
 															}
 														}
 													],
-													"sid": 770369561695998
+													"sid": 770369561695998,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -4840,7 +4797,8 @@
 															}
 														}
 													],
-													"sid": 549654062033719
+													"sid": 549654062033719,
+													"disabled": true
 												}
 											]
 										}
@@ -4853,6 +4811,56 @@
 				}
 			],
 			"sid": 637070171261142
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 268835303218373
+				}
+			],
+			"actions": [],
+			"sid": 649301108997751,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 279375189141998,
+							"parameters": {
+								"object": "NPCs"
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 623505772689636,
+							"parameters": {
+								"object": "NPCs",
+								"expression": "NPCs.wasTalked_in_the_Warehouse",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "dialogState",
+							"sid": 142316921638174,
+							"parameters": {
+								"key": "NPCs.dicKey&\"_pointer_line\"",
+								"value": "NPCs.currLineID+1"
+							}
+						}
+					],
+					"sid": 347461459292863
+				}
+			]
 		}
 	],
 	"sid": 129935000358570

@@ -288,6 +288,15 @@
 			],
 			"actions": [
 				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 811055841266890,
+					"parameters": {
+						"mode": "stretch-integer-letterbox-scale",
+						"navigation-ui": "hide"
+					}
+				},
+				{
 					"id": "set-position",
 					"objectClass": "objFade2",
 					"sid": 802259687172086,
@@ -444,6 +453,27 @@
 						}
 					],
 					"sid": 444729293842640
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-mobile",
+							"objectClass": "PlatformInfo",
+							"sid": 478386527412724
+						}
+					],
+					"actions": [
+						{
+							"id": "lock-orientation",
+							"objectClass": "Browser",
+							"sid": 957992886968078,
+							"parameters": {
+								"orientation": "landscape"
+							}
+						}
+					],
+					"sid": 649666067859869
 				}
 			]
 		},
